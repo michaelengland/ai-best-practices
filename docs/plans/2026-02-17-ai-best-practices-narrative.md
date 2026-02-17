@@ -210,7 +210,7 @@
 
 ### Level 3: "Feed AI Smarter" (Context Engineering)
 
-**~9-10 slides | Job: The big "aha" - it's not about the prompt, it's about what the AI knows when it answers. This section absorbs the "add context" and "ask AI to ask you questions" concepts that are fundamentally about *information*, not *phrasing*.**
+**~12 slides | Job: The big "aha" - it's not about the prompt, it's about what the AI knows when it answers. This section absorbs the "add context" and "ask AI to ask you questions" concepts that are fundamentally about *information*, not *phrasing*. Ends with guardrails on trusting AI output.**
 
 #### Slide 21: "Meet Your AI Colleague"
 
@@ -276,15 +276,34 @@
   - One requires effort every time. The other gets smarter the more you invest.
 - "Level 2 made you better at asking. Level 3 makes AI better at understanding you - and the difference is permanent."
 
-**Transition:** *"Now you know how to talk to AI and what to feed it. Level 4: what if you stopped driving and let AI drive instead?"*
+#### Slide 31: "Trust, But Verify"
+
+- Before we go further — a critical guardrail. AI will confidently state things that are completely wrong. It doesn't know it's wrong. It's not lying — it's Dory filling in the gaps from memory that isn't there.
+- Three practical rules:
+  1. **Never trust numbers you didn't provide.** If you didn't give it the data, ask where it got it. If it can't point to a source, it made it up.
+  2. **Verify claims against sources.** Especially for anything customer-facing, legal, or financial. AI-generated text should be treated as a first draft, not a final answer.
+  3. **Use AI for drafts, not decisions.** Your judgment is the last step, not the AI's. The whole point of leveling up is to do less grunt work — not less thinking.
+- "Dory is brilliant and helpful. Dory also sometimes remembers things that never happened. Love Dory. Fact-check Dory."
+
+#### Slide 32: "When to Keep Your Hands on the Wheel"
+
+- Quick list of when to be extra cautious:
+  - Sensitive or confidential data — only use approved/enterprise tools
+  - Final legal or compliance language — AI drafts, humans approve
+  - Anything where being wrong has serious consequences without review
+  - When the AI's answer "feels right" but you can't verify it — that's the most dangerous moment
+- "AI is a power tool, not autopilot. You're still the pilot. Every level in this deck makes you a better pilot — but you never stop flying."
+- This isn't fear-mongering. It's the same discipline as any professional tool. Surgeons trust scalpels. They still look where they cut.
+
+**Transition:** *"Now you know how to talk to AI, what to feed it, and when to trust it. Level 4: what if you stopped driving and let AI drive instead?"*
 
 ---
 
 ### Level 4: "Let AI Drive" (The Agentic Approach)
 
-**~5-6 slides | Job: Shift the mental model from "I use AI" to "AI works for me." Level 4 is about a single agent doing a single task autonomously - like having one smart assistant handle something end-to-end. Level 5 (next) is about multiple agents working together in sequence - like a kitchen brigade where each station handles one course.**
+**~6 slides | Job: Shift the mental model from "I use AI" to "AI works for me." Level 4 is about a single agent doing a single task autonomously - like having one smart assistant handle something end-to-end. Level 5 (next) is about multiple agents working together in sequence - like a kitchen brigade where each station handles one course.**
 
-#### Slide 31: "The Copy-Paste Trap"
+#### Slide 33: "The Copy-Paste Trap"
 
 - Visual of the manual workflow most people use today:
   1. Human decides which documents/data to provide
@@ -297,7 +316,7 @@
   - You're doing the grunt work while the AI waits
 - "You're using a Ferrari to carry groceries."
 
-#### Slide 32: "Hand Dory the Keys"
+#### Slide 34: "Hand Dory the Keys"
 
 - Same task, but the agent drives:
   - Agent retrieves its own context (reads documents, searches for information)
@@ -307,7 +326,7 @@
 - "Same Dory. Same memory issues. But now she has hands, eyes, and a to-do list."
 - **Key framing for Level 4 vs 5:** This is like having one great chef who can cook an entire meal. They find the ingredients, prep, cook, and plate. You just say what you want and taste-test at the end. (Level 5 will introduce the kitchen brigade.)
 
-#### Slides 33-34: "Connections Are Everything"
+#### Slides 35-36: "Connections Are Everything"
 
 - An agent is only as useful as what it can reach. Each connection = new capability:
   - Web search / fetch -> can research and fact-check
@@ -317,8 +336,11 @@
   - Calendar access -> can understand scheduling context
   - Custom connections -> anything you can imagine
 - "Think of connections like giving Dory a phone, a filing cabinet, and a library card."
+- **Back to the proposal — with connections:**
+  - *Without connections:* You copy-paste the HR handbook, the latest survey results, and the team structure doc into the chat. You forget the budget memo. The proposal misses cost constraints entirely. You don't realize until your VP asks about it.
+  - *With connections:* The agent reads the HR system directly, pulls survey data, finds the budget memo you forgot about, and flags a policy constraint you didn't know existed. The proposal is better than what you'd have produced — because the agent found context you wouldn't have thought to provide.
 
-#### Slide 35: "MCP: USB-C for AI"
+#### Slide 37: "MCP: USB-C for AI"
 
 - The Model Context Protocol, explained simply:
   - Before MCP: every AI tool needed a custom connector to every data source. N tools x M sources = explosion of custom integrations.
@@ -335,7 +357,7 @@
     - Source: [Model Context Protocol - Wikipedia](https://en.wikipedia.org/wiki/Model_Context_Protocol)
     - Source: [Why the Model Context Protocol Won - The New Stack](https://thenewstack.io/why-the-model-context-protocol-won/)
 
-#### Slide 36: "The Connection Inventory"
+#### Slide 38: "The Connection Inventory"
 
 - What's available today across common tools (matrix view)
 - What's possible with custom MCP setup
@@ -347,9 +369,9 @@
 
 ### Level 5: "Orchestrate" (Agentic Workflows)
 
-**~7-8 slides | Job: The payoff. The destination the whole deck has been building toward. Level 4 was one chef cooking one meal. Level 5 is a kitchen brigade: a head chef (you) orchestrating specialists (agents) who each handle one station. The result is a full menu, not just one dish.**
+**~8 slides | Job: The payoff. The destination the whole deck has been building toward. Level 4 was one chef cooking one meal. Level 5 is a kitchen brigade: a head chef (you) orchestrating specialists (agents) who each handle one station. The result is a full menu, not just one dish.**
 
-#### Slide 37: "One Chef vs. A Kitchen Brigade"
+#### Slide 39: "One Chef vs. A Kitchen Brigade"
 
 - Level 4 gave you one great chef (agent) who handles a task end-to-end. That works for single tasks.
 - But what about complex, multi-step work? One chef doing a 10-course dinner alone will burn out, make mistakes, and forget the appetizer by the time they're plating dessert.
@@ -357,7 +379,7 @@
 - LLMs are genuinely bad at long multi-step chains. But they're excellent at focused, well-defined tasks.
 - "The trick isn't making one AI smarter. It's making many AIs work together."
 
-#### Slides 38-39: "Prompt Chaining, Visually"
+#### Slides 40-41: "Prompt Chaining, Visually"
 
 - Clear diagram:
   - Big Task -> Phase 1 -> output -> Phase 2 -> output -> Phase 3 -> result
@@ -369,34 +391,33 @@
   - Context is filtered between steps (not everything passes through)
   - Quality compounds - each step builds on verified output from the last
 
-#### Slides 40-41: "Real Example #1: Quarterly Business Review"
+#### Slides 42-43: "Real Example #1: The Onboarding Proposal, End-to-End"
 
-- Walk through a concrete multi-step task everyone recognizes.
-- **Manual flow (painful):**
-  1. Pull data from 3 different systems (30 min)
-  2. Paste into AI, ask for analysis (10 min)
-  3. Read output, realize it's missing context (5 min)
-  4. Go back, get more data, re-prompt (20 min)
-  5. Manually format into slides (45 min)
-  6. Ask AI to check your work (10 min)
-  7. Manually apply suggestions (20 min)
-  - Total: ~2.5 hours of you being the bottleneck
+- Return to the onboarding proposal one last time. This is the task the audience has watched evolve through the entire deck. Now see it as a chained workflow.
+- **Manual flow (what most people do today):**
+  1. Search for existing onboarding docs and survey data (20 min)
+  2. Copy-paste into AI, ask for a draft (10 min)
+  3. Read output, realize it's missing budget context (5 min)
+  4. Go find budget data, re-prompt with more context (15 min)
+  5. Manually reformat to match leadership template (20 min)
+  6. Ask AI to review your draft (10 min)
+  7. Manually apply its suggestions (15 min)
+  - Total: ~1.5 hours of you being the bottleneck
 - **Chained agent flow:**
-  1. Agent 1: Connects to data systems, pulls relevant metrics, identifies trends
-  2. Agent 2: Takes the data, generates analysis with context from company goals/OKRs
-  3. Agent 3: Formats into presentation with company template, flags areas needing human judgment
-  4. You: Review, adjust, approve
-  - Total: ~20 minutes of your time, most of it reviewing
-- "Same quality. 10x faster. And you did the part only humans can do: judgment."
+  1. **Agent 1 — Research:** *"Research our current onboarding process. Pull metrics from the HR system, read the last 3 new-hire surveys, and summarize pain points with supporting data."* → Outputs a structured research brief.
+  2. **Agent 2 — Draft:** *"Using this research brief, draft a proposal for reducing onboarding from 4 weeks to 2 weeks. Write it as a one-page executive brief for the VP of People. Be radically honest about risks."* → Outputs a polished proposal draft.
+  3. **Agent 3 — Review:** *"Review this proposal against our leadership presentation template and company style guide. Flag gaps, format correctly, and list anything that needs human judgment."* → Outputs a final draft with review notes.
+  4. **You:** Review, adjust, approve. ~15 minutes of your time, spent on the part only humans can do: judgment.
+- "Same proposal. Same quality. But you did 15 minutes of judgment work instead of 1.5 hours of grunt work."
 
-#### Slides 42-43: "Real Example #2: Customer Research Synthesis"
+#### Slides 44-45: "Real Example #2: Customer Research Synthesis"
 
 - Different department, different workflow, same pattern.
 - **Manual:** read 50 customer interviews, manually tag themes, write synthesis, create recommendations
 - **Chained:** Agent 1 reads and tags themes -> Agent 2 cross-references with product roadmap -> Agent 3 drafts recommendation memo with evidence
 - Shows universality of the pattern across roles.
 
-#### Slide 44: "From Asking to Orchestrating"
+#### Slide 46: "From Asking to Orchestrating"
 
 - Full evolution in one visual, mapping back to the spectrum from Level 0:
   - **AI Skeptic:** doesn't use AI at all
@@ -413,7 +434,7 @@
 
 **~4-5 slides | Job: Convert understanding into action.**
 
-#### Slide 45: "Your AI Toolkit"
+#### Slide 47: "Your AI Toolkit"
 
 - Concrete tools available now, organized by category:
   - **General purpose:** ChatGPT, Claude, Gemini
@@ -422,7 +443,7 @@
   - **For building connections:** MCP servers, Zapier AI, custom integrations
 - What's free, what's paid, what the company already has access to (placeholder for company-specific info)
 
-#### Slide 46: "Start Here: By Role"
+#### Slide 48: "Start Here: By Role"
 
 - 2-3 immediate, specific actions for different audiences:
   - **Non-technical role:** Try [specific tool] for [specific weekly task]. Apply Level 2 prompting. Notice the difference.
@@ -430,15 +451,16 @@
   - **Leadership:** Ask your team which AI tools they use and how. Look for the gap between "has access" and "uses effectively."
 - (Customized per company/audience for targeted decks)
 
-#### Slide 47: "The 30-Day Challenge"
+#### Slide 49: "The 30-Day Challenge"
 
-- Progressive challenge mirroring the deck's levels:
-  - **Week 1 (Level 1-2):** Use one AI tool for one real task. Apply prompting principles.
-  - **Week 2 (Level 3):** Same task, experiment with context. Provide background. Ask AI to ask you questions first.
-  - **Week 3 (Level 4):** Try an agentic tool. Let AI access files/email/data instead of copy-pasting.
-  - **Week 4 (Level 5):** Break a multi-step task into phases. Chain them. Compare to manual.
+- Pick one recurring task you do regularly. The same task, four weeks, four levels:
+  - **Week 1 (Level 2):** Write a specific, structured prompt for it. Compare the output to your usual manual approach. Notice the difference just *phrasing* makes.
+  - **Week 2 (Level 3):** Same task, same prompt. This time, provide background context — your company's standards, past examples, relevant data. Ask the AI to ask you clarifying questions before starting. Notice the jump.
+  - **Week 3 (Level 4):** Same task. Use an agent with connections — let it pull the context itself instead of you copy-pasting. Notice what it finds that you would have forgotten.
+  - **Week 4 (Level 5):** Break the task into phases. Chain them. Compare end-to-end time and quality to Week 1. Notice: you're orchestrating now, not operating.
+- "Four weeks. One task. Same journey this deck just took you on."
 
-#### Slide 48: "Where to Go Deeper"
+#### Slide 50: "Where to Go Deeper"
 
 - Pointers to future workshop decks (built from this source deck)
 - Internal resources and communities (placeholder for company-specific info)
@@ -450,15 +472,16 @@
 
 **~2 slides**
 
-#### Slide 49: Callback to the Spectrum
+#### Slide 51: Full Circle
 
-- Return to the AI Adoption Spectrum from Slides 2-3.
-- "You started at Level 0. You now understand what agents are, how to prompt effectively, why context beats cleverness, and how to chain workflows."
-- "The only question is: will you use it?"
+- Return to the person from Slide 1. "Remember the person spending 45 minutes copy-pasting into ChatGPT?"
+- "They learned to prompt with specificity (Level 2). They fed the AI their actual context (Level 3). They let the agent find what it needed (Level 4). They chained the whole workflow (Level 5)."
+- "The same task. Two minutes. That's the trick. Now you know it too."
+- Return to the AI Adoption Spectrum from Slides 2-3: "You started this deck at Level 0. Look where you are now."
 
-#### Slide 50: Close
+#### Slide 52: Close
 
-- "Getting agents to give up their secrets isn't about torture. It's about knowing how to ask, what to feed them, and when to let them drive."
+- "The secret was never in the AI. It was in knowing how to work with it. Now go try it — start with one task, this week."
 - Contact information / resources / QR code
 - Company-specific AI channels/support (placeholder)
 
@@ -506,17 +529,18 @@ All sources referenced in the narrative, for citation in the final presentation:
 
 ## Notes
 
-- **Slide count estimate:** ~50 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
-- **Company-specific placeholders:** Slides 44-47 and 49 contain placeholders for company-specific tools, resources, and channels. Customized per deployment.
+- **Slide count estimate:** ~52 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
+- **Company-specific placeholders:** Slides 46-50 and 51 contain placeholders for company-specific tools, resources, and channels. Customized per deployment.
 - **Image/visual needs:** Several slides require custom visuals: adoption spectrum, AI stack diagram, word cloud, prompt chaining diagram, manual vs. agent workflow comparison. Designed during craft phase.
-- **Real examples for Level 5:** The two workflow examples (quarterly business review, customer research synthesis) are proposals - may be swapped for scenarios more relevant to the specific company.
+- **Running example thread:** The onboarding proposal appears in Level 2 (prompt iterations), Level 3 (adding context), Level 4 (connections before/after), and Level 5 (full chained workflow). This thread is the narrative spine — the audience watches one task evolve through every level. The customer research synthesis in Level 5 proves universality.
 - **Prompt engineering iterations:** The specific prompt examples in Level 2 should be written out fully during craft phase using the project proposal scenario.
-- **Dory analogy usage:** Appears in Level 3 (introduction + attention problem), Level 4 (callback - "Hand Dory the keys" + "giving Dory a phone and filing cabinet"), and Level 5 (callback - "kitchen brigade of Dorys"). Three sections, each adding a new dimension: Level 3 = Dory's limitations, Level 4 = Dory gets tools, Level 5 = many Dorys working together.
+- **Guardrails section:** Slides 31-32 address AI trust/verification. Placed at the end of Level 3 (before agentic sections where trust becomes critical). Uses Dory analogy for consistency. Not fear-mongering — practical and tonally matched.
+- **Dory analogy usage:** Appears in Level 3 (introduction + attention problem + guardrails), Level 4 (callback - "Hand Dory the keys" + "giving Dory a phone and filing cabinet"), and Level 5 (callback - "kitchen brigade of Dorys"). Four touchpoints, each adding a new dimension: Level 3 = Dory's limitations + fact-checking Dory, Level 4 = Dory gets tools, Level 5 = many Dorys working together.
 - **Title refinement:** Working title is "Getting Agents to Give Up Their Secrets" with subtitle "A guide to AI that actually works - from confused to in control." May refine during craft phase.
 - **Future deck extraction points:**
-  - Level 0 alone = "Why AI Matters" executive briefing (~5 slides)
+  - Level 0 alone = "Why AI Matters" executive briefing (~6 slides)
   - Level 0 + Level 1 = "AI 101" intro session (~13 slides)
-  - Level 2 alone = "Prompt Engineering Workshop" (~10 slides)
-  - Level 3 alone = "Context Engineering Deep Dive" (~8 slides)
-  - Level 4 + 5 = "Agentic AI Workshop" (~13 slides)
-  - Level Up alone = "Getting Started with AI" practical session (~5 slides)
+  - Level 2 alone = "Prompt Engineering Workshop" (~7 slides)
+  - Level 3 alone = "Context Engineering Deep Dive" (~12 slides, includes guardrails)
+  - Level 4 + 5 = "Agentic AI Workshop" (~14 slides)
+  - Level Up alone = "Getting Started with AI" practical session (~4 slides)
