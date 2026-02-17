@@ -7,7 +7,7 @@
 - **Key message**: You're already capable of using AI powerfully - you just need to learn how. This deck levels you up from confused to in control.
 - **Framework**: Progressive leveling-up journey (Level 0 -> Level 5 -> Level Up). Each section corresponds to a level on the AI adoption spectrum introduced in the opening. The reader literally levels up through the deck.
 - **Tone**: Playful and fun throughout. Serious content, not-serious delivery. Memorable analogies (Dory), provocative framings, and practical examples over corporate jargon.
-- **Format**: Long-form continuous deck (~49 slides), self-contained and readable without a presenter. All sources cited for stats/claims.
+- **Format**: Long-form continuous deck (~50 slides), self-contained and readable without a presenter. All sources cited for stats/claims.
 
 ---
 
@@ -34,8 +34,9 @@
   - **AI-First** - everything through AI, focused on context, agents, and workflows
 - Not judgmental, just honest. Most people will self-identify as level 1-2.
 - Note: Existing maturity models (MITRE, Gartner) are organizational, not individual-focused. This individual-level framing is intentionally novel.
-- Stat: AI tools now reach 378 million users globally, but only 3% pay for premium services - most are still in the shallow end.
-  - Source: [AI Adoption Statistics 2026 - Netguru](https://www.netguru.com/blog/ai-adoption-statistics)
+- Stat: Over 1 billion people use AI tools monthly, but fewer than 2% pay for premium services — most are still in the shallow end.
+  - Source: [Digital 2026: more than 1 billion people use AI - DataReportal](https://datareportal.com/reports/digital-2026-one-billion-people-using-ai)
+  - Source: Reuters (via DataReportal): fewer than 2% of ChatGPT's ~800M users pay for the service
 - The deck promises to move them to the right on this spectrum.
 
 #### Slide 4: "We've Seen This Movie Before"
@@ -168,14 +169,21 @@
 - Show the baseline vague prompt: "Write me a proposal for improving our onboarding process."
 - Show its mediocre, generic output alongside. "Sound familiar?"
 
-#### Slide 16: Iteration 1 - "Be Specific" (vs. the vague ask)
+#### Slide 16: Iteration 1 - "Assign a Role" (vs. talking to a stranger)
+
+- **The wrong way first:** The baseline prompt from Slide 15 — the AI responds as a generic assistant. The output is competent but surface-level, like asking a random person on the street to write your proposal.
+- **The fix:** "You are a senior HR operations consultant who specializes in onboarding optimization for mid-to-large companies. Write me a proposal for improving our onboarding process."
+- Show how the same vague request produces noticeably different output — more relevant frameworks, industry-specific terminology, realistic timelines — just from telling the AI *who it is*.
+- **Lesson:** A role frames everything that follows. It sets the AI's default tone, depth, and perspective. Always start here.
+
+#### Slide 17: Iteration 2 - "Be Specific" (vs. the vague ask)
 
 - **The wrong way first:** "Make this better" / "Write me a proposal for improving our onboarding process." -> generic, shallow output. No clear audience, no constraints, no direction. The AI guesses at everything and nails nothing.
 - **The fix:** "Write a proposal for reducing new hire onboarding time from 4 weeks to 2 weeks, aimed at the VP of People, in a format suitable for a leadership review meeting. Keep it under 2 pages."
 - Show the output improvement side by side. Same information available, dramatically better result purely from phrasing.
 - **Lesson:** Specificity in your request = specificity in the output. Treat it like briefing a colleague, not searching Google.
 
-#### Slide 17: Iteration 2 - "Structure Your Ask" (vs. the kitchen sink)
+#### Slide 18: Iteration 3 - "Structure Your Ask" (vs. the kitchen sink)
 
 - **The wrong way first:** Same task but with 5 different requests crammed in: "Write the proposal, also draft an email to the team about it, and create a budget spreadsheet, and summarize the key risks..." -> confused, shallow output that tries everything and nails nothing.
 - **The fix:** One task, clearly structured: "Structure the proposal with: (1) Problem statement, (2) Proposed solution, (3) Expected outcomes, (4) Resource requirements, (5) Timeline."
@@ -183,23 +191,23 @@
 - **Lesson:** One clear task with clear structure beats multiple tangled requests every time.
   - Source: [Prompt Engineering Best Practices 2025 - CodeSignal](https://codesignal.com/blog/prompt-engineering-best-practices-2025/)
 
-#### Slide 18: Iteration 3 - "Power Keywords" (vs. leading the witness)
+#### Slide 19: Iteration 4 - "Power Keywords" (vs. leading the witness)
 
 - **The wrong way first:** "Don't you think reducing onboarding to 2 weeks would be great for the company?" -> sycophantic agreement, no critical thinking, no pushback. Leading questions get you an echo chamber. The AI tells you what you want to hear, not what you need to hear.
-- **The fix:** Add modifiers: "Be radically honest about potential challenges," "Think step by step," "Challenge my assumptions if they seem flawed."
-- Show the output gaining depth, honesty, and nuance. The AI pushes back on a weak assumption in the brief - exactly what you need.
-- **Lesson:** Small keyword modifiers = big quality shifts. Build a personal library of power phrases. And never lead the witness.
+- **The fix:** Add modifiers: "Be radically honest about potential challenges," "Think step by step," "Challenge my assumptions if they seem flawed," "If you're uncertain about any claim, flag it explicitly rather than guessing."
+- Show the output gaining depth, honesty, and nuance. The AI pushes back on a weak assumption in the brief and flags an uncertain statistic — exactly what you need.
+- **Lesson:** Small keyword modifiers = big quality shifts. Build a personal library of power phrases. Permit uncertainty — an AI that says "I'm not sure" is more useful than one that confidently makes things up. And never lead the witness.
   - Source: [OpenAI Best Practices for Prompt Engineering](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
   - Source: [Prompt Engineering Best Practices - DigitalOcean](https://www.digitalocean.com/resources/articles/prompt-engineering-best-practices)
 
-#### Slide 19: Iteration 4 - "Define the Output" (vs. hoping for the best)
+#### Slide 20: Iteration 5 - "Define the Output" (vs. hoping for the best)
 
 - **The wrong way first:** No format guidance -> the AI picks a random format. Maybe a 5-page essay when you needed bullets. Maybe bullet points when you needed a narrative. You spend 20 minutes reformatting something the AI could have gotten right the first time.
-- **The fix:** "Write this as a one-page executive brief with bullet points. Use data-driven language. Assume the reader has 2 minutes and no prior context on this initiative."
+- **The fix:** "Write this as a one-page executive brief with bullet points. Use data-driven language. Assume the reader has 2 minutes and no prior context on this initiative." For extra precision, include a short example of the format you want — even a few lines of what a good brief looks like gives the AI a concrete target to match.
 - Show how defining the *shape* of the output (format, tone, length, audience assumptions) produces something immediately usable.
-- **Lesson:** Tell it what the finished product looks like. You wouldn't ask a designer for "something nice" - don't ask AI for "something good."
+- **Lesson:** Tell it what the finished product looks like. You wouldn't ask a designer for "something nice" - don't ask AI for "something good." A quick example beats a long description.
 
-#### Slide 20: "The 4x Prompt"
+#### Slide 21: "The 5x Prompt"
 
 - Side-by-side: the original vague prompt vs. the final refined prompt. Same task, same background information, dramatically different result - purely from how the request was phrased.
 - "You just leveled up. But notice something: every improvement so far was about *wording*. We never changed what the AI actually *knew*. What if we did?"
@@ -212,13 +220,13 @@
 
 **~12 slides | Job: The big "aha" - it's not about the prompt, it's about what the AI knows when it answers. This section absorbs the "add context" and "ask AI to ask you questions" concepts that are fundamentally about *information*, not *phrasing*. Ends with guardrails on trusting AI output.**
 
-#### Slide 21: "Meet Your AI Colleague"
+#### Slide 22: "Meet Your AI Colleague"
 
 - Dory from Finding Nemo reference.
 - "Your AI is like Dory: incredibly smart, genuinely wants to help, remembers absolutely nothing between conversations. Every chat starts from scratch."
 - "In Level 2, we got better at *asking*. But Dory's biggest problem isn't that she doesn't understand what you're saying - it's that she doesn't know what you know."
 
-#### Slide 22: "The Attention Problem"
+#### Slide 23: "The Attention Problem"
 
 - Too much context -> Dory gets lost (buries important stuff in noise)
 - Contradictory information -> Dory gets confused (tries to satisfy everything, satisfies nothing)
@@ -227,7 +235,7 @@
   - Source: [AI Context Engineering Guide - Sombra](https://sombrainc.com/blog/ai-context-engineering-guide)
 - "The problem isn't that AI is dumb. The problem is that we're feeding it wrong."
 
-#### Slide 23: "Back to Our Proposal - With Context"
+#### Slide 24: "Back to Our Proposal - With Context"
 
 - Return to the same onboarding proposal from Level 2. Same well-structured prompt from Slide 20. But now add background information: current onboarding stats, company size, existing pain points, what's been tried before, relevant policies.
 - Show the dramatic jump in output quality. The proposal goes from "plausible but generic" to "sounds like it was written by someone who works here."
@@ -235,7 +243,7 @@
   - Source: [Context Engineering vs Prompt Engineering - Elastic](https://www.elastic.co/search-labs/blog/context-engineering-vs-prompt-engineering)
   - Source: [Context Engineering is the New Prompt Engineering - KDnuggets](https://www.kdnuggets.com/context-engineering-is-the-new-prompt-engineering)
 
-#### Slide 24: "Let AI Tell You What It Needs"
+#### Slide 25: "Let AI Tell You What It Needs"
 
 - Add to the prompt: "Before you start, ask me clarifying questions about anything you'd need to know to write an excellent proposal."
 - Show the AI surfacing things the user hadn't considered: budget constraints? timeline? stakeholder concerns? success metrics? Previous failed attempts?
@@ -243,14 +251,14 @@
 - **Lesson:** This is the single highest-leverage technique. Let AI close its own context gaps instead of guessing what it needs.
   - Source: [Prompt Engineering Best Practices - Anthropic/Claude](https://claude.com/blog/best-practices-for-prompt-engineering)
 
-#### Slide 25: "The Goldilocks Principle"
+#### Slide 26: "The Goldilocks Principle"
 
 - Not too much, not too little - the right context at the right time.
 - The minimum information needed to get the right answer.
 - "Prompt engineering tweaks the question. Context engineering builds the knowledge base."
   - Source: [Context Engineering: Improving AI by Moving Beyond the Prompt - CIO](https://www.cio.com/article/4080592/context-engineering-improving-ai-by-moving-beyond-the-prompt.html)
 
-#### Slides 26-29: "Skills: The Real Superpower"
+#### Slides 27-30: "Skills: The Real Superpower"
 
 - Expanded section - core insight of Level 3. This is where context engineering moves from "manual" to "systematic."
 - **What skills are:** Predefined rules, instructions, templates, and context packages injected into the AI's context only when relevant to the current task. Think of them as "briefing documents" you hand Dory right before she needs to do a specific task.
@@ -267,7 +275,7 @@
 - **Real impact:** Organizations investing in context architecture see 50% faster responses and 40% higher quality outputs.
   - Source: [Context Engineering Complete Guide - CodeConductor](https://codeconductor.ai/blog/context-engineering/)
 
-#### Slide 30: "GPS, Not Directions"
+#### Slide 31: "GPS, Not Directions"
 
 - The metaphor:
   - Prompt engineering = giving directions for each individual trip
@@ -276,7 +284,7 @@
   - One requires effort every time. The other gets smarter the more you invest.
 - "Level 2 made you better at asking. Level 3 makes AI better at understanding you - and the difference is permanent."
 
-#### Slide 31: "Trust, But Verify"
+#### Slide 32: "Trust, But Verify"
 
 - Before we go further — a critical guardrail. AI will confidently state things that are completely wrong. It doesn't know it's wrong. It's not lying — it's Dory filling in the gaps from memory that isn't there.
 - Three practical rules:
@@ -285,7 +293,7 @@
   3. **Use AI for drafts, not decisions.** Your judgment is the last step, not the AI's. The whole point of leveling up is to do less grunt work — not less thinking.
 - "Dory is brilliant and helpful. Dory also sometimes remembers things that never happened. Love Dory. Fact-check Dory."
 
-#### Slide 32: "When to Keep Your Hands on the Wheel"
+#### Slide 33: "When to Keep Your Hands on the Wheel"
 
 - Quick list of when to be extra cautious:
   - Sensitive or confidential data — only use approved/enterprise tools
@@ -303,7 +311,7 @@
 
 **~5 slides | Job: Shift the mental model from "I use AI" to "AI works for me." Level 4 is about a single agent doing a single task autonomously - like having one smart assistant handle something end-to-end. Level 5 (next) is about multiple agents working together in sequence - like a kitchen brigade where each station handles one course.**
 
-#### Slide 33: "The Copy-Paste Trap"
+#### Slide 34: "The Copy-Paste Trap"
 
 - Visual of the manual workflow most people use today:
   1. Human decides which documents/data to provide
@@ -316,7 +324,7 @@
   - You're doing the grunt work while the AI waits
 - "You're using a Ferrari to carry groceries."
 
-#### Slide 34: "Hand Dory the Keys"
+#### Slide 35: "Hand Dory the Keys"
 
 - Same task, but the agent drives:
   - Agent retrieves its own context (reads documents, searches for information)
@@ -326,7 +334,7 @@
 - "Same Dory. Same memory issues. But now she has hands, eyes, and a to-do list."
 - **Key framing for Level 4 vs 5:** This is like having one great chef who can cook an entire meal. They find the ingredients, prep, cook, and plate. You just say what you want and taste-test at the end. (Level 5 will introduce the kitchen brigade.)
 
-#### Slides 35-36: "Connections Are Everything"
+#### Slides 36-37: "Connections Are Everything"
 
 - An agent is only as useful as what it can reach. Each connection = new capability:
   - Web search / fetch -> can research and fact-check
@@ -340,7 +348,7 @@
   - *Without connections:* You copy-paste the HR handbook, the latest survey results, and the team structure doc into the chat. You forget the budget memo. The proposal misses cost constraints entirely. You don't realize until your VP asks about it.
   - *With connections:* The agent reads the HR system directly, pulls survey data, finds the budget memo you forgot about, and flags a policy constraint you didn't know existed. The proposal is better than what you'd have produced — because the agent found context you wouldn't have thought to provide.
 
-#### Slide 37: "MCP: USB-C for AI"
+#### Slide 38: "MCP: USB-C for AI"
 
 - The Model Context Protocol, explained simply:
   - Before MCP: every AI tool needed a custom connector to every data source. N tools x M sources = explosion of custom integrations.
@@ -365,7 +373,7 @@
 
 **~8 slides | Job: The payoff. The destination the whole deck has been building toward. Level 4 was one chef cooking one meal. Level 5 is a kitchen brigade: a head chef (you) orchestrating specialists (agents) who each handle one station. The result is a full menu, not just one dish.**
 
-#### Slide 38: "One Chef vs. A Kitchen Brigade"
+#### Slide 39: "One Chef vs. A Kitchen Brigade"
 
 - Level 4 gave you one great chef (agent) who handles a task end-to-end. That works for single tasks.
 - But what about complex, multi-step work? One chef doing a 10-course dinner alone will burn out, make mistakes, and forget the appetizer by the time they're plating dessert.
@@ -373,7 +381,7 @@
 - LLMs are genuinely bad at long multi-step chains. But they're excellent at focused, well-defined tasks.
 - "The trick isn't making one AI smarter. It's making many AIs work together."
 
-#### Slides 39-40: "Prompt Chaining, Visually"
+#### Slides 40-41: "Prompt Chaining, Visually"
 
 - Clear diagram:
   - Big Task -> Phase 1 -> output -> Phase 2 -> output -> Phase 3 -> result
@@ -385,7 +393,7 @@
   - Context is filtered between steps (not everything passes through)
   - Quality compounds - each step builds on verified output from the last
 
-#### Slides 41-42: "Real Example #1: The Onboarding Proposal, End-to-End"
+#### Slides 42-43: "Real Example #1: The Onboarding Proposal, End-to-End"
 
 - Return to the onboarding proposal one last time. This is the task the audience has watched evolve through the entire deck. Now see it as a chained workflow.
 - **Manual flow (what most people do today):**
@@ -405,14 +413,14 @@
 - "Same proposal. Same quality. But you did 15 minutes of judgment work instead of 1.5 hours of grunt work."
 - **And next time?** After reviewing, you turn your feedback into skills. The VP's preferred format becomes a "Leadership Proposals" skill. The compliance requirements Agent 3 missed become part of the "Compliance Policy" skill from Level 3. Next time the chain runs, it already knows. The chain gets smarter every time you use it — even though Dory won't remember, the skills will.
 
-#### Slides 43-44: "Real Example #2: Customer Research Synthesis"
+#### Slides 44-45: "Real Example #2: Customer Research Synthesis"
 
 - Different department, different workflow, same pattern.
 - **Manual:** read 50 customer interviews, manually tag themes, write synthesis, create recommendations
 - **Chained:** Agent 1 reads and tags themes -> Agent 2 cross-references with product roadmap -> Agent 3 drafts recommendation memo with evidence
 - Shows universality of the pattern across roles.
 
-#### Slide 45: "From Asking to Orchestrating"
+#### Slide 46: "From Asking to Orchestrating"
 
 - Full evolution in one visual, mapping back to the spectrum from Level 0:
   - **AI Skeptic:** doesn't use AI at all
@@ -429,7 +437,7 @@
 
 **~2 slides | Job: Convert understanding into action.**
 
-#### Slide 46: "Your AI Toolkit"
+#### Slide 47: "Your AI Toolkit"
 
 - Concrete tools available now, organized by category:
   - **General purpose:** ChatGPT, Claude, Gemini
@@ -438,7 +446,7 @@
   - **For building connections:** MCP servers, Zapier AI, custom integrations
 - What's free, what's paid, what's worth trying first
 
-#### Slide 47: "The 30-Day Challenge"
+#### Slide 48: "The 30-Day Challenge"
 
 - Pick one recurring task you do regularly. The same task, four weeks, four levels:
   - **Week 1 (Level 2):** Write a specific, structured prompt for it. Compare the output to your usual manual approach. Notice the difference just *phrasing* makes.
@@ -454,14 +462,14 @@
 
 **~2 slides**
 
-#### Slide 48: Full Circle
+#### Slide 49: Full Circle
 
 - Return to the person from Slide 1. "Remember the person spending 45 minutes copy-pasting into ChatGPT?"
 - "They learned to prompt with specificity (Level 2). They fed the AI their actual context (Level 3). They let the agent find what it needed (Level 4). They chained the whole workflow (Level 5)."
 - "The same task. Two minutes. That's the trick. Now you know it too."
 - Return to the AI Adoption Spectrum from Slides 2-3: "You started this deck at Level 0. Look where you are now."
 
-#### Slide 49: Close
+#### Slide 50: Close
 
 - "The secret was never in the AI. It was in knowing how to work with it. Now go try it — start with one task, this week."
 - Contact information / resources / QR code
@@ -474,7 +482,7 @@ All sources referenced in the narrative, for citation in the final presentation:
 
 | # | Source | URL | Used In |
 |---|--------|-----|---------|
-| 1 | AI Adoption Statistics 2026 - Netguru | https://www.netguru.com/blog/ai-adoption-statistics | Level 0 |
+| 1 | Digital 2026: more than 1 billion people use AI - DataReportal | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | Level 0 |
 | 2 | AI and Productivity Growth - Federal Reserve Bank of St. Louis | https://www.stlouisfed.org/on-the-economy/2024/apr/ai-productivity-growth-evidence-historical-development-other-technologies | Level 0 |
 | 3 | Rising Speed of Technological Adoption - Visual Capitalist | https://www.visualcapitalist.com/rising-speed-technological-adoption/ | Level 0 |
 | 4 | Digital technologies and productivity - ScienceDirect | https://www.sciencedirect.com/science/article/pii/S026499932300336X | Level 0 |
@@ -510,11 +518,11 @@ All sources referenced in the narrative, for citation in the final presentation:
 
 ## Notes
 
-- **Slide count estimate:** ~49 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
+- **Slide count estimate:** ~50 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
 - **Image/visual needs:** Several slides require custom visuals: adoption spectrum, AI stack diagram, word cloud, prompt chaining diagram, manual vs. agent workflow comparison. Designed during craft phase.
 - **Density warning — Slides 12-13:** These two slides carry 9 sourced stats across vibe coding, AI coding adoption, the "engineers are still bad at it" nuance, Microsoft Copilot, and GitHub Copilot. In craft phase, consider spreading across 3-4 slides or trimming stats to the 3-4 most impactful.
 - **Running example thread:** The onboarding proposal appears in Level 2 (prompt iterations), Level 3 (adding context), Level 4 (connections before/after), and Level 5 (full chained workflow). This thread is the narrative spine — the audience watches one task evolve through every level. The customer research synthesis in Level 5 proves universality.
 - **Prompt engineering iterations:** The specific prompt examples in Level 2 should be written out fully during craft phase using the project proposal scenario.
-- **Guardrails section:** Slides 31-32 address AI trust/verification. Placed at the end of Level 3 (before agentic sections where trust becomes critical). Uses Dory analogy for consistency. Not fear-mongering — practical and tonally matched.
+- **Guardrails section:** Slides 32-33 address AI trust/verification. Placed at the end of Level 3 (before agentic sections where trust becomes critical). Uses Dory analogy for consistency. Not fear-mongering — practical and tonally matched.
 - **Dory analogy usage:** Appears in Level 3 (introduction + attention problem + guardrails), Level 4 (callback - "Hand Dory the keys" + "giving Dory a phone and filing cabinet"), and Level 5 (callback - "kitchen brigade of Dorys"). Four touchpoints, each adding a new dimension: Level 3 = Dory's limitations + fact-checking Dory, Level 4 = Dory gets tools, Level 5 = many Dorys working together.
 - **Title refinement:** Working title is "Getting Agents to Give Up Their Secrets" with subtitle "A guide to AI that actually works - from confused to in control." May refine during craft phase.
