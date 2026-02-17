@@ -409,6 +409,7 @@
   3. **Agent 3 — Review:** *"Review this proposal against our leadership presentation template and company style guide. Flag gaps, format correctly, and list anything that needs human judgment."* → Outputs a final draft with review notes.
   4. **You:** Review, adjust, approve. ~15 minutes of your time, spent on the part only humans can do: judgment.
 - "Same proposal. Same quality. But you did 15 minutes of judgment work instead of 1.5 hours of grunt work."
+- **And next time?** After reviewing, you turn your feedback into skills. The VP's preferred format becomes a "Leadership Proposals" skill. The compliance requirements Agent 3 missed become part of the "Compliance Policy" skill from Level 3. Next time the chain runs, it already knows. The chain gets smarter every time you use it — even though Dory won't remember, the skills will.
 
 #### Slides 44-45: "Real Example #2: Customer Research Synthesis"
 
@@ -432,7 +433,7 @@
 
 ### "Level Up" (Your Toolkit & First Steps)
 
-**~3 slides | Job: Convert understanding into action.**
+**~2 slides | Job: Convert understanding into action.**
 
 #### Slide 47: "Your AI Toolkit"
 
@@ -441,7 +442,7 @@
   - **In your workflow:** Microsoft Copilot (Office), Gemini (Workspace), Claude integrations
   - **For developers:** GitHub Copilot, Cursor, Claude Code
   - **For building connections:** MCP servers, Zapier AI, custom integrations
-- What's free, what's paid, what the company already has access to (placeholder for company-specific info)
+- What's free, what's paid, what's worth trying first
 
 #### Slide 48: "The 30-Day Challenge"
 
@@ -452,30 +453,23 @@
   - **Week 4 (Level 5):** Break the task into phases. Chain them. Compare end-to-end time and quality to Week 1. Notice: you're orchestrating now, not operating.
 - "Four weeks. One task. Same journey this deck just took you on."
 
-#### Slide 49: "Where to Go Deeper"
-
-- Pointers to future workshop decks (built from this source deck)
-- Internal resources and communities (placeholder for company-specific info)
-- External resources: Anthropic's prompt engineering guide, OpenAI's best practices
-
 ---
 
 ### Closing
 
 **~2 slides**
 
-#### Slide 50: Full Circle
+#### Slide 49: Full Circle
 
 - Return to the person from Slide 1. "Remember the person spending 45 minutes copy-pasting into ChatGPT?"
 - "They learned to prompt with specificity (Level 2). They fed the AI their actual context (Level 3). They let the agent find what it needed (Level 4). They chained the whole workflow (Level 5)."
 - "The same task. Two minutes. That's the trick. Now you know it too."
 - Return to the AI Adoption Spectrum from Slides 2-3: "You started this deck at Level 0. Look where you are now."
 
-#### Slide 51: Close
+#### Slide 50: Close
 
 - "The secret was never in the AI. It was in knowing how to work with it. Now go try it — start with one task, this week."
 - Contact information / resources / QR code
-- Company-specific AI channels/support (placeholder)
 
 ---
 
@@ -521,18 +515,10 @@ All sources referenced in the narrative, for citation in the final presentation:
 
 ## Notes
 
-- **Slide count estimate:** ~51 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
-- **Company-specific placeholders:** Slides 47-49 and 50 contain placeholders for company-specific tools, resources, and channels. Customized per deployment.
+- **Slide count estimate:** ~50 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
 - **Image/visual needs:** Several slides require custom visuals: adoption spectrum, AI stack diagram, word cloud, prompt chaining diagram, manual vs. agent workflow comparison. Designed during craft phase.
 - **Running example thread:** The onboarding proposal appears in Level 2 (prompt iterations), Level 3 (adding context), Level 4 (connections before/after), and Level 5 (full chained workflow). This thread is the narrative spine — the audience watches one task evolve through every level. The customer research synthesis in Level 5 proves universality.
 - **Prompt engineering iterations:** The specific prompt examples in Level 2 should be written out fully during craft phase using the project proposal scenario.
 - **Guardrails section:** Slides 31-32 address AI trust/verification. Placed at the end of Level 3 (before agentic sections where trust becomes critical). Uses Dory analogy for consistency. Not fear-mongering — practical and tonally matched.
 - **Dory analogy usage:** Appears in Level 3 (introduction + attention problem + guardrails), Level 4 (callback - "Hand Dory the keys" + "giving Dory a phone and filing cabinet"), and Level 5 (callback - "kitchen brigade of Dorys"). Four touchpoints, each adding a new dimension: Level 3 = Dory's limitations + fact-checking Dory, Level 4 = Dory gets tools, Level 5 = many Dorys working together.
 - **Title refinement:** Working title is "Getting Agents to Give Up Their Secrets" with subtitle "A guide to AI that actually works - from confused to in control." May refine during craft phase.
-- **Future deck extraction points:**
-  - Level 0 alone = "Why AI Matters" executive briefing (~6 slides)
-  - Level 0 + Level 1 = "AI 101" intro session (~13 slides)
-  - Level 2 alone = "Prompt Engineering Workshop" (~7 slides)
-  - Level 3 alone = "Context Engineering Deep Dive" (~12 slides, includes guardrails)
-  - Level 4 + 5 = "Agentic AI Workshop" (~14 slides)
-  - Level Up alone = "Getting Started with AI" practical session (~4 slides)
