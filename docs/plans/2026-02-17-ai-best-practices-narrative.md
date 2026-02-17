@@ -432,7 +432,7 @@
 
 ### "Level Up" (Your Toolkit & First Steps)
 
-**~4-5 slides | Job: Convert understanding into action.**
+**~3 slides | Job: Convert understanding into action.**
 
 #### Slide 47: "Your AI Toolkit"
 
@@ -443,15 +443,7 @@
   - **For building connections:** MCP servers, Zapier AI, custom integrations
 - What's free, what's paid, what the company already has access to (placeholder for company-specific info)
 
-#### Slide 48: "Start Here: By Role"
-
-- 2-3 immediate, specific actions for different audiences:
-  - **Non-technical role:** Try [specific tool] for [specific weekly task]. Apply Level 2 prompting. Notice the difference.
-  - **Technical role:** Set up [specific agent tool]. Connect it to your codebase. Try a chained workflow.
-  - **Leadership:** Ask your team which AI tools they use and how. Look for the gap between "has access" and "uses effectively."
-- (Customized per company/audience for targeted decks)
-
-#### Slide 49: "The 30-Day Challenge"
+#### Slide 48: "The 30-Day Challenge"
 
 - Pick one recurring task you do regularly. The same task, four weeks, four levels:
   - **Week 1 (Level 2):** Write a specific, structured prompt for it. Compare the output to your usual manual approach. Notice the difference just *phrasing* makes.
@@ -460,7 +452,7 @@
   - **Week 4 (Level 5):** Break the task into phases. Chain them. Compare end-to-end time and quality to Week 1. Notice: you're orchestrating now, not operating.
 - "Four weeks. One task. Same journey this deck just took you on."
 
-#### Slide 50: "Where to Go Deeper"
+#### Slide 49: "Where to Go Deeper"
 
 - Pointers to future workshop decks (built from this source deck)
 - Internal resources and communities (placeholder for company-specific info)
@@ -472,14 +464,14 @@
 
 **~2 slides**
 
-#### Slide 51: Full Circle
+#### Slide 50: Full Circle
 
 - Return to the person from Slide 1. "Remember the person spending 45 minutes copy-pasting into ChatGPT?"
 - "They learned to prompt with specificity (Level 2). They fed the AI their actual context (Level 3). They let the agent find what it needed (Level 4). They chained the whole workflow (Level 5)."
 - "The same task. Two minutes. That's the trick. Now you know it too."
 - Return to the AI Adoption Spectrum from Slides 2-3: "You started this deck at Level 0. Look where you are now."
 
-#### Slide 52: Close
+#### Slide 51: Close
 
 - "The secret was never in the AI. It was in knowing how to work with it. Now go try it — start with one task, this week."
 - Contact information / resources / QR code
@@ -529,8 +521,8 @@ All sources referenced in the narrative, for citation in the final presentation:
 
 ## Notes
 
-- **Slide count estimate:** ~52 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
-- **Company-specific placeholders:** Slides 46-50 and 51 contain placeholders for company-specific tools, resources, and channels. Customized per deployment.
+- **Slide count estimate:** ~51 slides. Higher end for a single deck but appropriate for a comprehensive reference document.
+- **Company-specific placeholders:** Slides 47-49 and 50 contain placeholders for company-specific tools, resources, and channels. Customized per deployment.
 - **Image/visual needs:** Several slides require custom visuals: adoption spectrum, AI stack diagram, word cloud, prompt chaining diagram, manual vs. agent workflow comparison. Designed during craft phase.
 - **Running example thread:** The onboarding proposal appears in Level 2 (prompt iterations), Level 3 (adding context), Level 4 (connections before/after), and Level 5 (full chained workflow). This thread is the narrative spine — the audience watches one task evolve through every level. The customer research synthesis in Level 5 proves universality.
 - **Prompt engineering iterations:** The specific prompt examples in Level 2 should be written out fully during craft phase using the project proposal scenario.
