@@ -1,0 +1,5 @@
+node_modules/
+deck-preview.pdf
+qa-slides/
+~$*
+.DS_Store

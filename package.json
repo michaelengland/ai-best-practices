@@ -1,0 +1,31 @@
+{
+  "name": "ai-best-practices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelengland/ai-best-practices.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/michaelengland/ai-best-practices/issues"
+  },
+  "homepage": "https://github.com/michaelengland/ai-best-practices#readme",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-icons": "^5.5.0",
+    "sharp": "^0.34.5"
+  }
+}

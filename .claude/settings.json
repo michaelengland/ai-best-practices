@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "deck-flow@michaelengland-plugins": true,
+    "document-skills@anthropic-agent-skills": true
+  }
+}
