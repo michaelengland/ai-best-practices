@@ -441,7 +441,7 @@ async function main() {
       ["fine-tuning", 1.5, 3.0, 16, false], ["embeddings", 3.8, 3.2, 14, false], ["prompts", 7.0, 3.0, 22, true],
       ["copilot", 0.5, 3.8, 20, true], ["AGI", 5.0, 3.5, 18, true], ["transformer", 2.8, 1.5, 16, false],
       ["neural network", 5.8, 1.2, 14, false], ["deep learning", 0.3, 0.7, 14, false], ["Anthropic", 7.8, 3.5, 16, false],
-      ["OpenAI", 0.5, 1.1, 20, true], ["inference", 3.5, 2.8, 14, false], ["training", 8.2, 0.3, 14, false],
+      ["OpenAI", 0.5, 1.1, 20, true], ["inference", 3.5, 2.8, 14, false], ["training", 8.0, 0.3, 14, false],
       ["parameters", 0.5, 4.2, 14, false], ["context window", 4.5, 4.0, 16, false], ["hallucination", 2.0, 4.0, 18, true],
       ["grounding", 7.0, 4.0, 14, false], ["retrieval", 5.5, 2.8, 14, false], ["vector database", 7.8, 2.8, 12, false],
       ["Llama", 3.0, 3.8, 16, false], ["open-source", 6.0, 3.8, 14, false], ["API", 3.8, 0.2, 22, true],
@@ -463,7 +463,7 @@ async function main() {
       ["LLM", 4.0, 0.2, 28, true], ["GPT", 0.3, 0.2, 24, true],
       ["Claude", 8.0, 0.3, 20, true], ["Gemini", 0.5, 2.2, 18, false],
       ["tokens", 4.2, 2.2, 16, false], ["copilot", 0.5, 4.2, 16, false],
-      ["AGI", 4.5, 4.2, 16, true], ["training", 8.2, 2.2, 14, false],
+      ["AGI", 4.5, 4.2, 16, true], ["training", 8.0, 2.2, 14, false],
     ];
     words.forEach(([word, x, y, size, bold]) => {
       s.addText(word, { x, y, w: 2.0, h: 0.4, fontFace: D.b, fontSize: size, color: "2A2A4E", bold, margin: 0 });
@@ -759,13 +759,13 @@ async function main() {
     const s = darkSlide(pres);
     addHeadline(s, "Meet Your AI Colleague", { dark: true });
     // Dory illustration area (fish icon as placeholder)
-    addDarkCard(pres, s, 0.5, 1.2, 3.5, 3.2);
-    s.addShape(pres.shapes.OVAL, { x: 1.3, y: 1.6, w: 1.8, h: 1.8, fill: { color: D.accent, transparency: 80 } });
-    s.addImage({ data: icons.fish, x: 1.6, y: 1.9, w: 1.2, h: 1.2 });
-    s.addText("Dory", { x: 0.5, y: 3.4, w: 3.5, h: 0.4, fontFace: D.h, fontSize: 20, color: D.accent, bold: true, align: "center", margin: 0 });
-    s.addText("Your AI Colleague", { x: 0.5, y: 3.75, w: 3.5, h: 0.3, fontFace: D.b, fontSize: 12, color: D.mutedDark, italic: true, align: "center", margin: 0 });
+    addDarkCard(pres, s, 0.5, 1.2, 3.5, 3.0);
+    s.addShape(pres.shapes.OVAL, { x: 1.3, y: 1.5, w: 1.8, h: 1.8, fill: { color: D.accent, transparency: 80 } });
+    s.addImage({ data: icons.fish, x: 1.6, y: 1.8, w: 1.2, h: 1.2 });
+    s.addText("Dory", { x: 0.5, y: 3.2, w: 3.5, h: 0.4, fontFace: D.h, fontSize: 20, color: D.accent, bold: true, align: "center", margin: 0 });
+    s.addText("Your AI Colleague", { x: 0.5, y: 3.55, w: 3.5, h: 0.3, fontFace: D.b, fontSize: 12, color: D.mutedDark, italic: true, align: "center", margin: 0 });
     // Text right
-    addDarkCard(pres, s, 4.3, 1.2, 5.2, 3.2);
+    addDarkCard(pres, s, 4.3, 1.2, 5.2, 3.0);
     addBar(pres, s, 4.3, 1.2, 3.2, D.accent);
     s.addText([
       { text: "Your AI is like Dory:", options: { breakLine: true, fontFace: D.b, fontSize: 15, color: D.textDark, bold: true } },
@@ -997,13 +997,13 @@ async function main() {
     s.addText(richItems, { x: 0.7, y: 1.1, w: 8.6, h: 2.6, margin: 0, valign: "top", paraSpaceAfter: 10 });
     addTakeaway(pres, s, "AI is a power tool, not autopilot.", { dark: true });
     // Persona milestone callout
-    addGlassCard(pres, s, 1.5, 3.8, 7, 0.95);
+    addGlassCard(pres, s, 1.5, 3.8, 7, 0.6);
     s.addText([
       { text: "Persona milestone: ", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
       { text: "You're no longer a Viber \u2014 you've let go of the wheel. You're approaching ", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
       { text: "AI-First", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
       { text: ", but you're still working with a single agent. One last leap.", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
-    ], { x: 1.75, y: 3.85, w: 6.5, h: 0.85, margin: 0, valign: "middle" });
+    ], { x: 1.75, y: 3.82, w: 6.5, h: 0.55, margin: 0, valign: "middle" });
     s.addNotes("The fourth bullet matters most \u2014 the 'feels right' trap. Persona milestone: Viber \u2192 approaching AI-First.");
   }
 
@@ -1059,7 +1059,7 @@ async function main() {
     const outputs = ["structured\nbrief", "polished\nproposal", "final draft\n+ notes"];
     arrowXs.forEach((x, i) => {
       s.addText("\u2192", { x, y: 1.25, w: 0.5, h: 0.65, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(outputs[i], { x: x - 0.15, y: 2.0, w: 0.8, h: 0.5, fontFace: D.b, fontSize: 8, color: D.mutedDark, italic: true, align: "center", margin: 0 });
+      s.addText(outputs[i], { x: x - 0.15, y: 2.1, w: 0.8, h: 0.5, fontFace: D.b, fontSize: 8, color: D.mutedDark, italic: true, align: "center", margin: 0 });
     });
     // Three principles
     const principles = [
@@ -1097,23 +1097,23 @@ async function main() {
     const s = darkSlide(pres);
     addHeadline(s, "Skills: Every Chef's Playbook", { dark: true });
     s.addText("How does each Dory in the brigade know what to do?", {
-      x: 0.5, y: 0.85, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
+      x: 0.5, y: 1.05, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
     });
     // Definition card
-    addDarkCard(pres, s, 0.5, 1.3, 9, 1.2);
-    addBar(pres, s, 0.5, 1.3, 1.2, D.accent);
+    addDarkCard(pres, s, 0.5, 1.5, 9, 1.2);
+    addBar(pres, s, 0.5, 1.5, 1.2, D.accent);
     s.addText([
       { text: "Skills: ", options: { bold: true, fontFace: D.h, fontSize: 16, color: D.accent } },
       { text: "Predefined rules, instructions, templates, and context packages \u2014 injected into the AI's context only when relevant. Think of them as the specialized training manual each chef at each station receives.", options: { fontFace: D.b, fontSize: 13, color: D.textDark } },
-    ], { x: 0.75, y: 1.4, w: 8.5, h: 1.0, margin: 0, valign: "middle" });
+    ], { x: 0.75, y: 1.6, w: 8.5, h: 1.0, margin: 0, valign: "middle" });
     // Connection to chains
-    addDarkCard(pres, s, 0.5, 2.8, 9, 1.3);
-    s.addImage({ data: icons.fish, x: 0.8, y: 3.0, w: 0.6, h: 0.6 });
+    addDarkCard(pres, s, 0.5, 3.0, 9, 1.1);
+    s.addImage({ data: icons.fish, x: 0.8, y: 3.15, w: 0.6, h: 0.6 });
     s.addText([
       { text: "Agent 1 (Research) gets the \"Research Standards\" skill.\nAgent 3 (Review) gets the \"Leadership Proposals\" and \"Compliance Policy\" skills.", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
       { text: "", options: { breakLine: true, fontSize: 4 } },
       { text: "Write once, use forever. Every time the chain runs, each agent already knows its specialty.", options: { fontFace: D.b, fontSize: 12, color: D.accent, bold: true, italic: true } },
-    ], { x: 1.6, y: 2.9, w: 7.6, h: 1.1, margin: 0, valign: "top" });
+    ], { x: 1.6, y: 3.1, w: 7.6, h: 0.9, margin: 0, valign: "top" });
     // Stat
     s.addText("Organizations investing in context architecture see 50% faster responses and 40% higher quality outputs.", {
       x: 0.5, y: 4.3, w: 9, h: 0.35, fontFace: D.b, fontSize: 11, color: D.accent, italic: true, margin: 0
@@ -1201,7 +1201,7 @@ async function main() {
       ["7", "Manually apply suggestions", "15 min"],
     ];
     steps.forEach((st, i) => {
-      const y = 1.05 + i * 0.5;
+      const y = 1.1 + i * 0.5;
       s.addShape(pres.shapes.OVAL, { x: 0.5, y: y + 0.05, w: 0.35, h: 0.35, fill: { color: D.wrong } });
       s.addText(st[0], { x: 0.5, y: y + 0.05, w: 0.35, h: 0.35, fontFace: D.b, fontSize: 11, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
       s.addText(st[1], { x: 1.0, y: y, w: 6.5, h: 0.45, fontFace: D.b, fontSize: 12, color: D.textDark, margin: 0, valign: "middle" });
@@ -1230,13 +1230,14 @@ async function main() {
       s.addText(a.prompt, { x: 0.75, y: y + 0.28, w: 6.8, h: 0.28, fontFace: D.b, fontSize: 9, color: D.textDark, italic: true, margin: 0 });
       s.addText(a.output, { x: 7.8, y: y + 0.03, w: 1.5, h: 0.52, fontFace: D.b, fontSize: 10, color: a.color, bold: true, margin: 0, valign: "middle", align: "right" });
     });
-    // Skills compounding beat
-    addGlassCard(pres, s, 0.5, 4.3, 9, 0.65);
+    // Skills compounding beat + takeaway combined in glass card
+    addGlassCard(pres, s, 0.5, 4.15, 9, 0.75);
     s.addText([
       { text: "And next time? ", options: { bold: true, fontFace: D.b, fontSize: 10, color: D.accent } },
-      { text: "Your feedback becomes skills. The VP's format \u2192 \"Leadership Proposals\" skill. Compliance gaps \u2192 updated \"Compliance Policy\" skill. The chain gets smarter every time \u2014 even though Dory won't remember, the skills will.", options: { fontFace: D.b, fontSize: 10, color: D.textDark } },
-    ], { x: 0.75, y: 4.33, w: 8.5, h: 0.58, margin: 0, valign: "middle" });
-    addTakeaway(pres, s, "Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work.", { dark: true });
+      { text: "Your feedback becomes skills. The VP's format \u2192 \"Leadership Proposals\" skill. Compliance gaps \u2192 updated \"Compliance Policy\" skill. The chain gets smarter every time \u2014 even though Dory won't remember, the skills will.", options: { breakLine: true, fontFace: D.b, fontSize: 10, color: D.textDark } },
+      { text: "", options: { breakLine: true, fontSize: 4 } },
+      { text: "Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work.", options: { bold: true, fontFace: D.b, fontSize: 11, color: D.accent } },
+    ], { x: 0.75, y: 4.18, w: 8.5, h: 0.68, margin: 0, valign: "middle" });
     s.addNotes("Emotional climax. The skills compounding beat is the final Dory touchpoint \u2014 even though Dory forgets, the skills persist.");
   }
 
@@ -1251,13 +1252,13 @@ async function main() {
       { label: "AI-First", bridge: "Level 5 brought\nyou here", color: D.accent },
     ];
     // Evolution arrow
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.1, w: 9, h: 0.08, fill: { color: D.accent } });
+    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.15, w: 9, h: 0.08, fill: { color: D.accent } });
     stages.forEach((st, i) => {
       const x = 0.5 + i * 2.35;
       addDarkCard(pres, s, x, 1.1, 2.1, 0.85);
       s.addText(st.label, { x: x + 0.1, y: 1.15, w: 1.9, h: 0.75, fontFace: D.h, fontSize: 13, color: st.color, bold: true, align: "center", margin: 0, valign: "middle" });
       // Bridge text below arrow
-      s.addText(st.bridge, { x: x + 0.1, y: 2.3, w: 1.9, h: 0.6, fontFace: D.b, fontSize: 10, color: st.color, italic: true, align: "center", margin: 0 });
+      s.addText(st.bridge, { x: x + 0.1, y: 2.35, w: 1.9, h: 0.6, fontFace: D.b, fontSize: 10, color: st.color, italic: true, align: "center", margin: 0 });
       // Arrow between stages
       if (i < 3) {
         s.addText("\u2192", { x: 2.35 + i * 2.35, y: 1.2, w: 0.5, h: 0.5, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0 });
@@ -1305,7 +1306,7 @@ async function main() {
     const s = darkSlide(pres);
     addHeadline(s, "The 30-Day Challenge", { dark: true });
     s.addText("One task. Four weeks. Four persona crossings.", {
-      x: 0.5, y: 0.85, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
+      x: 0.5, y: 1.05, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
     });
     const weeks = [
       { week: "Week 1", persona: "Better Questioner", level: "Level 2", desc: "Specific, structured prompt.\nCompare to manual.\nNotice the phrasing difference.", color: D.accent },
@@ -1314,17 +1315,17 @@ async function main() {
       { week: "Week 4", persona: "Full AI-First", level: "Level 5", desc: "Break into phases.\nChain them. Compare to\nWeek 1. You're orchestrating.", color: D.right },
     ];
     // Timeline bar
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 1.6, w: 9, h: 0.06, fill: { color: D.accent } });
+    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 1.75, w: 9, h: 0.06, fill: { color: D.accent } });
     weeks.forEach((w, i) => {
       const x = 0.5 + i * 2.35;
       // Node
-      s.addShape(pres.shapes.OVAL, { x: x + 0.75, y: 1.4, w: 0.45, h: 0.45, fill: { color: w.color } });
-      addDarkCard(pres, s, x, 2.0, 2.1, 2.5);
-      addBar(pres, s, x, 2.0, 2.5, w.color);
-      s.addText(w.week, { x: x + 0.15, y: 2.05, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 11, color: w.color, bold: true, margin: 0 });
-      s.addText(w.persona, { x: x + 0.15, y: 2.28, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 10, color: w.color, italic: true, margin: 0 });
-      s.addText(w.level, { x: x + 0.15, y: 2.52, w: 1.8, h: 0.2, fontFace: D.b, fontSize: 9, color: D.mutedDark, margin: 0 });
-      s.addText(w.desc, { x: x + 0.15, y: 2.8, w: 1.8, h: 1.4, fontFace: D.b, fontSize: 10, color: D.textDark, margin: 0, valign: "top" });
+      s.addShape(pres.shapes.OVAL, { x: x + 0.75, y: 1.55, w: 0.45, h: 0.45, fill: { color: w.color } });
+      addDarkCard(pres, s, x, 2.1, 2.1, 2.3);
+      addBar(pres, s, x, 2.1, 2.3, w.color);
+      s.addText(w.week, { x: x + 0.15, y: 2.15, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 11, color: w.color, bold: true, margin: 0 });
+      s.addText(w.persona, { x: x + 0.15, y: 2.38, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 10, color: w.color, italic: true, margin: 0 });
+      s.addText(w.level, { x: x + 0.15, y: 2.62, w: 1.8, h: 0.2, fontFace: D.b, fontSize: 9, color: D.mutedDark, margin: 0 });
+      s.addText(w.desc, { x: x + 0.15, y: 2.85, w: 1.8, h: 1.3, fontFace: D.b, fontSize: 10, color: D.textDark, margin: 0, valign: "top" });
     });
     addTakeaway(pres, s, "Four weeks. One task. Same journey this deck just took you on.", { dark: true });
     s.addNotes("Most actionable takeaway. Same task across four weeks mirrors the deck's progression. Now framed as persona crossings for motivation.");
