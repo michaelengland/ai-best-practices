@@ -12,10 +12,23 @@ const {
 // DESIGN SYSTEM
 // ============================================================
 const D = {
-  darkBg: "1A1A2E", lightBg: "F5F5F5", accent: "00B4D8", accentDark: "0891B2",
+  // Backgrounds
+  darkBg: "0F0F1A", lightBg: "F8F9FA",
+  // Cards
+  darkCard: "1A1A3E", card: "FFFFFF",
+  // Accent
+  accent: "00B4D8", accentDark: "0891B2",
+  // Text on dark
+  textDark: "E0E4E8", mutedDark: "94A3B8",
+  // Text on light
+  text: "1E293B", muted: "64748B",
+  // White (headlines on dark)
+  white: "FFFFFF",
+  // Wrong/Right
   wrong: "E63946", wrongBg: "FEE2E2", right: "2D936C", rightBg: "DCFCE7",
-  text: "1E1E1E", muted: "4B5563", white: "FFFFFF", card: "FFFFFF",
-  tableBorder: "D1D5DB", tableHead: "E5E7EB", darkCard: "2A2A4E",
+  // Table
+  tableBorder: "D1D5DB", tableHead: "E5E7EB",
+  // Fonts
   h: "Georgia", b: "Calibri",
 };
 
@@ -31,33 +44,97 @@ async function icon64(Icon, color, size = 256) {
 }
 const sh = () => ({ type: "outer", color: "000000", blur: 6, offset: 2, angle: 135, opacity: 0.12 });
 
-function darkSlide(pres) { const s = pres.addSlide(); s.background = { color: D.darkBg }; return s; }
+function darkSlide(pres) {
+  const s = pres.addSlide();
+  s.background = { color: D.darkBg };
+  s.addShape(pres.shapes.OVAL, {
+    x: 5, y: 2.5, w: 8, h: 6,
+    fill: { color: D.accent, transparency: 96 }
+  });
+  return s;
+}
 function lightSlide(pres) { const s = pres.addSlide(); s.background = { color: D.lightBg }; return s; }
 
 function addHeadline(s, text, opts = {}) {
+  const isDark = opts.dark || false;
+  const cleanOpts = { ...opts };
+  delete cleanOpts.dark;
   s.addText(text, {
-    x: 0.5, y: 0.3, w: 9, h: 0.6, fontFace: D.h, fontSize: opts.fontSize || 28,
-    bold: true, color: opts.color || D.text, align: opts.align || "left", margin: 0, ...opts
+    x: 0.5, y: 0.3, w: 9, h: 0.8, fontFace: D.h, fontSize: cleanOpts.fontSize || 40,
+    bold: true, color: isDark ? D.white : D.text, align: cleanOpts.align || "left",
+    margin: 0, ...cleanOpts
   });
 }
+
+// Tier 1: Takeaway callout — the one line the audience should remember
+function addTakeaway(pres, s, text, opts = {}) {
+  const isDark = opts.dark || false;
+  s.addShape(pres.shapes.RECTANGLE, {
+    x: 0.3, y: 4.5, w: 9.4, h: 0.45,
+    fill: { color: D.accent, transparency: isDark ? 88 : 92 }
+  });
+  s.addText(text, {
+    x: 0.5, y: 4.5, w: 9, h: 0.45, fontFace: D.b, fontSize: 14,
+    color: D.accent, bold: true, margin: 0, valign: "middle"
+  });
+}
+
+// Tier 2: Separator line
+function addFooterSep(pres, s, opts = {}) {
+  const isDark = opts.dark || false;
+  s.addShape(pres.shapes.LINE, {
+    x: 0.5, y: 5.1, w: 9, h: 0,
+    line: { color: isDark ? "FFFFFF" : "94A3B8", width: 0.5, transparency: isDark ? 92 : 80 }
+  });
+}
+
+// Tier 3: Source citation — metadata only
+function addSourceCite(pres, s, text, opts = {}) {
+  addFooterSep(pres, s, opts);
+  s.addText(text, {
+    x: 0.5, y: 5.15, w: 9, h: 0.3, fontFace: D.b, fontSize: 9,
+    color: D.muted, align: "right", margin: 0
+  });
+}
+
+// LEGACY SHIMS — remove after all slides migrated to takeaway/source
 function addFooter(s, text) {
   s.addText(text, { x: 0.5, y: 5.0, w: 9, h: 0.45, fontFace: D.b, fontSize: 11, color: D.muted, italic: true, margin: 0 });
 }
 function addSource(s, text) {
   s.addText(text, { x: 0.5, y: 5.25, w: 9, h: 0.25, fontFace: D.b, fontSize: 9, color: D.muted, margin: 0 });
 }
+
 function addCard(pres, s, x, y, w, h, fill) {
   s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: fill || D.card }, shadow: sh() });
 }
 function addBar(pres, s, x, y, h, color) {
   s.addShape(pres.shapes.RECTANGLE, { x, y, w: 0.06, h, fill: { color: color || D.accent } });
 }
+function addDarkCard(pres, s, x, y, w, h) {
+  s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: D.darkCard }, shadow: sh() });
+}
+function addGlassCard(pres, s, x, y, w, h) {
+  s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: "FFFFFF", transparency: 95 }, line: { color: "FFFFFF", width: 0.5, transparency: 85 } });
+}
+
+// Breather slide helper
+function breatherSlide(pres, text, notes) {
+  const s = darkSlide(pres);
+  s.addText(text, {
+    x: 1.5, y: 2.0, w: 7, h: 1.6,
+    fontFace: D.h, fontSize: 28, color: D.accent, italic: true,
+    align: "center", margin: 0, valign: "middle"
+  });
+  if (notes) s.addNotes(notes);
+  return s;
+}
 
 // Wrong/Right helper for Level 2 iterations
 function wrongRight(pres, d) {
   const s = lightSlide(pres);
   s.addText([
-    { text: d.headline, options: { bold: true, fontFace: D.h, fontSize: 28, color: D.text } },
+    { text: d.headline, options: { bold: true, fontFace: D.h, fontSize: 36, color: D.text } },
     { text: " \u2014 " + d.subtitle, options: { italic: true, fontFace: D.b, fontSize: 16, color: D.muted } }
   ], { x: 0.5, y: 0.25, w: 9, h: 0.55, margin: 0 });
   // Left
@@ -76,41 +153,52 @@ function wrongRight(pres, d) {
     { text: "", options: { breakLine: true, fontSize: 6 } },
     { text: d.rightLabel, options: { fontFace: D.b, fontSize: 12, color: "374151" } }
   ], { x: 5.5, y: 1.4, w: 3.8, h: 2.7, fontFace: D.b, fontSize: 13, color: D.text, margin: 0, valign: "top" });
-  addFooter(s, d.footer);
-  if (d.sources) addSource(s, d.sources);
+  // Legacy support during migration
+  if (d.takeaway) addTakeaway(pres, s, d.takeaway);
+  else if (d.footer) addFooter(s, d.footer);
+  if (d.source) addSourceCite(pres, s, d.source);
+  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
 
 // Two-column comparison helper
 function twoCol(pres, d) {
-  const s = lightSlide(pres);
-  addHeadline(s, d.headline);
+  const isDark = d.dark || false;
+  const s = isDark ? darkSlide(pres) : lightSlide(pres);
+  addHeadline(s, d.headline, { dark: isDark });
   const cardH = 3.7;
-  addCard(pres, s, 0.5, 1.1, 4.25, cardH, d.leftBg || D.card);
-  if (d.leftAccent) addBar(pres, s, 0.5, 1.1, cardH, d.leftAccent);
+  const cardFill = isDark ? D.darkCard : D.card;
+  const bodyColor = isDark ? D.textDark : D.text;
+  addCard(pres, s, 0.5, 1.2, 4.25, cardH, d.leftBg || cardFill);
+  if (d.leftAccent) addBar(pres, s, 0.5, 1.2, cardH, d.leftAccent);
   const lx = d.leftAccent ? 0.75 : 0.7;
-  if (d.leftTitle) s.addText(d.leftTitle, { x: lx, y: 1.2, w: 3.85, h: 0.35, fontFace: D.h, fontSize: 16, color: d.leftTitleColor || D.text, bold: true, margin: 0 });
-  const ly = d.leftTitle ? 1.6 : 1.2, lh = d.leftTitle ? 3.0 : 3.4;
-  s.addText(d.leftContent, { x: lx, y: ly, w: 3.85, h: lh, fontFace: D.b, fontSize: 14, color: D.text, margin: 0, valign: "top" });
-  addCard(pres, s, 5.25, 1.1, 4.25, cardH, d.rightBg || D.card);
-  if (d.rightAccent) addBar(pres, s, 5.25, 1.1, cardH, d.rightAccent);
+  if (d.leftTitle) s.addText(d.leftTitle, { x: lx, y: 1.3, w: 3.85, h: 0.35, fontFace: D.h, fontSize: 18, color: d.leftTitleColor || bodyColor, bold: true, margin: 0 });
+  const ly = d.leftTitle ? 1.7 : 1.3, lh = d.leftTitle ? 3.0 : 3.4;
+  s.addText(d.leftContent, { x: lx, y: ly, w: 3.85, h: lh, fontFace: D.b, fontSize: 15, color: bodyColor, margin: 0, valign: "top" });
+  addCard(pres, s, 5.25, 1.2, 4.25, cardH, d.rightBg || cardFill);
+  if (d.rightAccent) addBar(pres, s, 5.25, 1.2, cardH, d.rightAccent);
   const rx = d.rightAccent ? 5.5 : 5.45;
-  if (d.rightTitle) s.addText(d.rightTitle, { x: rx, y: 1.2, w: 3.85, h: 0.35, fontFace: D.h, fontSize: 16, color: d.rightTitleColor || D.text, bold: true, margin: 0 });
-  const ry = d.rightTitle ? 1.6 : 1.2, rh = d.rightTitle ? 3.0 : 3.4;
-  s.addText(d.rightContent, { x: rx, y: ry, w: 3.85, h: rh, fontFace: D.b, fontSize: 14, color: D.text, margin: 0, valign: "top" });
-  if (d.footer) addFooter(s, d.footer);
-  if (d.sources) addSource(s, d.sources);
+  if (d.rightTitle) s.addText(d.rightTitle, { x: rx, y: 1.3, w: 3.85, h: 0.35, fontFace: D.h, fontSize: 18, color: d.rightTitleColor || bodyColor, bold: true, margin: 0 });
+  const ry = d.rightTitle ? 1.7 : 1.3, rh = d.rightTitle ? 3.0 : 3.4;
+  s.addText(d.rightContent, { x: rx, y: ry, w: 3.85, h: rh, fontFace: D.b, fontSize: 15, color: bodyColor, margin: 0, valign: "top" });
+  // Legacy support during migration
+  if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
+  else if (d.footer) addFooter(s, d.footer);
+  if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
+  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
 
 // Bullet list helper
 function bulletSlide(pres, d) {
-  const s = lightSlide(pres);
-  addHeadline(s, d.headline);
+  const isDark = d.dark || false;
+  const s = isDark ? darkSlide(pres) : lightSlide(pres);
+  addHeadline(s, d.headline, { dark: isDark });
+  const bodyColor = isDark ? D.textDark : D.text;
   const items = d.bullets.map((b, i) => {
-    if (typeof b === "string") return { text: b, options: { bullet: true, breakLine: i < d.bullets.length - 1, fontFace: D.b, fontSize: 14, color: D.text } };
+    if (typeof b === "string") return { text: b, options: { bullet: true, breakLine: i < d.bullets.length - 1, fontFace: D.b, fontSize: 14, color: bodyColor } };
     return { text: "", options: { breakLine: true, fontSize: 6 } }; // spacer
   });
   // Build rich text array with bold headers if items are objects
@@ -118,44 +206,48 @@ function bulletSlide(pres, d) {
   const richItems = [];
   d.bullets.forEach((b, i) => {
     if (typeof b === "object" && b.head) {
-      richItems.push({ text: b.head + " ", options: { bold: true, fontFace: D.b, fontSize: sz, color: D.text, bullet: true, breakLine: false } });
-      richItems.push({ text: b.body, options: { fontFace: D.b, fontSize: sz, color: D.text, breakLine: i < d.bullets.length - 1 } });
+      richItems.push({ text: b.head + " ", options: { bold: true, fontFace: D.b, fontSize: sz, color: bodyColor, bullet: true, breakLine: false } });
+      richItems.push({ text: b.body, options: { fontFace: D.b, fontSize: sz, color: bodyColor, breakLine: i < d.bullets.length - 1 } });
     } else {
-      richItems.push({ text: b, options: { bullet: true, fontFace: D.b, fontSize: sz, color: D.text, breakLine: i < d.bullets.length - 1 } });
+      richItems.push({ text: b, options: { bullet: true, fontFace: D.b, fontSize: sz, color: bodyColor, breakLine: i < d.bullets.length - 1 } });
     }
   });
   s.addText(richItems, { x: 0.7, y: 1.1, w: 8.6, h: 3.7, margin: 0, valign: "middle", paraSpaceAfter: 10 });
   if (d.stat) {
     s.addText(d.stat, { x: 0.5, y: 4.5, w: 9, h: 0.35, fontFace: D.b, fontSize: 11, color: D.accent, italic: true, margin: 0 });
   }
-  if (d.footer) addFooter(s, d.footer);
-  if (d.sources) addSource(s, d.sources);
+  // Legacy support during migration
+  if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
+  else if (d.footer) addFooter(s, d.footer);
+  if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
+  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
 
 // Single message / centered statement
 function singleMsg(pres, d) {
-  const s = d.dark ? darkSlide(pres) : lightSlide(pres);
-  const textColor = d.dark ? D.white : D.text;
-  if (d.headline) addHeadline(s, d.headline, { color: textColor });
+  const isDark = d.dark !== undefined ? d.dark : true;
+  const s = isDark ? darkSlide(pres) : lightSlide(pres);
+  const textColor = isDark ? D.textDark : D.text;
+  const subColor = isDark ? D.mutedDark : D.muted;
+  if (d.headline) addHeadline(s, d.headline, { dark: isDark });
   const mainY = d.headline ? 1.4 : (d.sub ? 1.7 : 2.0);
   s.addText(d.main, {
     x: 1.0, y: mainY, w: 8, h: 1.6,
-    fontFace: D.h, fontSize: d.mainSize || 24, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
+    fontFace: D.h, fontSize: d.mainSize || 26, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
   });
   if (d.sub) {
     s.addText(d.sub, {
       x: 1.0, y: mainY + 1.7, w: 8, h: 1.2,
-      fontFace: D.b, fontSize: 15, color: d.dark ? "CCCCCC" : D.muted, italic: true, align: "center", margin: 0, valign: "top"
+      fontFace: D.b, fontSize: 16, color: subColor, italic: true, align: "center", margin: 0, valign: "top"
     });
   }
-  if (d.footer) addFooter(s, d.dark ? d.footer : d.footer);
-  if (d.dark && d.footer) {
-    // Override footer color for dark slides
-    // Already handled by adding white footer manually below
-  }
-  if (d.sources) addSource(s, d.sources);
+  // Legacy support during migration
+  if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
+  else if (d.footer) addFooter(s, d.footer);
+  if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
+  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
@@ -164,11 +256,11 @@ function singleMsg(pres, d) {
 function sectionDivider(pres, d) {
   const s = darkSlide(pres);
   if (d.level) {
-    s.addText(d.level, { x: 0.5, y: 1.0, w: 9, h: 0.5, fontFace: D.b, fontSize: 14, color: D.accent, bold: true, margin: 0, align: "center" });
+    s.addText(d.level, { x: 0.5, y: 1.0, w: 9, h: 0.5, fontFace: D.b, fontSize: 11, color: D.mutedDark, bold: true, margin: 0, align: "center", charSpacing: 4 });
   }
-  s.addText(d.title, { x: 0.5, y: 1.6, w: 9, h: 1.2, fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0 });
+  s.addText(d.title, { x: 0.5, y: 1.6, w: 9, h: 1.2, fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0 });
   if (d.subtitle) {
-    s.addText(d.subtitle, { x: 1.0, y: 2.9, w: 8, h: 0.6, fontFace: D.b, fontSize: 18, color: D.accent, italic: true, align: "center", margin: 0 });
+    s.addText(d.subtitle, { x: 1.0, y: 2.9, w: 8, h: 0.6, fontFace: D.b, fontSize: 20, color: D.accent, italic: true, align: "center", margin: 0 });
   }
   if (d.small) {
     s.addText(d.small, { x: 1.5, y: 3.6, w: 7, h: 0.8, fontFace: D.b, fontSize: 13, color: "999999", italic: true, align: "center", margin: 0 });
@@ -179,18 +271,24 @@ function sectionDivider(pres, d) {
 
 // Three-column helper
 function threeCol(pres, d) {
-  const s = lightSlide(pres);
-  addHeadline(s, d.headline);
+  const isDark = d.dark || false;
+  const s = isDark ? darkSlide(pres) : lightSlide(pres);
+  addHeadline(s, d.headline, { dark: isDark });
+  const bodyColor = isDark ? D.textDark : D.text;
+  const cardFill = isDark ? D.darkCard : D.card;
   d.columns.forEach((col, i) => {
     const x = 0.5 + i * 3.1;
-    addCard(pres, s, x, 1.1, 2.8, 3.6);
+    addCard(pres, s, x, 1.1, 2.8, 3.6, cardFill);
     addBar(pres, s, x, 1.1, 3.6, col.accent || D.accent);
     if (col.icon) s.addImage({ data: col.icon, x: x + 1.0, y: 1.25, w: 0.6, h: 0.6 });
-    s.addText(col.title, { x: x + 0.2, y: col.icon ? 2.0 : 1.25, w: 2.4, h: 0.5, fontFace: D.h, fontSize: 14, color: D.text, bold: true, align: "center", margin: 0, valign: "top" });
-    s.addText(col.body, { x: x + 0.2, y: col.icon ? 2.5 : 1.8, w: 2.4, h: col.icon ? 1.9 : 2.7, fontFace: D.b, fontSize: 12, color: D.text, margin: 0, valign: "top" });
+    s.addText(col.title, { x: x + 0.2, y: col.icon ? 2.0 : 1.25, w: 2.4, h: 0.5, fontFace: D.h, fontSize: 14, color: bodyColor, bold: true, align: "center", margin: 0, valign: "top" });
+    s.addText(col.body, { x: x + 0.2, y: col.icon ? 2.5 : 1.8, w: 2.4, h: col.icon ? 1.9 : 2.7, fontFace: D.b, fontSize: 12, color: bodyColor, margin: 0, valign: "top" });
   });
-  if (d.footer) addFooter(s, d.footer);
-  if (d.sources) addSource(s, d.sources);
+  // Legacy support during migration
+  if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
+  else if (d.footer) addFooter(s, d.footer);
+  if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
+  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
