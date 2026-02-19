@@ -588,673 +588,512 @@ async function main() {
   );
 
   // ============================================================
-  // LEVEL 3: "FEED AI SMARTER" (Slides 22-26)
-  // v2: Leads with proof (Same Prompt, Different Context) BEFORE Dory
+  // LEVEL 3: "FEED AI SMARTER" (Slides 34-41)
   // ============================================================
 
-  // --- Slide 22: Same Prompt, Different Context ---
-  twoCol(pres, {
-    dark: true,
-    headline: "Same Prompt, Different Context",
-    leftTitle: "Level 2 Result",
-    leftContent: [
-      { text: "Same well-crafted prompt from the 5x Prompt slide.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.muted } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "Output is plausible but generic. Reads like it could be for any company.", options: { fontFace: D.b, fontSize: 13, color: D.muted, italic: true } },
-    ],
-    rightTitle: "With Context",
-    rightAccent: D.right,
-    rightBg: D.rightBg,
-    rightContent: [
-      { text: "Same prompt + background info:", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 4 } },
-      { text: "\u2022 Current onboarding stats", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Company size & structure", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Known pain points", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Relevant policies", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "Output sounds like someone who works here.", options: { fontFace: D.b, fontSize: 13, color: D.right, bold: true, italic: true } },
-    ],
-    takeaway: "Same prompt. Different information. Dramatically different result.",
-    source: "Elastic \u00b7 KDnuggets",
-    notes: "The clearest Level 2/3 boundary demonstration. The prompt didn't change. The context did. This is the 'aha' \u2014 it's not about the words, it's about what the AI knows."
+  // --- Slide 34: "Same prompt. Different information." ---
+  hero(pres, "Same prompt.\nDifferent information.", {
+    sub: "Dramatically different result.",
+    notes: "The clearest Level 2/3 boundary demonstration. The prompt didn't change. The context did. This is the 'aha' \u2014 it's not about the words, it's about what the AI knows. Source: Elastic, KDnuggets. Transition: Let's see the difference."
   });
 
-  // --- Slide 23: Meet Your AI Colleague (Dory) ---
+  // --- Slide 35: Before/After context (light bg, two columns) ---
   {
-    const s = darkSlide(pres);
-    addHeadline(s, "Meet Your AI Colleague", { dark: true });
-    // Dory illustration area (fish icon as placeholder)
-    addDarkCard(pres, s, 0.5, 1.2, 3.5, 3.0);
-    s.addShape(pres.shapes.OVAL, { x: 1.3, y: 1.5, w: 1.8, h: 1.8, fill: { color: D.accent, transparency: 80 } });
-    s.addImage({ data: icons.fish, x: 1.6, y: 1.8, w: 1.2, h: 1.2 });
-    s.addText("Dory", { x: 0.5, y: 3.2, w: 3.5, h: 0.4, fontFace: D.h, fontSize: 20, color: D.accent, bold: true, align: "center", margin: 0 });
-    s.addText("Your AI Colleague", { x: 0.5, y: 3.55, w: 3.5, h: 0.3, fontFace: D.b, fontSize: 12, color: D.mutedDark, italic: true, align: "center", margin: 0 });
-    // Text right
-    addDarkCard(pres, s, 4.3, 1.2, 5.2, 3.0);
-    addBar(pres, s, 4.3, 1.2, 3.2, D.accent);
-    s.addText([
-      { text: "Your AI is like Dory:", options: { breakLine: true, fontFace: D.b, fontSize: 15, color: D.textDark, bold: true } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "Incredibly smart. Genuinely wants to help. Remembers absolutely nothing between conversations.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.textDark, italic: true } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "In Level 2, we got better at asking. But Dory's biggest problem isn't that she doesn't understand what you're saying \u2014 it's that she doesn't know what you know.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.mutedDark } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "You already SAW context transform output. Dory explains WHY.", options: { fontFace: D.b, fontSize: 12, color: D.accent, bold: true } },
-    ], { x: 4.55, y: 1.3, w: 4.7, h: 3.0, margin: 0, valign: "top" });
-    addTakeaway(pres, s, "Level 2 = words. Level 3 = information.", { dark: true });
-    s.addNotes("NOW the Dory metaphor has a reason. The reader just saw what context does (slide 22); Dory explains the mechanism. First of five Dory touchpoints.");
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
+    // Left column
+    s.addText("Plausible but generic", {
+      x: 0.5, y: 1.8, w: 4.2, h: 1.0,
+      fontFace: D.h, fontSize: 32, color: D.muted, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Could be for any company.", {
+      x: 0.5, y: 2.9, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
+    });
+    // Divider
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.accent, width: 2 } });
+    // Right column
+    s.addText("Sounds like someone\nwho works here", {
+      x: 5.3, y: 1.8, w: 4.2, h: 1.0,
+      fontFace: D.h, fontSize: 32, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Same prompt + your context.", {
+      x: 5.3, y: 2.9, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Left: Same well-crafted prompt from Level 2. Output is plausible but generic \u2014 reads like it could be for any company.\nRight: Same prompt + background info (current onboarding stats, company size & structure, known pain points, relevant policies). Output sounds like someone who works here.\nSource: Elastic, KDnuggets. Transition: Let's meet the metaphor that explains why.");
   }
 
-  // --- Slide 24: The Attention Problem ---
-  threeCol(pres, {
-    dark: true,
-    headline: "The Attention Problem",
-    columns: [
-      { title: "Too Much Context", body: "Dory gets lost \u2014 buries important stuff in noise. Key details get drowned out by irrelevant information.", accent: D.wrong },
-      { title: "Contradictory Info", body: "Dory gets confused \u2014 tries to satisfy everything at once. Output becomes incoherent.", accent: "F59E0B" },
-      { title: "Broad Instructions", body: "Dory wanders off \u2014 loses focus partway through. Starts strong, finishes weak.", accent: D.accentDark },
-    ],
-    takeaway: "The problem isn't that AI is dumb. It's the context.",
-    source: "Sombra \u2014 57% of orgs have AI agents in production, but 32% cite quality as top barrier",
-    notes: "Reframes 'AI gives bad answers.' It's almost never the model \u2014 it's the context."
+  // --- Slide 36: Meet Dory ---
+  {
+    const s = darkSlide(pres);
+    // Left: teal-tinted placeholder rectangle for future Dory image
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x: 0.8, y: 0.8, w: 3.5, h: 4.0,
+      rectRadius: 0.15,
+      fill: { color: D.accent, transparency: 85 },
+      line: { color: D.accent, width: 1.5 }
+    });
+    s.addImage({ data: icons.fish, x: 1.95, y: 2.0, w: 1.2, h: 1.2 });
+    // Right: just 4 words
+    s.addText("Meet your\nAI colleague.", {
+      x: 5.0, y: 1.5, w: 4.5, h: 2.5,
+      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "left", margin: 0, valign: "middle"
+    });
+    s.addNotes("Your AI is like Dory from Finding Nemo: incredibly smart, genuinely wants to help, remembers absolutely nothing between conversations. In Level 2, we got better at asking. But Dory's biggest problem isn't that she doesn't understand what you're saying \u2014 it's that she doesn't know what you know. You already SAW context transform output. Dory explains WHY. First of five Dory touchpoints. Transition: Let's meet her properly.");
+  }
+
+  // --- Slide 37: "Brilliant. Helpful. Remembers nothing." ---
+  hero(pres, "Brilliant. Helpful.\nRemembers nothing.", {
+    size: 60,
+    notes: "The Dory punchline. Every conversation starts fresh \u2014 no memory of previous interactions, no context about your company, your role, or your preferences. This is why context engineering matters: you have to give Dory the information she needs every single time. Level 2 = words. Level 3 = information. Transition: Three ways to confuse your AI."
   });
 
-  // --- Slide 25: Let AI Tell You What It Needs ---
-  twoCol(pres, {
-    dark: true,
-    headline: "Let AI Tell You What It Needs",
-    leftTitle: "The Prompt",
-    leftAccent: D.accent,
-    leftContent: [
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "\"Before you start, ask me clarifying questions about anything you'd need to know to write an excellent proposal.\"", options: { fontFace: D.b, fontSize: 14, color: D.text, italic: true } },
-    ],
-    rightTitle: "AI's Questions",
-    rightAccent: D.right,
-    rightContent: [
-      { text: "\u2022 What's the current onboarding timeline?", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Budget constraints?", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Key stakeholder concerns?", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Success metrics you'll be measured on?", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Previous failed attempts?", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "The AI does context engineering for you.", options: { fontFace: D.b, fontSize: 13, color: D.right, bold: true, italic: true } },
-    ],
-    takeaway: "The single highest-leverage technique: let AI close its own context gaps.",
-    source: "Anthropic/Claude",
-    notes: "The AI does context engineering for you. This addresses the attention problem from slide 24."
+  // --- Slide 38: Attention Problem ---
+  hero(pres, "Too much.\nContradictory.\nToo broad.", {
+    sub: "Three ways to confuse your AI.",
+    notes: "The three failure modes of context:\n1. Too much context \u2014 Dory gets lost, buries important stuff in noise. Key details get drowned out by irrelevant information.\n2. Contradictory info \u2014 Dory gets confused, tries to satisfy everything at once. Output becomes incoherent.\n3. Broad instructions \u2014 Dory wanders off, loses focus partway through. Starts strong, finishes weak.\nThe problem isn't that AI is dumb. It's the context. Source: Sombra \u2014 57% of orgs have AI agents in production, but 32% cite quality as top barrier. Transition: So how do you fix it?"
   });
 
-  // --- Slide 26: The Goldilocks Principle + Persona Milestone ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Not too much. Not too little.\nThe right context at the right time.", {
-      x: 1.0, y: 1.0, w: 8, h: 1.6,
-      fontFace: D.h, fontSize: 26, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Prompt engineering tweaks the question.\nContext engineering builds the knowledge base.", {
-      x: 1.0, y: 2.6, w: 8, h: 1.0,
-      fontFace: D.b, fontSize: 15, color: D.mutedDark, italic: true, align: "center", margin: 0, valign: "top"
-    });
-    // Persona milestone callout
-    addGlassCard(pres, s, 1.5, 3.8, 7, 1.0);
-    s.addText([
-      { text: "Persona milestone: ", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
-      { text: "You've outgrown Questioner. You prompt well, you understand context, you get good results. You're a ", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
-      { text: "Viber", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accentDark } },
-      { text: " \u2014 but you're still doing all the work manually.", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
-    ], { x: 1.75, y: 3.85, w: 6.5, h: 0.9, margin: 0, valign: "middle" });
-    addSourceCite(pres, s, "CIO", { dark: true });
-    s.addNotes("Crystallizes Level 3. Persona milestone: Questioner \u2192 Viber. The reader knows they're making progress, but the work is still manual.");
-  }
-
-  // ============================================================
-  // LEVEL 4: "LET AI DRIVE" (Slides 27-32)
-  // v2: Trust/Verify now at END of this section. MCP folded inline.
-  // ============================================================
-
-  // --- Slide 27: The Copy-Paste Trap ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "The Copy-Paste Trap", { dark: true });
-    const steps = [
-      { num: "1", text: "You decide which documents to provide" },
-      { num: "2", text: "You copy-paste into the AI chat" },
-      { num: "3", text: "You read the output" },
-      { num: "4", text: "You manually apply it" },
-    ];
-    steps.forEach((st, i) => {
-      const y = 1.2 + i * 0.8;
-      s.addShape(pres.shapes.OVAL, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fill: { color: D.wrong } });
-      s.addText(st.num, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fontFace: D.b, fontSize: 16, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(st.text, { x: 1.7, y: y, w: 4.1, h: 0.6, fontFace: D.b, fontSize: 14, color: D.textDark, margin: 0, valign: "middle" });
-      if (i < 3) s.addText("\u2193", { x: 1.0, y: y + 0.55, w: 0.5, h: 0.25, fontFace: D.b, fontSize: 14, color: D.mutedDark, align: "center", margin: 0 });
-    });
-    // Problems card
-    addCard(pres, s, 6.0, 1.2, 3.5, 2.8, D.wrongBg);
-    addBar(pres, s, 6.0, 1.2, 2.8, D.wrong);
-    s.addText([
-      { text: "Problems:", options: { breakLine: true, bold: true, fontFace: D.b, fontSize: 13, color: D.wrong } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "You're the bottleneck", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
-      { text: "You don't know what context AI needs", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
-      { text: "You're doing grunt work", options: { bullet: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
-    ], { x: 6.25, y: 1.3, w: 3.0, h: 2.6, margin: 0, valign: "top" });
-    addTakeaway(pres, s, "You're using a Ferrari to carry groceries.", { dark: true });
-    s.addNotes("The copy-paste cycle is so universal it's invisible. Drawing it as a diagram makes people see it.");
-  }
-
-  // --- Slide 28: Hand Dory the Keys ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "Hand Dory the Keys", { dark: true });
-    const steps = [
-      { num: "1", text: "Agent retrieves its own context" },
-      { num: "2", text: "Agent identifies gaps, goes back for more" },
-      { num: "3", text: "Agent creates/edits outputs directly" },
-      { num: "4", text: "You review and approve" },
-    ];
-    steps.forEach((st, i) => {
-      const y = 1.2 + i * 0.8;
-      const isHuman = i === 3;
-      s.addShape(pres.shapes.OVAL, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fill: { color: isHuman ? D.accent : D.right } });
-      s.addText(st.num, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fontFace: D.b, fontSize: 16, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(st.text, { x: 1.7, y: y, w: 4.1, h: 0.6, fontFace: D.b, fontSize: 14, color: D.textDark, margin: 0, valign: "middle" });
-      if (i < 3) s.addText("\u2193", { x: 1.0, y: y + 0.55, w: 0.5, h: 0.25, fontFace: D.b, fontSize: 14, color: D.mutedDark, align: "center", margin: 0 });
-    });
-    // Insight card
-    addCard(pres, s, 6.0, 1.2, 3.5, 2.8, D.rightBg);
-    addBar(pres, s, 6.0, 1.2, 2.8, D.right);
-    s.addText([
-      { text: "Same Dory. Same memory issues.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.textDark, bold: true } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "But now she has hands, eyes, and a to-do list.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.right, italic: true } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "One great chef who finds ingredients, preps, cooks, and plates.", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
-      { text: "", options: { breakLine: true, fontSize: 4 } },
-      { text: "You taste-test at the end.", options: { fontFace: D.b, fontSize: 12, color: D.accent, bold: true } },
-    ], { x: 6.25, y: 1.3, w: 3.0, h: 2.6, margin: 0, valign: "top" });
-    addTakeaway(pres, s, "Human moved from 'operator at every step' to 'reviewer at the end.'", { dark: true });
-    s.addNotes("Visual contrast with slide 27 is the whole point. Chef metaphor sets up Level 5.");
-  }
-
-  // --- Slide 29: Connections Are Everything (with MCP inline) ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "Connections Are Everything", { dark: true });
-    const connections = [
-      { icon: icons.globe, label: "Web search/fetch", desc: "Research and fact-check" },
-      { icon: icons.envelope, label: "Email access", desc: "Read context, draft responses" },
-      { icon: icons.file, label: "Document access", desc: "Policies, templates, past work" },
-      { icon: icons.database, label: "Database access", desc: "Query real data" },
-      { icon: icons.calendar, label: "Calendar access", desc: "Scheduling context" },
-      { icon: icons.puzzle, label: "Custom connections", desc: "Via MCP \u2014 \"USB-C for AI\"" },
-    ];
-    connections.forEach((c, i) => {
-      const col = i % 3;
-      const row = Math.floor(i / 3);
-      const x = 0.5 + col * 3.1;
-      const y = 1.1 + row * 1.6;
-      addDarkCard(pres, s, x, y, 2.8, 1.3);
-      s.addShape(pres.shapes.OVAL, { x: x + 0.15, y: y + 0.25, w: 0.6, h: 0.6, fill: { color: D.accent, transparency: 80 } });
-      s.addImage({ data: c.icon, x: x + 0.25, y: y + 0.35, w: 0.4, h: 0.4 });
-      s.addText(c.label, { x: x + 0.9, y: y + 0.15, w: 1.7, h: 0.35, fontFace: D.b, fontSize: 13, color: D.textDark, bold: true, margin: 0 });
-      s.addText(c.desc, { x: x + 0.9, y: y + 0.5, w: 1.7, h: 0.5, fontFace: D.b, fontSize: 11, color: D.mutedDark, margin: 0 });
-    });
-    addTakeaway(pres, s, "Give Dory a phone, a filing cabinet, and a library card.", { dark: true });
-    s.addNotes("MCP gets a single-line mention ('USB-C for AI') rather than a dedicated slide. Full MCP detail available in appendix for Q&A.");
-  }
-
-  // --- Slide 30: The Proposal \u2014 With Connections ---
-  twoCol(pres, {
-    dark: true,
-    headline: "The Proposal \u2014 With Connections",
-    leftTitle: "Without Connections",
-    leftAccent: D.wrong,
-    leftBg: D.wrongBg,
-    leftContent: [
-      { text: "\u2022 Copy-paste HR handbook, survey results, team structure", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Forget the budget memo", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Proposal misses cost constraints", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 VP asks about it \u2014 too late", options: { fontFace: D.b, fontSize: 12, color: D.wrong, bold: true } },
-    ],
-    rightTitle: "With Connections",
-    rightAccent: D.right,
-    rightBg: D.rightBg,
-    rightContent: [
-      { text: "\u2022 Agent reads HR system directly", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Pulls survey data automatically", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Finds the budget memo you forgot", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "\u2022 Flags a policy constraint you didn't know existed", options: { fontFace: D.b, fontSize: 12, color: D.right, bold: true } },
-    ],
-    takeaway: "The agent found context you wouldn't have thought to provide.",
-    notes: "The forgotten budget memo is the killer detail. Everyone has this story."
+  // --- Slide 39: "Let AI tell you what it needs." ---
+  hero(pres, "Let AI tell you\nwhat it needs.", {
+    sub: "\"Before you start, ask me clarifying questions.\"",
+    notes: "The single highest-leverage technique: let AI close its own context gaps. When you say 'Before you start, ask me clarifying questions about anything you'd need to know,' the AI will ask:\n\u2022 What's the current onboarding timeline?\n\u2022 Budget constraints?\n\u2022 Key stakeholder concerns?\n\u2022 Success metrics you'll be measured on?\n\u2022 Previous failed attempts?\nThe AI does context engineering for you. Source: Anthropic/Claude. Transition: But how much context is enough?"
   });
 
-  // --- Slide 31: Trust, But Verify (moved from Level 3 to here) ---
-  bulletSlide(pres, {
-    dark: true,
-    headline: "Trust, But Verify",
-    bullets: [
-      { head: "Never trust numbers you didn't provide.", body: "If it can't cite a source, it made it up." },
-      { head: "Verify claims against sources.", body: "AI output = first draft, not final answer." },
-      { head: "Use AI for drafts, not decisions.", body: "Your judgment is the last step." },
-    ],
-    takeaway: "Love Dory. Fact-check Dory.",
-    notes: "NOW this slide lands. The reader just watched us hand AI the keys to documents, databases, and workflows. They should be feeling 'Wait, can I trust it with all that?' This addresses the unease at exactly the moment it's felt."
+  // --- Slide 40: "Not too much. Not too little." ---
+  hero(pres, "Not too much.\nNot too little.", {
+    sub: "The right context at the right time.",
+    notes: "Prompt engineering tweaks the question. Context engineering builds the knowledge base. Persona milestone: Questioner \u2192 Viber. You've outgrown Questioner. You prompt well, you understand context, you get good results. You're a Viber \u2014 but you're still doing all the work manually. Source: CIO. Transition: Let's change that."
   });
 
-  // --- Slide 32: When to Keep Your Hands on the Wheel + Persona Milestone ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "When to Keep Your Hands on the Wheel", { dark: true });
-    const bullets = [
-      { head: "Sensitive/confidential data \u2014", body: "only approved/enterprise tools" },
-      { head: "Final legal/compliance language \u2014", body: "AI drafts, humans approve" },
-      { head: "Anything where being wrong has serious consequences", body: "" },
-      { head: "When the AI's answer 'feels right' but you can't verify it \u2014", body: "the most dangerous moment" },
-    ];
-    const richItems = [];
-    bullets.forEach((b, i) => {
-      richItems.push({ text: b.head + " ", options: { bold: true, fontFace: D.b, fontSize: 15, color: D.textDark, bullet: true, breakLine: false } });
-      richItems.push({ text: b.body, options: { fontFace: D.b, fontSize: 15, color: D.textDark, breakLine: i < bullets.length - 1 } });
-    });
-    s.addText(richItems, { x: 0.7, y: 1.1, w: 8.6, h: 2.6, margin: 0, valign: "top", paraSpaceAfter: 10 });
-    addTakeaway(pres, s, "AI is a power tool, not autopilot.", { dark: true });
-    // Persona milestone callout
-    addGlassCard(pres, s, 1.5, 3.8, 7, 0.6);
-    s.addText([
-      { text: "Persona milestone: ", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
-      { text: "You're no longer a Viber \u2014 you've let go of the wheel. You're approaching ", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
-      { text: "AI-First", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
-      { text: ", but you're still working with a single agent. One last leap.", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
-    ], { x: 1.75, y: 3.82, w: 6.5, h: 0.55, margin: 0, valign: "middle" });
-    s.addNotes("The fourth bullet matters most \u2014 the 'feels right' trap. Persona milestone: Viber \u2192 approaching AI-First.");
-  }
-
-  // --- Breather after Level 4 ---
+  // --- Slide 41: Breather ---
   breatherSlide(pres,
-    "You're managing AI well. Time to orchestrate it.",
-    "Final level transition. Single agent \u2192 multi-agent."
+    "You prompt well and feed AI smartly.\nBut who's doing all the work? Still you.",
+    "Transition from Level 3 (context engineering) to Level 4 (agents). The audience should feel like they've mastered information, but there's a bigger shift coming \u2014 letting AI do the work."
   );
 
   // ============================================================
-  // LEVEL 5: "ORCHESTRATE" (Slides 33-40)
-  // v2: Skills moved here from Level 3. Onboarding example throughout.
+  // LEVEL 4: "LET AI DRIVE" (Slides 42-51)
   // ============================================================
 
-  // --- Slide 33: One Chef vs. A Kitchen Brigade ---
-  twoCol(pres, {
-    dark: true,
-    headline: "One Chef vs. A Kitchen Brigade",
-    leftTitle: "Level 4: One Chef",
-    leftContent: [
-      { text: "Single chef, everything solo.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "Works for single tasks. But a 10-course dinner alone = burnout, mistakes, forgotten appetizer.", options: { fontFace: D.b, fontSize: 13, color: D.muted, italic: true } },
-    ],
-    rightTitle: "Level 5: Kitchen Brigade",
-    rightAccent: D.accent,
-    rightContent: [
-      { text: "Multiple chefs at stations.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.text, bold: true } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "A classroom of Dorys, each doing one focused step. Each fresh, focused, brilliant at one thing.", options: { fontFace: D.b, fontSize: 13, color: D.text, italic: true } },
-    ],
-    takeaway: "The trick isn't making one AI smarter. It's making many AIs work together.",
-    notes: "LLMs are bad at long chains but excellent at focused tasks. Kitchen brigade leverages the strength. Third Dory touchpoint."
-  });
-
-  // --- Slide 34: Prompt Chaining (onboarding-specific + Phase 0) ---
+  // --- Slide 42: Copy-Paste Trap ---
   {
     const s = darkSlide(pres);
-    addHeadline(s, "Prompt Chaining", { dark: true });
-    // Onboarding chain flow: Research -> Draft -> Review -> You
-    const phases = [
-      { label: "Agent 1\nResearch", color: D.accent, x: 0.3 },
-      { label: "Agent 2\nDraft", color: D.accentDark, x: 2.5 },
-      { label: "Agent 3\nReview", color: "0E7490", x: 4.7 },
-      { label: "You", color: D.right, x: 6.9 },
-    ];
-    phases.forEach(p => {
-      s.addShape(pres.shapes.RECTANGLE, { x: p.x, y: 1.2, w: 1.6, h: 0.75, fill: { color: p.color }, shadow: sh() });
-      s.addText(p.label, { x: p.x, y: 1.2, w: 1.6, h: 0.75, fontFace: D.b, fontSize: 11, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+    const steps = ["1. You search", "2. You paste", "3. AI drafts", "4. You apply"];
+    steps.forEach((step, i) => {
+      const y = 1.0 + i * 0.9;
+      s.addText(step, {
+        x: 2.0, y, w: 6, h: 0.8,
+        fontFace: D.b, fontSize: 28, color: D.text, bold: true, margin: 0, valign: "middle"
+      });
     });
-    // Arrows between + output labels
-    const arrowXs = [1.95, 4.15, 6.35];
-    const outputs = ["structured\nbrief", "polished\nproposal", "final draft\n+ notes"];
-    arrowXs.forEach((x, i) => {
-      s.addText("\u2192", { x, y: 1.25, w: 0.5, h: 0.65, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(outputs[i], { x: x - 0.15, y: 2.1, w: 0.8, h: 0.5, fontFace: D.b, fontSize: 8, color: D.mutedDark, italic: true, align: "center", margin: 0 });
-    });
-    // Three principles
-    const principles = [
-      { head: "Single job", body: "Each link has one clear job" },
-      { head: "Filtered context", body: "Context is filtered between steps" },
-      { head: "Compounding quality", body: "Each step builds on verified output" },
-    ];
-    principles.forEach((p, i) => {
-      const x = 0.5 + i * 3.1;
-      addDarkCard(pres, s, x, 2.6, 2.8, 1.0);
-      addBar(pres, s, x, 2.6, 1.0, D.accent);
-      s.addText(p.head, { x: x + 0.2, y: 2.65, w: 2.4, h: 0.3, fontFace: D.b, fontSize: 12, color: D.textDark, bold: true, margin: 0 });
-      s.addText(p.body, { x: x + 0.2, y: 2.95, w: 2.4, h: 0.5, fontFace: D.b, fontSize: 11, color: D.mutedDark, margin: 0 });
-    });
-    // Phase 0 smell test callout
-    addCard(pres, s, 0.5, 3.85, 9, 1.0, "FEF3C7");
-    addBar(pres, s, 0.5, 3.85, 1.0, "F59E0B");
-    s.addText([
-      { text: "Smell test: ", options: { bold: true, fontFace: D.b, fontSize: 11, color: "92400E" } },
-      { text: "If your initial prompt and context are getting long and complex, that's a signal you need a Phase 0 \u2014 an agent whose only job is to figure out what the rest of the chain needs.", options: { fontFace: D.b, fontSize: 11, color: "78350F" } },
-    ], { x: 0.75, y: 3.9, w: 8.5, h: 0.9, margin: 0, valign: "middle" });
-    s.addNotes("The onboarding proposal is now broken into focused steps. Each agent gets only the context it needs. The Phase 0 tip is a practical takeaway.");
+    s.addNotes("The copy-paste cycle is so universal it's invisible. Drawing it as steps makes people see the pattern:\n1. You decide which documents to provide\n2. You copy-paste into the AI chat\n3. You read the output\n4. You manually apply it\n\nProblems: You're the bottleneck. You don't know what context AI needs. You're doing grunt work. Every step has 'you' in it. Transition: There's a better metaphor for this.");
   }
 
-  // --- Slide 35: The Chain Rule ---
-  singleMsg(pres, {
-    main: "Break big tasks into focused steps.\nPass results forward.\nFilter context between each.",
-    mainSize: 24,
-    sub: "Each agent does one thing well. The chain does everything well.",
-    notes: "Distilled principle. The 'write this down' moment."
+  // --- Slide 43: "You're using a Ferrari to carry groceries." ---
+  hero(pres, "You're using a Ferrari\nto carry groceries.", {
+    notes: "The copy-paste trap summarized in one image. You have this incredibly powerful tool, and you're using it for the most mundane possible workflow. The AI can do so much more \u2014 if you let it. Transition: What if the agent did the work?"
   });
 
-  // --- Slide 36: Skills: Every Chef's Playbook ---
+  // --- Slide 44: Agent-driven ---
   {
     const s = darkSlide(pres);
-    addHeadline(s, "Skills: Every Chef's Playbook", { dark: true });
-    s.addText("How does each Dory in the brigade know what to do?", {
-      x: 0.5, y: 1.05, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
-    });
-    // Definition card
-    addDarkCard(pres, s, 0.5, 1.5, 9, 1.2);
-    addBar(pres, s, 0.5, 1.5, 1.2, D.accent);
-    s.addText([
-      { text: "Skills: ", options: { bold: true, fontFace: D.h, fontSize: 16, color: D.accent } },
-      { text: "Predefined rules, instructions, templates, and context packages \u2014 injected into the AI's context only when relevant. Think of them as the specialized training manual each chef at each station receives.", options: { fontFace: D.b, fontSize: 13, color: D.textDark } },
-    ], { x: 0.75, y: 1.6, w: 8.5, h: 1.0, margin: 0, valign: "middle" });
-    // Connection to chains
-    addDarkCard(pres, s, 0.5, 3.0, 9, 1.1);
-    s.addImage({ data: icons.fish, x: 0.8, y: 3.15, w: 0.6, h: 0.6 });
-    s.addText([
-      { text: "Agent 1 (Research) gets the \"Research Standards\" skill.\nAgent 3 (Review) gets the \"Leadership Proposals\" and \"Compliance Policy\" skills.", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
-      { text: "", options: { breakLine: true, fontSize: 4 } },
-      { text: "Write once, use forever. Every time the chain runs, each agent already knows its specialty.", options: { fontFace: D.b, fontSize: 12, color: D.accent, bold: true, italic: true } },
-    ], { x: 1.6, y: 3.1, w: 7.6, h: 0.9, margin: 0, valign: "top" });
-    // Stat
-    s.addText("Organizations investing in context architecture see 50% faster responses and 40% higher quality outputs.", {
-      x: 0.5, y: 4.3, w: 9, h: 0.35, fontFace: D.b, fontSize: 11, color: D.accent, italic: true, margin: 0
-    });
-    addSourceCite(pres, s, "CodeConductor", { dark: true });
-    s.addNotes("Skills introduced HERE \u2014 after the reader understands chains and the kitchen brigade. The framing is 'how you program each Dory,' not an abstract concept.");
-  }
-
-  // --- Slide 37: Skills in Action (onboarding chain agents) ---
-  threeCol(pres, {
-    dark: true,
-    headline: "Skills in Action",
-    columns: [
-      { title: "Agent 1 (Research)\n+ \"Research Standards\"", body: "Where to look, what data to prioritize, how to structure the brief.\n\nAlready knows the company's data sources.", accent: D.accent },
-      { title: "Agent 2 (Draft)\n+ \"Leadership Proposals\"", body: "The VP's preferred format, tone, level of detail, how to frame costs.\n\nEvery proposal sounds like it was written for this audience.", accent: D.accentDark },
-      { title: "Agent 3 (Review)\n+ \"Compliance Policy\"", body: "Regulations, required disclaimers, approval workflows.\n\nCatches policy gaps you didn't know existed.", accent: "0E7490" },
-    ],
-    takeaway: "With skills, each agent already knows its specialty.",
-    notes: "Same onboarding chain from slide 34, now upgraded with skills. The audience sees the concrete difference."
-  });
-
-  // --- Slide 38: Why Skills Change Everything ---
-  bulletSlide(pres, {
-    dark: true,
-    headline: "Why Skills Change Everything",
-    bullets: [
-      { head: "Reusable \u2014", body: "write once, use forever" },
-      { head: "Consistent \u2014", body: "every interaction gets the same quality context" },
-      { head: "Scalable \u2014", body: "works for 1 person or 10,000" },
-      { head: "Focused \u2014", body: "only loads what's relevant, keeping each Dory's attention on track" },
-    ],
-    stat: "And they compound. Your feedback from each chain run becomes new skills. The brigade gets smarter every time.",
-    notes: "The four properties are what make skills transformative vs. just helpful. The compounding beat sets up the payoff in slide 42."
-  });
-
-  // --- Slide 39: Same Concept, Many Names ---
-  singleMsg(pres, {
-    headline: "Same Concept, Many Names",
-    main: "\"Custom instructions\" = \"System prompts\"\n= \"Rules\" = \"Skills\"",
-    mainSize: 22,
-    sub: "Whether triggered by you, the app, or the AI itself differs across tools. The principle is identical.\n\nIf your tool has a way to save reusable instructions, use it. That's a skill.",
-    notes: "Prevents thinking skills only exist in one tool. ChatGPT custom instructions, Claude Project rules, system prompts \u2014 all skills."
-  });
-
-  // --- Slide 40: GPS, Not Directions ---
-  twoCol(pres, {
-    dark: true,
-    headline: "GPS, Not Directions",
-    leftTitle: "Prompt Engineering",
-    leftContent: [
-      { text: "Giving directions for each individual trip.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "Effort every time.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.muted, italic: true } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "Doesn't compound.", options: { fontFace: D.b, fontSize: 14, color: D.wrong, bold: true } },
-    ],
-    rightTitle: "Context Engineering + Skills",
-    rightAccent: D.accent,
-    rightContent: [
-      { text: "Programming a GPS with home, office, preferences, traffic patterns.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "Gets smarter the more you invest.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.accent, bold: true, italic: true } },
-      { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "Compounds permanently.", options: { fontFace: D.b, fontSize: 14, color: D.right, bold: true } },
-    ],
-    takeaway: "Prompt engineering is manual directions. Context engineering + skills is programming a GPS.",
-    notes: "Crystallizes the full journey. Each level built on the last. The GPS metaphor ties all five together."
-  });
-
-  // ============================================================
-  // THE PAYOFF (Slides 41-43)
-  // ============================================================
-
-  // --- Slide 41: The Manual Way: 1.5 Hours of You ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "The Manual Way: 1.5 Hours of You", { dark: true });
     const steps = [
-      ["1", "Search for onboarding docs and survey data", "20 min"],
-      ["2", "Copy-paste into AI, ask for draft", "10 min"],
-      ["3", "Read output, realize it's missing budget context", "5 min"],
-      ["4", "Find budget data, re-prompt", "15 min"],
-      ["5", "Reformat to leadership template", "20 min"],
-      ["6", "Ask AI to review draft", "10 min"],
-      ["7", "Manually apply suggestions", "15 min"],
+      { text: "1. Agent retrieves", color: D.text },
+      { text: "2. Agent identifies gaps", color: D.text },
+      { text: "3. Agent creates", color: D.text },
+      { text: "4. You review", color: D.accent },
     ];
-    steps.forEach((st, i) => {
-      const y = 1.1 + i * 0.5;
-      s.addShape(pres.shapes.OVAL, { x: 0.5, y: y + 0.05, w: 0.35, h: 0.35, fill: { color: D.wrong } });
-      s.addText(st[0], { x: 0.5, y: y + 0.05, w: 0.35, h: 0.35, fontFace: D.b, fontSize: 11, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(st[1], { x: 1.0, y: y, w: 6.5, h: 0.45, fontFace: D.b, fontSize: 12, color: D.textDark, margin: 0, valign: "middle" });
-      s.addText(st[2], { x: 8.0, y: y, w: 1.5, h: 0.45, fontFace: D.b, fontSize: 12, color: D.wrong, bold: true, align: "right", margin: 0, valign: "middle" });
+    steps.forEach((step, i) => {
+      const y = 1.0 + i * 0.9;
+      s.addText(step.text, {
+        x: 2.0, y, w: 6, h: 0.8,
+        fontFace: D.b, fontSize: 28, color: step.color, bold: true, margin: 0, valign: "middle"
+      });
     });
-    // Total
-    s.addShape(pres.shapes.LINE, { x: 0.5, y: 4.6, w: 9, h: 0, line: { color: D.wrong, width: 2 } });
-    s.addText("Total: ~1.5 hours of you being the bottleneck", { x: 0.5, y: 4.7, w: 9, h: 0.4, fontFace: D.h, fontSize: 16, color: D.wrong, bold: true, align: "center", margin: 0 });
-    s.addNotes("This is the manual workflow the audience has watched evolve through the entire deck. Now it's at full scale and the pain is vivid.");
+    s.addNotes("Same four steps, but the human only appears at step 4. The agent retrieves its own context, identifies gaps and goes back for more, creates/edits outputs directly, and you review and approve. Human moved from 'operator at every step' to 'reviewer at the end.' Same Dory, same memory issues, but now she has hands, eyes, and a to-do list. One great chef who finds ingredients, preps, cooks, and plates. You taste-test at the end. Transition: Let's meet this new Dory.");
   }
 
-  // --- Slide 42: The Chained Way: 15 Minutes of Judgment (with skills compounding) ---
+  // --- Slide 45: "Same Dory. Now she has hands." ---
+  hero(pres, "Same Dory.\nNow she has hands.", {
+    sub: "Eyes, a phone, and a to-do list.",
+    notes: "Second Dory touchpoint. Same memory issues, but the agent now has tools. It can read files, search the web, send emails, query databases. The chef metaphor: one great chef who finds ingredients, preps, cooks, and plates. You taste-test at the end. Transition: What tools does she have?"
+  });
+
+  // --- Slide 46: Connections (6 icons in a row) ---
   {
     const s = darkSlide(pres);
-    addHeadline(s, "The Chained Way: 15 Minutes of Judgment", { dark: true });
-    const agents = [
-      { num: "1", label: "Agent 1 \u2014 Research", prompt: "\"Research our onboarding process. Pull metrics from HR, read the last 3 surveys, summarize pain points.\"", output: "\u2192 Research brief", color: D.accent },
-      { num: "2", label: "Agent 2 \u2014 Draft", prompt: "\"Using this brief, draft a proposal to reduce onboarding from 4 to 2 weeks. One-page exec brief for VP of People. Be radically honest.\"", output: "\u2192 Polished proposal", color: D.accentDark },
-      { num: "3", label: "Agent 3 \u2014 Review", prompt: "\"Review against our leadership template and compliance policy. Flag gaps, format correctly, list items needing human judgment.\"", output: "\u2192 Final draft + notes", color: "0E7490" },
-      { num: "4", label: "You \u2014 Judgment", prompt: "Review, adjust, approve. The part only humans can do: judgment.", output: "~15 minutes", color: D.right },
+    const connections = [
+      { icon: icons.globeW, label: "Web" },
+      { icon: icons.envelopeW, label: "Email" },
+      { icon: icons.puzzleW, label: "Docs" },
+      { icon: icons.databaseW, label: "Data" },
+      { icon: icons.calendarW, label: "Calendar" },
+      { icon: icons.arrowW, label: "Custom" },
     ];
-    agents.forEach((a, i) => {
-      const y = 1.1 + i * 0.78;
-      addDarkCard(pres, s, 0.5, y, 9, 0.62);
-      s.addText(a.label, { x: 0.75, y: y + 0.03, w: 2.2, h: 0.25, fontFace: D.b, fontSize: 11, color: a.color, bold: true, margin: 0 });
-      s.addText(a.prompt, { x: 0.75, y: y + 0.28, w: 6.8, h: 0.28, fontFace: D.b, fontSize: 9, color: D.textDark, italic: true, margin: 0 });
-      s.addText(a.output, { x: 7.8, y: y + 0.03, w: 1.5, h: 0.52, fontFace: D.b, fontSize: 10, color: a.color, bold: true, margin: 0, valign: "middle", align: "right" });
+    const iconSize = 0.8;
+    const totalW = connections.length * 1.4 - 0.2;
+    const startX = (10 - totalW) / 2;
+    connections.forEach((c, i) => {
+      const x = startX + i * 1.4;
+      s.addImage({ data: c.icon, x: x + (1.2 - iconSize) / 2, y: 1.8, w: iconSize, h: iconSize });
+      s.addText(c.label, {
+        x, y: 2.8, w: 1.2, h: 0.6,
+        fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
+      });
     });
-    // Skills compounding beat + takeaway combined in glass card
-    addGlassCard(pres, s, 0.5, 4.15, 9, 0.75);
-    s.addText([
-      { text: "And next time? ", options: { bold: true, fontFace: D.b, fontSize: 10, color: D.accent } },
-      { text: "Your feedback becomes skills. The VP's format \u2192 \"Leadership Proposals\" skill. Compliance gaps \u2192 updated \"Compliance Policy\" skill. The chain gets smarter every time \u2014 even though Dory won't remember, the skills will.", options: { breakLine: true, fontFace: D.b, fontSize: 10, color: D.textDark } },
-      { text: "", options: { breakLine: true, fontSize: 4 } },
-      { text: "Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work.", options: { bold: true, fontFace: D.b, fontSize: 11, color: D.accent } },
-    ], { x: 0.75, y: 4.18, w: 8.5, h: 0.68, margin: 0, valign: "middle" });
-    s.addNotes("Emotional climax. The skills compounding beat is the final Dory touchpoint \u2014 even though Dory forgets, the skills persist.");
+    s.addNotes("Give Dory a phone, a filing cabinet, and a library card. The six connection types:\n\u2022 Web \u2014 Search and fact-check in real time\n\u2022 Email \u2014 Read context, draft responses\n\u2022 Docs \u2014 Policies, templates, past work\n\u2022 Data \u2014 Query real databases\n\u2022 Calendar \u2014 Scheduling context\n\u2022 Custom \u2014 Via MCP ('USB-C for AI') \u2014 any tool you can imagine\nMCP detail available in appendix for Q&A. Transition: What does this look like in practice?");
   }
 
-  // --- Slide 43: From Asking to Orchestrating (with persona bridges) ---
+  // --- Slide 47: With vs Without (light bg, two columns) ---
+  {
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
+    // Left header
+    s.addText("Without", {
+      x: 0.5, y: 0.8, w: 4.2, h: 0.7,
+      fontFace: D.h, fontSize: 36, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("You copy-paste\nYou forget the budget memo\nVP asks \u2014 too late", {
+      x: 0.5, y: 1.7, w: 4.2, h: 2.5,
+      fontFace: D.b, fontSize: 20, color: D.darkText, margin: 0, align: "center", valign: "top"
+    });
+    // Divider
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 0.8, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
+    // Right header
+    s.addText("With", {
+      x: 5.3, y: 0.8, w: 4.2, h: 0.7,
+      fontFace: D.h, fontSize: 36, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Agent reads directly\nFinds what you forgot\nFlags what you missed", {
+      x: 5.3, y: 1.7, w: 4.2, h: 2.5,
+      fontFace: D.b, fontSize: 20, color: D.darkText, margin: 0, align: "center", valign: "top"
+    });
+    s.addNotes("The forgotten budget memo is the killer detail. Everyone has this story.\nWithout connections: Copy-paste HR handbook, survey results, team structure. Forget the budget memo. Proposal misses cost constraints. VP asks about it \u2014 too late.\nWith connections: Agent reads HR system directly. Pulls survey data automatically. Finds the budget memo you forgot. Flags a policy constraint you didn't know existed.\nThe agent found context you wouldn't have thought to provide. Transition: But can you trust it?");
+  }
+
+  // --- Slide 48: "Trust, but verify." ---
+  hero(pres, "Trust, but verify.", {
+    size: 60,
+    sub: "Never trust numbers you didn't provide.\nVerify claims against sources.\nUse AI for drafts, not decisions.",
+    subColor: D.muted,
+    notes: "NOW this slide lands. The reader just watched us hand AI the keys to documents, databases, and workflows. They should be feeling 'Wait, can I trust it with all that?' This addresses the unease at exactly the moment it's felt.\nThree rules:\n1. Never trust numbers you didn't provide \u2014 if it can't cite a source, it made it up.\n2. Verify claims against sources \u2014 AI output = first draft, not final answer.\n3. Use AI for drafts, not decisions \u2014 your judgment is the last step.\nLove Dory. Fact-check Dory. Transition: The mindset shift."
+  });
+
+  // --- Slide 49: "AI is a power tool, not autopilot." ---
+  hero(pres, "AI is a power tool,\nnot autopilot.", {
+    notes: "Sensitive/confidential data \u2014 only approved/enterprise tools. Final legal/compliance language \u2014 AI drafts, humans approve. Anything where being wrong has serious consequences. Persona milestone: Viber \u2192 approaching AI-First. You're no longer a Viber \u2014 you've let go of the wheel. But you're still working with a single agent. One last leap. Transition: The most dangerous moment."
+  });
+
+  // --- Slide 50: The dangerous moment ---
+  hero(pres, "When the answer \u2018feels right\u2019\nbut you can\u2019t verify it \u2014\nthat\u2019s the most dangerous moment.", {
+    size: 36, color: D.accent,
+    notes: "The fourth bullet from the old 'Hands on the Wheel' slide \u2014 and the most important. This is the 'feels right' trap. When AI output sounds confident and plausible but you have no way to check it, that's when mistakes happen. The feeling of confidence is not the same as verification. Transition: You're ready for the next level."
+  });
+
+  // --- Slide 51: Breather ---
+  breatherSlide(pres,
+    "You're managing AI well.\nTime to orchestrate it.",
+    "Final level transition. Single agent \u2192 multi-agent. The audience has mastered individual AI interaction. Now we go to the brigade."
+  );
+
+  // ============================================================
+  // LEVEL 5: "ORCHESTRATE" (Slides 52-64)
+  // ============================================================
+
+  // --- Slide 52: Kitchen Brigade ---
   {
     const s = darkSlide(pres);
-    addHeadline(s, "From Asking to Orchestrating", { dark: true });
-    const stages = [
-      { label: "AI Skeptic", bridge: "Levels 0\u20131 got you\npast this", color: "9CA3AF" },
-      { label: "AI Questioner", bridge: "Levels 2\u20133 got you\npast this", color: "6B7280" },
-      { label: "AI Viber", bridge: "Level 4 got you\npast this", color: D.accentDark },
-      { label: "AI-First", bridge: "Level 5 brought\nyou here", color: D.accent },
+    // Left: 1 large icon with label
+    s.addImage({ data: icons.user, x: 1.5, y: 1.5, w: 1.5, h: 1.5 });
+    s.addText("One Chef", {
+      x: 0.8, y: 3.2, w: 3.0, h: 0.8,
+      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
+    });
+    // Divider
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 0.8, w: 0, h: 4.0, line: { color: D.accent, width: 2 } });
+    // Right: 4 smaller icons with station labels
+    const stations = ["Prep", "Grill", "Sauce", "Plate"];
+    stations.forEach((label, i) => {
+      const x = 5.8 + (i % 2) * 1.8;
+      const y = 1.3 + Math.floor(i / 2) * 1.8;
+      s.addImage({ data: icons.user, x: x + 0.2, y, w: 0.8, h: 0.8 });
+      s.addText(label, {
+        x, y: y + 0.9, w: 1.2, h: 0.5,
+        fontFace: D.b, fontSize: 20, color: D.accent, align: "center", margin: 0, valign: "top"
+      });
+    });
+    s.addNotes("Level 4: One chef doing everything solo. Works for single tasks, but a 10-course dinner alone = burnout, mistakes, forgotten appetizer.\nLevel 5: Kitchen brigade \u2014 multiple chefs at stations. A classroom of Dorys, each doing one focused step. Each fresh, focused, brilliant at one thing.\nLLMs are bad at long chains but excellent at focused tasks. The kitchen brigade leverages the strength. Third Dory touchpoint. Transition: Let's name the principle.");
+  }
+
+  // --- Slide 53: "The trick isn't making one AI smarter..." ---
+  hero(pres, "The trick isn\u2019t making\none AI smarter.\nIt\u2019s making many\nwork together.", {
+    size: 40,
+    notes: "The core principle of Level 5. Instead of one powerful agent trying to do everything, you create a chain of focused agents. Each one does one thing brilliantly, and the chain does everything. Transition: Here's what that chain looks like."
+  });
+
+  // --- Slide 54: Chain flow diagram ---
+  {
+    const s = darkSlide(pres);
+    const phases = [
+      { label: "Research", color: D.accent },
+      { label: "Draft", color: D.accent },
+      { label: "Review", color: D.accent },
+      { label: "You", color: D.right },
     ];
-    // Evolution arrow
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.15, w: 9, h: 0.08, fill: { color: D.accent } });
-    stages.forEach((st, i) => {
-      const x = 0.5 + i * 2.35;
-      addDarkCard(pres, s, x, 1.1, 2.1, 0.85);
-      s.addText(st.label, { x: x + 0.1, y: 1.15, w: 1.9, h: 0.75, fontFace: D.h, fontSize: 13, color: st.color, bold: true, align: "center", margin: 0, valign: "middle" });
-      // Bridge text below arrow
-      s.addText(st.bridge, { x: x + 0.1, y: 2.35, w: 1.9, h: 0.6, fontFace: D.b, fontSize: 10, color: st.color, italic: true, align: "center", margin: 0 });
-      // Arrow between stages
-      if (i < 3) {
-        s.addText("\u2192", { x: 2.35 + i * 2.35, y: 1.2, w: 0.5, h: 0.5, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0 });
+    const boxW = 1.8, boxH = 0.9;
+    const totalW = phases.length * boxW + (phases.length - 1) * 0.6;
+    const startX = (10 - totalW) / 2;
+    phases.forEach((p, i) => {
+      const x = startX + i * (boxW + 0.6);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x, y: 2.2, w: boxW, h: boxH,
+        rectRadius: 0.1,
+        fill: { color: p.color }
+      });
+      s.addText(p.label, {
+        x, y: 2.2, w: boxW, h: boxH,
+        fontFace: D.b, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      if (i < phases.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 2.2, w: 0.6, h: boxH,
+          fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+        });
       }
     });
-    // Closing statement
-    addGlassCard(pres, s, 1.0, 3.2, 8, 1.2);
-    s.addText("You walked in as a Questioner.\nThis deck just showed you the path to AI-First.", {
-      x: 1.2, y: 3.3, w: 7.6, h: 1.0, fontFace: D.h, fontSize: 18, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addNotes("Don't rush this \u2014 let the audience see how far they've come. The spectrum from slide 2 is now a journey they've completed.");
+    s.addNotes("The onboarding proposal chain:\n\u2022 Agent 1 (Research) \u2014 researches onboarding process, pulls metrics from HR, reads surveys, summarizes pain points \u2192 structured brief\n\u2022 Agent 2 (Draft) \u2014 uses the brief to draft a proposal, one-page exec brief for VP of People \u2192 polished proposal\n\u2022 Agent 3 (Review) \u2014 reviews against leadership template and compliance policy, flags gaps \u2192 final draft + notes\n\u2022 You \u2014 review, adjust, approve. The part only humans can do: judgment.\n\nThree principles: Single job (each link has one clear job), Filtered context (context is filtered between steps), Compounding quality (each step builds on verified output). Smell test: If your initial prompt is getting long and complex, you need a Phase 0 \u2014 an agent whose only job is to figure out what the rest of the chain needs. Transition: The rule.");
   }
 
-  // ============================================================
-  // LEVEL UP (Slides 44-45)
-  // ============================================================
+  // --- Slide 55: "Each agent does one thing. The chain does everything." ---
+  hero(pres, "Each agent does one thing.\nThe chain does everything.", {
+    notes: "Distilled principle. Break big tasks into focused steps. Pass results forward. Filter context between each. The 'write this down' moment. Transition: But how does each agent know what to do?"
+  });
 
-  // --- Slide 44: Your AI Toolkit ---
+  // --- Slide 56: Skills ---
+  hero(pres, "Skills", {
+    size: 72,
+    sub: "The playbook each chef follows.",
+    notes: "Full definition: Skills are predefined rules, instructions, templates, and context packages \u2014 injected into the AI's context only when relevant. Think of them as the specialized training manual each chef at each station receives.\n\nHow does each Dory in the brigade know what to do? Skills. Write once, use forever. Every time the chain runs, each agent already knows its specialty.\n\nOrganizations investing in context architecture see 50% faster responses and 40% higher quality outputs. Source: CodeConductor. Transition: Let's see skills in action."
+  });
+
+  // --- Slide 57: Skills in Action ---
   {
     const s = darkSlide(pres);
-    addHeadline(s, "Your AI Toolkit", { dark: true });
+    const agents = [
+      { name: "Research Agent", skill: "+ Research Standards" },
+      { name: "Draft Agent", skill: "+ Leadership Proposals" },
+      { name: "Review Agent", skill: "+ Compliance Policy" },
+    ];
+    const colW = 2.8, gap = 0.3;
+    const totalW = agents.length * colW + (agents.length - 1) * gap;
+    const startX = (10 - totalW) / 2;
+    agents.forEach((a, i) => {
+      const x = startX + i * (colW + gap);
+      s.addText(a.name, {
+        x, y: 1.8, w: colW, h: 1.0,
+        fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "bottom"
+      });
+      s.addText(a.skill, {
+        x, y: 2.9, w: colW, h: 1.0,
+        fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
+      });
+    });
+    s.addNotes("Same onboarding chain, now upgraded with skills:\n\u2022 Agent 1 (Research) + 'Research Standards' \u2014 knows where to look, what data to prioritize, how to structure the brief. Already knows the company's data sources.\n\u2022 Agent 2 (Draft) + 'Leadership Proposals' \u2014 knows the VP's preferred format, tone, level of detail, how to frame costs. Every proposal sounds like it was written for this audience.\n\u2022 Agent 3 (Review) + 'Compliance Policy' \u2014 knows regulations, required disclaimers, approval workflows. Catches policy gaps you didn't know existed.\nWith skills, each agent already knows its specialty. Transition: What makes skills special?");
+  }
+
+  // --- Slide 58: "Reusable. Consistent. Scalable. Focused." ---
+  hero(pres, "Reusable.\nConsistent.\nScalable.\nFocused.", {
+    size: 48,
+    notes: "The four properties that make skills transformative vs. just helpful:\n\u2022 Reusable \u2014 write once, use forever\n\u2022 Consistent \u2014 every interaction gets the same quality context\n\u2022 Scalable \u2014 works for 1 person or 10,000\n\u2022 Focused \u2014 only loads what's relevant, keeping each Dory's attention on track\nAnd they compound. Your feedback from each chain run becomes new skills. The brigade gets smarter every time. Transition: You may have seen skills by another name."
+  });
+
+  // --- Slide 59: "Custom instructions = System prompts = Rules = Skills" ---
+  hero(pres, "\"Custom instructions\"\n= \"System prompts\"\n= \"Rules\"\n= \"Skills\"", {
+    size: 36, font: D.b,
+    notes: "Same concept, many names. Whether triggered by you, the app, or the AI itself differs across tools. The principle is identical. ChatGPT custom instructions, Claude Project rules, system prompts \u2014 all skills. If your tool has a way to save reusable instructions, use it. That's a skill. Transition: Here's the metaphor that ties it all together."
+  });
+
+  // --- Slide 60: GPS metaphor (light bg) ---
+  {
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
+    // Left column
+    s.addText("Directions\nevery trip", {
+      x: 0.5, y: 1.5, w: 4.2, h: 1.2,
+      fontFace: D.h, fontSize: 32, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Effort. Every. Time.", {
+      x: 0.5, y: 2.8, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
+    });
+    // Divider
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
+    // Right column
+    s.addText("GPS that learns", {
+      x: 5.3, y: 1.5, w: 4.2, h: 1.2,
+      fontFace: D.h, fontSize: 32, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Compounds permanently.", {
+      x: 5.3, y: 2.8, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 20, color: D.accent, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Prompt engineering = giving directions for each individual trip. Effort every time. Doesn't compound.\nContext engineering + skills = programming a GPS with home, office, preferences, traffic patterns. Gets smarter the more you invest. Compounds permanently.\nThis crystallizes the full journey. Each level built on the last. The GPS metaphor ties all five together. Transition: And here's the punchline.");
+  }
+
+  // --- Slide 61: "Skills compound." ---
+  hero(pres, "Skills compound.\nThe brigade gets smarter\nevery time.", {
+    size: 40,
+    notes: "This is the compounding beat. Your feedback from each chain run becomes new skills. The VP's format becomes the 'Leadership Proposals' skill. Compliance gaps become the updated 'Compliance Policy' skill. Even though Dory won't remember, the skills will. Final Dory touchpoint. Transition: Let's see the numbers."
+  });
+
+  // --- Slide 62: "1.5 hrs" ---
+  bigNum(pres, "1.5 hrs", "of you being the bottleneck", {
+    color: D.wrong,
+    notes: "Walk through the 7 steps verbally:\n1. Search for onboarding docs and survey data (20 min)\n2. Copy-paste into AI, ask for draft (10 min)\n3. Read output, realize it's missing budget context (5 min)\n4. Find budget data, re-prompt (15 min)\n5. Reformat to leadership template (20 min)\n6. Ask AI to review draft (10 min)\n7. Manually apply suggestions (15 min)\nTotal: ~1.5 hours of you being the bottleneck. This is the manual workflow the audience has watched evolve through the entire deck. Now it's at full scale and the pain is vivid. Transition: Now the chained way."
+  });
+
+  // --- Slide 63: "15 min" ---
+  bigNum(pres, "15 min", "of judgment \u2014 the part only humans can do", {
+    color: D.right,
+    notes: "Walk through the chain:\n\u2022 Agent 1 researches (pulls metrics, reads surveys, summarizes pain points)\n\u2022 Agent 2 drafts (one-page exec brief for VP of People)\n\u2022 Agent 3 reviews (checks against leadership template and compliance policy)\n\u2022 You judge (review, adjust, approve)\nSame proposal quality. The chain did 1 hour 15 minutes of grunt work. You spent 15 minutes on judgment \u2014 the part only humans can do. Transition: And it gets better every time."
+  });
+
+  // --- Slide 64: "Same proposal. The chain gets smarter every time." ---
+  hero(pres, "Same proposal.\nThe chain gets smarter\nevery time.", {
+    sub: "Your feedback becomes skills. Dory won't remember, but the skills will.",
+    notes: "Emotional climax. The skills compounding beat is the final Dory touchpoint. Your feedback from each run becomes new skills \u2014 the VP's format, compliance gaps, research standards. Even though Dory forgets, the skills persist. Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work. And next time it's even faster. Transition to closing."
+  });
+
+  // ============================================================
+  // CLOSING (Slides 65-71)
+  // ============================================================
+
+  // --- Slide 65: From Asking to Orchestrating ---
+  {
+    const s = darkSlide(pres);
+    const stages = [
+      { label: "AI Skeptic", bridge: "Levels 0\u20131", color: "9CA3AF" },
+      { label: "AI Questioner", bridge: "Levels 2\u20133", color: "6B7280" },
+      { label: "AI Viber", bridge: "Level 4", color: D.accent },
+      { label: "AI-First", bridge: "Level 5", color: D.accent },
+    ];
+    // Horizontal line
+    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.6, w: 9, h: 0.06, fill: { color: D.accent } });
+    const boxW = 1.9, gap = 0.3;
+    const totalW = stages.length * boxW + (stages.length - 1) * gap;
+    const startX = (10 - totalW) / 2;
+    stages.forEach((st, i) => {
+      const x = startX + i * (boxW + gap);
+      // Persona label above line
+      s.addText(st.label, {
+        x, y: 1.4, w: boxW, h: 1.0,
+        fontFace: D.h, fontSize: 28, color: st.color, bold: true, align: "center", margin: 0, valign: "bottom"
+      });
+      // Bridge text below line
+      s.addText(st.bridge, {
+        x, y: 2.8, w: boxW, h: 0.8,
+        fontFace: D.b, fontSize: 20, color: st.color, italic: true, align: "center", margin: 0, valign: "top"
+      });
+      // Arrow between
+      if (i < stages.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 1.9, w: gap, h: 0.6,
+          fontFace: D.b, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "middle"
+        });
+      }
+    });
+    s.addNotes("Don't rush this \u2014 let the audience see how far they've come. The spectrum from slide 4 is now a journey they've completed.\n\u2022 AI Skeptic \u2014 Levels 0\u20131 got you past this\n\u2022 AI Questioner \u2014 Levels 2\u20133 got you past this\n\u2022 AI Viber \u2014 Level 4 got you past this\n\u2022 AI-First \u2014 Level 5 brought you here\nYou walked in as a Questioner. This deck just showed you the path to AI-First. Transition: Here are the tools to keep going.");
+  }
+
+  // --- Slide 66: Your AI Toolkit ---
+  {
+    const s = darkSlide(pres);
+    s.addText("Your AI Toolkit", {
+      x: 0.5, y: 0.4, w: 9, h: 0.8,
+      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0
+    });
     const headerRow = [
-      { text: "Category", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 12 } },
-      { text: "Tools", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 12 } },
-      { text: "Notes", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 12 } },
+      { text: "Category", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
+      { text: "Tools", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
+      { text: "Notes", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
     ];
     const data = [
-      ["General purpose", "ChatGPT, Claude, Gemini", "Start here. Free tiers available"],
-      ["In your workflow", "Microsoft Copilot, Gemini in Workspace", "Already in your work tools"],
-      ["For developers", "GitHub Copilot, Cursor, Claude Code", "AI-first coding"],
-      ["For connections", "MCP servers, Zapier AI, custom integrations", "Level 4\u20135 territory"],
+      ["General", "ChatGPT, Claude, Gemini", "Start here"],
+      ["Workflow", "Copilot, Gemini Workspace", "In your tools"],
+      ["Dev", "Copilot, Cursor, Claude Code", "AI-first coding"],
+      ["Connections", "MCP, Zapier AI, custom", "Level 4\u20135"],
     ];
-    const tableRows = [headerRow, ...data.map(r => r.map(c => ({ text: c, options: { fontFace: D.b, fontSize: 12, color: D.textDark } })))];
+    const tableRows = [headerRow, ...data.map(r => r.map(c => ({ text: c, options: { fontFace: D.b, fontSize: 20, color: D.text } })))];
     s.addTable(tableRows, {
-      x: 0.5, y: 1.1, w: 9, colW: [2.2, 3.6, 3.2],
+      x: 0.5, y: 1.4, w: 9, colW: [2.2, 3.8, 3.0],
       border: { pt: 1, color: "3A3A5E" },
-      rowH: [0.45, 0.55, 0.55, 0.55, 0.55],
+      rowH: [0.6, 0.7, 0.7, 0.7, 0.7],
       autoPage: false
     });
-    s.addNotes("Practical, not exhaustive. Know which tool to try first for their role.");
+    s.addNotes("Practical, not exhaustive. Know which tool to try first for your role:\n\u2022 General purpose \u2014 ChatGPT, Claude, Gemini. Free tiers available. Start here.\n\u2022 In your workflow \u2014 Microsoft Copilot, Gemini in Workspace. Already in your work tools.\n\u2022 For developers \u2014 GitHub Copilot, Cursor, Claude Code. AI-first coding.\n\u2022 For connections \u2014 MCP servers, Zapier AI, custom integrations. Level 4\u20135 territory.\nTransition: Here's your challenge.");
   }
 
-  // --- Slide 45: The 30-Day Challenge (with persona crossings) ---
+  // --- Slide 67: 30-Day Challenge ---
   {
     const s = darkSlide(pres);
-    addHeadline(s, "The 30-Day Challenge", { dark: true });
-    s.addText("One task. Four weeks. Four persona crossings.", {
-      x: 0.5, y: 1.05, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
-    });
-    const weeks = [
-      { week: "Week 1", persona: "Better Questioner", level: "Level 2", desc: "Specific, structured prompt.\nCompare to manual.\nNotice the phrasing difference.", color: D.accent },
-      { week: "Week 2", persona: "Cross into Viber", level: "Level 3", desc: "Add context. Ask AI to ask\nclarifying questions.\nNotice the jump.", color: D.accentDark },
-      { week: "Week 3", persona: "Start AI-First", level: "Level 4", desc: "Agent with connections.\nLet it pull context itself.\nNotice what it finds.", color: "0E7490" },
-      { week: "Week 4", persona: "Full AI-First", level: "Level 5", desc: "Break into phases.\nChain them. Compare to\nWeek 1. You're orchestrating.", color: D.right },
-    ];
     // Timeline bar
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 1.75, w: 9, h: 0.06, fill: { color: D.accent } });
+    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.6, w: 9, h: 0.06, fill: { color: D.accent } });
+    const weeks = [
+      { label: "Week 1\nQuestioner", color: D.accent },
+      { label: "Week 2\nViber", color: D.accent },
+      { label: "Week 3\nAI-First", color: D.accent },
+      { label: "Week 4\nOrchestrator", color: D.right },
+    ];
+    const circleSize = 0.6;
     weeks.forEach((w, i) => {
-      const x = 0.5 + i * 2.35;
-      // Node
-      s.addShape(pres.shapes.OVAL, { x: x + 0.75, y: 1.55, w: 0.45, h: 0.45, fill: { color: w.color } });
-      addDarkCard(pres, s, x, 2.1, 2.1, 2.3);
-      addBar(pres, s, x, 2.1, 2.3, w.color);
-      s.addText(w.week, { x: x + 0.15, y: 2.15, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 11, color: w.color, bold: true, margin: 0 });
-      s.addText(w.persona, { x: x + 0.15, y: 2.38, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 10, color: w.color, italic: true, margin: 0 });
-      s.addText(w.level, { x: x + 0.15, y: 2.62, w: 1.8, h: 0.2, fontFace: D.b, fontSize: 9, color: D.mutedDark, margin: 0 });
-      s.addText(w.desc, { x: x + 0.15, y: 2.85, w: 1.8, h: 1.3, fontFace: D.b, fontSize: 10, color: D.textDark, margin: 0, valign: "top" });
+      const x = 1.2 + i * 2.2;
+      // Circle on timeline
+      s.addShape(pres.shapes.OVAL, {
+        x: x - circleSize / 2 + 0.5, y: 2.6 - circleSize / 2 + 0.03,
+        w: circleSize, h: circleSize,
+        fill: { color: w.color }
+      });
+      // Label below
+      s.addText(w.label, {
+        x: x - 0.5, y: 3.2, w: 2.0, h: 1.2,
+        fontFace: D.b, fontSize: 24, color: w.color, align: "center", margin: 0, valign: "top"
+      });
     });
-    addTakeaway(pres, s, "Four weeks. One task. Same journey this deck just took you on.", { dark: true });
-    s.addNotes("Most actionable takeaway. Same task across four weeks mirrors the deck's progression. Now framed as persona crossings for motivation.");
+    s.addNotes("One task. Four weeks. Four persona crossings.\n\u2022 Week 1 (Questioner) \u2014 Level 2. Specific, structured prompt. Compare to manual. Notice the phrasing difference.\n\u2022 Week 2 (Viber) \u2014 Level 3. Add context. Ask AI to ask clarifying questions. Notice the jump.\n\u2022 Week 3 (AI-First) \u2014 Level 4. Agent with connections. Let it pull context itself. Notice what it finds.\n\u2022 Week 4 (Orchestrator) \u2014 Level 5. Break into phases. Chain them. Compare to Week 1. You're orchestrating.\nFour weeks. One task. Same journey this deck just took you on. Most actionable takeaway. Transition: Let's come back to where we started.");
   }
 
-  // ============================================================
-  // CLOSING (Slides 46-47)
-  // ============================================================
-
-  // --- Breather before Closing ---
+  // --- Slide 68: Breather ---
   breatherSlide(pres,
     "Let's come back to where we started.",
-    "Emotional reset before the callback."
+    "Emotional reset before the callback. Pause. Let the pacing shift."
   );
 
-  // --- Slide 46: Full Circle (with persona language) ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Full Circle", { x: 0.5, y: 0.3, w: 9, h: 0.6, fontFace: D.h, fontSize: 40, color: D.white, bold: true, align: "center", margin: 0 });
-    s.addText("Remember the person spending 45 minutes copy-pasting into ChatGPT?", {
-      x: 1.0, y: 1.0, w: 8, h: 0.5, fontFace: D.b, fontSize: 15, color: D.textDark, italic: true, align: "center", margin: 0
-    });
-    const journey = [
-      ["They learned to prompt with specificity", "became a Viber", "Levels 2\u20133"],
-      ["They let the agent find what it needed", "started going AI-First", "Level 4"],
-      ["They chained the whole workflow", "full AI-First", "Level 5"],
-      ["They were a Questioner who became AI-First", "", ""],
-    ];
-    journey.forEach((l, i) => {
-      const y = 1.7 + i * 0.55;
-      s.addText(l[0], { x: 1.0, y, w: 4.5, h: 0.4, fontFace: D.b, fontSize: 13, color: D.textDark, margin: 0 });
-      if (l[1]) s.addText(l[1], { x: 5.5, y, w: 2.5, h: 0.4, fontFace: D.b, fontSize: 12, color: D.accent, italic: true, margin: 0 });
-      if (l[2]) s.addText(l[2], { x: 8.0, y, w: 1.5, h: 0.4, fontFace: D.b, fontSize: 11, color: D.mutedDark, margin: 0, align: "right" });
-    });
-    s.addShape(pres.shapes.LINE, { x: 1.5, y: 3.85, w: 7, h: 0, line: { color: D.accent, width: 1 } });
-    s.addText("The same task. Two minutes.\nThat's the trick. Now you know it too.", {
-      x: 1.0, y: 4.0, w: 8, h: 0.8, fontFace: D.h, fontSize: 20, color: D.accent, bold: true, align: "center", margin: 0
-    });
-    s.addNotes("Emotional close. The callback lands the entire arc. Persona language makes it concrete \u2014 the person from slide 1 went from Questioner to AI-First. Pause after 'Now you know it too.'");
-  }
+  // --- Slide 69: "Remember the 45-minute conversation?" ---
+  hero(pres, "Remember the\n45-minute conversation?", {
+    size: 48,
+    notes: "Callback to slide 2. The person who spent 45 minutes copy-pasting into ChatGPT. They learned to prompt with specificity (became a Viber, Levels 2\u20133). They let the agent find what it needed (started going AI-First, Level 4). They chained the whole workflow (full AI-First, Level 5). They were a Questioner who became AI-First. Transition: The punchline."
+  });
 
-  // --- Slide 47: Now Go Try It ---
-  {
-    const s = darkSlide(pres);
-    s.addText("The secret was never in the AI.\nIt was in knowing how to work with it.", {
-      x: 1.0, y: 1.2, w: 8, h: 1.5, fontFace: D.h, fontSize: 30, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addShape(pres.shapes.LINE, { x: 3.0, y: 3.0, w: 4, h: 0, line: { color: D.accent, width: 2 } });
-    s.addText("Now go try it \u2014 start with one task, this week.", {
-      x: 1.0, y: 3.3, w: 8, h: 0.8, fontFace: D.b, fontSize: 20, color: D.accent, bold: true, italic: true, align: "center", margin: 0
-    });
-    s.addText("Getting Agents to Give Up Their Secrets", {
-      x: 1.0, y: 4.6, w: 8, h: 0.4, fontFace: D.b, fontSize: 12, color: D.mutedDark, align: "center", margin: 0
-    });
-    s.addNotes("Clean exit. One task, this week \u2014 not 'transform everything.'");
-  }
+  // --- Slide 70: "Two minutes. That's the trick." ---
+  hero(pres, "Two minutes.\nThat\u2019s the trick.", {
+    size: 72,
+    notes: "The same task. Two minutes. That's the trick. Now you know it too. Let this land. Long pause. This is the emotional peak of the entire deck. Everything from slide 1 has been building to this moment. Transition: One final thought."
+  });
+
+  // --- Slide 71: CTA ---
+  hero(pres, "The secret was never\nin the AI.", {
+    sub: "Now go try it \u2014 one task, this week.",
+    notes: "Clean exit. The secret was in knowing how to work with it. One task, this week \u2014 not 'transform everything.' Getting Agents to Give Up Their Secrets."
+  });
 
   // ============================================================
   // WRITE FILE
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: "Getting-Agents-to-Give-Up-Their-Secrets.pptx" });
-  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (52 slides, v3)");
+  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (71 slides, billboard)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
