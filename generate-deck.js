@@ -127,14 +127,14 @@ function wrongRight(pres, opts) {
   s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: cardY, w: 0.06, h: cardH, fill: { color: D.wrong } });
   s.addText(opts.wrongText, {
     x: 0.8, y: cardY + 0.2, w: 3.6, h: cardH - 0.4,
-    fontFace: D.b, fontSize: 18, color: D.darkText, margin: 0, valign: "top"
+    fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top"
   });
   // Right card
   s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 4.2, h: cardH, fill: { color: D.rightBg } });
   s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 0.06, h: cardH, fill: { color: D.right } });
   s.addText(opts.rightText, {
     x: 5.6, y: cardY + 0.2, w: 3.6, h: cardH - 0.4,
-    fontFace: D.b, fontSize: 18, color: D.darkText, margin: 0, valign: "top"
+    fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top"
   });
   if (opts.notes) s.addNotes(opts.notes);
   return s;
@@ -757,7 +757,7 @@ async function main() {
     });
     s.addText("You copy-paste\nYou forget the budget memo\nVP asks \u2014 too late", {
       x: 0.5, y: 1.7, w: 4.2, h: 2.5,
-      fontFace: D.b, fontSize: 20, color: D.darkText, margin: 0, align: "center", valign: "top"
+      fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
     // Divider
     s.addShape(pres.shapes.LINE, { x: 5.0, y: 0.8, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
@@ -768,18 +768,26 @@ async function main() {
     });
     s.addText("Agent reads directly\nFinds what you forgot\nFlags what you missed", {
       x: 5.3, y: 1.7, w: 4.2, h: 2.5,
-      fontFace: D.b, fontSize: 20, color: D.darkText, margin: 0, align: "center", valign: "top"
+      fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
     s.addNotes("The forgotten budget memo is the killer detail. Everyone has this story.\nWithout connections: Copy-paste HR handbook, survey results, team structure. Forget the budget memo. Proposal misses cost constraints. VP asks about it \u2014 too late.\nWith connections: Agent reads HR system directly. Pulls survey data automatically. Finds the budget memo you forgot. Flags a policy constraint you didn't know existed.\nThe agent found context you wouldn't have thought to provide. Transition: But can you trust it?");
   }
 
   // --- Slide 48: "Trust, but verify." ---
-  hero(pres, "Trust, but verify.", {
-    size: 60,
-    sub: "Never trust numbers you didn't provide.\nVerify claims against sources.\nUse AI for drafts, not decisions.",
-    subColor: D.muted,
-    notes: "NOW this slide lands. The reader just watched us hand AI the keys to documents, databases, and workflows. They should be feeling 'Wait, can I trust it with all that?' This addresses the unease at exactly the moment it's felt.\nThree rules:\n1. Never trust numbers you didn't provide \u2014 if it can't cite a source, it made it up.\n2. Verify claims against sources \u2014 AI output = first draft, not final answer.\n3. Use AI for drafts, not decisions \u2014 your judgment is the last step.\nLove Dory. Fact-check Dory. Transition: The mindset shift."
-  });
+  {
+    const s = darkSlide(pres);
+    s.addText("Trust, but verify.", {
+      x: 1.0, y: 0.6, w: 8, h: 2.0,
+      fontFace: D.h, fontSize: 60, color: D.white, bold: true,
+      align: "center", margin: 0, valign: "bottom"
+    });
+    s.addText("Never trust numbers you didn't provide.\nVerify claims against sources.\nUse AI for drafts, not decisions.", {
+      x: 1.5, y: 2.8, w: 7, h: 2.0,
+      fontFace: D.b, fontSize: 28, color: D.muted,
+      align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("NOW this slide lands. The reader just watched us hand AI the keys to documents, databases, and workflows. They should be feeling 'Wait, can I trust it with all that?' This addresses the unease at exactly the moment it's felt.\nThree rules:\n1. Never trust numbers you didn't provide \u2014 if it can't cite a source, it made it up.\n2. Verify claims against sources \u2014 AI output = first draft, not final answer.\n3. Use AI for drafts, not decisions \u2014 your judgment is the last step.\nLove Dory. Fact-check Dory. Transition: The mindset shift.");
+  }
 
   // --- Slide 49: "AI is a power tool, not autopilot." ---
   hero(pres, "AI is a power tool,\nnot autopilot.", {
@@ -926,7 +934,7 @@ async function main() {
     });
     s.addText("Effort. Every. Time.", {
       x: 0.5, y: 2.8, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
+      fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
     });
     // Divider
     s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
@@ -937,7 +945,7 @@ async function main() {
     });
     s.addText("Compounds permanently.", {
       x: 5.3, y: 2.8, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 20, color: D.accent, align: "center", margin: 0, valign: "top"
+      fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top"
     });
     s.addNotes("Prompt engineering = giving directions for each individual trip. Effort every time. Doesn't compound.\nContext engineering + skills = programming a GPS with home, office, preferences, traffic patterns. Gets smarter the more you invest. Compounds permanently.\nThis crystallizes the full journey. Each level built on the last. The GPS metaphor ties all five together. Transition: And here's the punchline.");
   }
