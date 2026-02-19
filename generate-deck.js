@@ -97,13 +97,6 @@ function addSourceCite(pres, s, text, opts = {}) {
   });
 }
 
-// LEGACY SHIMS — remove after all slides migrated to takeaway/source
-function addFooter(s, text) {
-  s.addText(text, { x: 0.5, y: 5.0, w: 9, h: 0.45, fontFace: D.b, fontSize: 11, color: D.muted, italic: true, margin: 0 });
-}
-function addSource(s, text) {
-  s.addText(text, { x: 0.5, y: 5.25, w: 9, h: 0.25, fontFace: D.b, fontSize: 9, color: D.muted, margin: 0 });
-}
 
 function addCard(pres, s, x, y, w, h, fill) {
   s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: fill || D.card }, shadow: sh() });
@@ -153,11 +146,8 @@ function wrongRight(pres, d) {
     { text: "", options: { breakLine: true, fontSize: 6 } },
     { text: d.rightLabel, options: { fontFace: D.b, fontSize: 12, color: "374151" } }
   ], { x: 5.5, y: 1.4, w: 3.8, h: 2.7, fontFace: D.b, fontSize: 13, color: D.text, margin: 0, valign: "top" });
-  // Legacy support during migration
   if (d.takeaway) addTakeaway(pres, s, d.takeaway);
-  else if (d.footer) addFooter(s, d.footer);
   if (d.source) addSourceCite(pres, s, d.source);
-  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
@@ -182,11 +172,8 @@ function twoCol(pres, d) {
   if (d.rightTitle) s.addText(d.rightTitle, { x: rx, y: 1.3, w: 3.85, h: 0.35, fontFace: D.h, fontSize: 18, color: d.rightTitleColor || bodyColor, bold: true, margin: 0 });
   const ry = d.rightTitle ? 1.7 : 1.3, rh = d.rightTitle ? 3.0 : 3.4;
   s.addText(d.rightContent, { x: rx, y: ry, w: 3.85, h: rh, fontFace: D.b, fontSize: 15, color: bodyColor, margin: 0, valign: "top" });
-  // Legacy support during migration
   if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
-  else if (d.footer) addFooter(s, d.footer);
   if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
-  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
@@ -216,11 +203,8 @@ function bulletSlide(pres, d) {
   if (d.stat) {
     s.addText(d.stat, { x: 0.5, y: 4.5, w: 9, h: 0.35, fontFace: D.b, fontSize: 11, color: D.accent, italic: true, margin: 0 });
   }
-  // Legacy support during migration
   if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
-  else if (d.footer) addFooter(s, d.footer);
   if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
-  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
@@ -243,11 +227,8 @@ function singleMsg(pres, d) {
       fontFace: D.b, fontSize: 16, color: subColor, italic: true, align: "center", margin: 0, valign: "top"
     });
   }
-  // Legacy support during migration
   if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
-  else if (d.footer) addFooter(s, d.footer);
   if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
-  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
@@ -284,11 +265,8 @@ function threeCol(pres, d) {
     s.addText(col.title, { x: x + 0.2, y: col.icon ? 2.0 : 1.25, w: 2.4, h: 0.5, fontFace: D.h, fontSize: 14, color: bodyColor, bold: true, align: "center", margin: 0, valign: "top" });
     s.addText(col.body, { x: x + 0.2, y: col.icon ? 2.5 : 1.8, w: 2.4, h: col.icon ? 1.9 : 2.7, fontFace: D.b, fontSize: 12, color: bodyColor, margin: 0, valign: "top" });
   });
-  // Legacy support during migration
   if (d.takeaway) addTakeaway(pres, s, d.takeaway, { dark: isDark });
-  else if (d.footer) addFooter(s, d.footer);
   if (d.source) addSourceCite(pres, s, d.source, { dark: isDark });
-  else if (d.sources) addSource(s, d.sources);
   s.addNotes(d.notes || "");
   return s;
 }
@@ -737,6 +715,12 @@ async function main() {
     notes: "This is the hinge of the deck. Celebrate the progress, then plant the seed that there's a bigger lever. The transition should feel like a cliffhanger."
   });
 
+  // --- Breather before Level 3 ---
+  breatherSlide(pres,
+    "You've changed the words. Now let's change the information.",
+    "Transition from Level 2 (prompt engineering) to Level 3 (context engineering)."
+  );
+
   // ============================================================
   // LEVEL 3: "FEED AI SMARTER" (Slides 22-26)
   // v2: Leads with proof (Same Prompt, Different Context) BEFORE Dory
@@ -1036,6 +1020,7 @@ async function main() {
 
   // --- Slide 33: One Chef vs. A Kitchen Brigade ---
   twoCol(pres, {
+    dark: true,
     headline: "One Chef vs. A Kitchen Brigade",
     leftTitle: "Level 4: One Chef",
     leftContent: [
@@ -1050,14 +1035,14 @@ async function main() {
       { text: "", options: { breakLine: true, fontSize: 8 } },
       { text: "A classroom of Dorys, each doing one focused step. Each fresh, focused, brilliant at one thing.", options: { fontFace: D.b, fontSize: 13, color: D.text, italic: true } },
     ],
-    footer: "The trick isn't making one AI smarter. It's making many AIs work together.",
+    takeaway: "The trick isn't making one AI smarter. It's making many AIs work together.",
     notes: "LLMs are bad at long chains but excellent at focused tasks. Kitchen brigade leverages the strength. Third Dory touchpoint."
   });
 
   // --- Slide 34: Prompt Chaining (onboarding-specific + Phase 0) ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "Prompt Chaining");
+    const s = darkSlide(pres);
+    addHeadline(s, "Prompt Chaining", { dark: true });
     // Onboarding chain flow: Research -> Draft -> Review -> You
     const phases = [
       { label: "Agent 1\nResearch", color: D.accent, x: 0.3 },
@@ -1074,7 +1059,7 @@ async function main() {
     const outputs = ["structured\nbrief", "polished\nproposal", "final draft\n+ notes"];
     arrowXs.forEach((x, i) => {
       s.addText("\u2192", { x, y: 1.25, w: 0.5, h: 0.65, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(outputs[i], { x: x - 0.15, y: 2.0, w: 0.8, h: 0.5, fontFace: D.b, fontSize: 8, color: D.muted, italic: true, align: "center", margin: 0 });
+      s.addText(outputs[i], { x: x - 0.15, y: 2.0, w: 0.8, h: 0.5, fontFace: D.b, fontSize: 8, color: D.mutedDark, italic: true, align: "center", margin: 0 });
     });
     // Three principles
     const principles = [
@@ -1084,10 +1069,10 @@ async function main() {
     ];
     principles.forEach((p, i) => {
       const x = 0.5 + i * 3.1;
-      addCard(pres, s, x, 2.6, 2.8, 1.0);
+      addDarkCard(pres, s, x, 2.6, 2.8, 1.0);
       addBar(pres, s, x, 2.6, 1.0, D.accent);
-      s.addText(p.head, { x: x + 0.2, y: 2.65, w: 2.4, h: 0.3, fontFace: D.b, fontSize: 12, color: D.text, bold: true, margin: 0 });
-      s.addText(p.body, { x: x + 0.2, y: 2.95, w: 2.4, h: 0.5, fontFace: D.b, fontSize: 11, color: D.muted, margin: 0 });
+      s.addText(p.head, { x: x + 0.2, y: 2.65, w: 2.4, h: 0.3, fontFace: D.b, fontSize: 12, color: D.textDark, bold: true, margin: 0 });
+      s.addText(p.body, { x: x + 0.2, y: 2.95, w: 2.4, h: 0.5, fontFace: D.b, fontSize: 11, color: D.mutedDark, margin: 0 });
     });
     // Phase 0 smell test callout
     addCard(pres, s, 0.5, 3.85, 9, 1.0, "FEF3C7");
@@ -1109,23 +1094,23 @@ async function main() {
 
   // --- Slide 36: Skills: Every Chef's Playbook ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "Skills: Every Chef's Playbook");
+    const s = darkSlide(pres);
+    addHeadline(s, "Skills: Every Chef's Playbook", { dark: true });
     s.addText("How does each Dory in the brigade know what to do?", {
       x: 0.5, y: 0.85, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
     });
     // Definition card
-    addCard(pres, s, 0.5, 1.3, 9, 1.2);
+    addDarkCard(pres, s, 0.5, 1.3, 9, 1.2);
     addBar(pres, s, 0.5, 1.3, 1.2, D.accent);
     s.addText([
       { text: "Skills: ", options: { bold: true, fontFace: D.h, fontSize: 16, color: D.accent } },
-      { text: "Predefined rules, instructions, templates, and context packages \u2014 injected into the AI's context only when relevant. Think of them as the specialized training manual each chef at each station receives.", options: { fontFace: D.b, fontSize: 13, color: D.text } },
+      { text: "Predefined rules, instructions, templates, and context packages \u2014 injected into the AI's context only when relevant. Think of them as the specialized training manual each chef at each station receives.", options: { fontFace: D.b, fontSize: 13, color: D.textDark } },
     ], { x: 0.75, y: 1.4, w: 8.5, h: 1.0, margin: 0, valign: "middle" });
     // Connection to chains
-    addCard(pres, s, 0.5, 2.8, 9, 1.3);
+    addDarkCard(pres, s, 0.5, 2.8, 9, 1.3);
     s.addImage({ data: icons.fish, x: 0.8, y: 3.0, w: 0.6, h: 0.6 });
     s.addText([
-      { text: "Agent 1 (Research) gets the \"Research Standards\" skill.\nAgent 3 (Review) gets the \"Leadership Proposals\" and \"Compliance Policy\" skills.", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
+      { text: "Agent 1 (Research) gets the \"Research Standards\" skill.\nAgent 3 (Review) gets the \"Leadership Proposals\" and \"Compliance Policy\" skills.", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
       { text: "", options: { breakLine: true, fontSize: 4 } },
       { text: "Write once, use forever. Every time the chain runs, each agent already knows its specialty.", options: { fontFace: D.b, fontSize: 12, color: D.accent, bold: true, italic: true } },
     ], { x: 1.6, y: 2.9, w: 7.6, h: 1.1, margin: 0, valign: "top" });
@@ -1133,24 +1118,26 @@ async function main() {
     s.addText("Organizations investing in context architecture see 50% faster responses and 40% higher quality outputs.", {
       x: 0.5, y: 4.3, w: 9, h: 0.35, fontFace: D.b, fontSize: 11, color: D.accent, italic: true, margin: 0
     });
-    addSource(s, "Source: CodeConductor");
+    addSourceCite(pres, s, "CodeConductor", { dark: true });
     s.addNotes("Skills introduced HERE \u2014 after the reader understands chains and the kitchen brigade. The framing is 'how you program each Dory,' not an abstract concept.");
   }
 
   // --- Slide 37: Skills in Action (onboarding chain agents) ---
   threeCol(pres, {
+    dark: true,
     headline: "Skills in Action",
     columns: [
       { title: "Agent 1 (Research)\n+ \"Research Standards\"", body: "Where to look, what data to prioritize, how to structure the brief.\n\nAlready knows the company's data sources.", accent: D.accent },
       { title: "Agent 2 (Draft)\n+ \"Leadership Proposals\"", body: "The VP's preferred format, tone, level of detail, how to frame costs.\n\nEvery proposal sounds like it was written for this audience.", accent: D.accentDark },
       { title: "Agent 3 (Review)\n+ \"Compliance Policy\"", body: "Regulations, required disclaimers, approval workflows.\n\nCatches policy gaps you didn't know existed.", accent: "0E7490" },
     ],
-    footer: "Without skills, each agent starts from scratch. With skills, each agent already knows its specialty.",
+    takeaway: "With skills, each agent already knows its specialty.",
     notes: "Same onboarding chain from slide 34, now upgraded with skills. The audience sees the concrete difference."
   });
 
   // --- Slide 38: Why Skills Change Everything ---
   bulletSlide(pres, {
+    dark: true,
     headline: "Why Skills Change Everything",
     bullets: [
       { head: "Reusable \u2014", body: "write once, use forever" },
@@ -1173,6 +1160,7 @@ async function main() {
 
   // --- Slide 40: GPS, Not Directions ---
   twoCol(pres, {
+    dark: true,
     headline: "GPS, Not Directions",
     leftTitle: "Prompt Engineering",
     leftContent: [
@@ -1191,7 +1179,7 @@ async function main() {
       { text: "", options: { breakLine: true, fontSize: 8 } },
       { text: "Compounds permanently.", options: { fontFace: D.b, fontSize: 14, color: D.right, bold: true } },
     ],
-    footer: "Level 2 made you better at asking. Level 3 taught AI what you know. Level 4 let AI drive. Level 5 put a whole team on the road \u2014 skills are the map each driver follows.",
+    takeaway: "Prompt engineering is manual directions. Context engineering + skills is programming a GPS.",
     notes: "Crystallizes the full journey. Each level built on the last. The GPS metaphor ties all five together."
   });
 
@@ -1201,8 +1189,8 @@ async function main() {
 
   // --- Slide 41: The Manual Way: 1.5 Hours of You ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "The Manual Way: 1.5 Hours of You");
+    const s = darkSlide(pres);
+    addHeadline(s, "The Manual Way: 1.5 Hours of You", { dark: true });
     const steps = [
       ["1", "Search for onboarding docs and survey data", "20 min"],
       ["2", "Copy-paste into AI, ask for draft", "10 min"],
@@ -1216,7 +1204,7 @@ async function main() {
       const y = 1.05 + i * 0.5;
       s.addShape(pres.shapes.OVAL, { x: 0.5, y: y + 0.05, w: 0.35, h: 0.35, fill: { color: D.wrong } });
       s.addText(st[0], { x: 0.5, y: y + 0.05, w: 0.35, h: 0.35, fontFace: D.b, fontSize: 11, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(st[1], { x: 1.0, y: y, w: 6.5, h: 0.45, fontFace: D.b, fontSize: 12, color: D.text, margin: 0, valign: "middle" });
+      s.addText(st[1], { x: 1.0, y: y, w: 6.5, h: 0.45, fontFace: D.b, fontSize: 12, color: D.textDark, margin: 0, valign: "middle" });
       s.addText(st[2], { x: 8.0, y: y, w: 1.5, h: 0.45, fontFace: D.b, fontSize: 12, color: D.wrong, bold: true, align: "right", margin: 0, valign: "middle" });
     });
     // Total
@@ -1227,8 +1215,8 @@ async function main() {
 
   // --- Slide 42: The Chained Way: 15 Minutes of Judgment (with skills compounding) ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "The Chained Way: 15 Minutes of Judgment");
+    const s = darkSlide(pres);
+    addHeadline(s, "The Chained Way: 15 Minutes of Judgment", { dark: true });
     const agents = [
       { num: "1", label: "Agent 1 \u2014 Research", prompt: "\"Research our onboarding process. Pull metrics from HR, read the last 3 surveys, summarize pain points.\"", output: "\u2192 Research brief", color: D.accent },
       { num: "2", label: "Agent 2 \u2014 Draft", prompt: "\"Using this brief, draft a proposal to reduce onboarding from 4 to 2 weeks. One-page exec brief for VP of People. Be radically honest.\"", output: "\u2192 Polished proposal", color: D.accentDark },
@@ -1237,27 +1225,25 @@ async function main() {
     ];
     agents.forEach((a, i) => {
       const y = 1.1 + i * 0.78;
-      addCard(pres, s, 0.5, y, 9, 0.62);
-      addBar(pres, s, 0.5, y, 0.62, a.color);
+      addDarkCard(pres, s, 0.5, y, 9, 0.62);
       s.addText(a.label, { x: 0.75, y: y + 0.03, w: 2.2, h: 0.25, fontFace: D.b, fontSize: 11, color: a.color, bold: true, margin: 0 });
-      s.addText(a.prompt, { x: 0.75, y: y + 0.28, w: 6.8, h: 0.28, fontFace: D.b, fontSize: 9, color: D.text, italic: true, margin: 0 });
+      s.addText(a.prompt, { x: 0.75, y: y + 0.28, w: 6.8, h: 0.28, fontFace: D.b, fontSize: 9, color: D.textDark, italic: true, margin: 0 });
       s.addText(a.output, { x: 7.8, y: y + 0.03, w: 1.5, h: 0.52, fontFace: D.b, fontSize: 10, color: a.color, bold: true, margin: 0, valign: "middle", align: "right" });
     });
     // Skills compounding beat
-    addCard(pres, s, 0.5, 4.3, 9, 0.65, "E0F2FE");
-    addBar(pres, s, 0.5, 4.3, 0.65, D.accent);
+    addGlassCard(pres, s, 0.5, 4.3, 9, 0.65);
     s.addText([
       { text: "And next time? ", options: { bold: true, fontFace: D.b, fontSize: 10, color: D.accent } },
-      { text: "Your feedback becomes skills. The VP's format \u2192 \"Leadership Proposals\" skill. Compliance gaps \u2192 updated \"Compliance Policy\" skill. The chain gets smarter every time \u2014 even though Dory won't remember, the skills will.", options: { fontFace: D.b, fontSize: 10, color: D.text } },
+      { text: "Your feedback becomes skills. The VP's format \u2192 \"Leadership Proposals\" skill. Compliance gaps \u2192 updated \"Compliance Policy\" skill. The chain gets smarter every time \u2014 even though Dory won't remember, the skills will.", options: { fontFace: D.b, fontSize: 10, color: D.textDark } },
     ], { x: 0.75, y: 4.33, w: 8.5, h: 0.58, margin: 0, valign: "middle" });
-    addFooter(s, "Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work.");
+    addTakeaway(pres, s, "Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work.", { dark: true });
     s.addNotes("Emotional climax. The skills compounding beat is the final Dory touchpoint \u2014 even though Dory forgets, the skills persist.");
   }
 
   // --- Slide 43: From Asking to Orchestrating (with persona bridges) ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "From Asking to Orchestrating");
+    const s = darkSlide(pres);
+    addHeadline(s, "From Asking to Orchestrating", { dark: true });
     const stages = [
       { label: "AI Skeptic", bridge: "Levels 0\u20131 got you\npast this", color: "9CA3AF" },
       { label: "AI Questioner", bridge: "Levels 2\u20133 got you\npast this", color: "6B7280" },
@@ -1268,7 +1254,7 @@ async function main() {
     s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.1, w: 9, h: 0.08, fill: { color: D.accent } });
     stages.forEach((st, i) => {
       const x = 0.5 + i * 2.35;
-      addCard(pres, s, x, 1.1, 2.1, 0.85);
+      addDarkCard(pres, s, x, 1.1, 2.1, 0.85);
       s.addText(st.label, { x: x + 0.1, y: 1.15, w: 1.9, h: 0.75, fontFace: D.h, fontSize: 13, color: st.color, bold: true, align: "center", margin: 0, valign: "middle" });
       // Bridge text below arrow
       s.addText(st.bridge, { x: x + 0.1, y: 2.3, w: 1.9, h: 0.6, fontFace: D.b, fontSize: 10, color: st.color, italic: true, align: "center", margin: 0 });
@@ -1278,11 +1264,10 @@ async function main() {
       }
     });
     // Closing statement
-    addCard(pres, s, 1.0, 3.2, 8, 1.2, "E0F2FE");
+    addGlassCard(pres, s, 1.0, 3.2, 8, 1.2);
     s.addText("You walked in as a Questioner.\nThis deck just showed you the path to AI-First.", {
       x: 1.2, y: 3.3, w: 7.6, h: 1.0, fontFace: D.h, fontSize: 18, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    addFooter(s, "Full-circle moment. The spectrum from slide 2, but now each persona is bridged to the levels that got you past it.");
     s.addNotes("Don't rush this \u2014 let the audience see how far they've come. The spectrum from slide 2 is now a journey they've completed.");
   }
 
@@ -1292,8 +1277,8 @@ async function main() {
 
   // --- Slide 44: Your AI Toolkit ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "Your AI Toolkit");
+    const s = darkSlide(pres);
+    addHeadline(s, "Your AI Toolkit", { dark: true });
     const headerRow = [
       { text: "Category", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 12 } },
       { text: "Tools", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 12 } },
@@ -1305,10 +1290,10 @@ async function main() {
       ["For developers", "GitHub Copilot, Cursor, Claude Code", "AI-first coding"],
       ["For connections", "MCP servers, Zapier AI, custom integrations", "Level 4\u20135 territory"],
     ];
-    const tableRows = [headerRow, ...data.map(r => r.map(c => ({ text: c, options: { fontFace: D.b, fontSize: 12, color: D.text } })))];
+    const tableRows = [headerRow, ...data.map(r => r.map(c => ({ text: c, options: { fontFace: D.b, fontSize: 12, color: D.textDark } })))];
     s.addTable(tableRows, {
       x: 0.5, y: 1.1, w: 9, colW: [2.2, 3.6, 3.2],
-      border: { pt: 1, color: D.tableBorder },
+      border: { pt: 1, color: "3A3A5E" },
       rowH: [0.45, 0.55, 0.55, 0.55, 0.55],
       autoPage: false
     });
@@ -1317,8 +1302,8 @@ async function main() {
 
   // --- Slide 45: The 30-Day Challenge (with persona crossings) ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "The 30-Day Challenge");
+    const s = darkSlide(pres);
+    addHeadline(s, "The 30-Day Challenge", { dark: true });
     s.addText("One task. Four weeks. Four persona crossings.", {
       x: 0.5, y: 0.85, w: 9, h: 0.35, fontFace: D.b, fontSize: 14, color: D.accent, italic: true, margin: 0
     });
@@ -1334,14 +1319,14 @@ async function main() {
       const x = 0.5 + i * 2.35;
       // Node
       s.addShape(pres.shapes.OVAL, { x: x + 0.75, y: 1.4, w: 0.45, h: 0.45, fill: { color: w.color } });
-      addCard(pres, s, x, 2.0, 2.1, 2.5);
+      addDarkCard(pres, s, x, 2.0, 2.1, 2.5);
       addBar(pres, s, x, 2.0, 2.5, w.color);
       s.addText(w.week, { x: x + 0.15, y: 2.05, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 11, color: w.color, bold: true, margin: 0 });
       s.addText(w.persona, { x: x + 0.15, y: 2.28, w: 1.8, h: 0.25, fontFace: D.b, fontSize: 10, color: w.color, italic: true, margin: 0 });
-      s.addText(w.level, { x: x + 0.15, y: 2.52, w: 1.8, h: 0.2, fontFace: D.b, fontSize: 9, color: D.muted, margin: 0 });
-      s.addText(w.desc, { x: x + 0.15, y: 2.8, w: 1.8, h: 1.4, fontFace: D.b, fontSize: 10, color: D.text, margin: 0, valign: "top" });
+      s.addText(w.level, { x: x + 0.15, y: 2.52, w: 1.8, h: 0.2, fontFace: D.b, fontSize: 9, color: D.mutedDark, margin: 0 });
+      s.addText(w.desc, { x: x + 0.15, y: 2.8, w: 1.8, h: 1.4, fontFace: D.b, fontSize: 10, color: D.textDark, margin: 0, valign: "top" });
     });
-    addFooter(s, "Four weeks. One task. Same journey this deck just took you on.");
+    addTakeaway(pres, s, "Four weeks. One task. Same journey this deck just took you on.", { dark: true });
     s.addNotes("Most actionable takeaway. Same task across four weeks mirrors the deck's progression. Now framed as persona crossings for motivation.");
   }
 
@@ -1349,12 +1334,18 @@ async function main() {
   // CLOSING (Slides 46-47)
   // ============================================================
 
+  // --- Breather before Closing ---
+  breatherSlide(pres,
+    "Let's come back to where we started.",
+    "Emotional reset before the callback."
+  );
+
   // --- Slide 46: Full Circle (with persona language) ---
   {
     const s = darkSlide(pres);
-    s.addText("Full Circle", { x: 0.5, y: 0.3, w: 9, h: 0.6, fontFace: D.h, fontSize: 32, color: D.white, bold: true, align: "center", margin: 0 });
+    s.addText("Full Circle", { x: 0.5, y: 0.3, w: 9, h: 0.6, fontFace: D.h, fontSize: 40, color: D.white, bold: true, align: "center", margin: 0 });
     s.addText("Remember the person spending 45 minutes copy-pasting into ChatGPT?", {
-      x: 1.0, y: 1.0, w: 8, h: 0.5, fontFace: D.b, fontSize: 15, color: "CCCCCC", italic: true, align: "center", margin: 0
+      x: 1.0, y: 1.0, w: 8, h: 0.5, fontFace: D.b, fontSize: 15, color: D.textDark, italic: true, align: "center", margin: 0
     });
     const journey = [
       ["They learned to prompt with specificity", "became a Viber", "Levels 2\u20133"],
@@ -1364,9 +1355,9 @@ async function main() {
     ];
     journey.forEach((l, i) => {
       const y = 1.7 + i * 0.55;
-      s.addText(l[0], { x: 1.0, y, w: 4.5, h: 0.4, fontFace: D.b, fontSize: 13, color: D.white, margin: 0 });
+      s.addText(l[0], { x: 1.0, y, w: 4.5, h: 0.4, fontFace: D.b, fontSize: 13, color: D.textDark, margin: 0 });
       if (l[1]) s.addText(l[1], { x: 5.5, y, w: 2.5, h: 0.4, fontFace: D.b, fontSize: 12, color: D.accent, italic: true, margin: 0 });
-      if (l[2]) s.addText(l[2], { x: 8.0, y, w: 1.5, h: 0.4, fontFace: D.b, fontSize: 11, color: "999999", margin: 0, align: "right" });
+      if (l[2]) s.addText(l[2], { x: 8.0, y, w: 1.5, h: 0.4, fontFace: D.b, fontSize: 11, color: D.mutedDark, margin: 0, align: "right" });
     });
     s.addShape(pres.shapes.LINE, { x: 1.5, y: 3.85, w: 7, h: 0, line: { color: D.accent, width: 1 } });
     s.addText("The same task. Two minutes.\nThat's the trick. Now you know it too.", {
@@ -1379,14 +1370,14 @@ async function main() {
   {
     const s = darkSlide(pres);
     s.addText("The secret was never in the AI.\nIt was in knowing how to work with it.", {
-      x: 1.0, y: 1.2, w: 8, h: 1.5, fontFace: D.h, fontSize: 26, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+      x: 1.0, y: 1.2, w: 8, h: 1.5, fontFace: D.h, fontSize: 30, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addShape(pres.shapes.LINE, { x: 3.0, y: 3.0, w: 4, h: 0, line: { color: D.accent, width: 2 } });
     s.addText("Now go try it \u2014 start with one task, this week.", {
       x: 1.0, y: 3.3, w: 8, h: 0.8, fontFace: D.b, fontSize: 20, color: D.accent, bold: true, italic: true, align: "center", margin: 0
     });
     s.addText("Getting Agents to Give Up Their Secrets", {
-      x: 1.0, y: 4.6, w: 8, h: 0.4, fontFace: D.b, fontSize: 12, color: "999999", align: "center", margin: 0
+      x: 1.0, y: 4.6, w: 8, h: 0.4, fontFace: D.b, fontSize: 12, color: D.mutedDark, align: "center", margin: 0
     });
     s.addNotes("Clean exit. One task, this week \u2014 not 'transform everything.'");
   }
@@ -1396,7 +1387,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: "Getting-Agents-to-Give-Up-Their-Secrets.pptx" });
-  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (50 slides, v2)");
+  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (52 slides, v3)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
