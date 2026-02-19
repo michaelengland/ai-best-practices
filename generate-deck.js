@@ -744,6 +744,7 @@ async function main() {
 
   // --- Slide 22: Same Prompt, Different Context ---
   twoCol(pres, {
+    dark: true,
     headline: "Same Prompt, Different Context",
     leftTitle: "Level 2 Result",
     leftContent: [
@@ -764,52 +765,54 @@ async function main() {
       { text: "", options: { breakLine: true, fontSize: 6 } },
       { text: "Output sounds like someone who works here.", options: { fontFace: D.b, fontSize: 13, color: D.right, bold: true, italic: true } },
     ],
-    footer: "Same prompt. Different information. Dramatically different result.",
-    sources: "Sources: Elastic; KDnuggets",
+    takeaway: "Same prompt. Different information. Dramatically different result.",
+    source: "Elastic \u00b7 KDnuggets",
     notes: "The clearest Level 2/3 boundary demonstration. The prompt didn't change. The context did. This is the 'aha' \u2014 it's not about the words, it's about what the AI knows."
   });
 
   // --- Slide 23: Meet Your AI Colleague (Dory) ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "Meet Your AI Colleague");
+    const s = darkSlide(pres);
+    addHeadline(s, "Meet Your AI Colleague", { dark: true });
     // Dory illustration area (fish icon as placeholder)
-    addCard(pres, s, 0.5, 1.1, 3.5, 3.4);
-    s.addShape(pres.shapes.OVAL, { x: 1.3, y: 1.6, w: 1.8, h: 1.8, fill: { color: "E0F2FE" } });
+    addDarkCard(pres, s, 0.5, 1.2, 3.5, 3.2);
+    s.addShape(pres.shapes.OVAL, { x: 1.3, y: 1.6, w: 1.8, h: 1.8, fill: { color: D.accent, transparency: 80 } });
     s.addImage({ data: icons.fish, x: 1.6, y: 1.9, w: 1.2, h: 1.2 });
-    s.addText("Dory", { x: 0.5, y: 3.5, w: 3.5, h: 0.4, fontFace: D.h, fontSize: 20, color: D.accent, bold: true, align: "center", margin: 0 });
-    s.addText("Your AI Colleague", { x: 0.5, y: 3.85, w: 3.5, h: 0.3, fontFace: D.b, fontSize: 12, color: D.muted, italic: true, align: "center", margin: 0 });
+    s.addText("Dory", { x: 0.5, y: 3.4, w: 3.5, h: 0.4, fontFace: D.h, fontSize: 20, color: D.accent, bold: true, align: "center", margin: 0 });
+    s.addText("Your AI Colleague", { x: 0.5, y: 3.75, w: 3.5, h: 0.3, fontFace: D.b, fontSize: 12, color: D.mutedDark, italic: true, align: "center", margin: 0 });
     // Text right
-    addCard(pres, s, 4.3, 1.1, 5.2, 3.4);
-    addBar(pres, s, 4.3, 1.1, 3.4, D.accent);
+    addDarkCard(pres, s, 4.3, 1.2, 5.2, 3.2);
+    addBar(pres, s, 4.3, 1.2, 3.2, D.accent);
     s.addText([
-      { text: "Your AI is like Dory:", options: { breakLine: true, fontFace: D.b, fontSize: 15, color: D.text, bold: true } },
+      { text: "Your AI is like Dory:", options: { breakLine: true, fontFace: D.b, fontSize: 15, color: D.textDark, bold: true } },
       { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "Incredibly smart. Genuinely wants to help. Remembers absolutely nothing between conversations.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.text, italic: true } },
+      { text: "Incredibly smart. Genuinely wants to help. Remembers absolutely nothing between conversations.", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.textDark, italic: true } },
       { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "In Level 2, we got better at asking. But Dory's biggest problem isn't that she doesn't understand what you're saying \u2014 it's that she doesn't know what you know.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.muted } },
+      { text: "In Level 2, we got better at asking. But Dory's biggest problem isn't that she doesn't understand what you're saying \u2014 it's that she doesn't know what you know.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.mutedDark } },
       { text: "", options: { breakLine: true, fontSize: 6 } },
       { text: "You already SAW context transform output. Dory explains WHY.", options: { fontFace: D.b, fontSize: 12, color: D.accent, bold: true } },
     ], { x: 4.55, y: 1.3, w: 4.7, h: 3.0, margin: 0, valign: "top" });
-    addFooter(s, "Level 2 = words. Level 3 = information.");
+    addTakeaway(pres, s, "Level 2 = words. Level 3 = information.", { dark: true });
     s.addNotes("NOW the Dory metaphor has a reason. The reader just saw what context does (slide 22); Dory explains the mechanism. First of five Dory touchpoints.");
   }
 
   // --- Slide 24: The Attention Problem ---
   threeCol(pres, {
+    dark: true,
     headline: "The Attention Problem",
     columns: [
       { title: "Too Much Context", body: "Dory gets lost \u2014 buries important stuff in noise. Key details get drowned out by irrelevant information.", accent: D.wrong },
       { title: "Contradictory Info", body: "Dory gets confused \u2014 tries to satisfy everything at once. Output becomes incoherent.", accent: "F59E0B" },
       { title: "Broad Instructions", body: "Dory wanders off \u2014 loses focus partway through. Starts strong, finishes weak.", accent: D.accentDark },
     ],
-    footer: "The problem isn't that AI is dumb. The problem is that we're feeding it wrong.",
-    sources: "57% of orgs have AI agents in production, but 32% cite quality as top barrier \u2014 Source: Sombra",
+    takeaway: "The problem isn't that AI is dumb. It's the context.",
+    source: "Sombra \u2014 57% of orgs have AI agents in production, but 32% cite quality as top barrier",
     notes: "Reframes 'AI gives bad answers.' It's almost never the model \u2014 it's the context."
   });
 
   // --- Slide 25: Let AI Tell You What It Needs ---
   twoCol(pres, {
+    dark: true,
     headline: "Let AI Tell You What It Needs",
     leftTitle: "The Prompt",
     leftAccent: D.accent,
@@ -828,32 +831,31 @@ async function main() {
       { text: "", options: { breakLine: true, fontSize: 6 } },
       { text: "The AI does context engineering for you.", options: { fontFace: D.b, fontSize: 13, color: D.right, bold: true, italic: true } },
     ],
-    footer: "The single highest-leverage technique: let AI close its own context gaps.",
-    sources: "Source: Anthropic/Claude",
+    takeaway: "The single highest-leverage technique: let AI close its own context gaps.",
+    source: "Anthropic/Claude",
     notes: "The AI does context engineering for you. This addresses the attention problem from slide 24."
   });
 
   // --- Slide 26: The Goldilocks Principle + Persona Milestone ---
   {
-    const s = lightSlide(pres);
+    const s = darkSlide(pres);
     s.addText("Not too much. Not too little.\nThe right context at the right time.", {
       x: 1.0, y: 1.0, w: 8, h: 1.6,
-      fontFace: D.h, fontSize: 26, color: D.text, bold: true, align: "center", margin: 0, valign: "middle"
+      fontFace: D.h, fontSize: 26, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("Prompt engineering tweaks the question.\nContext engineering builds the knowledge base.", {
       x: 1.0, y: 2.6, w: 8, h: 1.0,
-      fontFace: D.b, fontSize: 15, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
+      fontFace: D.b, fontSize: 15, color: D.mutedDark, italic: true, align: "center", margin: 0, valign: "top"
     });
     // Persona milestone callout
-    addCard(pres, s, 1.5, 3.8, 7, 1.0, "E0F2FE");
-    addBar(pres, s, 1.5, 3.8, 1.0, D.accent);
+    addGlassCard(pres, s, 1.5, 3.8, 7, 1.0);
     s.addText([
       { text: "Persona milestone: ", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
-      { text: "You've outgrown Questioner. You prompt well, you understand context, you get good results. You're a ", options: { fontFace: D.b, fontSize: 12, color: D.text } },
+      { text: "You've outgrown Questioner. You prompt well, you understand context, you get good results. You're a ", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
       { text: "Viber", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accentDark } },
-      { text: " \u2014 but you're still doing all the work manually.", options: { fontFace: D.b, fontSize: 12, color: D.text } },
+      { text: " \u2014 but you're still doing all the work manually.", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
     ], { x: 1.75, y: 3.85, w: 6.5, h: 0.9, margin: 0, valign: "middle" });
-    addSource(s, "Source: CIO");
+    addSourceCite(pres, s, "CIO", { dark: true });
     s.addNotes("Crystallizes Level 3. Persona milestone: Questioner \u2192 Viber. The reader knows they're making progress, but the work is still manual.");
   }
 
@@ -864,8 +866,8 @@ async function main() {
 
   // --- Slide 27: The Copy-Paste Trap ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "The Copy-Paste Trap");
+    const s = darkSlide(pres);
+    addHeadline(s, "The Copy-Paste Trap", { dark: true });
     const steps = [
       { num: "1", text: "You decide which documents to provide" },
       { num: "2", text: "You copy-paste into the AI chat" },
@@ -876,8 +878,8 @@ async function main() {
       const y = 1.2 + i * 0.8;
       s.addShape(pres.shapes.OVAL, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fill: { color: D.wrong } });
       s.addText(st.num, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fontFace: D.b, fontSize: 16, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(st.text, { x: 1.7, y: y, w: 4.1, h: 0.6, fontFace: D.b, fontSize: 14, color: D.text, margin: 0, valign: "middle" });
-      if (i < 3) s.addText("\u2193", { x: 1.0, y: y + 0.55, w: 0.5, h: 0.25, fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0 });
+      s.addText(st.text, { x: 1.7, y: y, w: 4.1, h: 0.6, fontFace: D.b, fontSize: 14, color: D.textDark, margin: 0, valign: "middle" });
+      if (i < 3) s.addText("\u2193", { x: 1.0, y: y + 0.55, w: 0.5, h: 0.25, fontFace: D.b, fontSize: 14, color: D.mutedDark, align: "center", margin: 0 });
     });
     // Problems card
     addCard(pres, s, 6.0, 1.2, 3.5, 2.8, D.wrongBg);
@@ -885,18 +887,18 @@ async function main() {
     s.addText([
       { text: "Problems:", options: { breakLine: true, bold: true, fontFace: D.b, fontSize: 13, color: D.wrong } },
       { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "You're the bottleneck", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "You don't know what context AI needs", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
-      { text: "You're doing grunt work", options: { bullet: true, fontFace: D.b, fontSize: 12, color: D.text } },
+      { text: "You're the bottleneck", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
+      { text: "You don't know what context AI needs", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
+      { text: "You're doing grunt work", options: { bullet: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
     ], { x: 6.25, y: 1.3, w: 3.0, h: 2.6, margin: 0, valign: "top" });
-    addFooter(s, "You're using a Ferrari to carry groceries.");
+    addTakeaway(pres, s, "You're using a Ferrari to carry groceries.", { dark: true });
     s.addNotes("The copy-paste cycle is so universal it's invisible. Drawing it as a diagram makes people see it.");
   }
 
   // --- Slide 28: Hand Dory the Keys ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "Hand Dory the Keys");
+    const s = darkSlide(pres);
+    addHeadline(s, "Hand Dory the Keys", { dark: true });
     const steps = [
       { num: "1", text: "Agent retrieves its own context" },
       { num: "2", text: "Agent identifies gaps, goes back for more" },
@@ -908,29 +910,29 @@ async function main() {
       const isHuman = i === 3;
       s.addShape(pres.shapes.OVAL, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fill: { color: isHuman ? D.accent : D.right } });
       s.addText(st.num, { x: 1.0, y: y + 0.05, w: 0.5, h: 0.5, fontFace: D.b, fontSize: 16, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
-      s.addText(st.text, { x: 1.7, y: y, w: 4.1, h: 0.6, fontFace: D.b, fontSize: 14, color: D.text, margin: 0, valign: "middle" });
-      if (i < 3) s.addText("\u2193", { x: 1.0, y: y + 0.55, w: 0.5, h: 0.25, fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0 });
+      s.addText(st.text, { x: 1.7, y: y, w: 4.1, h: 0.6, fontFace: D.b, fontSize: 14, color: D.textDark, margin: 0, valign: "middle" });
+      if (i < 3) s.addText("\u2193", { x: 1.0, y: y + 0.55, w: 0.5, h: 0.25, fontFace: D.b, fontSize: 14, color: D.mutedDark, align: "center", margin: 0 });
     });
     // Insight card
     addCard(pres, s, 6.0, 1.2, 3.5, 2.8, D.rightBg);
     addBar(pres, s, 6.0, 1.2, 2.8, D.right);
     s.addText([
-      { text: "Same Dory. Same memory issues.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.text, bold: true } },
+      { text: "Same Dory. Same memory issues.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.textDark, bold: true } },
       { text: "", options: { breakLine: true, fontSize: 6 } },
       { text: "But now she has hands, eyes, and a to-do list.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.right, italic: true } },
       { text: "", options: { breakLine: true, fontSize: 8 } },
-      { text: "One great chef who finds ingredients, preps, cooks, and plates.", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
+      { text: "One great chef who finds ingredients, preps, cooks, and plates.", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.textDark } },
       { text: "", options: { breakLine: true, fontSize: 4 } },
       { text: "You taste-test at the end.", options: { fontFace: D.b, fontSize: 12, color: D.accent, bold: true } },
     ], { x: 6.25, y: 1.3, w: 3.0, h: 2.6, margin: 0, valign: "top" });
-    addFooter(s, "Human moved from 'operator at every step' to 'reviewer at the end.'");
+    addTakeaway(pres, s, "Human moved from 'operator at every step' to 'reviewer at the end.'", { dark: true });
     s.addNotes("Visual contrast with slide 27 is the whole point. Chef metaphor sets up Level 5.");
   }
 
   // --- Slide 29: Connections Are Everything (with MCP inline) ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "Connections Are Everything");
+    const s = darkSlide(pres);
+    addHeadline(s, "Connections Are Everything", { dark: true });
     const connections = [
       { icon: icons.globe, label: "Web search/fetch", desc: "Research and fact-check" },
       { icon: icons.envelope, label: "Email access", desc: "Read context, draft responses" },
@@ -944,18 +946,19 @@ async function main() {
       const row = Math.floor(i / 3);
       const x = 0.5 + col * 3.1;
       const y = 1.1 + row * 1.6;
-      addCard(pres, s, x, y, 2.8, 1.3);
-      s.addShape(pres.shapes.OVAL, { x: x + 0.15, y: y + 0.25, w: 0.6, h: 0.6, fill: { color: "E0F2FE" } });
+      addDarkCard(pres, s, x, y, 2.8, 1.3);
+      s.addShape(pres.shapes.OVAL, { x: x + 0.15, y: y + 0.25, w: 0.6, h: 0.6, fill: { color: D.accent, transparency: 80 } });
       s.addImage({ data: c.icon, x: x + 0.25, y: y + 0.35, w: 0.4, h: 0.4 });
-      s.addText(c.label, { x: x + 0.9, y: y + 0.15, w: 1.7, h: 0.35, fontFace: D.b, fontSize: 13, color: D.text, bold: true, margin: 0 });
-      s.addText(c.desc, { x: x + 0.9, y: y + 0.5, w: 1.7, h: 0.5, fontFace: D.b, fontSize: 11, color: D.muted, margin: 0 });
+      s.addText(c.label, { x: x + 0.9, y: y + 0.15, w: 1.7, h: 0.35, fontFace: D.b, fontSize: 13, color: D.textDark, bold: true, margin: 0 });
+      s.addText(c.desc, { x: x + 0.9, y: y + 0.5, w: 1.7, h: 0.5, fontFace: D.b, fontSize: 11, color: D.mutedDark, margin: 0 });
     });
-    addFooter(s, "Think of connections like giving Dory a phone, a filing cabinet, and a library card.");
+    addTakeaway(pres, s, "Give Dory a phone, a filing cabinet, and a library card.", { dark: true });
     s.addNotes("MCP gets a single-line mention ('USB-C for AI') rather than a dedicated slide. Full MCP detail available in appendix for Q&A.");
   }
 
   // --- Slide 30: The Proposal \u2014 With Connections ---
   twoCol(pres, {
+    dark: true,
     headline: "The Proposal \u2014 With Connections",
     leftTitle: "Without Connections",
     leftAccent: D.wrong,
@@ -975,26 +978,27 @@ async function main() {
       { text: "\u2022 Finds the budget memo you forgot", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.text } },
       { text: "\u2022 Flags a policy constraint you didn't know existed", options: { fontFace: D.b, fontSize: 12, color: D.right, bold: true } },
     ],
-    footer: "The agent found context you wouldn't have thought to provide.",
+    takeaway: "The agent found context you wouldn't have thought to provide.",
     notes: "The forgotten budget memo is the killer detail. Everyone has this story."
   });
 
   // --- Slide 31: Trust, But Verify (moved from Level 3 to here) ---
   bulletSlide(pres, {
+    dark: true,
     headline: "Trust, But Verify",
     bullets: [
       { head: "Never trust numbers you didn't provide.", body: "If it can't cite a source, it made it up." },
       { head: "Verify claims against sources.", body: "AI output = first draft, not final answer." },
       { head: "Use AI for drafts, not decisions.", body: "Your judgment is the last step." },
     ],
-    footer: "Dory is brilliant and helpful. Dory also sometimes remembers things that never happened. Love Dory. Fact-check Dory.",
+    takeaway: "Love Dory. Fact-check Dory.",
     notes: "NOW this slide lands. The reader just watched us hand AI the keys to documents, databases, and workflows. They should be feeling 'Wait, can I trust it with all that?' This addresses the unease at exactly the moment it's felt."
   });
 
   // --- Slide 32: When to Keep Your Hands on the Wheel + Persona Milestone ---
   {
-    const s = lightSlide(pres);
-    addHeadline(s, "When to Keep Your Hands on the Wheel");
+    const s = darkSlide(pres);
+    addHeadline(s, "When to Keep Your Hands on the Wheel", { dark: true });
     const bullets = [
       { head: "Sensitive/confidential data \u2014", body: "only approved/enterprise tools" },
       { head: "Final legal/compliance language \u2014", body: "AI drafts, humans approve" },
@@ -1003,22 +1007,27 @@ async function main() {
     ];
     const richItems = [];
     bullets.forEach((b, i) => {
-      richItems.push({ text: b.head + " ", options: { bold: true, fontFace: D.b, fontSize: 15, color: D.text, bullet: true, breakLine: false } });
-      richItems.push({ text: b.body, options: { fontFace: D.b, fontSize: 15, color: D.text, breakLine: i < bullets.length - 1 } });
+      richItems.push({ text: b.head + " ", options: { bold: true, fontFace: D.b, fontSize: 15, color: D.textDark, bullet: true, breakLine: false } });
+      richItems.push({ text: b.body, options: { fontFace: D.b, fontSize: 15, color: D.textDark, breakLine: i < bullets.length - 1 } });
     });
     s.addText(richItems, { x: 0.7, y: 1.1, w: 8.6, h: 2.6, margin: 0, valign: "top", paraSpaceAfter: 10 });
-    addFooter(s, "AI is a power tool, not autopilot. Surgeons trust scalpels. They still look where they cut.");
+    addTakeaway(pres, s, "AI is a power tool, not autopilot.", { dark: true });
     // Persona milestone callout
-    addCard(pres, s, 1.5, 3.8, 7, 0.95, "E0F2FE");
-    addBar(pres, s, 1.5, 3.8, 0.95, D.accent);
+    addGlassCard(pres, s, 1.5, 3.8, 7, 0.95);
     s.addText([
       { text: "Persona milestone: ", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
-      { text: "You're no longer a Viber \u2014 you've let go of the wheel. You're approaching ", options: { fontFace: D.b, fontSize: 12, color: D.text } },
+      { text: "You're no longer a Viber \u2014 you've let go of the wheel. You're approaching ", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
       { text: "AI-First", options: { bold: true, fontFace: D.b, fontSize: 12, color: D.accent } },
-      { text: ", but you're still working with a single agent. One last leap.", options: { fontFace: D.b, fontSize: 12, color: D.text } },
+      { text: ", but you're still working with a single agent. One last leap.", options: { fontFace: D.b, fontSize: 12, color: D.textDark } },
     ], { x: 1.75, y: 3.85, w: 6.5, h: 0.85, margin: 0, valign: "middle" });
     s.addNotes("The fourth bullet matters most \u2014 the 'feels right' trap. Persona milestone: Viber \u2192 approaching AI-First.");
   }
+
+  // --- Breather after Level 4 ---
+  breatherSlide(pres,
+    "You're managing AI well. Time to orchestrate it.",
+    "Final level transition. Single agent \u2192 multi-agent."
+  );
 
   // ============================================================
   // LEVEL 5: "ORCHESTRATE" (Slides 33-40)
@@ -1387,7 +1396,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: "Getting-Agents-to-Give-Up-Their-Secrets.pptx" });
-  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (49 slides, v2)");
+  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (50 slides, v2)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
