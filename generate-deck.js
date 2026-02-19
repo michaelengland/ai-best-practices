@@ -168,426 +168,423 @@ async function main() {
   pres.title = "Getting Agents to Give Up Their Secrets";
 
   // ============================================================
-  // LEVEL 0: "WHERE ARE YOU?" (Slides 1-6)
+  // LEVEL 0: "WHERE ARE YOU?" (Slides 1-11)
   // ============================================================
 
   // --- Slide 1: Title ---
   {
     const s = darkSlide(pres);
     s.addText("Getting Agents to\nGive Up Their Secrets", {
-      x: 0.5, y: 0.3, w: 9, h: 1.4, fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0
+      x: 1.0, y: 0.8, w: 8, h: 2.5,
+      fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    s.addText("A guide to AI that actually works \u2014 from confused to in control", {
-      x: 1.5, y: 1.7, w: 7, h: 0.5, fontFace: D.b, fontSize: 16, color: D.accent, italic: true, align: "center", margin: 0
+    s.addText("A guide to AI that actually works", {
+      x: 1.5, y: 3.5, w: 7, h: 0.6,
+      fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
     });
-    addCard(pres, s, 1.0, 2.5, 8, 2.4, D.darkCard);
-    addBar(pres, s, 1.0, 2.5, 2.4, D.accent);
-    s.addText([
-      { text: "\"Last month, I watched someone spend 45 minutes going back and forth with ChatGPT trying to write a one-page summary. Copy, paste, 'no that's not right', copy, paste, 'closer but...'", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.textDark, italic: true } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "The same task took 2 minutes once they knew the trick. This deck is about the trick.\"", options: { fontFace: D.b, fontSize: 14, color: D.accent, bold: true, italic: true } }
-    ], { x: 1.25, y: 2.6, w: 7.5, h: 2.2, margin: 0, valign: "top" });
-    s.addNotes("Let the hook land. This is the emotional anchor \u2014 the entire closing (slide 51) calls back to this person. Pause after 'This deck is about the trick.'");
+    s.addNotes("Let the title sit. Don't rush into the hook \u2014 give people a moment to read. This is 'Getting Agents to Give Up Their Secrets,' a practical guide to AI that actually works.");
   }
 
-  // --- Slide 2: Where Are You on the Spectrum? ---
-  {
-    const s = lightSlide(pres);
-    addHeadline(s, "Where Are You on the Spectrum?");
-    const stages = [
-      { label: "AI Skeptic", desc: "Avoids AI or\nrefuses to engage", icon: icons.banG, color: "9CA3AF" },
-      { label: "AI Questioner", desc: "Has ChatGPT, uses it\nlike a search engine", icon: icons.searchG, color: "6B7280" },
-      { label: "AI Viber", desc: "Uses AI tools, then\nfixes output by hand", icon: icons.magicG, color: D.accentDark },
-      { label: "AI-First", desc: "Everything through AI;\ncontext, agents, workflows", icon: icons.rocketG, color: D.accent }
-    ];
-    stages.forEach((st, i) => {
-      const x = 0.5 + i * 2.35;
-      addCard(pres, s, x, 1.1, 2.1, 3.0);
-      s.addShape(pres.shapes.OVAL, { x: x + 0.65, y: 1.25, w: 0.8, h: 0.8, fill: { color: D.lightBg } });
-      s.addImage({ data: st.icon, x: x + 0.8, y: 1.4, w: 0.5, h: 0.5 });
-      s.addText(st.label, { x: x + 0.1, y: 2.2, w: 1.9, h: 0.4, fontFace: D.h, fontSize: 13, color: st.color, bold: true, align: "center", margin: 0 });
-      s.addText(st.desc, { x: x + 0.1, y: 2.6, w: 1.9, h: 0.8, fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "top" });
-    });
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 4.2, w: 4.6, h: 0.03, fill: { color: D.accent } });
-    s.addText("most people are here", { x: 0.5, y: 4.25, w: 4.6, h: 0.3, fontFace: D.b, fontSize: 10, color: D.accent, italic: true, align: "center", margin: 0 });
-    for (let i = 0; i < 3; i++) {
-      s.addText("\u2192", { x: 2.35 + i * 2.35, y: 1.9, w: 0.5, h: 0.4, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0 });
-    }
-    s.addText("These are your milestones. This deck\u2019s levels are the steps that move you to the right. Find yourself \u2014 by the end, we\u2019ll have moved you.", {
-      x: 0.5, y: 4.55, w: 9, h: 0.45, fontFace: D.b, fontSize: 10, color: D.muted, italic: true, align: "center", margin: 0
-    });
-    s.addNotes("Most readers will self-identify at Questioner. The personas are identity milestones \u2014 the deck's levels are the how. This framing pays off at slide 43 when we come full circle.");
-  }
-
-  // --- Slide 3: Most People Are Still in the Shallow End ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "Most People Are Still in the Shallow End", { dark: true });
-    addDarkCard(pres, s, 1.5, 1.2, 7, 2.8);
-    s.addText("1 billion+", { x: 1.5, y: 1.3, w: 7, h: 1.2, fontFace: D.h, fontSize: 64, color: D.accent, bold: true, align: "center", margin: 0 });
-    s.addText("people use AI tools monthly", { x: 1.5, y: 2.3, w: 7, h: 0.4, fontFace: D.b, fontSize: 18, color: D.textDark, align: "center", margin: 0 });
-    s.addShape(pres.shapes.LINE, { x: 3.5, y: 2.85, w: 3, h: 0, line: { color: D.accent, width: 1 } });
-    s.addText("Fewer than 2% pay for premium", { x: 1.5, y: 3.0, w: 7, h: 0.4, fontFace: D.b, fontSize: 16, color: D.wrong, bold: true, align: "center", margin: 0 });
-    s.addText("AI has mass reach \u2014 but almost nobody is going deep.", { x: 1.5, y: 3.4, w: 7, h: 0.4, fontFace: D.b, fontSize: 13, color: D.mutedDark, italic: true, align: "center", margin: 0 });
-    addSourceCite(pres, s, "DataReportal 2026 \u00b7 Reuters", { dark: true });
-    s.addNotes("Two points: 1) AI is already everywhere \u2014 you're not early, 2) almost nobody is using it seriously. The opportunity gap is enormous.");
-  }
-
-  // --- Slide 4: We've Seen This Movie Before ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "We've Seen This Movie Before", { dark: true });
-    const eras = [
-      { era: "PCs", decade: "1980s", stat: "US productivity growth\ndoubled (0.6% \u2192 1.0%/yr)", src: "Fed Reserve" },
-      { era: "Internet", decade: "1990s", stat: "Global business online\n7% \u2192 30%", src: "Visual Capitalist" },
-      { era: "Smartphones", decade: "2010s", stat: "", src: "" },
-      { era: "AI", decade: "Now", stat: "$7T projected GDP\nimpact over 10 years", src: "Goldman Sachs" }
-    ];
-    // Timeline line
-    s.addShape(pres.shapes.LINE, { x: 0.8, y: 2.3, w: 8.4, h: 0, line: { color: D.accent, width: 3 } });
-    eras.forEach((e, i) => {
-      const x = 0.5 + i * 2.35;
-      // Circle node
-      s.addShape(pres.shapes.OVAL, { x: x + 0.8, y: 2.05, w: 0.5, h: 0.5, fill: { color: i === 3 ? D.accent : D.accentDark } });
-      s.addText(e.decade, { x: x + 0.1, y: 1.2, w: 1.9, h: 0.5, fontFace: D.b, fontSize: 12, color: D.mutedDark, align: "center", margin: 0 });
-      s.addText(e.era, { x: x + 0.1, y: 1.55, w: 1.9, h: 0.4, fontFace: D.h, fontSize: 16, color: D.textDark, bold: true, align: "center", margin: 0 });
-      if (e.stat) {
-        s.addText(e.stat, { x: x + 0.1, y: 2.7, w: 1.9, h: 0.8, fontFace: D.b, fontSize: 11, color: D.textDark, align: "center", margin: 0 });
-        s.addText(e.src, { x: x + 0.1, y: 3.5, w: 1.9, h: 0.3, fontFace: D.b, fontSize: 9, color: D.mutedDark, italic: true, align: "center", margin: 0 });
-      } else {
-        s.addText("(the pattern speaks\nfor itself)", { x: x + 0.1, y: 2.7, w: 1.9, h: 0.6, fontFace: D.b, fontSize: 11, color: D.mutedDark, italic: true, align: "center", margin: 0 });
-      }
-    });
-    addTakeaway(pres, s, "Every era had skeptics. Every era punished those who waited.", { dark: true });
-    s.addNotes("Don't dwell on individual stats. The point is the pattern: every era had skeptics, every era punished those who waited.");
-  }
-
-  // --- Slide 5: The AI Moment Is Now ---
-  {
-    const s = darkSlide(pres);
-    addHeadline(s, "The AI Moment Is Now", { dark: true });
-    const stats = [
-      { num: "80%", label: "of Fortune 500 use\nactive AI agents", src: "Microsoft Security Blog,\nFeb 2026" },
-      { num: "$2.6\u20134.4T", label: "annually in\nadded value", src: "McKinsey Global Institute" },
-      { num: "Only 31%", label: "of prioritized AI use cases\nin full production", src: "ServiceNow" }
-    ];
-    stats.forEach((st, i) => {
-      const x = 0.5 + i * 3.1;
-      addDarkCard(pres, s, x, 1.1, 2.8, 3.0);
-      addBar(pres, s, x, 1.1, 3.0, D.accent);
-      s.addText(st.num, { x: x + 0.2, y: 1.3, w: 2.4, h: 0.8, fontFace: D.h, fontSize: 36, color: D.accent, bold: true, align: "center", margin: 0 });
-      s.addText(st.label, { x: x + 0.2, y: 2.1, w: 2.4, h: 0.7, fontFace: D.b, fontSize: 13, color: D.textDark, align: "center", margin: 0 });
-      s.addText(st.src, { x: x + 0.2, y: 3.0, w: 2.4, h: 0.6, fontFace: D.b, fontSize: 9, color: D.mutedDark, italic: true, align: "center", margin: 0, valign: "bottom" });
-    });
-    addTakeaway(pres, s, "The gap between 'we have AI' and 'we use AI well' is your opportunity.", { dark: true });
-    s.addNotes("The third stat is the killer. The gap between 'we have AI' and 'we're using AI well' is enormous.");
-  }
-
-  // --- Slide 6: The Barrier to Entry Is a Conversation ---
-  singleMsg(pres, {
-    main: "The core skill for AI is talking \u2014\nand you already have it.",
-    sub: "You're not missing the skill. You're just using it wrong.\n\nThis deck is your walkthrough. Each section levels you up.",
-    notes: "The permission-granting moment. AI's interface is natural language. The audience already has the prerequisite."
+  // --- Slide 2: Hook story ---
+  hero(pres, "Last month, someone spent 45 minutes\narguing with ChatGPT.\nThe same task took 2 minutes.", {
+    font: D.b, size: 28, color: D.text,
+    notes: "Tell the full story: 'I watched someone go back and forth \u2014 copy, paste, no that\u2019s not right, copy, paste, closer but... The same task took 2 minutes once they knew the trick.' Let it land \u2014 this is the emotional anchor. The entire closing calls back to this person."
   });
 
-  // --- Breather after Level 0 ---
+  // --- Slide 3: "This deck is about the trick." ---
+  hero(pres, "This deck is about\nthe trick.", {
+    size: 72,
+    notes: "Pause after this. Let it land. The entire closing (slide ~70) calls back to this moment. This is the thesis statement of the whole presentation."
+  });
+
+  // --- Slide 4: Spectrum (4 personas, no descriptions) ---
+  {
+    const s = darkSlide(pres);
+    const labels = ["AI Skeptic", "AI Questioner", "AI Viber", "AI-First"];
+    const boxW = 1.9, boxH = 0.8, gap = 0.3;
+    const totalW = labels.length * boxW + (labels.length - 1) * gap;
+    const startX = (10 - totalW) / 2;
+    labels.forEach((label, i) => {
+      const x = startX + i * (boxW + gap);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x, y: 2.2, w: boxW, h: boxH,
+        rectRadius: 0.1,
+        fill: { color: D.accent, transparency: 85 },
+        line: { color: D.accent, width: 1.5 }
+      });
+      s.addText(label, {
+        x, y: 2.2, w: boxW, h: boxH,
+        fontFace: D.h, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      if (i < labels.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 2.2, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "middle"
+        });
+      }
+    });
+    s.addNotes("The four personas:\n\u2022 AI Skeptic \u2014 Avoids AI or refuses to engage\n\u2022 AI Questioner \u2014 Has ChatGPT, uses it like a search engine\n\u2022 AI Viber \u2014 Uses AI tools, then fixes output by hand\n\u2022 AI-First \u2014 Everything through AI; context, agents, workflows\n\nThese are identity milestones. The deck\u2019s levels are the steps that move you to the right. By the end, we\u2019ll have moved you.");
+  }
+
+  // --- Slide 5: "Most people are here." (Questioner highlighted) ---
+  {
+    const s = darkSlide(pres);
+    const labels = ["AI Skeptic", "AI Questioner", "AI Viber", "AI-First"];
+    const boxW = 1.9, boxH = 0.8, gap = 0.3;
+    const totalW = labels.length * boxW + (labels.length - 1) * gap;
+    const startX = (10 - totalW) / 2;
+    labels.forEach((label, i) => {
+      const x = startX + i * (boxW + gap);
+      const isHighlighted = i === 1;
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x, y: 1.8, w: boxW, h: boxH,
+        rectRadius: 0.1,
+        fill: { color: isHighlighted ? D.accent : D.bg, transparency: isHighlighted ? 0 : 50 },
+        line: { color: isHighlighted ? D.accent : D.muted, width: isHighlighted ? 2 : 1 }
+      });
+      s.addText(label, {
+        x, y: 1.8, w: boxW, h: boxH,
+        fontFace: D.h, fontSize: 28, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      if (i < labels.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 1.8, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "middle"
+        });
+      }
+    });
+    s.addText("Most people are here.", {
+      x: 1.0, y: 3.2, w: 8, h: 1.0,
+      fontFace: D.h, fontSize: 36, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Most readers will self-identify at Questioner. They have ChatGPT, they\u2019ve tried it, but they\u2019re using it like a search engine. This framing pays off at the closing when we come full circle. Transition: Let\u2019s look at the numbers.");
+  }
+
+  // --- Slide 6: "1 billion+" ---
+  bigNum(pres, "1 billion+", "use AI tools monthly", {
+    notes: "Source: DataReportal 2026. AI has mass reach \u2014 over a billion people are using AI tools every month. But almost nobody is going deep. That\u2019s the opportunity. Transition: How few are going deep?"
+  });
+
+  // --- Slide 7: "< 2%" ---
+  bigNum(pres, "< 2%", "pay for premium", {
+    notes: "Source: Reuters. Fewer than 2% of AI users pay for premium tiers. The opportunity gap is enormous \u2014 almost nobody is using AI seriously. If you learn to use it well, you\u2019re already in the top percentile. Transition: We\u2019ve seen this pattern before."
+  });
+
+  // --- Slide 8: Timeline (4 eras, labels only) ---
+  {
+    const s = darkSlide(pres);
+    const eras = [
+      { label: "PCs", decade: "1980s" },
+      { label: "Internet", decade: "1990s" },
+      { label: "Smartphones", decade: "2010s" },
+      { label: "AI", decade: "Now" }
+    ];
+    const lineY = 2.6;
+    s.addShape(pres.shapes.LINE, { x: 1.0, y: lineY, w: 8, h: 0, line: { color: D.accent, width: 3 } });
+    eras.forEach((e, i) => {
+      const x = 1.5 + i * 2.35;
+      const isLast = i === eras.length - 1;
+      s.addShape(pres.shapes.OVAL, {
+        x: x - 0.25, y: lineY - 0.25, w: 0.5, h: 0.5,
+        fill: { color: isLast ? D.accent : D.muted }
+      });
+      s.addText(e.label, {
+        x: x - 1.0, y: lineY - 1.4, w: 2.0, h: 0.6,
+        fontFace: D.h, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
+      });
+      s.addText(e.decade, {
+        x: x - 1.0, y: lineY - 0.8, w: 2.0, h: 0.5,
+        fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
+      });
+    });
+    s.addNotes("Every major technology era followed the same pattern:\n\u2022 PCs (1980s): US productivity growth doubled (0.6% \u2192 1.0%/yr) \u2014 Fed Reserve\n\u2022 Internet (1990s): Global business online 7% \u2192 30% \u2014 Visual Capitalist\n\u2022 Smartphones (2010s): The pattern speaks for itself\n\u2022 AI (Now): $7T projected GDP impact over 10 years \u2014 Goldman Sachs\n\nEvery era had skeptics. Every era punished those who waited. The only question is how fast you adapt. Transition: Let\u2019s look at where AI is right now.");
+  }
+
+  // --- Slide 9: "$4.4T" ---
+  bigNum(pres, "$4.4T", "in annual value. Only 31% in full production.", {
+    notes: "Sources: McKinsey Global Institute ($2.6\u20134.4T annually in added value); ServiceNow (only 31% of prioritized AI use cases in full production); Microsoft Security Blog (80% of Fortune 500 have active AI agents, Feb 2026). The third stat is the killer \u2014 the gap between having AI and using it well is enormous. Transition: So what\u2019s the core skill?"
+  });
+
+  // --- Slide 10: "The core skill for AI is talking." ---
+  hero(pres, "The core skill for AI\nis talking.", {
+    sub: "You already have it.",
+    notes: "Permission-granting moment. AI\u2019s interface is natural language. The audience already has the prerequisite. 'You\u2019re not missing the skill. You\u2019re just using it wrong.' This deck is the walkthrough \u2014 each section levels you up. Transition: Let\u2019s see what most people get wrong."
+  });
+
+  // --- Slide 11: Breather ---
   breatherSlide(pres,
-    "Alright \u2014 let's see what most people get wrong.",
-    "Pause. Let the pacing shift."
+    "Let's see what most people get wrong.",
+    "Transition into Level 1. Pause. Let the pacing shift. We\u2019re moving from 'why AI matters' to 'what AI actually is.'"
   );
 
   // ============================================================
-  // LEVEL 1: "KNOW YOUR TOOLS" (Slides 7-13)
+  // LEVEL 1: "KNOW YOUR TOOLS" (Slides 12-22)
   // ============================================================
 
-  // --- Slide 7: The Buzzword Blizzard ---
+  // --- Slide 12: Word Cloud ---
   {
     const s = darkSlide(pres);
     const words = [
       ["ChatGPT", 0.3, 0.2, 32, true], ["LLM", 5.5, 0.3, 36, true], ["GPT", 3.0, 0.9, 28, true],
-      ["Claude", 7.5, 0.6, 28, true], ["Gemini", 0.5, 1.8, 24, true], ["MCP", 8.0, 1.8, 22, true],
-      ["tokens", 2.5, 2.2, 18, false], ["agents", 4.5, 1.6, 26, true], ["RAG", 6.5, 2.5, 20, true],
-      ["fine-tuning", 1.5, 3.0, 16, false], ["embeddings", 3.8, 3.2, 14, false], ["prompts", 7.0, 3.0, 22, true],
-      ["copilot", 0.5, 3.8, 20, true], ["AGI", 5.0, 3.5, 18, true], ["transformer", 2.8, 1.5, 16, false],
-      ["neural network", 5.8, 1.2, 14, false], ["deep learning", 0.3, 0.7, 14, false], ["Anthropic", 7.8, 3.5, 16, false],
-      ["OpenAI", 0.5, 1.1, 20, true], ["inference", 3.5, 2.8, 14, false], ["training", 8.0, 0.3, 14, false],
-      ["parameters", 0.5, 4.2, 14, false], ["context window", 4.5, 4.0, 16, false], ["hallucination", 2.0, 4.0, 18, true],
-      ["grounding", 7.0, 4.0, 14, false], ["retrieval", 5.5, 2.8, 14, false], ["vector database", 7.8, 2.8, 12, false],
-      ["Llama", 3.0, 3.8, 16, false], ["open-source", 6.0, 3.8, 14, false], ["API", 3.8, 0.2, 22, true],
-      ["Google DeepMind", 4.0, 4.3, 12, false], ["multi-modal", 7.3, 4.3, 12, false],
+      ["Claude", 7.5, 0.6, 28, true], ["Gemini", 0.5, 1.8, 28, true], ["MCP", 8.0, 1.8, 28, true],
+      ["tokens", 2.5, 2.2, 28, false], ["agents", 4.5, 1.6, 28, true], ["RAG", 6.5, 2.5, 28, true],
+      ["fine-tuning", 1.5, 3.0, 28, false], ["embeddings", 3.8, 3.2, 28, false], ["prompts", 7.0, 3.0, 28, true],
+      ["copilot", 0.5, 3.8, 28, true], ["AGI", 5.0, 3.5, 28, true], ["transformer", 2.8, 1.5, 28, false],
+      ["neural net", 5.8, 1.2, 28, false], ["deep learning", 0.3, 0.7, 28, false], ["Anthropic", 7.8, 3.5, 28, false],
+      ["OpenAI", 0.5, 1.1, 28, true], ["inference", 3.5, 2.8, 28, false], ["training", 8.0, 0.3, 28, false],
+      ["parameters", 0.5, 4.2, 28, false], ["context window", 4.5, 4.0, 28, false], ["hallucination", 2.0, 4.0, 28, true],
+      ["grounding", 7.0, 4.0, 28, false], ["retrieval", 5.5, 2.8, 28, false], ["vector DB", 7.8, 2.8, 28, false],
+      ["Llama", 3.0, 3.8, 28, false], ["open-source", 6.0, 3.8, 28, false], ["API", 3.8, 0.2, 28, true],
     ];
     words.forEach(([word, x, y, size, bold]) => {
-      const color = bold ? D.white : D.mutedDark;
+      const color = bold ? D.white : D.muted;
       s.addText(word, { x, y, w: 2.0, h: 0.5, fontFace: D.b, fontSize: size, color, bold, margin: 0 });
     });
-    s.addText("Yeah. Exactly.", { x: 3.0, y: 5.0, w: 4, h: 0.4, fontFace: D.b, fontSize: 14, color: D.mutedDark, italic: true, align: "center", margin: 0 });
-    s.addNotes("Makes the reader feel validated. The overwhelm is real. Don't explain anything yet.");
+    s.addNotes("Yeah. Exactly. Makes the reader feel validated. The overwhelm is real. Don\u2019t explain anything yet \u2014 just let the wall of jargon hit them. Every one of these terms is real, and most people feel like they should know them all. They don\u2019t need to. Transition: But there are some questions worth answering.");
   }
 
-  // --- Slide 8: Let's Answer Some of These ---
+  // --- Slide 13: Word Cloud + Questions ---
   {
     const s = darkSlide(pres);
-    // Dimmed word cloud — positioned to avoid callout box areas
-    const words = [
-      ["LLM", 4.0, 0.2, 28, true], ["GPT", 0.3, 0.2, 24, true],
-      ["Claude", 8.0, 0.3, 20, true], ["Gemini", 0.5, 2.2, 18, false],
-      ["tokens", 4.2, 2.2, 16, false], ["copilot", 0.5, 4.2, 16, false],
-      ["AGI", 4.5, 4.2, 16, true], ["training", 8.0, 2.2, 14, false],
+    // Dimmed word cloud background
+    const bgWords = [
+      ["LLM", 4.0, 0.2, 28, true], ["GPT", 0.3, 0.2, 28, true],
+      ["Claude", 8.0, 0.3, 28, true], ["Gemini", 0.5, 2.2, 28, false],
+      ["tokens", 4.2, 2.2, 28, false], ["copilot", 0.5, 4.2, 28, false],
+      ["AGI", 4.5, 4.2, 28, true], ["training", 8.0, 2.2, 28, false],
     ];
-    words.forEach(([word, x, y, size, bold]) => {
+    bgWords.forEach(([word, x, y, size, bold]) => {
       s.addText(word, { x, y, w: 2.0, h: 0.4, fontFace: D.b, fontSize: size, color: "2A2A4E", bold, margin: 0 });
     });
     // Question callout boxes
     const questions = [
-      ["What's the difference between\nChatGPT and GPT?", 0.5, 0.8],
+      ["What's the difference\nbetween ChatGPT and GPT?", 0.5, 0.8],
       ["Is Claude the same\nas ChatGPT?", 5.5, 1.2],
       ["What even is\nan agent?", 1.5, 3.0],
       ["Do I need to know\nwhat a token is?", 6.0, 3.2],
     ];
     questions.forEach(([q, x, y]) => {
-      addCard(pres, s, x, y, 3.2, 0.9, D.accent);
-      s.addText(q, { x: x + 0.15, y, w: 2.9, h: 0.9, fontFace: D.b, fontSize: 12, color: D.white, bold: true, margin: 0, valign: "middle" });
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x, y, w: 3.2, h: 0.9,
+        rectRadius: 0.1,
+        fill: { color: D.accent }
+      });
+      s.addText(q, {
+        x: x + 0.15, y, w: 2.9, h: 0.9,
+        fontFace: D.b, fontSize: 28, color: D.white, bold: true, margin: 0, valign: "middle"
+      });
     });
-    s.addText("We're going to make this simple.", { x: 2.5, y: 4.8, w: 5, h: 0.5, fontFace: D.b, fontSize: 16, color: D.textDark, italic: true, align: "center", margin: 0 });
-    s.addNotes("The questions represent common confusions. The audience should feel like someone is finally asking their questions.");
+    s.addNotes("We\u2019re going to make this simple. The questions represent common confusions. The audience should feel like someone is finally asking their questions. We\u2019ll answer all of these in the next few slides. Transition: Let\u2019s start with the basics \u2014 how is AI actually structured?");
   }
 
-  // --- Slide 9: The AI Stack, Simply ---
-  {
-    const s = lightSlide(pres);
-    addHeadline(s, "The AI Stack, Simply");
-    const layers = [
-      { label: "App", desc: "ChatGPT, Claude, Copilot. This is what you interact with.", icon: icons.desktop, color: D.accent },
-      { label: "Agent", desc: "The brain + tools. The brain has ideas; the agent has hands.", icon: icons.robot, color: D.accentDark },
-      { label: "API", desc: "How software talks to the brain. You don't need to know this exists.", icon: icons.plug, color: "4B5563" },
-      { label: "LLM", desc: "A massive AI model trained on text. You never touch this directly.", icon: icons.brain, color: "6B7280" },
-    ];
-    layers.forEach((l, i) => {
-      const y = 1.1 + i * 0.95;
-      const w = 8.0 - i * 0.6;
-      const x = (10 - w) / 2;
-      addCard(pres, s, x, y, w, 0.8);
-      addBar(pres, s, x, y, 0.8, l.color);
-      s.addImage({ data: l.icon, x: x + 0.2, y: y + 0.15, w: 0.5, h: 0.5 });
-      s.addText(l.label, { x: x + 0.85, y: y + 0.05, w: 1.2, h: 0.35, fontFace: D.h, fontSize: 16, color: D.text, bold: true, margin: 0 });
-      s.addText("(" + (["the thing you use", "the worker", "the phone line", "the brain"][i]) + ")", { x: x + 0.85, y: y + 0.35, w: 1.2, h: 0.35, fontFace: D.b, fontSize: 10, color: D.muted, italic: true, margin: 0 });
-      s.addText(l.desc, { x: x + 2.2, y: y + 0.1, w: w - 2.6, h: 0.6, fontFace: D.b, fontSize: 12, color: D.text, margin: 0, valign: "middle" });
-    });
-    s.addText("You use apps \u2192 apps use agents \u2192 agents call APIs \u2192 APIs talk to LLMs", {
-      x: 0.5, y: 4.95, w: 9, h: 0.35, fontFace: D.b, fontSize: 12, color: D.accent, italic: true, align: "center", margin: 0
-    });
-    s.addNotes("Most people only need the top two layers (app and agent). The bottom two are for developers.");
-  }
-
-  // --- Slide 10: Who Makes What ---
-  {
-    const s = lightSlide(pres);
-    addHeadline(s, "Who Makes What");
-    const headerRow = [
-      { text: "Company", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 13 } },
-      { text: "LLM", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 13 } },
-      { text: "Agent / App", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 13 } },
-      { text: "You Know Them As", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 13 } },
-    ];
-    const rows = [
-      ["OpenAI", "GPT", "ChatGPT", "The one everyone uses"],
-      ["Anthropic", "Claude", "Claude.ai, Claude Code", "The \"thinking\" one"],
-      ["Google", "Gemini", "Gemini in Workspace, Android", "The one in your Google apps"],
-      ["Microsoft", "(uses OpenAI's)", "Copilot across Office, GitHub", "The one in your work tools"],
-    ];
-    const tableRows = [headerRow, ...rows.map(r => r.map(c => ({ text: c, options: { fontFace: D.b, fontSize: 12, color: D.text } })))];
-    s.addTable(tableRows, {
-      x: 0.5, y: 1.1, w: 9, colW: [1.8, 1.5, 3.0, 2.7],
-      border: { pt: 1, color: D.tableBorder },
-      rowH: [0.45, 0.55, 0.55, 0.55, 0.55],
-      autoPage: false
-    });
-    s.addNotes("Microsoft doesn't make the brain \u2014 they build tools around someone else's. This is why the agent/app layer matters more for most people.");
-  }
-
-  // --- Slide 11: Where the Real Action Is ---
-  twoCol(pres, {
-    headline: "Where the Real Action Is",
-    leftTitle: "LLM Side",
-    leftTitleColor: D.muted,
-    leftContent: [
-      { text: "Costs $billions to train", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 13, color: D.muted } },
-      { text: "Takes months per model", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 13, color: D.muted } },
-      { text: "Only ~5 companies can do it", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 13, color: D.muted } },
-      { text: "Innovation is slow and expensive", options: { bullet: true, fontFace: D.b, fontSize: 13, color: D.muted } },
-    ],
-    rightTitle: "Agent / App Side",
-    rightTitleColor: D.accent,
-    rightAccent: D.accent,
-    rightContent: [
-      { text: "This is just software", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 13, color: D.text, bold: true } },
-      { text: "Innovation has exploded", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 13, color: D.text, bold: true } },
-      { text: "Anyone can build agents and apps", options: { bullet: true, breakLine: true, fontFace: D.b, fontSize: 13, color: D.text, bold: true } },
-      { text: "New tools appear weekly", options: { bullet: true, fontFace: D.b, fontSize: 13, color: D.text, bold: true } },
-    ],
-    takeaway: "The real action is in how models are used \u2014 and that's where you come in.",
-    notes: "Reframes the AI news cycle. The biggest user-facing improvements come from better agents, apps, and workflows."
-  });
-
-  // --- Slide 12: Software Engineering Was First ---
-  twoCol(pres, {
-    headline: "Software Engineering Was First",
-    leftTitle: "The Headline",
-    leftAccent: D.accent,
-    leftContent: [
-      { text: "41%", options: { breakLine: true, fontFace: D.h, fontSize: 36, color: D.accent, bold: true } },
-      { text: "of all code is now AI-generated", options: { breakLine: true, fontFace: D.b, fontSize: 14, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "\"Vibe coding\" went from joke to industry practice in under a year", options: { fontFace: D.b, fontSize: 12, color: D.muted, italic: true } },
-    ],
-    rightTitle: "The Twist",
-    rightAccent: D.wrong,
-    rightContent: [
-      { text: "Developers who felt 20% faster actually took", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.text } },
-      { text: "19% longer", options: { breakLine: true, fontFace: D.h, fontSize: 28, color: D.wrong, bold: true } },
-      { text: "once debugging and cleanup were included.", options: { breakLine: true, fontFace: D.b, fontSize: 13, color: D.text } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "The gap between 'uses AI tools' and 'uses AI tools well' is massive.", options: { fontFace: D.b, fontSize: 12, color: D.muted, italic: true } },
-    ],
-    takeaway: "Engineers went first, made all the mistakes, and learned what works. This deck teaches you those lessons.",
-    source: "Second Talent \u00b7 Addy Osmani \u00b7 Karpathy coined 'vibe coding' Feb 2025",
-    notes: "The twist stat is the most important. It reframes the deck's purpose."
-  });
-
-  // --- Slide 13: Your Job Is Next ---
+  // --- Slide 14: AI Stack (4 stacked rectangles) ---
   {
     const s = darkSlide(pres);
-    addHeadline(s, "Your Job Is Next", { dark: true });
-    addDarkCard(pres, s, 1.0, 1.1, 8, 2.0);
-    s.addText("10x", { x: 1.0, y: 1.2, w: 3.0, h: 1.2, fontFace: D.h, fontSize: 72, color: D.accent, bold: true, align: "center", margin: 0 });
-    s.addText([
-      { text: "Microsoft 365 Copilot DAU increased", options: { breakLine: true, fontFace: D.b, fontSize: 16, color: D.textDark } },
-      { text: "10x year-over-year (Q2 2026)", options: { fontFace: D.b, fontSize: 16, color: D.accent, bold: true } },
-    ], { x: 4.0, y: 1.3, w: 4.8, h: 1.0, margin: 0, valign: "middle" });
-    // Tool icons row
-    const toolNames = ["Copilot in Excel", "Copilot in Word", "Gemini in Docs", "Claude in Workflows"];
-    toolNames.forEach((name, i) => {
-      const x = 1.2 + i * 2.0;
-      s.addShape(pres.shapes.RECTANGLE, { x, y: 3.5, w: 1.7, h: 0.7, fill: { color: D.darkCard }, shadow: sh() });
-      s.addText(name, { x, y: 3.5, w: 1.7, h: 0.7, fontFace: D.b, fontSize: 10, color: D.textDark, align: "center", margin: 0, valign: "middle" });
+    const layers = ["App", "Agent", "API", "LLM"];
+    const rectW = 2.5, rectH = 0.8, gap = 0.15;
+    const startX = (10 - rectW) / 2;
+    const totalH = layers.length * rectH + (layers.length - 1) * gap;
+    const startY = (5.625 - totalH) / 2;
+    layers.forEach((label, i) => {
+      const y = startY + i * (rectH + gap);
+      const shade = i === 0 ? D.accent : (i === 1 ? "0099B8" : (i === 2 ? "007A93" : "005C6E"));
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x: startX, y, w: rectW, h: rectH,
+        rectRadius: 0.08,
+        fill: { color: shade }
+      });
+      s.addText(label, {
+        x: startX, y, w: rectW, h: rectH,
+        fontFace: D.b, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+      });
     });
-    addTakeaway(pres, s, "If you were a Skeptic, you're now a Questioner \u2014 you know what AI is.", { dark: true });
-    s.addNotes("Persona milestone: Skeptic \u2192 Questioner. The 10x DAU growth shows the hockey stick is happening NOW. Transition: Level 2 \u2014 let's learn how to actually talk to them...");
+    s.addNotes("The AI stack, from top to bottom:\n\u2022 App \u2014 ChatGPT, Claude, Copilot. This is what you interact with.\n\u2022 Agent \u2014 The brain + tools. The brain has ideas; the agent has hands.\n\u2022 API \u2014 How software talks to the brain. You don\u2019t need to know this exists.\n\u2022 LLM \u2014 A massive AI model trained on text. You never touch this directly.\n\nMost people only need the top two layers. Transition: Here\u2019s the simple version.");
   }
 
-  // --- Breather after Level 1 ---
+  // --- Slide 15: Stack summary ---
+  hero(pres, "You use apps.\nApps use agents.\nAgents call APIs.\nAPIs talk to LLMs.", {
+    font: D.b, size: 28,
+    notes: "This is the entire AI stack in four sentences. Most people only need the top two layers (app and agent). The bottom two are for developers. If you remember nothing else from this section, remember this chain. Transition: So who makes what?"
+  });
+
+  // --- Slide 16: Who Makes What (simplified table) ---
+  {
+    const s = darkSlide(pres);
+    s.addText("Who Makes What", {
+      x: 0.5, y: 0.5, w: 9, h: 0.8,
+      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0
+    });
+    const headerRow = [
+      { text: "Company", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
+      { text: "LLM", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
+      { text: "App", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
+    ];
+    const rows = [
+      ["OpenAI", "GPT", "ChatGPT"],
+      ["Anthropic", "Claude", "Claude.ai"],
+      ["Google", "Gemini", "Gemini"],
+      ["Microsoft", "(OpenAI's)", "Copilot"],
+    ];
+    const tableRows = [headerRow, ...rows.map(r => r.map(c => ({ text: c, options: { fontFace: D.b, fontSize: 20, color: D.text } })))];
+    s.addTable(tableRows, {
+      x: 1.0, y: 1.5, w: 8, colW: [2.6, 2.6, 2.8],
+      border: { pt: 1, color: D.muted },
+      rowH: [0.6, 0.65, 0.65, 0.65, 0.65],
+      autoPage: false
+    });
+    s.addNotes("The key insight: Microsoft doesn\u2019t make the brain \u2014 they build tools around someone else\u2019s LLM.\n\nTaglines you might know them as:\n\u2022 OpenAI/ChatGPT \u2014 The one everyone uses\n\u2022 Anthropic/Claude \u2014 The 'thinking' one\n\u2022 Google/Gemini \u2014 The one in your Google apps\n\u2022 Microsoft/Copilot \u2014 The one in your work tools\n\nThis is why the agent/app layer matters more for most people. Transition: Where\u2019s the real action?");
+  }
+
+  // --- Slide 17: "The real action is in agents and apps." ---
+  hero(pres, "The real action is in\nagents and apps.", {
+    notes: "The LLM side costs billions to train, takes months per model, and only ~5 companies can do it. The agent/app side is just software \u2014 innovation has exploded, anyone can build agents and apps, new tools appear weekly. The biggest user-facing improvements come from better agents, apps, and workflows \u2014 and that\u2019s where you come in. Transition: Software engineers figured this out first."
+  });
+
+  // --- Slide 18: "41%" ---
+  bigNum(pres, "41%", "of GitHub code is now AI-generated", {
+    notes: "Source: Second Talent. 'Vibe coding' went from joke to industry practice in under a year (Karpathy coined the term Feb 2025). Software engineering was the canary in the coal mine \u2014 AI transformed coding faster than anyone expected. Transition: But there\u2019s a twist."
+  });
+
+  // --- Slide 19: "19% longer" ---
+  bigNum(pres, "19%\nlonger", "when developers rely on AI\nwithout understanding it", {
+    color: D.wrong, numSize: 80,
+    notes: "Source: Addy Osmani. Developers who felt 20% faster actually took 19% longer once debugging and cleanup were included. The gap between 'uses AI tools' and 'uses AI tools well' is massive. Engineers went first, made all the mistakes, and learned what works. This deck teaches you those lessons. Transition: Let that sink in."
+  });
+
+  // --- Slide 20: "The gap is massive." ---
+  hero(pres, "The gap between using AI\nand using AI well\nis massive.", {
+    notes: "This is the thesis of Level 1. The tools are everywhere, adoption is exploding, but most people are using AI poorly. The gap is your opportunity. Transition: And adoption is accelerating."
+  });
+
+  // --- Slide 21: "10x" ---
+  bigNum(pres, "10\u00D7", "Microsoft 365 Copilot daily users,\nyear over year", {
+    notes: "Source: Microsoft Q2 2026 earnings. Microsoft 365 Copilot daily active users increased 10x year-over-year. Tools like Copilot in Excel, Copilot in Word, Gemini in Docs, Claude in Workflows \u2014 AI is entering every workplace tool. If you were a Skeptic, you\u2019re now a Questioner \u2014 you know what AI is. Transition: You\u2019ve got the basics."
+  });
+
+  // --- Slide 22: Breather ---
   breatherSlide(pres,
-    "You've got the basics. Now let's give you the skills.",
-    "Transition from Level 1 to Level 2."
+    "You've got the basics.\nNow let's give you the skills.",
+    "Transition from Level 1 to Level 2. Persona milestone: Skeptic \u2192 Questioner. The audience now knows what AI is. Next: how to actually talk to it."
   );
 
   // ============================================================
-  // LEVEL 2: "TALK TO AI PROPERLY" (Slides 14-21)
+  // LEVEL 2: "TALK TO AI PROPERLY" (Slides 23-33)
   // ============================================================
 
-  // --- Slide 14: Section Divider ---
+  // --- Slide 23: Section Divider ---
   sectionDivider(pres, {
-    level: "LEVEL 2",
     title: "Prompt Engineering",
-    subtitle: "or, How to Stop Getting Useless Answers",
-    small: "Most people type something vague, get something generic, and blame the AI. Let's fix that.",
-    notes: "Mental-model shift. The audience likely thinks output quality is about the AI. This section proves it's about the input."
+    sub: "How to Stop Getting Useless Answers",
+    notes: "Mental-model shift. The audience likely thinks output quality is about the AI. This section proves it\u2019s about the input. Most people type something vague, get something generic, and blame the AI. Let\u2019s fix that."
   });
 
-  // --- Slide 15: The Task ---
-  twoCol(pres, {
-    headline: "The Task",
-    leftTitle: "The Prompt",
-    leftAccent: D.muted,
-    leftContent: [
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "\"Write me a proposal for improving our onboarding process.\"", options: { fontFace: D.b, fontSize: 14, color: D.text, italic: true } },
-    ],
-    rightTitle: "The Output",
-    rightContent: [
-      { text: "Generic proposal with bland headers,\nplaceholder content, no specifics,\nno awareness of your company...", options: { fontFace: D.b, fontSize: 13, color: D.muted, italic: true } },
-      { text: "", options: { breakLine: true, fontSize: 6 } },
-      { text: "(truncated \u2014 you've seen this before)", options: { fontFace: D.b, fontSize: 11, color: D.muted } },
-    ],
-    takeaway: "Sound familiar? Let's see how changing only the words transforms the output.",
-    notes: "The output should look recognizably mediocre. Don't dwell on it \u2014 establish the baseline."
+  // --- Slide 24: "The Task" (chat bubble with vague prompt) ---
+  {
+    const s = darkSlide(pres);
+    // Chat bubble shape
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x: 1.5, y: 1.0, w: 7, h: 1.8,
+      rectRadius: 0.15,
+      fill: { color: D.accent, transparency: 85 },
+      line: { color: D.accent, width: 1.5 }
+    });
+    s.addText("Write me a proposal for improving\nour onboarding process.", {
+      x: 1.8, y: 1.1, w: 6.4, h: 1.6,
+      fontFace: D.b, fontSize: 28, color: D.white, margin: 0, valign: "middle", align: "center"
+    });
+    s.addText("\u2192 Generic, surface-level output", {
+      x: 1.5, y: 3.2, w: 7, h: 0.8,
+      fontFace: D.b, fontSize: 28, color: D.muted, margin: 0, align: "center", valign: "top"
+    });
+    s.addNotes("This is the baseline prompt that everyone starts with. The output is recognizably mediocre \u2014 generic proposal with bland headers, placeholder content, no specifics, no awareness of your company. Sound familiar? Over the next five slides, we\u2019ll transform this same task by changing only the words. Transition: The first fix is the easiest.");
+  }
+
+  // --- Slide 25: Wrong/Right — Assign a Role ---
+  wrongRight(pres, {
+    headline: "Assign a Role",
+    subtitle: "vs. talking to a stranger",
+    wrongText: "Write me a proposal for\nimproving our onboarding process.",
+    rightText: "You are a senior HR operations\nconsultant. Write me a proposal for\nimproving our onboarding process.",
+    notes: "The same vague request produces noticeably different output. The role sets the AI\u2019s default tone, depth, and perspective. A role frames everything that follows. Always start here. More relevant frameworks, industry terminology, realistic timelines \u2014 just from telling the AI who it is. Transition: Now let\u2019s get specific."
   });
 
-  // --- Slides 16-20: Five Wrong/Right iterations ---
-  const iterations = [
-    {
-      headline: "Assign a Role", subtitle: "vs. talking to a stranger",
-      wrongPrompt: "\"Write me a proposal for improving our onboarding process.\"",
-      wrongLabel: "The AI responds as a generic assistant \u2014 competent but surface-level. Like asking a random person on the street to write your proposal.",
-      rightPrompt: "\"You are a senior HR operations consultant who specializes in onboarding optimization for mid-to-large companies.\n\nWrite me a proposal for improving our onboarding process.\"",
-      rightLabel: "More relevant frameworks, industry terminology, realistic timelines \u2014 just from telling the AI who it is.",
-      takeaway: "A role frames everything that follows. Always start here.",
-      notes: "The same vague request produces noticeably different output. The role sets the AI's default tone, depth, and perspective."
-    },
-    {
-      headline: "Be Specific", subtitle: "vs. the vague ask",
-      wrongPrompt: "\"Write me a proposal for improving our onboarding process.\"",
-      wrongLabel: "No audience, no constraints, no direction. The AI guesses everything.",
-      rightPrompt: "\"Write a proposal for reducing new hire onboarding time from 4 weeks to 2 weeks, aimed at the VP of People, in a format suitable for a leadership review meeting. Keep it under 2 pages.\"",
-      rightLabel: "Same information. Dramatically different result.",
-      takeaway: "Treat it like briefing a colleague, not searching Google.",
-      notes: "Specificity in the request = specificity in the output. We didn't give new information \u2014 we described what we actually wanted."
-    },
-    {
-      headline: "One Task at a Time", subtitle: "vs. the kitchen sink",
-      wrongPrompt: "\"Write the proposal, also draft an email to the team about it, and create a budget spreadsheet, and summarize the key risks, and...\"",
-      wrongLabel: "Five requests tangled together. Tries everything, nails nothing.",
-      rightPrompt: "\"Structure the proposal with:\n(1) Problem statement\n(2) Proposed solution\n(3) Expected outcomes\n(4) Resource requirements\n(5) Timeline\"",
-      rightLabel: "One task. Clear structure. The AI mirrors your organization.",
-      takeaway: "Structured asks produce structured outputs.",
-      source: "CodeSignal",
-      notes: "The kitchen-sink prompt is one of the most common mistakes. If you have 5 tasks, send 5 prompts."
-    },
-    {
-      headline: "Power Keywords", subtitle: "vs. leading the witness",
-      wrongPrompt: "\"Don't you think reducing onboarding to 2 weeks would be great for the company?\"",
-      wrongLabel: "Leading question \u2192 sycophantic agreement. Echo chamber.",
-      rightPrompt: "Add: \"Be radically honest about potential challenges. Think step by step. Challenge my assumptions if they seem flawed. If you're uncertain about any claim, flag it explicitly.\"",
-      rightLabel: "The AI pushes back on a weak assumption and flags an uncertain statistic.",
-      takeaway: "Permit uncertainty \u2014 an AI that says 'I'm not sure' is more useful than one that confidently makes things up.",
-      source: "OpenAI \u00b7 DigitalOcean",
-      notes: "\"Radically honest,\" \"think step by step,\" \"challenge my assumptions,\" and \"flag uncertainty\" are four of the highest-leverage keyword modifiers."
-    },
-    {
-      headline: "Define the Output", subtitle: "vs. hoping for the best",
-      wrongPrompt: "No format guidance \u2192 random format.\n\n5-page essay when you needed bullets.\n\n20 minutes reformatting.",
-      wrongLabel: "You wouldn't ask a designer for 'something nice.'",
-      rightPrompt: "\"Write this as a one-page executive brief with bullet points. Use data-driven language. Assume the reader has 2 minutes and no prior context.\"\n\nFor extra precision, include a short example of what good output looks like.",
-      rightLabel: "Defining format, tone, length, and audience assumptions produces immediately usable output.",
-      takeaway: "A quick example beats a long description.",
-      notes: "Every iteration changed wording. We never changed what the AI knew. That's the setup for Level 3."
-    },
-  ];
-  iterations.forEach(d => wrongRight(pres, d));
-
-  // --- Slide 21: The 5x Prompt ---
-  twoCol(pres, {
-    headline: "The 5x Prompt",
-    leftTitle: "Before",
-    leftContent: [
-      { text: "", options: { breakLine: true, fontSize: 10 } },
-      { text: "\"Write me a proposal for improving our onboarding process.\"", options: { fontFace: D.b, fontSize: 16, color: D.muted, italic: true } },
-    ],
-    rightTitle: "Final Prompt",
-    rightAccent: D.accent,
-    rightContent: [
-      { text: "Role + Specificity + Structure + Keywords + Output Definition", options: { breakLine: true, fontFace: D.b, fontSize: 12, color: D.accent, bold: true } },
-      { text: "", options: { breakLine: true, fontSize: 4 } },
-      { text: "\"You are a senior HR operations consultant. Write a proposal for reducing onboarding from 4 to 2 weeks. Aimed at VP of People, leadership review format, under 2 pages. Structure: problem, solution, outcomes, resources, timeline. Be radically honest, challenge assumptions, flag uncertainty. One-page exec brief with bullets, data-driven language.\"", options: { fontFace: D.b, fontSize: 11, color: D.text, italic: true } },
-    ],
-    takeaway: "Same task. Same background info. Dramatically different result \u2014 purely from how the request was phrased.",
-    notes: "This is the hinge of the deck. Celebrate the progress, then plant the seed that there's a bigger lever. The transition should feel like a cliffhanger."
+  // --- Slide 26: Wrong/Right — Be Specific ---
+  wrongRight(pres, {
+    headline: "Be Specific",
+    subtitle: "vs. the vague ask",
+    wrongText: "Write me a proposal for\nimproving our onboarding process.",
+    rightText: "Write a proposal for reducing\nonboarding from 4 to 2 weeks,\nfor the VP of People, under 2 pages.",
+    notes: "Specificity in the request = specificity in the output. We didn\u2019t give new information \u2014 we described what we actually wanted. No audience, no constraints, no direction = the AI guesses everything. Treat it like briefing a colleague, not searching Google. Transition: Next \u2014 don\u2019t overload it."
   });
 
-  // --- Breather before Level 3 ---
+  // --- Slide 27: Wrong/Right — One Task at a Time ---
+  wrongRight(pres, {
+    headline: "One Task at a Time",
+    subtitle: "vs. the kitchen sink",
+    wrongText: "Write the proposal, draft an email,\ncreate a budget spreadsheet,\nand summarize risks.",
+    rightText: "Structure the proposal with:\n1. Problem statement\n2. Proposed solution\n3. Expected outcomes\n4. Timeline",
+    notes: "The kitchen-sink prompt is one of the most common mistakes. Five requests tangled together \u2014 tries everything, nails nothing. If you have 5 tasks, send 5 prompts. One task, clear structure \u2014 the AI mirrors your organization. Source: CodeSignal. Transition: Now let\u2019s add power keywords."
+  });
+
+  // --- Slide 28: Wrong/Right — Power Keywords ---
+  wrongRight(pres, {
+    headline: "Power Keywords",
+    subtitle: "vs. leading the witness",
+    wrongText: "Don't you think reducing\nonboarding to 2 weeks\nwould be great?",
+    rightText: "Be radically honest about challenges.\nThink step by step.\nChallenge my assumptions.",
+    notes: "'Radically honest,' 'think step by step,' 'challenge my assumptions,' and 'flag uncertainty' are four of the highest-leverage keyword modifiers. A leading question produces sycophantic agreement \u2014 an echo chamber. Permit uncertainty \u2014 an AI that says 'I\u2019m not sure' is more useful than one that confidently makes things up. Sources: OpenAI, DigitalOcean. Transition: One more \u2014 define what you want back."
+  });
+
+  // --- Slide 29: Wrong/Right — Define the Output ---
+  wrongRight(pres, {
+    headline: "Define the Output",
+    subtitle: "vs. hoping for the best",
+    wrongText: "(No format guidance)\n\u2192 Random format, 5-page essay\nwhen you needed bullets.",
+    rightText: "One-page executive brief with\nbullet points. Data-driven language.\nReader has 2 minutes.",
+    notes: "You wouldn\u2019t ask a designer for 'something nice.' Defining format, tone, length, and audience assumptions produces immediately usable output. For extra precision, include a short example of what good output looks like \u2014 a quick example beats a long description. Every iteration changed wording. We never changed what the AI knew. That\u2019s the setup for Level 3. Transition: Let\u2019s see the transformation."
+  });
+
+  // --- Slide 30: Before/After ---
+  {
+    const s = darkSlide(pres);
+    // Left: original prompt (muted, small)
+    s.addText("Before", {
+      x: 0.5, y: 0.8, w: 4.2, h: 0.6,
+      fontFace: D.h, fontSize: 28, color: D.muted, bold: true, margin: 0, align: "center"
+    });
+    s.addText("\"Write me a proposal for\nimproving our onboarding\nprocess.\"", {
+      x: 0.5, y: 1.6, w: 4.2, h: 2.5,
+      fontFace: D.b, fontSize: 28, color: D.muted, italic: true, margin: 0, align: "center", valign: "top"
+    });
+    // Divider
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 0.8, w: 0, h: 4.0, line: { color: D.accent, width: 2 } });
+    // Right: key phrases from final prompt (accent, highlighted)
+    s.addText("After", {
+      x: 5.3, y: 0.8, w: 4.2, h: 0.6,
+      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, margin: 0, align: "center"
+    });
+    s.addText("Senior HR consultant\n4 to 2 weeks, VP of People\nStep by step, challenge me\nOne-page brief, bullets", {
+      x: 5.3, y: 1.6, w: 4.2, h: 2.5,
+      fontFace: D.b, fontSize: 28, color: D.accent, margin: 0, align: "center", valign: "top"
+    });
+    s.addNotes("Full final prompt: 'You are a senior HR operations consultant. Write a proposal for reducing onboarding from 4 to 2 weeks. Aimed at VP of People, leadership review format, under 2 pages. Structure: problem, solution, outcomes, resources, timeline. Be radically honest, challenge assumptions, flag uncertainty. One-page exec brief with bullets, data-driven language.'\n\nRole + Specificity + Structure + Keywords + Output Definition. Same task, same background info, dramatically different result \u2014 purely from how the request was phrased. This is the hinge of the deck. Transition: Celebrate the progress, then plant the seed.");
+  }
+
+  // --- Slide 31: "Same task. Same information. Just better words." ---
+  hero(pres, "Same task. Same information.\nJust better words.", {
+    notes: "Let this land. The audience should feel the progress \u2014 five simple techniques transformed a mediocre prompt into a professional one. But there\u2019s a bigger lever coming. Transition: The cliffhanger."
+  });
+
+  // --- Slide 32: "But we never changed what the AI knew." ---
+  hero(pres, "But we never changed\nwhat the AI knew.", {
+    color: D.accent,
+    notes: "This is the cliffhanger. Every iteration in Level 2 changed the wording, but the AI still had zero context about your company, your team, your situation. It was working blind. Level 3 introduces context engineering \u2014 giving the AI the information it needs. Transition: Let\u2019s change the information."
+  });
+
+  // --- Slide 33: Breather ---
   breatherSlide(pres,
-    "You've changed the words. Now let's change the information.",
-    "Transition from Level 2 (prompt engineering) to Level 3 (context engineering)."
+    "You've changed the words.\nNow let's change the information.",
+    "Transition from Level 2 (prompt engineering) to Level 3 (context engineering). The audience should feel like they\u2019ve mastered the words, but there\u2019s a whole other dimension."
   );
 
   // ============================================================
