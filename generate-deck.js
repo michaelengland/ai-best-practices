@@ -2,6 +2,8 @@ const pptxgen = require("pptxgenjs");
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
 const sharp = require("sharp");
+const fs = require("fs");
+const path = require("path");
 const {
   FaBan, FaSearch, FaMagic, FaRocket, FaBrain, FaPlug, FaRobot, FaDesktop,
   FaGlobe, FaEnvelope, FaFileAlt, FaDatabase, FaCalendarAlt, FaPuzzlePiece,
@@ -18,15 +20,19 @@ const D = {
   h: "Georgia", b: "Calibri",
 };
 
+const ICONS_DIR = path.join(__dirname, "icons");
+
 // ============================================================
 // UTILITIES
 // ============================================================
 function svgMarkup(Icon, color, size = 256) {
   return ReactDOMServer.renderToStaticMarkup(React.createElement(Icon, { color, size: String(size) }));
 }
-async function icon64(Icon, color, size = 256) {
+async function iconPath(name, Icon, color, size = 256) {
+  const filePath = path.join(ICONS_DIR, `${name}.png`);
   const png = await sharp(Buffer.from(svgMarkup(Icon, color, size))).png().toBuffer();
-  return "image/png;base64," + png.toString("base64");
+  fs.writeFileSync(filePath, png);
+  return filePath;
 }
 
 function darkSlide(pres) {
@@ -145,6 +151,7 @@ function wrongRight(pres, opts) {
 // ============================================================
 async function main() {
   console.log("Pre-rendering icons...");
+  fs.mkdirSync(ICONS_DIR, { recursive: true });
   const icons = {};
   const iconDefs = [
     ["ban", FaBan, "#FFFFFF"], ["search", FaSearch, "#FFFFFF"], ["magic", FaMagic, "#FFFFFF"], ["rocket", FaRocket, "#FFFFFF"],
@@ -158,7 +165,7 @@ async function main() {
     ["databaseW", FaDatabase, "#FFFFFF"], ["calendarW", FaCalendarAlt, "#FFFFFF"], ["puzzleW", FaPuzzlePiece, "#FFFFFF"],
   ];
   for (const [name, Icon, color] of iconDefs) {
-    icons[name] = await icon64(Icon, color);
+    icons[name] = await iconPath(name, Icon, color);
   }
 
   console.log("Creating presentation...");
@@ -201,7 +208,7 @@ async function main() {
   {
     const s = darkSlide(pres);
     const labels = ["AI Skeptic", "AI Questioner", "AI Viber", "AI-First"];
-    const boxW = 1.9, boxH = 0.8, gap = 0.3;
+    const boxW = 2.1, boxH = 0.8, gap = 0.2;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
@@ -214,12 +221,12 @@ async function main() {
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.h, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.h, fontSize: 22, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
           x: x + boxW, y: 2.2, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "middle"
+          fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "middle"
         });
       }
     });
@@ -230,7 +237,7 @@ async function main() {
   {
     const s = darkSlide(pres);
     const labels = ["AI Skeptic", "AI Questioner", "AI Viber", "AI-First"];
-    const boxW = 1.9, boxH = 0.8, gap = 0.3;
+    const boxW = 2.1, boxH = 0.8, gap = 0.2;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
@@ -244,12 +251,12 @@ async function main() {
       });
       s.addText(label, {
         x, y: 1.8, w: boxW, h: boxH,
-        fontFace: D.h, fontSize: 28, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.h, fontSize: 22, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
           x: x + boxW, y: 1.8, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "middle"
+          fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "middle"
         });
       }
     });
@@ -289,12 +296,12 @@ async function main() {
         fill: { color: isLast ? D.accent : D.muted }
       });
       s.addText(e.label, {
-        x: x - 1.0, y: lineY - 1.4, w: 2.0, h: 0.6,
-        fontFace: D.h, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
+        x: x - 1.25, y: lineY - 1.4, w: 2.5, h: 0.6,
+        fontFace: D.h, fontSize: 24, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
       });
       s.addText(e.decade, {
-        x: x - 1.0, y: lineY - 0.8, w: 2.0, h: 0.5,
-        fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
+        x: x - 1.25, y: lineY - 0.8, w: 2.5, h: 0.5,
+        fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
       });
     });
     s.addNotes("Every major technology era followed the same pattern:\n\u2022 PCs (1980s): US productivity growth doubled (0.6% \u2192 1.0%/yr) \u2014 Fed Reserve\n\u2022 Internet (1990s): Global business online 7% \u2192 30% \u2014 Visual Capitalist\n\u2022 Smartphones (2010s): The pattern speaks for itself\n\u2022 AI (Now): $7T projected GDP impact over 10 years \u2014 Goldman Sachs\n\nEvery era had skeptics. Every era punished those who waited. The only question is how fast you adapt. Transition: Let\u2019s look at where AI is right now.");
@@ -474,7 +481,7 @@ async function main() {
   // --- Slide 23: Section Divider ---
   sectionDivider(pres, {
     title: "Prompt Engineering",
-    sub: "How to Stop Getting Useless Answers",
+    subtitle: "How to Stop Getting Useless Answers",
     notes: "Mental-model shift. The audience likely thinks output quality is about the AI. This section proves it\u2019s about the input. Most people type something vague, get something generic, and blame the AI. Let\u2019s fix that."
   });
 
@@ -634,7 +641,7 @@ async function main() {
       fill: { color: D.accent, transparency: 85 },
       line: { color: D.accent, width: 1.5 }
     });
-    s.addImage({ data: icons.fish, x: 1.95, y: 2.0, w: 1.2, h: 1.2 });
+    s.addImage({ path: icons.fish, x: 1.95, y: 2.0, w: 1.2, h: 1.2 });
     // Right: just 4 words
     s.addText("Meet your\nAI colleague.", {
       x: 5.0, y: 1.5, w: 4.5, h: 2.5,
@@ -737,7 +744,7 @@ async function main() {
     const startX = (10 - totalW) / 2;
     connections.forEach((c, i) => {
       const x = startX + i * 1.4;
-      s.addImage({ data: c.icon, x: x + (1.2 - iconSize) / 2, y: 1.8, w: iconSize, h: iconSize });
+      s.addImage({ path: c.icon, x: x + (1.2 - iconSize) / 2, y: 1.8, w: iconSize, h: iconSize });
       s.addText(c.label, {
         x, y: 2.8, w: 1.2, h: 0.6,
         fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
@@ -814,7 +821,7 @@ async function main() {
   {
     const s = darkSlide(pres);
     // Left: 1 large icon with label
-    s.addImage({ data: icons.user, x: 1.5, y: 1.5, w: 1.5, h: 1.5 });
+    s.addImage({ path: icons.user, x: 1.5, y: 1.5, w: 1.5, h: 1.5 });
     s.addText("One Chef", {
       x: 0.8, y: 3.2, w: 3.0, h: 0.8,
       fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
@@ -826,7 +833,7 @@ async function main() {
     stations.forEach((label, i) => {
       const x = 5.8 + (i % 2) * 1.8;
       const y = 1.3 + Math.floor(i / 2) * 1.8;
-      s.addImage({ data: icons.user, x: x + 0.2, y, w: 0.8, h: 0.8 });
+      s.addImage({ path: icons.user, x: x + 0.2, y, w: 0.8, h: 0.8 });
       s.addText(label, {
         x, y: y + 0.9, w: 1.2, h: 0.5,
         fontFace: D.b, fontSize: 20, color: D.accent, align: "center", margin: 0, valign: "top"
@@ -989,7 +996,7 @@ async function main() {
     ];
     // Horizontal line
     s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.6, w: 9, h: 0.06, fill: { color: D.accent } });
-    const boxW = 1.9, gap = 0.3;
+    const boxW = 2.1, gap = 0.2;
     const totalW = stages.length * boxW + (stages.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     stages.forEach((st, i) => {
@@ -997,7 +1004,7 @@ async function main() {
       // Persona label above line
       s.addText(st.label, {
         x, y: 1.4, w: boxW, h: 1.0,
-        fontFace: D.h, fontSize: 28, color: st.color, bold: true, align: "center", margin: 0, valign: "bottom"
+        fontFace: D.h, fontSize: 22, color: st.color, bold: true, align: "center", margin: 0, valign: "bottom"
       });
       // Bridge text below line
       s.addText(st.bridge, {
