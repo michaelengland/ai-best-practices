@@ -193,7 +193,7 @@ async function main() {
   }
 
   // --- Slide 2: Hook story ---
-  hero(pres, "Last month, someone spent 45 minutes\narguing with ChatGPT.\nThe same task took 2 minutes.", {
+  hero(pres, "Last month, someone spent 45 minutes\non a one-page summary using ChatGPT.\nThe right approach took 2 minutes.", {
     font: D.b, size: 28, color: D.text,
     notes: "Tell the full story: 'I watched someone go back and forth \u2014 copy, paste, no that\u2019s not right, copy, paste, closer but... The same task took 2 minutes once they knew the trick.' Let it land \u2014 this is the emotional anchor. The entire closing calls back to this person."
   });
@@ -365,20 +365,20 @@ async function main() {
     });
     // Question callout boxes
     const questions = [
-      ["What's the difference\nbetween ChatGPT and GPT?", 0.5, 0.8],
-      ["Is Claude the same\nas ChatGPT?", 5.5, 1.2],
-      ["What even is\nan agent?", 1.5, 3.0],
-      ["Do I need to know\nwhat a token is?", 6.0, 3.2],
+      ["What's the difference\nbetween ChatGPT and GPT?", 0.5, 0.6],
+      ["Is Claude the same\nas ChatGPT?", 5.5, 1.0],
+      ["What even is\nan agent?", 1.5, 2.8],
+      ["Do I need to know\nwhat a token is?", 5.5, 3.2],
     ];
     questions.forEach(([q, x, y]) => {
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y, w: 3.2, h: 0.9,
+        x, y, w: 3.8, h: 1.2,
         rectRadius: 0.1,
         fill: { color: D.accent }
       });
       s.addText(q, {
-        x: x + 0.15, y, w: 2.9, h: 0.9,
-        fontFace: D.b, fontSize: 28, color: D.white, bold: true, margin: 0, valign: "middle"
+        x: x + 0.15, y, w: 3.5, h: 1.2,
+        fontFace: D.b, fontSize: 22, color: D.white, bold: true, margin: 0, valign: "middle"
       });
     });
     s.addNotes("We\u2019re going to make this simple. The questions represent common confusions. The audience should feel like someone is finally asking their questions. We\u2019ll answer all of these in the next few slides. Transition: Let\u2019s start with the basics \u2014 how is AI actually structured?");
@@ -610,23 +610,23 @@ async function main() {
     s.background = { color: D.lightBg };
     // Left column
     s.addText("Plausible but generic", {
-      x: 0.5, y: 1.8, w: 4.2, h: 1.0,
+      x: 0.5, y: 1.5, w: 4.2, h: 1.0,
       fontFace: D.h, fontSize: 32, color: D.muted, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("Could be for any company.", {
-      x: 0.5, y: 2.9, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
+      x: 0.5, y: 3.0, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
     });
     // Divider
     s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.accent, width: 2 } });
     // Right column
     s.addText("Sounds like someone\nwho works here", {
-      x: 5.3, y: 1.8, w: 4.2, h: 1.0,
+      x: 5.3, y: 1.5, w: 4.2, h: 1.0,
       fontFace: D.h, fontSize: 32, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("Same prompt + your context.", {
-      x: 5.3, y: 2.9, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "top"
+      x: 5.3, y: 3.0, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 24, color: D.accent, align: "center", margin: 0, valign: "top"
     });
     s.addNotes("Left: Same well-crafted prompt from Level 2. Output is plausible but generic \u2014 reads like it could be for any company.\nRight: Same prompt + background info (current onboarding stats, company size & structure, known pain points, relevant policies). Output sounds like someone who works here.\nSource: Elastic, KDnuggets. Transition: Let's meet the metaphor that explains why.");
   }
@@ -763,7 +763,7 @@ async function main() {
       fontFace: D.h, fontSize: 36, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("You copy-paste\nYou forget the budget memo\nVP asks \u2014 too late", {
-      x: 0.5, y: 1.7, w: 4.2, h: 2.5,
+      x: 0.5, y: 1.9, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
     // Divider
@@ -774,7 +774,7 @@ async function main() {
       fontFace: D.h, fontSize: 36, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("Agent reads directly\nFinds what you forgot\nFlags what you missed", {
-      x: 5.3, y: 1.7, w: 4.2, h: 2.5,
+      x: 5.3, y: 1.9, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
     s.addNotes("The forgotten budget memo is the killer detail. Everyone has this story.\nWithout connections: Copy-paste HR handbook, survey results, team structure. Forget the budget memo. Proposal misses cost constraints. VP asks about it \u2014 too late.\nWith connections: Agent reads HR system directly. Pulls survey data automatically. Finds the budget memo you forgot. Flags a policy constraint you didn't know existed.\nThe agent found context you wouldn't have thought to provide. Transition: But can you trust it?");
@@ -784,12 +784,12 @@ async function main() {
   {
     const s = darkSlide(pres);
     s.addText("Trust, but verify.", {
-      x: 1.0, y: 0.6, w: 8, h: 2.0,
+      x: 1.0, y: 0.4, w: 8, h: 2.0,
       fontFace: D.h, fontSize: 60, color: D.white, bold: true,
       align: "center", margin: 0, valign: "bottom"
     });
     s.addText("Never trust numbers you didn't provide.\nVerify claims against sources.\nUse AI for drafts, not decisions.", {
-      x: 1.5, y: 2.8, w: 7, h: 2.0,
+      x: 1.5, y: 2.6, w: 7, h: 2.0,
       fontFace: D.b, fontSize: 28, color: D.muted,
       align: "center", margin: 0, valign: "top"
     });
@@ -988,6 +988,10 @@ async function main() {
   // --- Slide 65: From Asking to Orchestrating ---
   {
     const s = darkSlide(pres);
+    s.addText("Look how far you've come.", {
+      x: 1.0, y: 0.4, w: 8, h: 0.8,
+      fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
     const stages = [
       { label: "AI Skeptic", bridge: "Levels 0\u20131", color: "9CA3AF" },
       { label: "AI Questioner", bridge: "Levels 2\u20133", color: "6B7280" },
@@ -995,7 +999,7 @@ async function main() {
       { label: "AI-First", bridge: "Level 5", color: D.accent },
     ];
     // Horizontal line
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.6, w: 9, h: 0.06, fill: { color: D.accent } });
+    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.8, w: 9, h: 0.06, fill: { color: D.accent } });
     const boxW = 2.1, gap = 0.2;
     const totalW = stages.length * boxW + (stages.length - 1) * gap;
     const startX = (10 - totalW) / 2;
@@ -1003,18 +1007,18 @@ async function main() {
       const x = startX + i * (boxW + gap);
       // Persona label above line
       s.addText(st.label, {
-        x, y: 1.4, w: boxW, h: 1.0,
+        x, y: 1.6, w: boxW, h: 1.0,
         fontFace: D.h, fontSize: 22, color: st.color, bold: true, align: "center", margin: 0, valign: "bottom"
       });
       // Bridge text below line
       s.addText(st.bridge, {
-        x, y: 2.8, w: boxW, h: 0.8,
+        x, y: 3.0, w: boxW, h: 0.8,
         fontFace: D.b, fontSize: 20, color: st.color, italic: true, align: "center", margin: 0, valign: "top"
       });
       // Arrow between
       if (i < stages.length - 1) {
         s.addText("\u2192", {
-          x: x + boxW, y: 1.9, w: gap, h: 0.6,
+          x: x + boxW, y: 2.1, w: gap, h: 0.6,
           fontFace: D.b, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "middle"
         });
       }
