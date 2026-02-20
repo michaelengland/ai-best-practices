@@ -646,14 +646,8 @@ async function main() {
   // --- Slide 36: Meet Dory ---
   {
     const s = darkSlide(pres);
-    // Left: teal-tinted placeholder rectangle for future Dory image
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-      x: 0.8, y: 0.8, w: 3.5, h: 4.0,
-      rectRadius: 0.15,
-      fill: { color: D.accent, transparency: 85 },
-      line: { color: D.accent, width: 1.5 }
-    });
-    s.addImage({ path: icons.fish, x: 1.95, y: 2.0, w: 1.2, h: 1.2 });
+    const doryPath = path.join(__dirname, "images", "Gemini_Generated_Image_21aveo21aveo21av.png");
+    s.addImage({ path: doryPath, x: 0.3, y: 0.5, w: 4.2, h: 4.2 });
     // Right: just 4 words
     s.addText("Meet your\nAI colleague.", {
       x: 5.0, y: 1.5, w: 4.5, h: 2.5,
@@ -735,7 +729,7 @@ async function main() {
   }
 
   // --- Slide 45: "Same Dory. Now she has hands." ---
-  hero(pres, "Same Dory.\nNow she has hands.", {
+  hero(pres, "Same colleague.\nNow she has hands.", {
     sub: "Eyes, a phone, and a to-do list.",
     notes: "Second Dory touchpoint. Same memory issues, but the agent now has tools. It can read files, search the web, send emails, query databases. The chef metaphor: one great chef who finds ingredients, preps, cooks, and plates. You taste-test at the end. Transition: What tools does she have?"
   });
@@ -989,7 +983,7 @@ async function main() {
 
   // --- Slide 64: "Same proposal. The chain gets smarter every time." ---
   hero(pres, "Same proposal.\nThe chain gets smarter\nevery time.", {
-    sub: "Your feedback becomes skills. Dory won't remember, but the skills will.",
+    sub: "Your feedback becomes skills. She won't remember, but the skills will.",
     notes: "Emotional climax. The skills compounding beat is the final Dory touchpoint. Your feedback from each run becomes new skills \u2014 the VP's format, compliance gaps, research standards. Even though Dory forgets, the skills persist. Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work. And next time it's even faster. Transition to closing."
   });
 
