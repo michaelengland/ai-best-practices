@@ -498,14 +498,7 @@ async function main() {
   // EXPLORER → WHISPERER: "TALK TO AI PROPERLY" (Slides 23-33)
   // ============================================================
 
-  // --- Slide 23: Section Divider ---
-  sectionDivider(pres, {
-    title: "Prompt Engineering",
-    subtitle: "How to Stop Getting Useless Answers",
-    notes: "Mental-model shift. The audience likely thinks output quality is about the AI. This section proves it\u2019s about the input. Most people type something vague, get something generic, and blame the AI. Let\u2019s fix that."
-  });
-
-  // --- Slide 24: "The Task" (chat bubble with vague prompt) ---
+  // --- Slide 23: "The Task" (chat bubble with vague prompt) ---
   {
     const s = darkSlide(pres);
     // Chat bubble shape
@@ -1037,7 +1030,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "ai-best-practices.pptx") });
-  console.log("Done! Created ai-best-practices.pptx (69 slides, billboard)");
+  console.log("Done! Created ai-best-practices.pptx (68 slides, billboard)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
