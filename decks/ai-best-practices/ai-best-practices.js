@@ -694,7 +694,16 @@ async function main() {
     notes: "The natural question after context engineering: 'Do I have to feed all this context every time?' This plants the seed. Skills are the answer. Transition: What if the AI already knew?"
   });
 
-  // --- Slide 42: GPS metaphor (light bg) ---
+  // --- Slide 42: Without vs With a Skill (Wrong/Right) ---
+  wrongRight(pres, {
+    headline: "Without vs. With a Skill",
+    subtitle: "same prompt, different starting point",
+    wrongText: "Role: senior HR consultant\nFormat: leadership brief\nTone: direct, data-driven\nAudience: VP of People\n\nTyped. Every. Single. Time.",
+    rightText: "\"Write a proposal for reducing\nonboarding from 4 to 2 weeks.\"\n\nThat\u2019s it.\nThe skill knows the rest.",
+    notes: "This is the concrete proof of what skills do. The left side shows all the context the audience learned to provide in the Whisperer section \u2014 role, format, tone, audience. Without a skill, you type this every time. With a skill (custom instruction), it\u2019s saved once. You just ask for the task. Same output quality, fraction of the effort. This makes skills tangible, not abstract. Transition: Here\u2019s the metaphor."
+  });
+
+  // --- Slide 43: GPS metaphor (light bg) ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
@@ -1028,7 +1037,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "ai-best-practices.pptx") });
-  console.log("Done! Created ai-best-practices.pptx (68 slides, billboard)");
+  console.log("Done! Created ai-best-practices.pptx (69 slides, billboard)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
