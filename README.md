@@ -2,7 +2,7 @@
 
 A 68-slide presentation on AI best practices — taking you from confused to in control.
 
-Available as [PowerPoint](Getting-Agents-to-Give-Up-Their-Secrets.pptx) or [PDF](Getting-Agents-to-Give-Up-Their-Secrets.pdf).
+Available as [PowerPoint](decks/ai-best-practices/ai-best-practices.pptx) or [PDF](decks/ai-best-practices/ai-best-practices.pdf).
 
 ## What this is
 
@@ -26,22 +26,28 @@ A progressive leveling-up journey through AI adoption. Each section moves you al
 
 ```bash
 npm install
-node generate-deck.js
+node decks/ai-best-practices/ai-best-practices.js
 ```
 
-Requires Node.js 18+. Generates `Getting-Agents-to-Give-Up-Their-Secrets.pptx` (68 slides).
+Requires Node.js 18+. Generates `decks/ai-best-practices/ai-best-practices.pptx` (68 slides).
 
 ## How this was built
 
-This entire presentation — narrative, slide design, and code — was created using [Claude Code](https://claude.ai/claude-code) with the [deck-flow](https://github.com/michaelengland/claude-code-plugins) plugin for structured presentation development. Design documents and iteration history are in [`docs/plans/`](docs/plans/).
+This entire presentation — narrative, slide design, and code — was created using [Claude Code](https://claude.ai/claude-code) with the [deck-flow](https://github.com/michaelengland/claude-code-plugins) plugin for structured presentation development. Design documents and iteration history are in [`decks/ai-best-practices/`](decks/ai-best-practices/).
 
 ## Project structure
 
 ```
-generate-deck.js          # PptxGenJS slide generator (single file, ~1100 lines)
-images/                   # AI-generated imagery (blue tang fish)
-icons/                    # Pre-rendered react-icons PNGs
-docs/plans/               # Narrative, deck plans, design docs, image prompts
+decks/ai-best-practices/
+  ai-best-practices.js     # PptxGenJS slide generator (~1100 lines)
+  ai-best-practices.pptx   # Generated presentation
+  ai-best-practices.pdf    # PDF for sharing
+  narrative.md             # Story arc and source research
+  content-outline.md       # Slide-by-slide content plan
+  slide-design.md          # Visual direction and design system
+  assets/                  # AI-generated imagery (blue tang fish)
+  icons/                   # Pre-rendered react-icons PNGs
+  history/                 # Earlier plan versions and session notes
 ```
 
 ## License
