@@ -1004,7 +1004,7 @@ async function main() {
   );
 
   // --- Slide 69: "Remember the 45-minute conversation?" ---
-  hero(pres, "Remember the\n45-minute conversation?", {
+  hero(pres, "Remember the\n45-minute summary?", {
     size: 48,
     notes: "Callback to slide 2. The person who spent 45 minutes copy-pasting into ChatGPT. They learned to prompt with specificity (became a Viber, Levels 2\u20133). They let the agent find what it needed (started going AI-First, Level 4). They chained the whole workflow (full AI-First, Level 5). They were a Questioner who became AI-First. Transition: The punchline."
   });
