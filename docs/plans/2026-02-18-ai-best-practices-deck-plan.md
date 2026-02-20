@@ -1,5 +1,7 @@
 # Getting Agents to Give Up Their Secrets - Deck Plan
 
+> **Next step:** Use **/deck-flow:present** to generate the presentation.
+
 ## Overview
 - **Total slides**: 50
 - **Estimated duration**: Self-paced reference document (no fixed duration)

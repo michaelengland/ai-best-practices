@@ -1,6 +1,6 @@
 # Deck Visual Overhaul — Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> **For Claude:** Use **/deck-flow:present** to implement this deck plan.
 
 **Goal:** Transform the 47-slide AI best-practices presentation from a flat, template-feeling design to a dark-forward cinematic deck with dramatic typography, clear information hierarchy, imagery placeholders, and pacing variation.
 
@@ -8,7 +8,7 @@
 
 **Tech Stack:** PptxGenJS, Node.js, react-icons, sharp (for icon rasterization)
 
-**Design doc:** `docs/plans/2026-02-19-deck-visual-overhaul-design.md` — read this first for full design rationale.
+**Deck plan:** `docs/plans/2026-02-19-deck-visual-overhaul-deck-plan.md` — read this first for full design rationale.
 
 ---
 

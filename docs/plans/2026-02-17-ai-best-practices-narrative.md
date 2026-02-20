@@ -1,5 +1,7 @@
 # Getting Agents to Give Up Their Secrets - Narrative
 
+> **Next step:** Use **/deck-flow:craft** to translate this narrative into a slide-by-slide plan.
+
 ## Overview
 
 - **Audience**: Mixed roles, all levels - engineers, PMs, designers, managers, execs at a large company. Varying technical depth. Must be accessible without being patronizing to technical folks.

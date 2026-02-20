@@ -1,6 +1,6 @@
-# Billboard Redesign — Design Document
+# Billboard Redesign — Deck Plan
 
-> **Next step:** Implement this design in `generate-deck.js` using the writing-plans skill.
+> **Next step:** Use **/deck-flow:present** to generate the presentation.
 
 ## The Rule
 

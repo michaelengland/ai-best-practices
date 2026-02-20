@@ -1,6 +1,6 @@
 # Billboard Redesign — Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> **For Claude:** Use **/deck-flow:present** to implement this deck plan.
 
 **Goal:** Rewrite every slide in `generate-deck.js` to pass the 3-second billboard test — maximum 15 words on screen, 28pt+ font, no cards, 50%+ whitespace.
 
@@ -8,7 +8,7 @@
 
 **Tech Stack:** PptxGenJS, Node.js
 
-**Design doc:** `docs/plans/2026-02-19-billboard-redesign.md`
+**Deck plan:** `docs/plans/2026-02-19-billboard-redesign-deck-plan.md`
 
 ---
 

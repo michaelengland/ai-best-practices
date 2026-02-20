@@ -1,6 +1,6 @@
-# Deck Visual Overhaul — Design Document
+# Deck Visual Overhaul — Deck Plan
 
-> **Next step:** Implement this design in `generate-deck.js` using the writing-plans skill.
+> **Next step:** Use **/deck-flow:present** to generate the presentation.
 
 ## Overview
 
