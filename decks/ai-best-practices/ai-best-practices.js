@@ -181,7 +181,7 @@ async function main() {
   pres.title = "Getting Agents to Give Up Their Secrets";
 
   // ============================================================
-  // LEVEL 0: "WHERE ARE YOU?" (Slides 1-11)
+  // OPENING: "WHERE ARE YOU?" (Slides 1-11)
   // ============================================================
 
   // --- Slide 1: Title ---
@@ -210,67 +210,75 @@ async function main() {
     notes: "Pause after this. Let it land. The entire closing (slide ~70) calls back to this moment. This is the thesis statement of the whole presentation."
   });
 
-  // --- Slide 4: Spectrum (4 personas, no descriptions) ---
+  // --- Slide 4: Spectrum (7 personas) ---
   {
     const s = darkSlide(pres);
-    const labels = ["AI Skeptic", "AI Questioner", "AI Viber", "AI-First"];
-    const boxW = 2.1, boxH = 0.8, gap = 0.2;
+    const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
+    const boxW = 1.2, boxH = 0.7, gap = 0.1;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
       const x = startX + i * (boxW + gap);
+      const isBuilder = i === labels.length - 1;
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.2, w: boxW, h: boxH,
-        rectRadius: 0.1,
-        fill: { color: D.accent, transparency: 85 },
-        line: { color: D.accent, width: 1.5 }
+        rectRadius: 0.08,
+        fill: { color: D.accent, transparency: isBuilder ? 95 : 85 },
+        line: { color: isBuilder ? D.muted : D.accent, width: 1.5, dashType: isBuilder ? "dash" : "solid" }
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.h, fontSize: 22, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 15, color: isBuilder ? D.muted : D.white, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
           x: x + boxW, y: 2.2, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "middle"
+          fontFace: D.b, fontSize: 14, color: isBuilder ? D.muted : D.accent, align: "center", margin: 0, valign: "middle"
         });
       }
     });
-    s.addNotes("The four personas:\n\u2022 AI Skeptic \u2014 Avoids AI or refuses to engage\n\u2022 AI Questioner \u2014 Has ChatGPT, uses it like a search engine\n\u2022 AI Viber \u2014 Uses AI tools, then fixes output by hand\n\u2022 AI-First \u2014 Everything through AI; context, agents, workflows\n\nThese are identity milestones. The deck\u2019s levels are the steps that move you to the right. By the end, we\u2019ll have moved you.");
+    s.addNotes("Seven personas on the AI adoption spectrum:\n\u2022 Skeptic \u2014 Avoids AI or doesn\u2019t see the point\n\u2022 Explorer \u2014 Tries AI, asks it questions, learning the landscape\n\u2022 Whisperer \u2014 Knows how to talk to AI, prompts well\n\u2022 Strategist \u2014 Curates what AI knows, uses persistent instructions\n\u2022 Operator \u2014 Sets up agents, connects tools, lets AI work\n\u2022 Orchestrator \u2014 Chains agents together with compounding skills\n\u2022 Builder \u2014 Creates plugins, MCP servers, custom tools (beyond this deck)\n\nThis deck covers Skeptic \u2192 Orchestrator. Builder is the horizon.");
   }
 
-  // --- Slide 5: "Most people are here." (Questioner highlighted) ---
+  // --- Slide 5: "Most people are here." (Explorer highlighted) ---
   {
     const s = darkSlide(pres);
-    const labels = ["AI Skeptic", "AI Questioner", "AI Viber", "AI-First"];
-    const boxW = 2.1, boxH = 0.8, gap = 0.2;
+    const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
+    const boxW = 1.2, boxH = 0.7, gap = 0.1;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
       const x = startX + i * (boxW + gap);
-      const isHighlighted = i === 1;
+      const isHighlighted = i === 1; // Explorer
+      const isTarget = i === 5; // Orchestrator
+      const isBuilder = i === 6;
+      const textColor = isHighlighted ? D.white : (isTarget ? D.accent : D.muted);
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y: 1.8, w: boxW, h: boxH,
-        rectRadius: 0.1,
+        x, y: 1.6, w: boxW, h: boxH,
+        rectRadius: 0.08,
         fill: { color: isHighlighted ? D.accent : D.bg, transparency: isHighlighted ? 0 : 50 },
-        line: { color: isHighlighted ? D.accent : D.muted, width: isHighlighted ? 2 : 1 }
+        line: { color: isHighlighted ? D.accent : (isTarget ? D.accent : D.muted), width: isHighlighted || isTarget ? 2 : 1, dashType: isBuilder ? "dash" : "solid" }
       });
       s.addText(label, {
-        x, y: 1.8, w: boxW, h: boxH,
-        fontFace: D.h, fontSize: 22, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle"
+        x, y: 1.6, w: boxW, h: boxH,
+        fontFace: D.b, fontSize: 15, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
-          x: x + boxW, y: 1.8, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "middle"
+          x: x + boxW, y: 1.6, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle"
         });
       }
     });
     s.addText("Most people are here.", {
-      x: 1.0, y: 3.2, w: 8, h: 1.0,
-      fontFace: D.h, fontSize: 36, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+      x: 0.5, y: 2.7, w: 4.5, h: 0.8,
+      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("Most readers will self-identify at Questioner. They have ChatGPT, they\u2019ve tried it, but they\u2019re using it like a search engine. This framing pays off at the closing when we come full circle. Transition: Let\u2019s look at the numbers.");
+    s.addText("This deck takes you here.", {
+      x: 5.0, y: 2.7, w: 4.5, h: 0.8,
+      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Most readers will self-identify at Explorer. They\u2019ve tried ChatGPT, maybe heard of prompt engineering. The Orchestrator indicator shows where this deck takes them. Builder is visible but dimmed \u2014 beyond scope. Transition: Let\u2019s look at the numbers.");
   }
 
   // --- Slide 6: "1 billion+" ---
@@ -330,11 +338,11 @@ async function main() {
   // --- Slide 11: Breather ---
   breatherSlide(pres,
     "Let's see what most people get wrong.",
-    "Transition into Level 1. Pause. Let the pacing shift. We\u2019re moving from 'why AI matters' to 'what AI actually is.'"
+    "Transition into the Explorer section. Pause. Let the pacing shift. We\u2019re moving from 'why AI matters' to 'what AI actually is.'"
   );
 
   // ============================================================
-  // LEVEL 1: "KNOW YOUR TOOLS" (Slides 12-22)
+  // SKEPTIC → EXPLORER: "KNOW YOUR TOOLS" (Slides 12-22)
   // ============================================================
 
   // --- Slide 12: Word Cloud ---
@@ -471,23 +479,23 @@ async function main() {
 
   // --- Slide 20: "The gap is massive." ---
   hero(pres, "The gap between using AI\nand using AI well\nis massive.", {
-    notes: "This is the thesis of Level 1. The tools are everywhere, adoption is exploding, but most people are using AI poorly. The gap is your opportunity. Transition: And adoption is accelerating."
+    notes: "This is the thesis of the Explorer section. The tools are everywhere, adoption is exploding, but most people are using AI poorly. The gap is your opportunity. Transition: And adoption is accelerating."
   });
 
   // --- Slide 21: "10x" ---
   bigNum(pres, "10\u00D7", "Microsoft 365 Copilot daily users,\nyear over year", {
     source: "Microsoft Q2 2026 earnings",
-    notes: "Source: Microsoft Q2 2026 earnings. Microsoft 365 Copilot daily active users increased 10x year-over-year. Tools like Copilot in Excel, Copilot in Word, Gemini in Docs, Claude in Workflows \u2014 AI is entering every workplace tool. If you were a Skeptic, you\u2019re now a Questioner \u2014 you know what AI is. Transition: You\u2019ve got the basics."
+    notes: "Source: Microsoft Q2 2026 earnings. Microsoft 365 Copilot daily active users increased 10x year-over-year. Tools like Copilot in Excel, Copilot in Word, Gemini in Docs, Claude in Workflows \u2014 AI is entering every workplace tool. If you were a Skeptic, you\u2019re now an Explorer \u2014 you know what AI is. Transition: You\u2019ve got the basics."
   });
 
   // --- Slide 22: Breather ---
   breatherSlide(pres,
     "You've got the basics.\nNow let's give you the skills.",
-    "Transition from Level 1 to Level 2. Persona milestone: Skeptic \u2192 Questioner. The audience now knows what AI is. Next: how to actually talk to it."
+    "Persona crossing: Skeptic \u2192 Explorer. The audience now knows what AI is. Next: how to actually talk to it."
   );
 
   // ============================================================
-  // LEVEL 2: "TALK TO AI PROPERLY" (Slides 23-33)
+  // EXPLORER → WHISPERER: "TALK TO AI PROPERLY" (Slides 23-33)
   // ============================================================
 
   // --- Slide 23: Section Divider ---
@@ -560,7 +568,7 @@ async function main() {
     subtitle: "vs. hoping for the best",
     wrongText: "(No format guidance)\n\u2192 Random format, 5-page essay\nwhen you needed bullets.",
     rightText: "One-page executive brief with\nbullet points. Data-driven language.\nReader has 2 minutes.",
-    notes: "You wouldn\u2019t ask a designer for 'something nice.' Defining format, tone, length, and audience assumptions produces immediately usable output. For extra precision, include a short example of what good output looks like \u2014 a quick example beats a long description. Every iteration changed wording. We never changed what the AI knew. That\u2019s the setup for Level 3. Transition: Let\u2019s see the transformation."
+    notes: "You wouldn\u2019t ask a designer for 'something nice.' Defining format, tone, length, and audience assumptions produces immediately usable output. For extra precision, include a short example of what good output looks like \u2014 a quick example beats a long description. Every iteration changed wording. We never changed what the AI knew. That\u2019s the setup for the Strategist section. Transition: Let\u2019s see the transformation."
   });
 
   // --- Slide 30: Before/After ---
@@ -597,23 +605,23 @@ async function main() {
   // --- Slide 32: "But we never changed what the AI knew." ---
   hero(pres, "But we never changed\nwhat the AI knew.", {
     color: D.accent,
-    notes: "This is the cliffhanger. Every iteration in Level 2 changed the wording, but the AI still had zero context about your company, your team, your situation. It was working blind. Level 3 introduces context engineering \u2014 giving the AI the information it needs. Transition: Let\u2019s change the information."
+    notes: "This is the cliffhanger. Every iteration in Level 2 changed the wording, but the AI still had zero context about your company, your team, your situation. It was working blind. The Strategist section introduces context engineering \u2014 giving the AI the information it needs. Transition: Let\u2019s change the information."
   });
 
   // --- Slide 33: Breather ---
   breatherSlide(pres,
     "You've changed the words.\nNow let's change the information.",
-    "Transition from Level 2 (prompt engineering) to Level 3 (context engineering). The audience should feel like they\u2019ve mastered the words, but there\u2019s a whole other dimension."
+    "Persona crossing: Explorer \u2192 Whisperer. The audience now knows how to talk to AI. Next: what the AI knows. Transition to the Strategist section."
   );
 
   // ============================================================
-  // LEVEL 3: "FEED AI SMARTER" (Slides 34-41)
+  // WHISPERER → STRATEGIST: "FEED AI SMARTER" (Slides 34-41)
   // ============================================================
 
   // --- Slide 34: "Same prompt. Different information." ---
   hero(pres, "Same prompt.\nDifferent information.", {
     sub: "Dramatically different result.",
-    notes: "The clearest Level 2/3 boundary demonstration. The prompt didn't change. The context did. This is the 'aha' \u2014 it's not about the words, it's about what the AI knows. Source: Elastic, KDnuggets. Transition: Let's see the difference."
+    notes: "The clearest Whisperer/Strategist boundary demonstration. The prompt didn't change. The context did. This is the 'aha' \u2014 it's not about the words, it's about what the AI knows. Source: Elastic, KDnuggets. Transition: Let's see the difference."
   });
 
   // --- Slide 35: Before/After context (light bg, two columns) ---
@@ -640,7 +648,7 @@ async function main() {
       x: 5.3, y: 3.0, w: 4.2, h: 0.8,
       fontFace: D.b, fontSize: 24, color: D.accent, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("Left: Same well-crafted prompt from Level 2. Output is plausible but generic \u2014 reads like it could be for any company.\nRight: Same prompt + background info (current onboarding stats, company size & structure, known pain points, relevant policies). Output sounds like someone who works here.\nSource: Elastic, KDnuggets. Transition: Let's meet the metaphor that explains why.");
+    s.addNotes("Left: Same well-crafted prompt from the Whisperer section. Output is plausible but generic \u2014 reads like it could be for any company.\nRight: Same prompt + background info (current onboarding stats, company size & structure, known pain points, relevant policies). Output sounds like someone who works here.\nSource: Elastic, KDnuggets. Transition: Let's meet the metaphor that explains why.");
   }
 
   // --- Slide 36: Meet Dory ---
@@ -653,13 +661,13 @@ async function main() {
       x: 5.0, y: 1.5, w: 4.5, h: 2.5,
       fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "left", margin: 0, valign: "middle"
     });
-    s.addNotes("Your AI is like Dory from Finding Nemo: incredibly smart, genuinely wants to help, remembers absolutely nothing between conversations. In Level 2, we got better at asking. But Dory's biggest problem isn't that she doesn't understand what you're saying \u2014 it's that she doesn't know what you know. You already SAW context transform output. Dory explains WHY. First of five Dory touchpoints. Transition: Let's meet her properly.");
+    s.addNotes("Your AI is like Dory from Finding Nemo: incredibly smart, genuinely wants to help, remembers absolutely nothing between conversations. As a Whisperer, we got better at asking. But Dory's biggest problem isn't that she doesn't understand what you're saying \u2014 it's that she doesn't know what you know. You already SAW context transform output. Dory explains WHY. First of five Dory touchpoints. Transition: Let's meet her properly.");
   }
 
   // --- Slide 37: "Brilliant. Helpful. Remembers nothing." ---
   hero(pres, "Brilliant. Helpful.\nRemembers nothing.", {
     size: 60,
-    notes: "The Dory punchline. Every conversation starts fresh \u2014 no memory of previous interactions, no context about your company, your role, or your preferences. This is why context engineering matters: you have to give Dory the information she needs every single time. Level 2 = words. Level 3 = information. Transition: Three ways to confuse your AI."
+    notes: "The Dory punchline. Every conversation starts fresh \u2014 no memory of previous interactions, no context about your company, your role, or your preferences. This is why context engineering matters: you have to give Dory the information she needs every single time. Whisperer = words. Strategist = information. Transition: Three ways to confuse your AI."
   });
 
   // --- Slide 38: Attention Problem ---
@@ -677,17 +685,56 @@ async function main() {
   // --- Slide 40: "Not too much. Not too little." ---
   hero(pres, "Not too much.\nNot too little.", {
     sub: "The right context at the right time.",
-    notes: "Prompt engineering tweaks the question. Context engineering builds the knowledge base. Persona milestone: Questioner \u2192 Viber. You've outgrown Questioner. You prompt well, you understand context, you get good results. You're a Viber \u2014 but you're still doing all the work manually. Source: CIO. Transition: Let's change that."
+    notes: "Prompt engineering tweaks the question. Context engineering builds the knowledge base. Source: CIO. Transition: But you\u2019re providing this context from scratch every time..."
   });
 
-  // --- Slide 41: Breather ---
+  // --- Slide 41: "From scratch every time." ---
+  hero(pres, "You\u2019ve mastered context.\nBut you\u2019re providing it\nfrom scratch every time.", {
+    size: 36,
+    notes: "The natural question after context engineering: 'Do I have to feed all this context every time?' This plants the seed. Skills are the answer. Transition: What if the AI already knew?"
+  });
+
+  // --- Slide 42: GPS metaphor (light bg) ---
+  {
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
+    // Left column
+    s.addText("Directions\nevery trip", {
+      x: 0.5, y: 1.5, w: 4.2, h: 1.2,
+      fontFace: D.h, fontSize: 32, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Effort. Every. Time.", {
+      x: 0.5, y: 2.8, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
+    });
+    // Divider
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
+    // Right column
+    s.addText("GPS that learns", {
+      x: 5.3, y: 1.5, w: 4.2, h: 1.2,
+      fontFace: D.h, fontSize: 32, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Compounds permanently.", {
+      x: 5.3, y: 2.8, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Prompt engineering = giving directions for each individual trip. Effort every time. Doesn\u2019t compound.\nContext engineering + skills = programming a GPS with home, office, preferences, traffic patterns. Gets smarter the more you invest. Compounds permanently.\nTransition: These persistent instructions have many names.");
+  }
+
+  // --- Slide 43: "Custom instructions = System prompts = Rules = Skills" ---
+  hero(pres, "\"Custom instructions\"\n= \"System prompts\"\n= \"Rules\"\n= \"Skills\"", {
+    size: 36, font: D.b,
+    notes: "Same concept, many names. Whether triggered by you, the app, or the AI itself differs across tools. The principle is identical. ChatGPT custom instructions, Claude Project rules, system prompts \u2014 all skills. If your tool has a way to save reusable instructions, use it. That\u2019s a skill. Source: CodeConductor. Transition: You\u2019re now a Strategist."
+  });
+
+  // --- Slide 44: Breather ---
   breatherSlide(pres,
-    "You prompt well and feed AI smartly.\nBut who's doing all the work? Still you.",
-    "Transition from Level 3 (context engineering) to Level 4 (agents). The audience should feel like they've mastered information, but there's a bigger shift coming \u2014 letting AI do the work."
+    "You talk to AI like a pro.\nYou\u2019ve set up its playbook.\nBut who\u2019s doing all the work? Still you.",
+    "Persona crossing: Whisperer \u2192 Strategist. The audience can prompt, feed context, and set up persistent instructions. But they\u2019re still the bottleneck at every step. Transition: Let\u2019s change that."
   );
 
   // ============================================================
-  // LEVEL 4: "LET AI DRIVE" (Slides 42-51)
+  // STRATEGIST → OPERATOR: "LET AI DRIVE" (Slides 42-51)
   // ============================================================
 
   // --- Slide 42: Copy-Paste Trap ---
@@ -804,7 +851,7 @@ async function main() {
 
   // --- Slide 49: "AI is a power tool, not autopilot." ---
   hero(pres, "AI is a power tool,\nnot autopilot.", {
-    notes: "Sensitive/confidential data \u2014 only approved/enterprise tools. Final legal/compliance language \u2014 AI drafts, humans approve. Anything where being wrong has serious consequences. Persona milestone: Viber \u2192 approaching AI-First. You're no longer a Viber \u2014 you've let go of the wheel. But you're still working with a single agent. One last leap. Transition: The most dangerous moment."
+    notes: "Sensitive/confidential data \u2014 only approved/enterprise tools. Final legal/compliance language \u2014 AI drafts, humans approve. Anything where being wrong has serious consequences. Persona crossing: Strategist \u2192 Operator. You\u2019ve let go of the wheel. But you're still working with a single agent. One last leap. Transition: The most dangerous moment."
   });
 
   // --- Slide 50: The dangerous moment ---
@@ -820,7 +867,7 @@ async function main() {
   );
 
   // ============================================================
-  // LEVEL 5: "ORCHESTRATE" (Slides 52-64)
+  // OPERATOR → ORCHESTRATOR: "ORCHESTRATE" (Slides 52-64)
   // ============================================================
 
   // --- Slide 52: Kitchen Brigade ---
@@ -845,13 +892,13 @@ async function main() {
         fontFace: D.b, fontSize: 20, color: D.accent, align: "center", margin: 0, valign: "top"
       });
     });
-    s.addNotes("Level 4: One chef doing everything solo. Works for single tasks, but a 10-course dinner alone = burnout, mistakes, forgotten appetizer.\nLevel 5: Kitchen brigade \u2014 multiple chefs at stations. A classroom of Dorys, each doing one focused step. Each fresh, focused, brilliant at one thing.\nLLMs are bad at long chains but excellent at focused tasks. The kitchen brigade leverages the strength. Third Dory touchpoint. Transition: Let's name the principle.");
+    s.addNotes("Operator: One chef doing everything solo. Works for single tasks, but a 10-course dinner alone = burnout, mistakes, forgotten appetizer.\nOrchestrator: Kitchen brigade \u2014 multiple chefs at stations. A classroom of Dorys, each doing one focused step. Each fresh, focused, brilliant at one thing.\nLLMs are bad at long chains but excellent at focused tasks. The kitchen brigade leverages the strength. Third Dory touchpoint. Transition: Let's name the principle.");
   }
 
   // --- Slide 53: "The trick isn't making one AI smarter..." ---
   hero(pres, "The trick isn\u2019t making\none AI smarter.\nIt\u2019s making many\nwork together.", {
     size: 40,
-    notes: "The core principle of Level 5. Instead of one powerful agent trying to do everything, you create a chain of focused agents. Each one does one thing brilliantly, and the chain does everything. Transition: Here's what that chain looks like."
+    notes: "The core principle of orchestration. Instead of one powerful agent trying to do everything, you create a chain of focused agents. Each one does one thing brilliantly, and the chain does everything. Transition: Here's what that chain looks like."
   });
 
   // --- Slide 54: Chain flow diagram ---
@@ -892,11 +939,11 @@ async function main() {
     notes: "Distilled principle. Break big tasks into focused steps. Pass results forward. Filter context between each. The 'write this down' moment. Transition: But how does each agent know what to do?"
   });
 
-  // --- Slide 56: Skills ---
+  // --- Slide 56: Skills per agent ---
   hero(pres, "Skills", {
     size: 72,
-    sub: "The playbook each chef follows.",
-    notes: "Full definition: Skills are predefined rules, instructions, templates, and context packages \u2014 injected into the AI's context only when relevant. Think of them as the specialized training manual each chef at each station receives.\n\nHow does each Dory in the brigade know what to do? Skills. Write once, use forever. Every time the chain runs, each agent already knows its specialty.\n\nOrganizations investing in context architecture see 50% faster responses and 40% higher quality outputs. Source: CodeConductor. Transition: Let's see skills in action."
+    sub: "You already know these.\nNow each agent gets its own.",
+    notes: "Brief \u2014 the audience learned skills in the Strategist section as persistent single-agent instructions. This just connects the concept to chains: each agent in the kitchen brigade gets a focused skill set. The playbook each chef follows. Transition: Let\u2019s see it in action."
   });
 
   // --- Slide 57: Skills in Action ---
@@ -924,46 +971,7 @@ async function main() {
     s.addNotes("Same onboarding chain, now upgraded with skills:\n\u2022 Agent 1 (Research) + 'Research Standards' \u2014 knows where to look, what data to prioritize, how to structure the brief. Already knows the company's data sources.\n\u2022 Agent 2 (Draft) + 'Leadership Proposals' \u2014 knows the VP's preferred format, tone, level of detail, how to frame costs. Every proposal sounds like it was written for this audience.\n\u2022 Agent 3 (Review) + 'Compliance Policy' \u2014 knows regulations, required disclaimers, approval workflows. Catches policy gaps you didn't know existed.\nWith skills, each agent already knows its specialty. Transition: What makes skills special?");
   }
 
-  // --- Slide 58: "Reusable. Consistent. Scalable. Focused." ---
-  hero(pres, "Reusable.\nConsistent.\nScalable.\nFocused.", {
-    size: 48,
-    notes: "The four properties that make skills transformative vs. just helpful:\n\u2022 Reusable \u2014 write once, use forever\n\u2022 Consistent \u2014 every interaction gets the same quality context\n\u2022 Scalable \u2014 works for 1 person or 10,000\n\u2022 Focused \u2014 only loads what's relevant, keeping each Dory's attention on track\nAnd they compound. Your feedback from each chain run becomes new skills. The brigade gets smarter every time. Transition: You may have seen skills by another name."
-  });
-
-  // --- Slide 59: "Custom instructions = System prompts = Rules = Skills" ---
-  hero(pres, "\"Custom instructions\"\n= \"System prompts\"\n= \"Rules\"\n= \"Skills\"", {
-    size: 36, font: D.b,
-    notes: "Same concept, many names. Whether triggered by you, the app, or the AI itself differs across tools. The principle is identical. ChatGPT custom instructions, Claude Project rules, system prompts \u2014 all skills. If your tool has a way to save reusable instructions, use it. That's a skill. Transition: Here's the metaphor that ties it all together."
-  });
-
-  // --- Slide 60: GPS metaphor (light bg) ---
-  {
-    const s = pres.addSlide();
-    s.background = { color: D.lightBg };
-    // Left column
-    s.addText("Directions\nevery trip", {
-      x: 0.5, y: 1.5, w: 4.2, h: 1.2,
-      fontFace: D.h, fontSize: 32, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Effort. Every. Time.", {
-      x: 0.5, y: 2.8, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
-    });
-    // Divider
-    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
-    // Right column
-    s.addText("GPS that learns", {
-      x: 5.3, y: 1.5, w: 4.2, h: 1.2,
-      fontFace: D.h, fontSize: 32, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Compounds permanently.", {
-      x: 5.3, y: 2.8, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top"
-    });
-    s.addNotes("Prompt engineering = giving directions for each individual trip. Effort every time. Doesn't compound.\nContext engineering + skills = programming a GPS with home, office, preferences, traffic patterns. Gets smarter the more you invest. Compounds permanently.\nThis crystallizes the full journey. Each level built on the last. The GPS metaphor ties all five together. Transition: And here's the punchline.");
-  }
-
-  // --- Slide 61: "Skills compound." ---
+  // --- Slide 58: "Skills compound." ---
   hero(pres, "Skills compound.\nThe brigade gets smarter\nevery time.", {
     size: 40,
     notes: "This is the compounding beat. Your feedback from each chain run becomes new skills. The VP's format becomes the 'Leadership Proposals' skill. Compliance gaps become the updated 'Compliance Policy' skill. Even though Dory won't remember, the skills will. Final Dory touchpoint. Transition: Let's see the numbers."
@@ -1000,7 +1008,7 @@ async function main() {
   // --- Slide 69: "Remember the 45-minute conversation?" ---
   hero(pres, "Remember the\n45-minute summary?", {
     size: 48,
-    notes: "Callback to slide 2. The person who spent 45 minutes copy-pasting into ChatGPT. They learned to prompt with specificity (became a Viber, Levels 2\u20133). They let the agent find what it needed (started going AI-First, Level 4). They chained the whole workflow (full AI-First, Level 5). They were a Questioner who became AI-First. Transition: The punchline."
+    notes: "Callback to slide 2. They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. Transition: The punchline."
   });
 
   // --- Slide 70: "Two minutes. That's the trick." ---

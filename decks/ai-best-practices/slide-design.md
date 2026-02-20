@@ -1,215 +1,250 @@
-# Billboard Redesign — Deck Plan
+# Getting Agents to Give Up Their Secrets - Slide Design
 
-> **Next step:** Use **/deck-flow:present** to generate the presentation.
+> **Next step:** Use **/deck-flow:present** to generate the .pptx file.
 
-## The Rule
+## Visual Direction
 
-Every slide must pass the **3-second billboard test**: if a viewer can't grasp the point in 3 seconds, the slide has too much on it. Everything else goes to speaker notes.
+**Unchanged from current deck.** The billboard design system is established and working.
 
-## What Changes
+- **Color palette**: Dark bg `0F0F1A` (60%) / text `E0E4E8` + muted `94A3B8` (30%) / teal accent `00B4D8` (10%). Red `E63946` + green `2D936C` only on Wrong/Right slides. Light bg `F8F9FA` for comparison slides.
+- **Typography**: Georgia (headings) + Calibri (body). Hero 72-120pt, Headline 44-54pt, Support 28pt, Sources 11pt. Only web-safe fonts.
+- **Visual style**: Billboard — every slide passes the 3-second test. 15 words max, 28pt+ font, 50%+ whitespace. No cards/boxes except Wrong/Right comparisons. Radial glow oval on dark slides for depth. Inspired by Apple keynotes and Linear.
+- **Imagery**: AI-generated blue tang fish for "Meet your AI colleague." react-icons rendered as PNGs for diagrams.
 
-| Principle | Before | After |
-|-----------|--------|-------|
-| Words per slide | 40-80 | **6-15 max** |
-| Ideas per slide | 2-4 | **1** |
-| Min font size | 9pt | **28pt** |
-| Cards/boxes | On ~30 slides | **Only on Wrong/Right slides (~6)** |
-| Accent colors | 5+ | **2** (teal + one warm) |
-| Whitespace | ~20% | **50%+** |
-| Imagery | 0 | Placeholder rectangles for future images |
-| Bullet points | ~15 slides | **0** (split into separate slides) |
-| Takeaway strips | ~20 slides | **0** (move to notes or make it the slide) |
+## What Changes From Current Deck
 
-## Design System Changes
+| Change | Impact |
+|--------|--------|
+| Spectrum slides 4-5: 4 personas → 7 | 2 slides modified |
+| Strategist section: skills relocated here | 3 slides added (1 new, 2 relocated) |
+| Strategist breather: new wording | 1 slide modified |
+| Orchestrator section: skills intro removed | 3 slides removed |
+| Speaker notes throughout: persona names | Notes-only changes |
+| Total | ~68 slides (net zero change) |
 
-### Typography (only 3 treatments)
+## Slide Plan
 
-| Treatment | Font | Size | Color (dark) | Usage |
-|-----------|------|------|-------------|-------|
-| Hero | Georgia | 72-120pt | `FFFFFF` | The ONE thing on hero/stat slides |
-| Headline | Georgia | 44pt | `E0E4E8` | Slide title (when needed) |
-| Support | Calibri | 28pt | `94A3B8` | One line of context below hero text |
+### Section 1: Opening — "Where Are You?" (11 slides)
 
-Nothing else appears on screen. No 15pt body. No 11pt labels. No 9pt meta.
+#### Slide 1: Title
+**Layout**: Title slide
+**Content**: "Getting Agents to Give Up Their Secrets" / "A guide to AI that actually works"
+**Speaker notes**: Let the title sit. Don't rush.
+**Status**: Keep as-is
 
-### Colors (3 total beyond BG/text)
+#### Slide 2: Hook
+**Layout**: Single message (28pt, Calibri)
+**Content**: "Last month, someone spent 45 minutes on a one-page summary using ChatGPT. The right approach took 2 minutes."
+**Speaker notes**: Tell the full story. This is the emotional anchor — the closing calls back to this.
+**Status**: Keep as-is
 
-| Role | Hex | Usage |
-|------|-----|-------|
-| Accent | `00B4D8` | Teal — primary accent, subtext, highlights |
-| Wrong | `E63946` | Red — only on Wrong/Right comparison slides |
-| Right | `2D936C` | Green — only on Wrong/Right comparison slides |
+#### Slide 3: "This deck is about the trick."
+**Layout**: Single message (72pt hero)
+**Content**: "This deck is about the trick."
+**Speaker notes**: Pause. Let it land.
+**Status**: Keep as-is
 
-Removed: `0891B2` (dark teal), `F59E0B` (amber), `64748B` (muted light), all card fills.
+#### Slide 4: Spectrum
+**Layout**: Diagram — 7 labeled boxes in horizontal progression
+**Content**: Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator → Builder
+**Speaker notes**: Seven personas. This deck covers Skeptic → Orchestrator. Builder is the horizon — visible but beyond scope. "Find yourself on this spectrum."
+**Status**: MODIFY — was 4 personas, now 7. Boxes need to be narrower. Font ~18pt. Builder box dimmed/greyed.
 
-### Backgrounds
+#### Slide 5: "Most people are here."
+**Layout**: Diagram — same 7-persona spectrum, Explorer highlighted
+**Content**: Explorer highlighted in teal. "Most people are here." below. Subtle indicator at Orchestrator: "This deck takes you here."
+**Speaker notes**: Most readers will self-identify at Explorer. They've tried ChatGPT, maybe heard of prompt engineering.
+**Status**: MODIFY — was Questioner highlighted, now Explorer. Add "This deck takes you here" indicator.
 
-- **Dark slides** (~55): `0F0F1A` + radial glow (unchanged)
-- **Light slides** (~6): `F8F9FA` — ONLY for Wrong/Right comparisons
-- **No cards, no glass cards, no callout strips** — text floats in space
+#### Slides 6-11: Stats + breather
+**Layout**: Big number (×4), single message (×1), breather (×1)
+**Content**: 1 billion+, <2%, timeline, $4.4T, "The core skill for AI is talking", "Let's see what most people get wrong."
+**Status**: Keep as-is
 
-### Layout Rules
+---
 
-1. **Content occupies the center 60% of the slide** — generous margins on all sides
-2. **Text is centered** by default (left-align only on Wrong/Right slides)
-3. **One visual element per slide** — a number, a phrase, an image, or a simple diagram
-4. **No decorative shapes** — no accent bars, no separator lines, no shadow boxes
-5. **Speaker notes carry the detail** — every removed piece of text moves to notes
+### Section 2: Skeptic → Explorer — "Know Your Tools" (11 slides)
 
-## Eliminated Elements
+#### Slides 12-22: Jargon → stack → landscape → stats → breather
+**Layout**: Word cloud, word cloud + callouts, diagram (stack), single message, table, single message, big number (×3), single message, breather
+**Content**: Buzzword blizzard, AI stack, who makes what, 41%, 19% longer, gap is massive, 10×, breather
+**Status**: Keep as-is. Speaker notes updated: "Skeptic → Explorer" at transition.
 
-- `addDarkCard` / `addGlassCard` / `addCard` — removed entirely
-- `addTakeaway` / `addFooterSep` / `addSourceCite` — removed (sources go to notes)
-- `addBar` — removed
-- `bulletSlide` helper — removed (bullets become separate slides)
-- `threeCol` helper — removed (columns become separate slides)
-- Shadow factory `sh()` — removed (no more cards)
+---
 
-## Kept Elements
+### Section 3: Explorer → Whisperer — "Talk to AI Properly" (11 slides)
 
-- `darkSlide()` with radial glow — the ambient depth still works
-- `breatherSlide()` — already perfect billboard design
-- `singleMsg()` — already close, just needs larger fonts
-- `sectionDivider()` — already close, trim subtitle text
-- `wrongRight()` — kept but simplified (less text per card, larger font)
+#### Slides 23-33: Section divider → prompt iterations → before/after → cliffhanger → breather
+**Layout**: Section divider, chat bubble, wrong/right (×5), two-column, single message (×2), breather
+**Content**: Prompt Engineering divider, baseline prompt, 5 iterations (Role, Specificity, One Task, Keywords, Output), before/after, "Just better words", "But we never changed what the AI knew", breather
+**Status**: Keep as-is. Speaker notes updated: "Explorer → Whisperer" at transition.
 
-## New Slide Map
+---
 
-Current deck: 52 slides. New deck: ~70 slides. Each slide is faster to absorb so presentation runs same length.
+### Section 4: Whisperer → Strategist — "Feed AI Smarter" (11 slides)
 
-### Level 0: "Where Are You?" (Slides 1-9)
+#### Slide 34: "Same prompt. Different information."
+**Layout**: Single message + sub text
+**Content**: "Same prompt. Different information." / "Dramatically different result."
+**Status**: Keep as-is
 
-| New # | Source | On-screen text | Layout |
-|-------|--------|---------------|--------|
-| 1 | Slide 1 (split) | **"Getting Agents to Give Up Their Secrets"** / subtitle | Title only, centered |
-| 2 | Slide 1 (split) | *"Last month, someone spent 45 minutes arguing with ChatGPT. The same task took 2 minutes once they knew the trick."* | Quote on dark, 28pt italic |
-| 3 | Slide 1 (split) | **"This deck is about the trick."** | Hero text, 72pt, centered |
-| 4 | Slide 2 | 4 persona labels on horizontal progression | Diagram only, no descriptions |
-| 5 | Slide 2 (split) | **"Most people are here."** + arrow at Questioner | Single callout on spectrum |
-| 6 | Slide 3 | **"1 billion+"** / "use AI tools monthly" | Big number |
-| 7 | Slide 3 (split) | **"< 2%"** / "pay for premium" | Big number |
-| 8 | Slide 4 | 4-era timeline — labels only, no stats | Diagram only |
-| 9 | Slide 5 (combined) | **"$4.4 trillion"** / "in annual value. Only 31% in full production." | Big number |
-| 10 | Slide 6 | **"The core skill for AI is talking."** | Hero text |
-| 11 | Breather | *"Let's see what most people get wrong."* | Breather |
+#### Slide 35: Context comparison
+**Layout**: Two-column (light bg)
+**Content**: Left: "Plausible but generic" / "Could be for any company." Right: "Sounds like someone who works here" / "Same prompt + your context."
+**Status**: Keep as-is
 
-### Level 1: "Know Your Tools" (Slides 12-22)
+#### Slide 36: Meet your AI colleague
+**Layout**: Image + text (blue tang left, text right)
+**Content**: Blue tang image + "Meet your AI colleague."
+**Status**: Keep as-is
 
-| New # | Source | On-screen text | Layout |
-|-------|--------|---------------|--------|
-| 12 | Slide 7 | Word cloud, no headline | Word cloud (unchanged) |
-| 13 | Slide 8 | Word cloud + 4 question callouts | Word cloud with callouts |
-| 14 | Slide 9 (split) | 4-layer stack: App → Agent → API → LLM | Diagram only, labels only |
-| 15 | Slide 9 (split) | *"You use apps. Apps use agents. Agents call APIs. APIs talk to LLMs."* | 28pt centered chain |
-| 16 | Slide 10 | 4-row table: company, LLM, app, tagline | Simple table, large font |
-| 17 | Slide 11 (split) | **"The real action is in agents and apps."** | Hero text |
-| 18 | Slide 12 (split) | **"41%"** / "of GitHub code is now AI-generated" | Big number |
-| 19 | Slide 12 (split) | **"19% longer"** / "when developers rely on AI without understanding it" | Big number (red) |
-| 20 | Slide 12 (split) | **"The gap between using AI and using AI well is massive."** | Hero text |
-| 21 | Slide 13 | **"10×"** / "Microsoft 365 Copilot daily users, year over year" | Big number |
-| 22 | Breather | *"You've got the basics. Now let's give you the skills."* | Breather |
+#### Slide 37: "Brilliant. Helpful. Remembers nothing."
+**Layout**: Single message (60pt hero)
+**Status**: Keep as-is
 
-### Level 2: "Talk to AI Properly" (Slides 23-33)
+#### Slide 38: Attention problem
+**Layout**: Single message + sub
+**Content**: "Too much. Contradictory. Too broad." / "Three ways to confuse your AI."
+**Status**: Keep as-is
 
-| New # | Source | On-screen text | Layout |
-|-------|--------|---------------|--------|
-| 23 | Slide 14 | **"Prompt Engineering"** / subtitle | Section divider |
-| 24 | Slide 15 | Chat bubble: "Write me a proposal for improving our onboarding process." / → Generic output snippet | Prompt → output |
-| 25 | Slide 16 | Wrong: bare prompt / Right: prompt with role | Wrong/Right (light bg) |
-| 26 | Slide 17 | Wrong: vague / Right: specific with constraints | Wrong/Right (light bg) |
-| 27 | Slide 18 | Wrong: kitchen sink / Right: structured single task | Wrong/Right (light bg) |
-| 28 | Slide 19 | Wrong: leading / Right: "be radically honest..." | Wrong/Right (light bg) |
-| 29 | Slide 20 | Wrong: no format / Right: "one-page exec brief..." | Wrong/Right (light bg) |
-| 30 | Slide 21 (split) | Side-by-side: 1-line original vs. 1-line final | Before/after |
-| 31 | Slide 21 (split) | **"Same task. Same information. Just better words."** | Hero text |
-| 32 | Slide 21 (split) | **"But we never changed what the AI knew."** | Hero text (cliffhanger) |
-| 33 | Breather | *"You've changed the words. Now let's change the information."* | Breather |
+#### Slide 39: "Let AI tell you what it needs."
+**Layout**: Single message + sub
+**Content**: "Let AI tell you what it needs." / '"Before you start, ask me clarifying questions."'
+**Status**: Keep as-is
 
-### Level 3: "Feed AI Smarter" (Slides 34-41)
+#### Slide 40: Goldilocks
+**Layout**: Single message + sub
+**Content**: "Not too much. Not too little." / "The right context at the right time."
+**Status**: Keep as-is
 
-| New # | Source | On-screen text | Layout |
-|-------|--------|---------------|--------|
-| 34 | Slide 22 (split) | **"Same prompt. Different information."** | Hero text |
-| 35 | Slide 22 (split) | Left: "Plausible but generic" / Right: "Sounds like someone who works here" | Two-column comparison (light) |
-| 36 | Slide 23 (split) | Dory placeholder image + **"Meet your AI colleague."** | Image + 3 words |
-| 37 | Slide 23 (split) | **"Brilliant. Helpful. Remembers nothing."** | Hero text, 60pt |
-| 38 | Slide 24 | 3 words in a row: **"Too much. Contradictory. Too broad."** | Hero text |
-| 39 | Slide 25 | **"Let AI tell you what it needs."** / one-line prompt example | Hero + support text |
-| 40 | Slide 26 (split) | **"Not too much. Not too little."** | Hero text |
-| 41 | Breather | *"You prompt well and feed AI smartly. But who's doing all the work? Still you."* | Breather |
+#### Slide 41: "But you're doing this from scratch every time."
+**Layout**: Single message (hero, 44pt)
+**Content**: "You've mastered context. But you're providing it from scratch every time."
+**Speaker notes**: The natural question after context engineering: "Do I have to feed all this context every time?" This slide plants the seed. Skills are the answer.
+**Status**: NEW
 
-### Level 4: "Let AI Drive" (Slides 42-51)
+#### Slide 42: GPS metaphor
+**Layout**: Two-column (light bg)
+**Content**: Left: "Directions every trip" / "Effort. Every. Time." (red) Right: "GPS that learns" / "Compounds permanently." (green)
+**Speaker notes**: Prompt engineering = directions. Context engineering + skills = GPS. One compounds, the other doesn't.
+**Status**: RELOCATED from current slide 60. Same visual, same content.
 
-| New # | Source | On-screen text | Layout |
-|-------|--------|---------------|--------|
-| 42 | Slide 27 (split) | 4-step diagram: You → Copy → AI → Apply (all "You" icons) | Simple diagram |
-| 43 | Slide 27 (split) | **"You're using a Ferrari to carry groceries."** | Hero text |
-| 44 | Slide 28 (split) | 4-step diagram: Agent retrieves → identifies gaps → creates → You review | Simple diagram |
-| 45 | Slide 28 (split) | **"Same Dory. Now she has hands."** | Hero text |
-| 46 | Slide 29 | 6 connection icons in a row, labels below | Icon row |
-| 47 | Slide 30 | Left: "Without" 4 lines / Right: "With" 4 lines | Two-column (light) |
-| 48 | Slide 31 | **"Trust, but verify."** / 3 short rules below at 28pt | Hero + 3 lines |
-| 49 | Slide 32 (split) | **"AI is a power tool, not autopilot."** | Hero text |
-| 50 | Slide 32 (split) | **"When the answer 'feels right' but you can't verify it — that's the most dangerous moment."** | Hero text (teal, 36pt) |
-| 51 | Breather | *"You're managing AI well. Time to orchestrate it."* | Breather |
+#### Slide 43: "Custom instructions = System prompts = Rules = Skills"
+**Layout**: Single message (36pt, Calibri)
+**Content**: '"Custom instructions" = "System prompts" = "Rules" = "Skills"'
+**Speaker notes**: Same concept, many names across tools. ChatGPT custom instructions, Claude project rules, system prompts — all skills. If your tool has a way to save reusable instructions, use it.
+**Status**: RELOCATED from current slide 59. Same visual, same content.
 
-### Level 5: "Orchestrate" (Slides 52-64)
+#### Slide 44: Breather
+**Layout**: Breather (italic teal)
+**Content**: "You talk to AI like a pro. You've set up its playbook. But who's doing all the work? Still you."
+**Speaker notes**: Transition from Strategist to Operator. The audience can prompt, feed context, and set up persistent instructions. But they're still the bottleneck.
+**Status**: MODIFY — new wording reflecting skills knowledge.
 
-| New # | Source | On-screen text | Layout |
-|-------|--------|---------------|--------|
-| 52 | Slide 33 (split) | Left: 1 chef icon / Right: 4 chef icons at stations | Simple diagram |
-| 53 | Slide 33 (split) | **"The trick isn't making one AI smarter. It's making many work together."** | Hero text |
-| 54 | Slide 34 (split) | 4-phase flow: Research → Draft → Review → You | Diagram only |
-| 55 | Slide 34 (split) | **"Each agent does one thing. The chain does everything."** | Hero text |
-| 56 | Slide 36 (simplified) | **"Skills"** / "The playbook each chef follows." | Hero + support |
-| 57 | Slide 37 (simplified) | 3 agent labels + skill name per agent | Simple 3-column, large text |
-| 58 | Slide 38 (simplified) | **"Reusable. Consistent. Scalable. Focused."** | Hero text, 4 words |
-| 59 | Slide 39 | **"Custom instructions" = "System prompts" = "Rules" = "Skills"** | Hero text |
-| 60 | Slide 40 (split) | Left: "Directions every trip" / Right: "GPS that learns" | Two-column (light) |
-| 61 | Slide 40 (split) | **"Skills compound. The brigade gets smarter every time."** | Hero text |
-| 62 | Slide 41 (simplified) | **"1.5 hours"** / "of you being the bottleneck" | Big number (red) |
-| 63 | Slide 42 (simplified) | **"15 minutes"** / "of judgment — the part only humans can do" | Big number (green) |
-| 64 | Slide 42 (split) | **"Same proposal. The chain gets smarter every time."** | Hero text |
+---
 
-### Closing (Slides 65-71)
+### Section 5: Strategist → Operator — "Let AI Drive" (10 slides)
 
-| New # | Source | On-screen text | Layout |
-|-------|--------|---------------|--------|
-| 65 | Slide 43 | 4-persona spectrum with level bridges | Diagram |
-| 66 | Slide 44 | 4-row toolkit table | Simple table |
-| 67 | Slide 45 (simplified) | 4 week labels on a timeline | Simple timeline |
-| 68 | Breather | *"Let's come back to where we started."* | Breather |
-| 69 | Slide 46 (split) | **"Remember the 45-minute conversation?"** | Hero text |
-| 70 | Slide 46 (split) | **"Two minutes. That's the trick."** | Hero text, 72pt |
-| 71 | Slide 47 | **"The secret was never in the AI."** / "Now go try it — one task, this week." | Hero + CTA |
+#### Slides 45-54: Copy-paste trap → agent workflow → connections → trust → breather
+**Layout**: Steps (×2), single message, single message + sub, icon row, two-column (light bg), single message + rules, single message (×2), breather
+**Content**: 4-step manual flow, Ferrari metaphor, 4-step agent flow, "Same colleague. Now she has hands.", connections, without/with, "Trust, but verify." + 3 rules, "AI is a power tool", dangerous moment, breather
+**Speaker notes**: Updated persona names: "Strategist → Operator" at transition.
+**Status**: Keep as-is (content unchanged, slide numbers shift due to Strategist additions).
 
-**Total: 71 slides** (including 6 breathers)
+---
 
-## Wrong/Right Slides (Light Background)
+### Section 6: Operator → Orchestrator — "Orchestrate" (10 slides)
 
-These 5 slides keep a simplified card layout since the container has semantic meaning (wrong = red, right = green). But they're dramatically simplified:
+#### Slide 55: Kitchen brigade
+**Layout**: Diagram — one chef vs four stations
+**Content**: Left: 1 user icon + "One Chef". Right: 4 user icons at Prep/Grill/Sauce/Plate stations.
+**Status**: Keep as-is
 
-- **Headline at 44pt** (not 36pt)
-- **Card text at 28pt** (not 14-15pt)
-- **~15 words per card max** (was 30-50)
-- **No takeaway strips** — the contrast IS the takeaway
-- **No source citations on-screen** — sources in notes
+#### Slide 56: "The trick isn't making one AI smarter..."
+**Layout**: Single message (40pt)
+**Content**: "The trick isn't making one AI smarter. It's making many work together."
+**Status**: Keep as-is
 
-## Implementation Approach
+#### Slide 57: Chain flow
+**Layout**: Diagram — 4 boxes in horizontal flow
+**Content**: Research → Draft → Review → You
+**Status**: Keep as-is
 
-The rewrite replaces nearly all slide code. The cleanest approach:
+#### Slide 58: "Each agent does one thing."
+**Layout**: Single message
+**Content**: "Each agent does one thing. The chain does everything."
+**Status**: Keep as-is
 
-1. **Strip utility functions** down to: `darkSlide`, `breatherSlide`, `singleMsg` (renamed to `hero`), `sectionDivider`, and a simplified `wrongRight`
-2. **Remove** all card/footer/bar functions
-3. **New `bigNum` helper** — giant number + support line
-4. **New `diagram` pattern** — manual layout per diagram slide
-5. **Rewrite every slide** to follow the billboard rule
-6. **Move all removed text to speaker notes** — nothing is deleted, just relocated
+#### Slide 59: Skills per agent
+**Layout**: Single message + sub (hero, 72pt)
+**Content**: "Skills" / "You already know these. Now each agent gets its own."
+**Speaker notes**: Brief — the audience learned skills in the Strategist section. This just connects the concept to chains: each agent in the brigade gets a focused skill set.
+**Status**: REBUILD — was full skills introduction. Now a one-liner bridge.
 
-## Speaker Notes Strategy
+#### Slide 60: Skills in action
+**Layout**: Three-column (agent names + skill names)
+**Content**: Research Agent + Research Standards, Draft Agent + Leadership Proposals, Review Agent + Compliance Policy
+**Status**: Keep as-is
 
-Every slide's notes should contain:
-1. The key speaking point (what to SAY while this slide is up)
-2. Any detail/context that was removed from the visual
-3. Source citations (moved from on-screen)
-4. Transition to next slide
+#### Slide 61: "Skills compound."
+**Layout**: Single message (40pt)
+**Content**: "Skills compound. The brigade gets smarter every time."
+**Status**: Keep as-is
+
+#### Slide 62: "1.5 hrs"
+**Layout**: Big number (red)
+**Content**: "1.5 hrs" / "of you being the bottleneck"
+**Status**: Keep as-is
+
+#### Slide 63: "15 min"
+**Layout**: Big number (green)
+**Content**: "15 min" / "of judgment — the part only humans can do"
+**Status**: Keep as-is
+
+#### Slide 64: "Same proposal."
+**Layout**: Single message + sub
+**Content**: "Same proposal. The chain gets smarter every time." / "Your feedback becomes skills. She won't remember, but the skills will."
+**Status**: Keep as-is
+
+---
+
+### Section 7: Closing — "Full Circle" (4 slides)
+
+#### Slide 65: Breather
+**Layout**: Breather (italic teal)
+**Content**: "Let's come back to where we started."
+**Status**: Keep as-is
+
+#### Slide 66: Callback
+**Layout**: Single message (48pt)
+**Content**: "Remember the 45-minute summary?"
+**Speaker notes**: Callback to slide 2. They were an Explorer who became an Orchestrator. They learned to whisper, became a strategist, let agents operate, orchestrated the brigade.
+**Status**: Keep as-is (notes updated for persona names)
+
+#### Slide 67: Punchline
+**Layout**: Single message (72pt hero)
+**Content**: "Two minutes. That's the trick."
+**Status**: Keep as-is
+
+#### Slide 68: CTA
+**Layout**: Single message + sub
+**Content**: "The secret was never in the AI." / "Now go try it — one task, this week."
+**Status**: Keep as-is
+
+---
+
+## Slide Summary
+
+| Status | Count |
+|--------|-------|
+| Keep as-is | 58 |
+| Modify (content/layout change) | 3 (slides 4, 5, 44) |
+| Rebuild | 1 (slide 59 — skills intro simplified) |
+| Relocate | 2 (GPS metaphor + "same concept many names" → Strategist) |
+| New | 1 (slide 41 — "from scratch every time") |
+| Remove | 1 ("Reusable. Consistent. Scalable. Focused." — covered in Strategist) |
+| **Total** | **~68 slides** |
+
+## Source References
+
+Carried forward from content outline — see [content-outline.md](content-outline.md).
