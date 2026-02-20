@@ -33,15 +33,7 @@ Requires Node.js 18+. Generates `Getting-Agents-to-Give-Up-Their-Secrets.pptx` (
 
 ## How this was built
 
-This entire presentation — narrative, slide design, and code — was created using [Claude Code](https://claude.ai/claude-code) with the [deck-flow](https://github.com/michaelengland/claude-code-plugins) plugin for structured presentation development.
-
-The workflow followed four stages:
-1. **`/deck-flow:narrative`** — Developed the story arc, audience, and source research
-2. **`/deck-flow:craft`** — Translated narrative into a slide-by-slide content outline
-3. **`/deck-flow:design`** — Planned visual direction and billboard design system
-4. **`/deck-flow:present`** — Generated the .pptx with visual validation
-
-Design documents and iteration history are in [`docs/plans/`](docs/plans/).
+This entire presentation — narrative, slide design, and code — was created using [Claude Code](https://claude.ai/claude-code) with the [deck-flow](https://github.com/michaelengland/claude-code-plugins) plugin for structured presentation development. Design documents and iteration history are in [`docs/plans/`](docs/plans/).
 
 ## Project structure
 
