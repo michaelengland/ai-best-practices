@@ -88,6 +88,12 @@ function bigNum(pres, num, sub, opts = {}) {
     fontFace: D.b, fontSize: 28,
     color: D.muted, align: "center", margin: 0, valign: "top"
   });
+  if (opts.source) {
+    s.addText(opts.source, {
+      x: 0.5, y: 5.0, w: 9, h: 0.4,
+      fontFace: D.b, fontSize: 11, color: D.muted, align: "right", margin: 0, valign: "bottom"
+    });
+  }
   if (opts.notes) s.addNotes(opts.notes);
   return s;
 }
@@ -269,11 +275,13 @@ async function main() {
 
   // --- Slide 6: "1 billion+" ---
   bigNum(pres, "1 billion+", "use AI tools monthly", {
+    source: "DataReportal 2026",
     notes: "Source: DataReportal 2026. AI has mass reach \u2014 over a billion people are using AI tools every month. But almost nobody is going deep. That\u2019s the opportunity. Transition: How few are going deep?"
   });
 
   // --- Slide 7: "< 2%" ---
   bigNum(pres, "< 2%", "pay for premium", {
+    source: "Reuters",
     notes: "Source: Reuters. Fewer than 2% of AI users pay for premium tiers. The opportunity gap is enormous \u2014 almost nobody is using AI seriously. If you learn to use it well, you\u2019re already in the top percentile. Transition: We\u2019ve seen this pattern before."
   });
 
@@ -309,6 +317,7 @@ async function main() {
 
   // --- Slide 9: "$4.4T" ---
   bigNum(pres, "$4.4T", "in annual value. Only 31% in full production.", {
+    source: "McKinsey Global Institute, ServiceNow",
     notes: "Sources: McKinsey Global Institute ($2.6\u20134.4T annually in added value); ServiceNow (only 31% of prioritized AI use cases in full production); Microsoft Security Blog (80% of Fortune 500 have active AI agents, Feb 2026). The third stat is the killer \u2014 the gap between having AI and using it well is enormous. Transition: So what\u2019s the core skill?"
   });
 
@@ -449,12 +458,14 @@ async function main() {
 
   // --- Slide 18: "41%" ---
   bigNum(pres, "41%", "of GitHub code is now AI-generated", {
+    source: "Second Talent",
     notes: "Source: Second Talent. 'Vibe coding' went from joke to industry practice in under a year (Karpathy coined the term Feb 2025). Software engineering was the canary in the coal mine \u2014 AI transformed coding faster than anyone expected. Transition: But there\u2019s a twist."
   });
 
   // --- Slide 19: "19% longer" ---
   bigNum(pres, "19%\nlonger", "when developers rely on AI\nwithout understanding it", {
     color: D.wrong, numSize: 80,
+    source: "Addy Osmani",
     notes: "Source: Addy Osmani. Developers who felt 20% faster actually took 19% longer once debugging and cleanup were included. The gap between 'uses AI tools' and 'uses AI tools well' is massive. Engineers went first, made all the mistakes, and learned what works. This deck teaches you those lessons. Transition: Let that sink in."
   });
 
@@ -465,6 +476,7 @@ async function main() {
 
   // --- Slide 21: "10x" ---
   bigNum(pres, "10\u00D7", "Microsoft 365 Copilot daily users,\nyear over year", {
+    source: "Microsoft Q2 2026 earnings",
     notes: "Source: Microsoft Q2 2026 earnings. Microsoft 365 Copilot daily active users increased 10x year-over-year. Tools like Copilot in Excel, Copilot in Word, Gemini in Docs, Claude in Workflows \u2014 AI is entering every workplace tool. If you were a Skeptic, you\u2019re now a Questioner \u2014 you know what AI is. Transition: You\u2019ve got the basics."
   });
 
@@ -965,7 +977,7 @@ async function main() {
 
   // --- Slide 62: "1.5 hrs" ---
   bigNum(pres, "1.5 hrs", "of you being the bottleneck", {
-    color: D.wrong,
+    color: D.wrong, source: "Illustrative estimate",
     notes: "Walk through the 7 steps verbally:\n1. Search for onboarding docs and survey data (20 min)\n2. Copy-paste into AI, ask for draft (10 min)\n3. Read output, realize it's missing budget context (5 min)\n4. Find budget data, re-prompt (15 min)\n5. Reformat to leadership template (20 min)\n6. Ask AI to review draft (10 min)\n7. Manually apply suggestions (15 min)\nTotal: ~1.5 hours of you being the bottleneck. This is the manual workflow the audience has watched evolve through the entire deck. Now it's at full scale and the pain is vivid. Transition: Now the chained way."
   });
 
@@ -982,108 +994,10 @@ async function main() {
   });
 
   // ============================================================
-  // CLOSING (Slides 65-71)
+  // CLOSING (Slides 65-68)
   // ============================================================
 
-  // --- Slide 65: From Asking to Orchestrating ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Look how far you've come.", {
-      x: 1.0, y: 0.4, w: 8, h: 0.8,
-      fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    const stages = [
-      { label: "AI Skeptic", bridge: "Levels 0\u20131", color: "9CA3AF" },
-      { label: "AI Questioner", bridge: "Levels 2\u20133", color: "6B7280" },
-      { label: "AI Viber", bridge: "Level 4", color: D.accent },
-      { label: "AI-First", bridge: "Level 5", color: D.accent },
-    ];
-    // Horizontal line
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.8, w: 9, h: 0.06, fill: { color: D.accent } });
-    const boxW = 2.1, gap = 0.2;
-    const totalW = stages.length * boxW + (stages.length - 1) * gap;
-    const startX = (10 - totalW) / 2;
-    stages.forEach((st, i) => {
-      const x = startX + i * (boxW + gap);
-      // Persona label above line
-      s.addText(st.label, {
-        x, y: 1.6, w: boxW, h: 1.0,
-        fontFace: D.h, fontSize: 22, color: st.color, bold: true, align: "center", margin: 0, valign: "bottom"
-      });
-      // Bridge text below line
-      s.addText(st.bridge, {
-        x, y: 3.0, w: boxW, h: 0.8,
-        fontFace: D.b, fontSize: 20, color: st.color, italic: true, align: "center", margin: 0, valign: "top"
-      });
-      // Arrow between
-      if (i < stages.length - 1) {
-        s.addText("\u2192", {
-          x: x + boxW, y: 2.1, w: gap, h: 0.6,
-          fontFace: D.b, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "middle"
-        });
-      }
-    });
-    s.addNotes("Don't rush this \u2014 let the audience see how far they've come. The spectrum from slide 4 is now a journey they've completed.\n\u2022 AI Skeptic \u2014 Levels 0\u20131 got you past this\n\u2022 AI Questioner \u2014 Levels 2\u20133 got you past this\n\u2022 AI Viber \u2014 Level 4 got you past this\n\u2022 AI-First \u2014 Level 5 brought you here\nYou walked in as a Questioner. This deck just showed you the path to AI-First. Transition: Here are the tools to keep going.");
-  }
-
-  // --- Slide 66: Your AI Toolkit ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Your AI Toolkit", {
-      x: 0.5, y: 0.4, w: 9, h: 0.8,
-      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0
-    });
-    const headerRow = [
-      { text: "Category", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
-      { text: "Tools", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
-      { text: "Notes", options: { fill: { color: D.accent }, color: D.white, bold: true, fontFace: D.b, fontSize: 20 } },
-    ];
-    const data = [
-      ["General", "ChatGPT, Claude, Gemini", "Start here"],
-      ["Workflow", "Copilot, Gemini Workspace", "In your tools"],
-      ["Dev", "Copilot, Cursor, Claude Code", "AI-first coding"],
-      ["Connections", "MCP, Zapier AI, custom", "Level 4\u20135"],
-    ];
-    const tableRows = [headerRow, ...data.map(r => r.map(c => ({ text: c, options: { fontFace: D.b, fontSize: 20, color: D.text } })))];
-    s.addTable(tableRows, {
-      x: 0.5, y: 1.4, w: 9, colW: [2.2, 3.8, 3.0],
-      border: { pt: 1, color: "3A3A5E" },
-      rowH: [0.6, 0.7, 0.7, 0.7, 0.7],
-      autoPage: false
-    });
-    s.addNotes("Practical, not exhaustive. Know which tool to try first for your role:\n\u2022 General purpose \u2014 ChatGPT, Claude, Gemini. Free tiers available. Start here.\n\u2022 In your workflow \u2014 Microsoft Copilot, Gemini in Workspace. Already in your work tools.\n\u2022 For developers \u2014 GitHub Copilot, Cursor, Claude Code. AI-first coding.\n\u2022 For connections \u2014 MCP servers, Zapier AI, custom integrations. Level 4\u20135 territory.\nTransition: Here's your challenge.");
-  }
-
-  // --- Slide 67: 30-Day Challenge ---
-  {
-    const s = darkSlide(pres);
-    // Timeline bar
-    s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: 2.6, w: 9, h: 0.06, fill: { color: D.accent } });
-    const weeks = [
-      { label: "Week 1\nQuestioner", color: D.accent },
-      { label: "Week 2\nViber", color: D.accent },
-      { label: "Week 3\nAI-First", color: D.accent },
-      { label: "Week 4\nOrchestrator", color: D.right },
-    ];
-    const circleSize = 0.6;
-    weeks.forEach((w, i) => {
-      const x = 1.2 + i * 2.2;
-      // Circle on timeline
-      s.addShape(pres.shapes.OVAL, {
-        x: x - circleSize / 2 + 0.5, y: 2.6 - circleSize / 2 + 0.03,
-        w: circleSize, h: circleSize,
-        fill: { color: w.color }
-      });
-      // Label below
-      s.addText(w.label, {
-        x: x - 0.5, y: 3.2, w: 2.0, h: 1.2,
-        fontFace: D.b, fontSize: 24, color: w.color, align: "center", margin: 0, valign: "top"
-      });
-    });
-    s.addNotes("One task. Four weeks. Four persona crossings.\n\u2022 Week 1 (Questioner) \u2014 Level 2. Specific, structured prompt. Compare to manual. Notice the phrasing difference.\n\u2022 Week 2 (Viber) \u2014 Level 3. Add context. Ask AI to ask clarifying questions. Notice the jump.\n\u2022 Week 3 (AI-First) \u2014 Level 4. Agent with connections. Let it pull context itself. Notice what it finds.\n\u2022 Week 4 (Orchestrator) \u2014 Level 5. Break into phases. Chain them. Compare to Week 1. You're orchestrating.\nFour weeks. One task. Same journey this deck just took you on. Most actionable takeaway. Transition: Let's come back to where we started.");
-  }
-
-  // --- Slide 68: Breather ---
+  // --- Slide 65: Breather ---
   breatherSlide(pres,
     "Let's come back to where we started.",
     "Emotional reset before the callback. Pause. Let the pacing shift."
@@ -1112,7 +1026,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: "Getting-Agents-to-Give-Up-Their-Secrets.pptx" });
-  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (71 slides, billboard)");
+  console.log("Done! Created Getting-Agents-to-Give-Up-Their-Secrets.pptx (68 slides, billboard)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
