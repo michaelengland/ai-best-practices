@@ -1,0 +1,313 @@
+const pptxgen = require("pptxgenjs");
+const path = require("path");
+
+// ============================================================
+// DESIGN SYSTEM (shared across all decks)
+// ============================================================
+const D = {
+  bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
+  white: "FFFFFF", text: "E0E4E8", muted: "94A3B8", darkText: "1E293B",
+  accent: "00B4D8", wrong: "E63946", wrongBg: "FEE2E2", right: "2D936C", rightBg: "DCFCE7",
+  h: "Georgia", b: "Calibri",
+};
+
+function darkSlide(pres) {
+  const s = pres.addSlide();
+  s.background = { color: D.bg };
+  s.addShape(pres.shapes.OVAL, { x: 5, y: 2.5, w: 8, h: 6, fill: { color: D.accent, transparency: 96 } });
+  return s;
+}
+function hero(pres, main, opts = {}) {
+  const s = darkSlide(pres);
+  s.addText(main, { x: 1.0, y: 1.2, w: 8, h: 2.8, fontFace: opts.font || D.h, fontSize: opts.size || 44, color: opts.color || D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+  if (opts.sub) { s.addText(opts.sub, { x: 1.5, y: 4.0, w: 7, h: 0.8, fontFace: D.b, fontSize: 28, color: opts.subColor || D.muted, align: "center", margin: 0, valign: "top" }); }
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+function breatherSlide(pres, text, notes) {
+  const s = darkSlide(pres);
+  s.addText(text, { x: 1.5, y: 2.0, w: 7, h: 1.6, fontFace: D.h, fontSize: 28, color: D.accent, italic: true, align: "center", margin: 0, valign: "middle" });
+  if (notes) s.addNotes(notes);
+  return s;
+}
+function wrongRight(pres, opts) {
+  const s = pres.addSlide();
+  s.background = { color: D.lightBg };
+  s.addText(opts.headline, { x: 0.5, y: 0.3, w: 9, h: 0.8, fontFace: D.h, fontSize: 44, color: D.darkText, bold: true, margin: 0 });
+  if (opts.subtitle) { s.addText(opts.subtitle, { x: 0.5, y: 1.05, w: 9, h: 0.5, fontFace: D.b, fontSize: 20, color: D.accent, italic: true, margin: 0 }); }
+  const cardY = 1.7, cardH = 3.2;
+  s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: cardY, w: 4.2, h: cardH, fill: { color: D.wrongBg } });
+  s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: cardY, w: 0.06, h: cardH, fill: { color: D.wrong } });
+  s.addText(opts.wrongText, { x: 0.8, y: cardY + 0.2, w: 3.6, h: cardH - 0.4, fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top" });
+  s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 4.2, h: cardH, fill: { color: D.rightBg } });
+  s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 0.06, h: cardH, fill: { color: D.right } });
+  s.addText(opts.rightText, { x: 5.6, y: cardY + 0.2, w: 3.6, h: cardH - 0.4, fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top" });
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+// "Your turn" exercise slide
+function exerciseSlide(pres, instruction, detail, notes) {
+  const s = darkSlide(pres);
+  s.addText("YOUR TURN", { x: 1.0, y: 0.6, w: 8, h: 0.8, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle" });
+  s.addText(instruction, { x: 1.0, y: 1.5, w: 8, h: 2.0, fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+  if (detail) { s.addText(detail, { x: 1.5, y: 3.6, w: 7, h: 1.2, fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top" }); }
+  if (notes) s.addNotes(notes);
+  return s;
+}
+
+// ============================================================
+// SPECTRUM HELPER (reused across workshops)
+// ============================================================
+function spectrumSlide(pres, highlightFrom, highlightTo, notes) {
+  const s = darkSlide(pres);
+  const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
+  const boxW = 1.2, boxH = 0.7, gap = 0.1;
+  const totalW = labels.length * boxW + (labels.length - 1) * gap;
+  const startX = (10 - totalW) / 2;
+  labels.forEach((label, i) => {
+    const x = startX + i * (boxW + gap);
+    const isFrom = i === highlightFrom;
+    const isTo = i === highlightTo;
+    const isBuilder = i === 6;
+    const isHighlighted = isFrom || isTo;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x, y: 2.0, w: boxW, h: boxH, rectRadius: 0.08,
+      fill: { color: isHighlighted ? D.accent : D.bg, transparency: isHighlighted ? (isFrom ? 40 : 0) : 50 },
+      line: { color: isHighlighted ? D.accent : D.muted, width: isHighlighted ? 2 : 1, dashType: isBuilder ? "dash" : "solid" }
+    });
+    s.addText(label, {
+      x, y: 2.0, w: boxW, h: boxH,
+      fontFace: D.b, fontSize: 15, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    if (i < labels.length - 1) {
+      s.addText("\u2192", { x: x + boxW, y: 2.0, w: gap, h: boxH, fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle" });
+    }
+  });
+  // Arrow between from and to
+  s.addText(labels[highlightFrom] + " \u2192 " + labels[highlightTo], {
+    x: 1.0, y: 3.2, w: 8, h: 0.8,
+    fontFace: D.h, fontSize: 32, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+  });
+  if (notes) s.addNotes(notes);
+  return s;
+}
+
+// ============================================================
+// MAIN
+// ============================================================
+async function main() {
+  console.log("Creating presentation...");
+  const pres = new pptxgen();
+  pres.layout = "LAYOUT_16x9";
+  pres.author = "AI Academy";
+  pres.title = "Workshop: Explorer \u2192 Whisperer";
+
+  // ============================================================
+  // OPENING (3-5 min)
+  // ============================================================
+
+  // --- Slide 1: Title ---
+  {
+    const s = darkSlide(pres);
+    s.addText("Explorer \u2192 Whisperer", {
+      x: 1.0, y: 0.8, w: 8, h: 2.5,
+      fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Learn to talk to AI properly", {
+      x: 1.5, y: 3.5, w: 7, h: 0.6,
+      fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
+    });
+    s.addNotes("Welcome. This is Session 1 of the AI Academy.");
+  }
+
+  // --- Slide 2: Spectrum ---
+  spectrumSlide(pres, 1, 2, "Show where we are on the spectrum. Explorer \u2192 Whisperer. Today\u2019s crossing.");
+
+  // --- Slide 3: Level set ---
+  hero(pres, "You\u2019ve tried AI.\nToday you learn to\ntalk to it properly.", {
+    size: 40,
+    notes: "Quick framing. They\u2019re Explorers \u2014 they\u2019ve used ChatGPT. But they type vague prompts and get mediocre results. Today that changes."
+  });
+
+  // --- Slide 4: The stack in one sentence ---
+  hero(pres, "You use apps.\nApps use agents.\nAgents talk to LLMs.", {
+    font: D.b, size: 28,
+    sub: "You only need to care about the first two.",
+    notes: "Minimal level set \u2014 borrowed from main deck. Don\u2019t dwell. The audience needs this context but not a deep dive. ~30 seconds."
+  });
+
+  // ============================================================
+  // EXERCISE SETUP
+  // ============================================================
+
+  // --- Slide 5: Setup ---
+  exerciseSlide(pres,
+    "Open ChatGPT on your laptop.",
+    "Pick a real task you do at work \u2014\na proposal, an email, a summary, a plan.\nOr follow along with our example.",
+    "Give 60 seconds for people to open ChatGPT and think of a task. Prescribed fallback: 'Write me a proposal for improving our onboarding process.'"
+  );
+
+  // ============================================================
+  // ROUND 1: THE BASELINE
+  // ============================================================
+
+  // --- Slide 6: Teach ---
+  hero(pres, "Most people type something vague\nand hope for the best.", {
+    size: 36,
+    notes: "Set the scene. No judgment \u2014 this is what everyone does. ~30 seconds."
+  });
+
+  // --- Slide 7: Exercise ---
+  exerciseSlide(pres,
+    "Type your vague, natural prompt\ninto ChatGPT.",
+    "Don\u2019t overthink it. Type what you\u2019d normally type.\nRead the output. Sound familiar?",
+    "Give 2-3 minutes. Walk around. Let them see the mediocre output. \u2018Generic. Surface-level. Could be for any company.\u2019"
+  );
+
+  // ============================================================
+  // ROUND 2: ASSIGN A ROLE
+  // ============================================================
+
+  // --- Slide 8: Teach ---
+  wrongRight(pres, {
+    headline: "Assign a Role",
+    subtitle: "vs. talking to a stranger",
+    wrongText: "Write me a proposal for\nimproving our onboarding process.",
+    rightText: "You are a senior HR operations\nconsultant. Write me a proposal for\nimproving our onboarding process.",
+    notes: "One sentence of setup changes the AI\u2019s tone, depth, and perspective. A role frames everything that follows."
+  });
+
+  // --- Slide 9: Exercise ---
+  exerciseSlide(pres,
+    "Add a role to your prompt.",
+    "\"You are a senior [your role] at [your company].\"\nPaste it at the beginning. Re-run.\nCompare to your first output.",
+    "Give 2-3 minutes. Ask: \u2018Notice the terminology? The frameworks? The level of detail?\u2019"
+  );
+
+  // ============================================================
+  // ROUND 3: BE SPECIFIC
+  // ============================================================
+
+  // --- Slide 10: Teach ---
+  wrongRight(pres, {
+    headline: "Be Specific",
+    subtitle: "vs. the vague ask",
+    wrongText: "Write me a proposal for\nimproving our onboarding process.",
+    rightText: "Write a proposal for reducing\nonboarding from 4 to 2 weeks,\nfor the VP of People, under 2 pages.",
+    notes: "Specificity in = specificity out. We didn\u2019t give new information \u2014 we described what we actually wanted."
+  });
+
+  // --- Slide 11: Exercise ---
+  exerciseSlide(pres,
+    "Add specifics to your prompt.",
+    "WHO is it for? WHAT are the constraints?\nHOW long should it be?\nRe-run and compare.",
+    "Give 2 minutes. The output now addresses a specific situation, not a generic one."
+  );
+
+  // ============================================================
+  // ROUND 4: ONE TASK AT A TIME
+  // ============================================================
+
+  // --- Slide 12: Teach ---
+  wrongRight(pres, {
+    headline: "One Task at a Time",
+    subtitle: "vs. the kitchen sink",
+    wrongText: "Write the proposal, draft an email,\ncreate a budget spreadsheet,\nand summarize risks.",
+    rightText: "Structure the proposal with:\n1. Problem statement\n2. Proposed solution\n3. Expected outcomes\n4. Timeline",
+    notes: "The kitchen-sink prompt tries everything, nails nothing. One task, clear structure \u2014 the AI mirrors your organization."
+  });
+
+  // --- Slide 13: Exercise ---
+  exerciseSlide(pres,
+    "Give your prompt structure.",
+    "Add numbered sections or clear steps.\nRe-run and compare.",
+    "Give 2 minutes. Can shorten this round to a quick demo if time is tight."
+  );
+
+  // ============================================================
+  // ROUND 5: POWER KEYWORDS
+  // ============================================================
+
+  // --- Slide 14: Teach ---
+  wrongRight(pres, {
+    headline: "Power Keywords",
+    subtitle: "vs. leading the witness",
+    wrongText: "Don't you think reducing\nonboarding to 2 weeks\nwould be great?",
+    rightText: "Be radically honest about challenges.\nThink step by step.\nChallenge my assumptions.",
+    notes: "These keywords change AI behavior more than you\u2019d expect. A leading question produces sycophantic agreement. Permit uncertainty."
+  });
+
+  // --- Slide 15: Exercise ---
+  exerciseSlide(pres,
+    "Add power keywords.",
+    "\"Be radically honest.\"\n\"Think step by step.\"\n\"Challenge my assumptions.\"\nRe-run and compare.",
+    "Give 2 minutes. Notice the AI pushing back, flagging uncertainty, being more thoughtful."
+  );
+
+  // ============================================================
+  // ROUND 6: DEFINE THE OUTPUT
+  // ============================================================
+
+  // --- Slide 16: Teach ---
+  wrongRight(pres, {
+    headline: "Define the Output",
+    subtitle: "vs. hoping for the best",
+    wrongText: "(No format guidance)\n\u2192 Random format, 5-page essay\nwhen you needed bullets.",
+    rightText: "One-page executive brief with\nbullet points. Data-driven language.\nReader has 2 minutes.",
+    notes: "You wouldn\u2019t ask a designer for \u2018something nice.\u2019 Tell the AI what format, tone, length, and audience you need."
+  });
+
+  // --- Slide 17: Exercise ---
+  exerciseSlide(pres,
+    "Define your output format.",
+    "Format, tone, length, audience.\n\"One-page brief with bullets. Direct tone.\"\nRe-run and compare.",
+    "Give 2 minutes. The output should now be immediately usable \u2014 right format, right tone, right length."
+  );
+
+  // ============================================================
+  // THE REVEAL
+  // ============================================================
+
+  // --- Slide 18: Compare ---
+  exerciseSlide(pres,
+    "Open your first output\nand your last output.",
+    "Side by side. Same task.\nSame information. Just better words.",
+    "This is the emotional peak. Give them a full minute to compare. The transformation is visceral because they did it themselves."
+  );
+
+  // --- Slide 19: The beat ---
+  hero(pres, "Same task. Same information.\nJust better words.", {
+    notes: "Let this land. Five simple techniques transformed a mediocre prompt into a professional one."
+  });
+
+  // ============================================================
+  // CLOSING (3-5 min)
+  // ============================================================
+
+  // --- Slide 20: You're a Whisperer ---
+  hero(pres, "You\u2019re now a Whisperer.", {
+    sub: "You know how to talk to AI.",
+    notes: "Celebrate the crossing. They did the work. They saw the difference."
+  });
+
+  // --- Slide 21: Cliffhanger ---
+  hero(pres, "But we never changed\nwhat the AI knew.", {
+    color: D.accent,
+    notes: "The cliffhanger \u2014 borrowed from the main deck. Every iteration changed the words, but the AI had zero context about their company, team, or situation. Next session fixes that."
+  });
+
+  // --- Slide 22: Next time ---
+  breatherSlide(pres,
+    "Next time: Whisperer \u2192 Strategist.\nBring the prompt you built today.",
+    "Preview of next session. They should save their final prompt \u2014 it\u2019s the starting point for Workshop 2."
+  );
+
+  // ============================================================
+  // WRITE FILE
+  // ============================================================
+  console.log("Writing presentation...");
+  await pres.writeFile({ fileName: path.join(__dirname, "workshop-whisperer.pptx") });
+  console.log("Done! Created workshop-whisperer.pptx (22 slides)");
+}
+
+main().catch(err => { console.error("Error:", err); process.exit(1); });

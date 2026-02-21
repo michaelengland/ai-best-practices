@@ -1,0 +1,263 @@
+const pptxgen = require("pptxgenjs");
+const path = require("path");
+
+const D = {
+  bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
+  white: "FFFFFF", text: "E0E4E8", muted: "94A3B8", darkText: "1E293B",
+  accent: "00B4D8", wrong: "E63946", wrongBg: "FEE2E2", right: "2D936C", rightBg: "DCFCE7",
+  h: "Georgia", b: "Calibri",
+};
+
+function darkSlide(pres) {
+  const s = pres.addSlide();
+  s.background = { color: D.bg };
+  s.addShape(pres.shapes.OVAL, { x: 5, y: 2.5, w: 8, h: 6, fill: { color: D.accent, transparency: 96 } });
+  return s;
+}
+function hero(pres, main, opts = {}) {
+  const s = darkSlide(pres);
+  s.addText(main, { x: 1.0, y: 1.2, w: 8, h: 2.8, fontFace: opts.font || D.h, fontSize: opts.size || 44, color: opts.color || D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+  if (opts.sub) { s.addText(opts.sub, { x: 1.5, y: 4.0, w: 7, h: 0.8, fontFace: D.b, fontSize: 28, color: opts.subColor || D.muted, align: "center", margin: 0, valign: "top" }); }
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+function breatherSlide(pres, text, notes) {
+  const s = darkSlide(pres);
+  s.addText(text, { x: 1.5, y: 2.0, w: 7, h: 1.6, fontFace: D.h, fontSize: 28, color: D.accent, italic: true, align: "center", margin: 0, valign: "middle" });
+  if (notes) s.addNotes(notes);
+  return s;
+}
+function exerciseSlide(pres, instruction, detail, notes) {
+  const s = darkSlide(pres);
+  s.addText("YOUR TURN", { x: 1.0, y: 0.6, w: 8, h: 0.8, fontFace: D.b, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle" });
+  s.addText(instruction, { x: 1.0, y: 1.5, w: 8, h: 2.0, fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+  if (detail) { s.addText(detail, { x: 1.5, y: 3.6, w: 7, h: 1.2, fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top" }); }
+  if (notes) s.addNotes(notes);
+  return s;
+}
+function wrongRight(pres, opts) {
+  const s = pres.addSlide();
+  s.background = { color: D.lightBg };
+  s.addText(opts.headline, { x: 0.5, y: 0.3, w: 9, h: 0.8, fontFace: D.h, fontSize: 44, color: D.darkText, bold: true, margin: 0 });
+  if (opts.subtitle) { s.addText(opts.subtitle, { x: 0.5, y: 1.05, w: 9, h: 0.5, fontFace: D.b, fontSize: 20, color: D.accent, italic: true, margin: 0 }); }
+  const cardY = 1.7, cardH = 3.2;
+  s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: cardY, w: 4.2, h: cardH, fill: { color: D.wrongBg } });
+  s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: cardY, w: 0.06, h: cardH, fill: { color: D.wrong } });
+  s.addText(opts.wrongText, { x: 0.8, y: cardY + 0.2, w: 3.6, h: cardH - 0.4, fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top" });
+  s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 4.2, h: cardH, fill: { color: D.rightBg } });
+  s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 0.06, h: cardH, fill: { color: D.right } });
+  s.addText(opts.rightText, { x: 5.6, y: cardY + 0.2, w: 3.6, h: cardH - 0.4, fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top" });
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+function spectrumSlide(pres, highlightFrom, highlightTo, notes) {
+  const s = darkSlide(pres);
+  const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
+  const boxW = 1.2, boxH = 0.7, gap = 0.1;
+  const totalW = labels.length * boxW + (labels.length - 1) * gap;
+  const startX = (10 - totalW) / 2;
+  labels.forEach((label, i) => {
+    const x = startX + i * (boxW + gap);
+    const isHighlighted = i === highlightFrom || i === highlightTo;
+    const isBuilder = i === 6;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x, y: 2.0, w: boxW, h: boxH, rectRadius: 0.08,
+      fill: { color: isHighlighted ? D.accent : D.bg, transparency: isHighlighted ? (i === highlightFrom ? 40 : 0) : 50 },
+      line: { color: isHighlighted ? D.accent : D.muted, width: isHighlighted ? 2 : 1, dashType: isBuilder ? "dash" : "solid" }
+    });
+    s.addText(label, { x, y: 2.0, w: boxW, h: boxH, fontFace: D.b, fontSize: 15, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle" });
+    if (i < labels.length - 1) { s.addText("\u2192", { x: x + boxW, y: 2.0, w: gap, h: boxH, fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle" }); }
+  });
+  s.addText(labels[highlightFrom] + " \u2192 " + labels[highlightTo], { x: 1.0, y: 3.2, w: 8, h: 0.8, fontFace: D.h, fontSize: 32, color: D.accent, bold: true, align: "center", margin: 0, valign: "top" });
+  if (notes) s.addNotes(notes);
+  return s;
+}
+
+async function main() {
+  console.log("Creating presentation...");
+  const pres = new pptxgen();
+  pres.layout = "LAYOUT_16x9";
+  pres.author = "AI Academy";
+  pres.title = "Workshop: Whisperer \u2192 Strategist";
+
+  // ============================================================
+  // OPENING
+  // ============================================================
+
+  // --- Slide 1: Title ---
+  {
+    const s = darkSlide(pres);
+    s.addText("Whisperer \u2192 Strategist", { x: 1.0, y: 0.8, w: 8, h: 2.5, fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+    s.addText("Make AI remember what you need", { x: 1.5, y: 3.5, w: 7, h: 0.6, fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0 });
+    s.addNotes("Welcome to Session 2 of the AI Academy.");
+  }
+
+  // --- Slide 2: Spectrum ---
+  spectrumSlide(pres, 2, 3, "Whisperer \u2192 Strategist. Last time you learned to talk to AI. Today you make it remember.");
+
+  // --- Slide 3: Recap ---
+  hero(pres, "Last time you learned\nto talk to AI.\nToday you make it remember.", {
+    size: 36,
+    notes: "Quick recap. They built a great prompt last session \u2014 role, specifics, structure, keywords, output format. But every new conversation, they type all of that again."
+  });
+
+  // ============================================================
+  // EXERCISE 1: CONTEXT CHANGES EVERYTHING
+  // ============================================================
+
+  // --- Slide 4: The cliffhanger callback ---
+  hero(pres, "We never changed\nwhat the AI knew.", {
+    color: D.accent,
+    notes: "Callback to the cliffhanger from Workshop 1. Every iteration changed the words. Now we change the information."
+  });
+
+  // --- Slide 5: Teach ---
+  hero(pres, "Same prompt.\nDifferent information.", {
+    sub: "Dramatically different result.",
+    notes: "The core concept of context engineering. The prompt doesn\u2019t change. The context does."
+  });
+
+  // --- Slide 6: Exercise ---
+  exerciseSlide(pres,
+    "Add context to your prompt.",
+    "3-4 sentences about your situation:\ncompany size, team, constraints,\nwhat\u2019s been tried before.",
+    "Give 3-4 minutes. They should use their prompt from Workshop 1 (or the prescribed one). The output should go from \u2018generic\u2019 to \u2018sounds like someone who works here.\u2019"
+  );
+
+  // --- Slide 7: The aha ---
+  hero(pres, "Same prompt.\nNow it sounds like someone\nwho works here.", {
+    size: 36,
+    notes: "Let this land. The quality jump from context is bigger than all 5 prompt engineering techniques combined."
+  });
+
+  // ============================================================
+  // MEET YOUR AI COLLEAGUE
+  // ============================================================
+
+  // --- Slide 8: Dory ---
+  hero(pres, "Brilliant. Helpful.\nRemembers nothing.", {
+    size: 60,
+    notes: "The AI colleague metaphor. Every conversation starts fresh \u2014 no memory of previous interactions, your company, your role. This is why context matters: you have to provide it every single time."
+  });
+
+  // ============================================================
+  // EXERCISE 2: LET AI ASK
+  // ============================================================
+
+  // --- Slide 9: Teach ---
+  hero(pres, "Let AI tell you\nwhat it needs.", {
+    sub: "\"Before you start, ask me clarifying questions.\"",
+    notes: "The single highest-leverage technique. Let AI close its own context gaps instead of guessing what it needs."
+  });
+
+  // --- Slide 10: Exercise ---
+  exerciseSlide(pres,
+    "Add this to your prompt:",
+    "\"Before you start, ask me\nclarifying questions about anything\nyou\u2019d need to know.\"",
+    "Give 3 minutes. Ask: \u2018Look at what it asked. Did it surface things you hadn\u2019t thought of?\u2019 Budget constraints? Stakeholder concerns? Timeline?"
+  );
+
+  // ============================================================
+  // THE PROBLEM: FROM SCRATCH EVERY TIME
+  // ============================================================
+
+  // --- Slide 11: The problem ---
+  hero(pres, "You just pasted all that\ncontext manually.", {
+    sub: "Next conversation? You\u2019ll do it all again.",
+    notes: "The natural question: \u2018Do I have to do this every time?\u2019 The answer is no \u2014 skills fix this."
+  });
+
+  // --- Slide 12: What if ---
+  hero(pres, "What if the AI\nalready knew?", {
+    size: 54,
+    notes: "Plant the seed. Skills are the answer."
+  });
+
+  // ============================================================
+  // EXERCISE 3: SET UP YOUR FIRST SKILL
+  // ============================================================
+
+  // --- Slide 13: Teach ---
+  wrongRight(pres, {
+    headline: "Without vs. With a Skill",
+    subtitle: "same prompt, different starting point",
+    wrongText: "Role: senior HR consultant\nFormat: leadership brief\nTone: direct, data-driven\nAudience: VP of People\n\nTyped. Every. Single. Time.",
+    rightText: "\"Write a proposal for reducing\nonboarding from 4 to 2 weeks.\"\n\nThat\u2019s it.\nThe skill knows the rest.",
+    notes: "The concrete proof of what skills do. Left: everything from Workshop 1 typed every time. Right: just the task."
+  });
+
+  // --- Slide 14: How to ---
+  hero(pres, "ChatGPT Settings\n\u2192 Personalization\n\u2192 Custom Instructions", {
+    font: D.b, size: 28,
+    notes: "Walk through where to find Custom Instructions. Screen-share this. Wait for everyone to find it. This is the critical setup moment \u2014 if people can\u2019t find the setting, the exercise fails."
+  });
+
+  // --- Slide 15: Exercise ---
+  exerciseSlide(pres,
+    "Set up your first\ncustom instruction.",
+    "\"I work at [company]. My role is [role].\nWhen writing proposals, use [format].\nTone: [style]. Be radically honest.\"",
+    "Give 4-5 minutes. Walk around and help. This is the linchpin exercise \u2014 if it works, the whole session clicks."
+  );
+
+  // --- Slide 16: Test it ---
+  exerciseSlide(pres,
+    "Now open a NEW conversation.\nType ONLY the task.",
+    "No role. No context. No format.\nJust: \"Write a proposal for reducing\nonboarding from 4 to 2 weeks.\"",
+    "Give 2 minutes. The output should already know their role, format, and tone. This is the aha moment."
+  );
+
+  // --- Slide 17: The aha ---
+  hero(pres, "You typed one sentence.\nIt already knew the rest.", {
+    notes: "Let this land. They just experienced the skill working. The custom instruction handled everything they used to type manually."
+  });
+
+  // ============================================================
+  // THE METAPHOR
+  // ============================================================
+
+  // --- Slide 18: GPS ---
+  {
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
+    s.addText("Directions\nevery trip", { x: 0.5, y: 1.5, w: 4.2, h: 1.2, fontFace: D.h, fontSize: 32, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle" });
+    s.addText("Effort. Every. Time.", { x: 0.5, y: 2.8, w: 4.2, h: 0.8, fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top" });
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
+    s.addText("GPS that learns", { x: 5.3, y: 1.5, w: 4.2, h: 1.2, fontFace: D.h, fontSize: 32, color: D.right, bold: true, align: "center", margin: 0, valign: "middle" });
+    s.addText("Compounds permanently.", { x: 5.3, y: 2.8, w: 4.2, h: 0.8, fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top" });
+    s.addNotes("Skills = GPS that remembers. Prompting without skills = giving directions every trip.");
+  }
+
+  // --- Slide 19: Many names ---
+  hero(pres, "\"Custom instructions\"\n= \"System prompts\"\n= \"Rules\"\n= \"Skills\"", {
+    size: 36, font: D.b,
+    notes: "Same concept, many names across tools. If your tool has a way to save reusable instructions, use it. That\u2019s a skill."
+  });
+
+  // ============================================================
+  // CLOSING
+  // ============================================================
+
+  // --- Slide 20: You're a Strategist ---
+  hero(pres, "You\u2019re now a Strategist.", {
+    sub: "You don\u2019t just talk to AI well \u2014\nyou\u2019ve set up its playbook.",
+    notes: "Celebrate the crossing."
+  });
+
+  // --- Slide 21: Cliffhanger ---
+  hero(pres, "But who\u2019s doing\nall the work?\nStill you.", {
+    size: 40, color: D.accent,
+    notes: "The cliffhanger for next session. They prompt well, they\u2019ve set up skills, but they\u2019re still copy-pasting, searching, doing the grunt work. Next time, the agent does that."
+  });
+
+  // --- Slide 22: Next time ---
+  breatherSlide(pres,
+    "Next time: Strategist \u2192 Operator.\nBring your custom instructions \u2014\nwe\u2019re building on them.",
+    "Preview of Workshop 3. They should keep their custom instruction text saved somewhere."
+  );
+
+  console.log("Writing presentation...");
+  await pres.writeFile({ fileName: path.join(__dirname, "workshop-strategist.pptx") });
+  console.log("Done! Created workshop-strategist.pptx (22 slides)");
+}
+
+main().catch(err => { console.error("Error:", err); process.exit(1); });
