@@ -1,0 +1,210 @@
+const pptxgen = require("pptxgenjs");
+const path = require("path");
+
+// ============================================================
+// DESIGN SYSTEM (shared with main deck)
+// ============================================================
+const D = {
+  bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
+  white: "FFFFFF", text: "E0E4E8", muted: "94A3B8", darkText: "1E293B",
+  accent: "00B4D8", wrong: "E63946", right: "2D936C",
+  h: "Georgia", b: "Calibri",
+};
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function darkSlide(pres) {
+  const s = pres.addSlide();
+  s.background = { color: D.bg };
+  s.addShape(pres.shapes.OVAL, {
+    x: 5, y: 2.5, w: 8, h: 6,
+    fill: { color: D.accent, transparency: 96 }
+  });
+  return s;
+}
+
+function hero(pres, main, opts = {}) {
+  const s = darkSlide(pres);
+  s.addText(main, {
+    x: 1.0, y: 1.2, w: 8, h: 2.8,
+    fontFace: opts.font || D.h, fontSize: opts.size || 44,
+    color: opts.color || D.white, bold: true,
+    align: "center", margin: 0, valign: "middle"
+  });
+  if (opts.sub) {
+    s.addText(opts.sub, {
+      x: 1.5, y: 4.0, w: 7, h: 0.8,
+      fontFace: D.b, fontSize: 28,
+      color: opts.subColor || D.muted, align: "center", margin: 0, valign: "top"
+    });
+  }
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+
+function bigNum(pres, num, sub, opts = {}) {
+  const s = darkSlide(pres);
+  s.addText(num, {
+    x: 0.5, y: 1.0, w: 9, h: 2.5,
+    fontFace: D.h, fontSize: opts.numSize || 120,
+    color: opts.color || D.white, bold: true, align: "center", margin: 0, valign: "bottom"
+  });
+  s.addText(sub, {
+    x: 1.5, y: 3.6, w: 7, h: 0.8,
+    fontFace: D.b, fontSize: 28,
+    color: D.muted, align: "center", margin: 0, valign: "top"
+  });
+  if (opts.source) {
+    s.addText(opts.source, {
+      x: 0.5, y: 5.0, w: 9, h: 0.4,
+      fontFace: D.b, fontSize: 11, color: D.muted, align: "right", margin: 0, valign: "bottom"
+    });
+  }
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+
+// ============================================================
+// MAIN
+// ============================================================
+async function main() {
+  console.log("Creating presentation...");
+  const pres = new pptxgen();
+  pres.layout = "LAYOUT_16x9";
+  pres.author = "AI Best Practices";
+  pres.title = "AI Academy";
+
+  // --- Slide 1: Title ---
+  {
+    const s = darkSlide(pres);
+    s.addText("AI Academy", {
+      x: 1.0, y: 0.8, w: 8, h: 2.5,
+      fontFace: D.h, fontSize: 72, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("From Explorer to Orchestrator in four lunch hours", {
+      x: 1.5, y: 3.5, w: 7, h: 0.6,
+      fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
+    });
+    s.addNotes("Let the title sit. ~10 seconds.");
+  }
+
+  // --- Slide 2: The Hook ---
+  hero(pres, "Last month, someone spent 45 minutes\non a one-page summary using ChatGPT.\nThe right approach took 2 minutes.", {
+    font: D.b, size: 28, color: D.text,
+    notes: "Same hook as the main deck \u2014 proven and relatable. Let it land. ~15 seconds."
+  });
+
+  // --- Slide 3: The Pivot ---
+  hero(pres, "What if your whole team\nknew the trick?", {
+    size: 48,
+    notes: "Shift from individual anecdote to organizational opportunity. Pause. ~10 seconds."
+  });
+
+  // --- Slide 4: The Stats ---
+  bigNum(pres, "1 billion+", "use AI tools monthly. Less than 2% use them well.", {
+    source: "DataReportal 2026, Reuters",
+    notes: "Mass adoption but shallow depth. The opportunity gap is enormous. ~15 seconds."
+  });
+
+  // --- Slide 5: The Twist ---
+  bigNum(pres, "19%\nlonger", "when you rely on AI without understanding it", {
+    color: D.wrong, numSize: 80,
+    source: "Addy Osmani",
+    notes: "Developers who felt 20% faster actually took 19% longer once debugging was included. The gap isn\u2019t just unused potential \u2014 it\u2019s active harm. ~15 seconds."
+  });
+
+  // --- Slide 6: The Gap ---
+  hero(pres, "The gap between using AI\nand using AI well\nis massive.", {
+    notes: "Let this land. The audience should be thinking 'that\u2019s us.' ~10 seconds."
+  });
+
+  // --- Slide 7: The Spectrum ---
+  {
+    const s = darkSlide(pres);
+    const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
+    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const totalW = labels.length * boxW + (labels.length - 1) * gap;
+    const startX = (10 - totalW) / 2;
+    labels.forEach((label, i) => {
+      const x = startX + i * (boxW + gap);
+      const isExplorer = i === 1;
+      const isOrchestrator = i === 5;
+      const isBuilder = i === 6;
+      const textColor = isExplorer ? D.white : (isOrchestrator ? D.accent : D.muted);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x, y: 1.6, w: boxW, h: boxH,
+        rectRadius: 0.08,
+        fill: { color: isExplorer ? D.accent : D.bg, transparency: isExplorer ? 0 : 50 },
+        line: { color: isExplorer ? D.accent : (isOrchestrator ? D.accent : D.muted), width: isExplorer || isOrchestrator ? 2 : 1, dashType: isBuilder ? "dash" : "solid" }
+      });
+      s.addText(label, {
+        x, y: 1.6, w: boxW, h: boxH,
+        fontFace: D.b, fontSize: 15, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      if (i < labels.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 1.6, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle"
+        });
+      }
+    });
+    s.addText("Most of us are here.", {
+      x: 0.5, y: 2.7, w: 4.5, h: 0.8,
+      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+    });
+    s.addText("The AI Academy takes you here.", {
+      x: 5.0, y: 2.7, w: 4.5, h: 0.8,
+      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Self-identification moment. Let people find themselves. ~20 seconds.");
+  }
+
+  // --- Slide 8: The Academy ---
+  hero(pres, "Four sessions.\nOne lunch hour each.", {
+    sub: "Bring your laptop.",
+    notes: "The sell starts here. Practical, time-bound, low-commitment. ~15 seconds."
+  });
+
+  // --- Slide 9: The Curriculum ---
+  {
+    const s = darkSlide(pres);
+    const sessions = [
+      { num: "1", crossing: "Explorer \u2192 Whisperer", desc: "Learn to talk to AI properly" },
+      { num: "2", crossing: "Whisperer \u2192 Strategist", desc: "Make AI remember what you need" },
+      { num: "3", crossing: "Strategist \u2192 Operator", desc: "Let AI work for you" },
+      { num: "4", crossing: "Operator \u2192 Orchestrator", desc: "Coordinate AI teams" },
+    ];
+    sessions.forEach((sess, i) => {
+      const y = 0.8 + i * 1.1;
+      s.addText(sess.num, {
+        x: 0.8, y, w: 0.8, h: 0.9,
+        fontFace: D.h, fontSize: 36, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      s.addText(sess.crossing, {
+        x: 1.8, y, w: 3.5, h: 0.45,
+        fontFace: D.b, fontSize: 18, color: D.muted, bold: true, margin: 0, valign: "bottom"
+      });
+      s.addText(sess.desc, {
+        x: 1.8, y: y + 0.45, w: 6, h: 0.45,
+        fontFace: D.h, fontSize: 24, color: D.white, bold: true, margin: 0, valign: "top"
+      });
+    });
+    s.addNotes("Walk through each briefly. Each one-liner should create curiosity. ~30 seconds.");
+  }
+
+  // --- Slide 10: CTA ---
+  hero(pres, "First session: [date]", {
+    sub: "Bring your laptop and a task you do every week.",
+    notes: "Specific, low-commitment ask. 'Not a task you want to learn \u2014 a task you already do. You\u2019ll transform it live.' ~15 seconds."
+  });
+
+  // ============================================================
+  // WRITE FILE
+  // ============================================================
+  console.log("Writing presentation...");
+  await pres.writeFile({ fileName: path.join(__dirname, "ai-academy-pitch.pptx") });
+  console.log("Done! Created ai-academy-pitch.pptx (10 slides)");
+}
+
+main().catch(err => { console.error("Error:", err); process.exit(1); });
