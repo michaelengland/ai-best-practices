@@ -66,7 +66,7 @@ All borrowed from the main deck:
 | Source | URL | Used For |
 |--------|-----|----------|
 | DataReportal 2026 | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | 1B+ stat |
-| Reuters | (via DataReportal) | <2% stat |
+| Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | <2% stat |
 | Second Talent | https://www.secondtalent.com/resources/ai-coding-assistant-statistics/ | 41% stat |
 | Addy Osmani | https://addyo.substack.com/p/the-reality-of-ai-assisted-software | 19% stat |
 

@@ -182,6 +182,7 @@ Sources: CodeSignal, OpenAI, DigitalOcean
 | # | Source | URL | Used In |
 |---|--------|-----|---------|
 | 1 | Digital 2026: more than 1 billion people use AI - DataReportal | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | Opening |
+| 1b | AI investment bubble inflated by trio of dilemmas - Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | Opening |
 | 2 | AI and Productivity Growth - Federal Reserve Bank of St. Louis | https://www.stlouisfed.org/on-the-economy/2024/apr/ai-productivity-growth-evidence-historical-development-other-technologies | Opening |
 | 3 | Rising Speed of Technological Adoption - Visual Capitalist | https://www.visualcapitalist.com/rising-speed-technological-adoption/ | Opening |
 | 4 | Generative AI could raise global GDP by 7% - Goldman Sachs | https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent | Opening |
