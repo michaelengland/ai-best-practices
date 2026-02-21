@@ -178,7 +178,7 @@ async function main() {
   const pres = new pptxgen();
   pres.layout = "LAYOUT_16x9";
   pres.author = "AI Best Practices";
-  pres.title = "Getting Agents to Give Up Their Secrets";
+  pres.title = "AI Best Practices";
 
   // ============================================================
   // OPENING: "WHERE ARE YOU?" (Slides 1-11)
@@ -187,15 +187,15 @@ async function main() {
   // --- Slide 1: Title ---
   {
     const s = darkSlide(pres);
-    s.addText("Getting Agents to\nGive Up Their Secrets", {
+    s.addText("AI Best Practices", {
       x: 1.0, y: 0.8, w: 8, h: 2.5,
-      fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+      fontFace: D.h, fontSize: 64, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("A guide to AI that actually works", {
       x: 1.5, y: 3.5, w: 7, h: 0.6,
       fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
     });
-    s.addNotes("Let the title sit. Don't rush into the hook \u2014 give people a moment to read. This is 'Getting Agents to Give Up Their Secrets,' a practical guide to AI that actually works.");
+    s.addNotes("Let the title sit. Don't rush into the hook \u2014 give people a moment to read. AI Best Practices \u2014 a practical guide to AI that actually works.");
   }
 
   // --- Slide 2: Hook story ---
@@ -1022,7 +1022,7 @@ async function main() {
   // --- Slide 71: CTA ---
   hero(pres, "The secret was never\nin the AI.", {
     sub: "Now go try it \u2014 one task, this week.",
-    notes: "Clean exit. The secret was in knowing how to work with it. One task, this week \u2014 not 'transform everything.' Getting Agents to Give Up Their Secrets."
+    notes: "Clean exit. The secret was in knowing how to work with it. One task, this week \u2014 not 'transform everything.'"
   });
 
   // ============================================================

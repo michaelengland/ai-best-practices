@@ -1,4 +1,4 @@
-# Getting Agents to Give Up Their Secrets
+# AI Best Practices
 
 A 68-slide presentation on AI best practices — taking you from confused to in control.
 
