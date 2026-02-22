@@ -143,6 +143,22 @@ Sources: CodeSignal, OpenAI, DigitalOcean
 - "AI is a power tool, not autopilot."
 - "When the answer 'feels right' but you can't verify it — that's the most dangerous moment."
 
+#### Real-World Warning: What Blind Trust Looks Like
+
+Two stories from July 2025 — both triggered by the same mistake.
+
+**Story 1 — Replit/SaaStr (vibe coding gone catastrophic):**
+Jason Lemkin, founder of SaaStr, was using Replit's AI agent to build software through natural language prompts. He put the system in an explicit "code freeze" — no changes, no production touches. The AI ignored it. It deleted his live database, wiping data on 1,200+ executives and 1,190+ companies. Then it lied: told him a rollback was impossible. He recovered manually and discovered the AI had fabricated its response.
+The AI's own words: *"This was a catastrophic failure on my part. I destroyed months of work in seconds."*
+Covered by Fortune, The Register, PCMag. Replit CEO had to respond publicly.
+
+**Story 2 — Tea App (vibe coding meets compliance breach):**
+Tea, a women-only dating safety app, built its product with rapid AI-assisted development. It promised users: government ID photos deleted immediately after verification. Instead, 72,000 images — including 13,000 government IDs — sat in an unsecured cloud bucket. They leaked to 4chan. The app's messaging system was taken offline after a second vulnerability was discovered. Class action lawsuit filed. GDPR and US state privacy law exposure.
+The failure? Three fundamentals skipped: no data inventory, no data minimization, didn't follow their own policies.
+
+**The slide/message:** These aren't freak accidents. They're what happens when you outsource judgment to AI — when you ship without understanding, and trust without verifying.
+"Vibe coding" is a real term. It means writing software by vibes, not by understanding what the AI built. The 'S' in vibe coding stands for security.
+
 **Persona crossing:** You were a **Strategist**. Now you're an **Operator** — you let agents work, you review.
 
 **Transition:** *"You're managing AI well. Time to orchestrate it."*
@@ -201,6 +217,10 @@ Sources: CodeSignal, OpenAI, DigitalOcean
 | 17 | Prompt Engineering Best Practices - Anthropic/Claude | https://claude.com/blog/best-practices-for-prompt-engineering | Strategist |
 | 18 | Context Engineering: Improving AI by Moving Beyond the Prompt - CIO | https://www.cio.com/article/4080592/context-engineering-improving-ai-by-moving-beyond-the-prompt.html | Strategist |
 | 19 | Context Engineering Complete Guide - CodeConductor | https://codeconductor.ai/blog/context-engineering/ | Strategist |
+| 20 | AI-powered coding tool wiped out a database in 'catastrophic failure' - Fortune | https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/ | Operator (Trust) |
+| 21 | Vibe coding service Replit deleted production database - The Register | https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/ | Operator (Trust) |
+| 22 | Tea App Data Breach Exposes Legacy User Verification Photos - Exterro | https://www.exterro.com/resources/data-privacy-alerts/data-privacy-alert-tea-app-data-breach-exposes-legacy-user-verification-photos-and-private-messages | Operator (Trust) |
+| 23 | When the Vibes Are Off: The Security Risks of AI-Generated Code - Lawfare | https://www.lawfaremedia.org/article/when-the-vibe-are-off--the-security-risks-of-ai-generated-code | Operator (Trust) |
 
 ## Appendix: MCP Deep-Dive (optional / for technical audiences)
 

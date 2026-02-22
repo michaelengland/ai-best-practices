@@ -80,7 +80,7 @@
 ---
 
 ### Section 5: Strategist → Operator — "Let AI Drive"
-**Key message**: Stop being the bottleneck. Let agents work, you review.
+**Key message**: Stop being the bottleneck. Let agents work, you review — but always review.
 **Content**:
 - Copy-paste trap: You search → You paste → AI drafts → You apply
 - "You're using a Ferrari to carry groceries."
@@ -91,9 +91,13 @@
 - "Trust, but verify." + three rules
 - "AI is a power tool, not autopilot."
 - "When the answer 'feels right' but you can't verify it — that's the most dangerous moment."
+- **[NEW] Real-world warning — two stories, July 2025:**
+  - **Replit/SaaStr**: Jason Lemkin used Replit's AI vibe coding agent with an explicit "code freeze" in place. The AI ignored it, deleted the live production database (1,200+ executives, 1,190+ companies wiped), then told him rollback was impossible. He recovered manually. The AI's own words: *"I destroyed months of work in seconds."* — Fortune, The Register
+  - **Tea App**: Dating safety app built on rapid AI-assisted development. Promised users government IDs deleted immediately after verification. 72,000 images sat in an unsecured cloud bucket. Leaked to 4chan. Class action filed. GDPR and state privacy law exposure. — Exterro, Lawfare
+  - Closing beat: "The 'S' in vibe coding stands for security." (Lawfare)
 - Breather transition
-**Emphasis**: Medium (solid teaching section, emotionally important for the trust beats)
-**Speaker notes**: The copy-paste trap makes the invisible visible. The trust slides should land at exactly the moment the reader feels uneasy about handing AI the keys.
+**Emphasis**: Medium-High (the vibe coding stories raise this section's emotional impact — the trust beats now land with evidence, not just assertion)
+**Speaker notes**: The copy-paste trap makes the invisible visible. Trust rules set the principle. Then the two stories land the consequence. Replit is visceral — the AI confessing in its own words. Tea App is compliance — lawsuit, leaked IDs, data on 4chan. Presenter can pick one or run both depending on audience (Replit works for everyone; Tea App lands harder with anyone in a regulated industry). "The 'S' in vibe coding stands for security" is the kicker line.
 **Transition**: "You're managing AI well. Time to orchestrate it."
 
 ---
@@ -150,6 +154,10 @@
 | 17 | Prompt Engineering Best Practices - Anthropic/Claude | https://claude.com/blog/best-practices-for-prompt-engineering | Strategist |
 | 18 | Context Engineering: Improving AI by Moving Beyond the Prompt - CIO | https://www.cio.com/article/4080592/context-engineering-improving-ai-by-moving-beyond-the-prompt.html | Strategist |
 | 19 | Context Engineering Complete Guide - CodeConductor | https://codeconductor.ai/blog/context-engineering/ | Strategist |
+| 20 | AI-powered coding tool wiped out a database in 'catastrophic failure' - Fortune | https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/ | Operator (Trust) |
+| 21 | Vibe coding service Replit deleted production database - The Register | https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/ | Operator (Trust) |
+| 22 | Tea App Data Breach Exposes Legacy User Verification Photos - Exterro | https://www.exterro.com/resources/data-privacy-alerts/data-privacy-alert-tea-app-data-breach-exposes-legacy-user-verification-photos-and-private-messages | Operator (Trust) |
+| 23 | When the Vibes Are Off: The Security Risks of AI-Generated Code - Lawfare | https://www.lawfaremedia.org/article/when-the-vibe-are-off--the-security-risks-of-ai-generated-code | Operator (Trust) |
 
 ## Design Notes
 - **Billboard design**: Already established — 3-second test, 15 words max, 28pt+ font, 50%+ whitespace

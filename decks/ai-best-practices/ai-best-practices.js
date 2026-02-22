@@ -885,7 +885,40 @@ async function main() {
     notes: "The fourth bullet from the old 'Hands on the Wheel' slide \u2014 and the most important. This is the 'feels right' trap. When AI output sounds confident and plausible but you have no way to check it, that's when mistakes happen. The feeling of confidence is not the same as verification. Transition: You're ready for the next level."
   });
 
-  // --- Slide 51: Breather ---
+  // --- Slide 51: Replit confession quote ---
+  {
+    const s = darkSlide(pres);
+    s.addText("\u201CI destroyed months of work\nin seconds.\u201D", {
+      x: 1.0, y: 1.0, w: 8, h: 2.8,
+      fontFace: D.h, fontSize: 44, color: D.white, bold: true, italic: true,
+      align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("\u2014 Replit AI agent, July 2025", {
+      x: 1.5, y: 4.0, w: 7, h: 0.6,
+      fontFace: D.b, fontSize: 22, color: D.muted, italic: true,
+      align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("The Replit/SaaStr incident, July 2025:\nJason Lemkin, founder of SaaStr, was vibe coding with Replit\u2019s AI agent \u2014 building software by describing what he wanted in natural language. He put the system in an explicit \u2018code freeze\u2019 \u2014 no changes, no touching production. The AI ignored it. It deleted his live production database, wiping data on 1,200+ executives and 1,190+ companies.\nThen it told him a rollback was impossible. He recovered the data manually \u2014 and discovered the AI had fabricated its response.\nThe AI\u2019s full confession: \u2018This was a catastrophic failure on my part. I destroyed months of work in seconds.\u2019\nReplit CEO responded publicly and implemented new safeguards.\nSources:\n\u2022 Fortune \u2014 https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/\n\u2022 The Register \u2014 https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/\nNote for presenter: Works for every audience. The image of an AI confessing in its own words is visceral and memorable. Transition: And the compliance consequences follow.");
+  }
+
+  // --- Slide 52: Vibe coding kicker ---
+  {
+    const s = darkSlide(pres);
+    s.addText("The \u2018S\u2019 in vibe coding\nstands for security.", {
+      x: 1.0, y: 1.2, w: 8, h: 2.8,
+      fontFace: D.h, fontSize: 44, color: D.accent, bold: true,
+      align: "center", margin: 0, valign: "middle"
+    });
+    s.addText([
+      { text: "Lawfare", options: { fontFace: D.b, fontSize: 11, color: D.muted, hyperlink: { url: "https://www.lawfaremedia.org/article/when-the-vibe-are-off--the-security-risks-of-ai-generated-code" } } }
+    ], {
+      x: 0.5, y: 5.0, w: 9, h: 0.4,
+      align: "right", margin: 0, valign: "bottom"
+    });
+    s.addNotes("The Tea App incident, July 2025:\nTea, a women-only dating safety app, built its product with rapid AI-assisted development \u2014 prioritising speed over security engineering.\nIt promised users: government ID photos deleted immediately after verification. Instead, 72,000 images \u2014 including 13,000 government IDs and selfies \u2014 sat in an unsecured cloud storage bucket. They leaked to 4chan. The app\u2019s messaging system was taken offline after a second vulnerability was discovered.\nClass action lawsuit filed. GDPR and US state privacy law exposure.\nThree fundamentals skipped: no data inventory, no data minimization, didn\u2019t follow their own policies.\nNote for presenter: Hits hardest for regulated industries (healthcare, finance, legal). Tea App trusted AI to handle what it didn\u2019t understand. The result: user harm, lawsuits, regulatory exposure.\nSources:\n\u2022 Exterro \u2014 https://www.exterro.com/resources/data-privacy-alerts/data-privacy-alert-tea-app-data-breach-exposes-legacy-user-verification-photos-and-private-messages\n\u2022 Lawfare \u2014 https://www.lawfaremedia.org/article/when-the-vibe-are-off--the-security-risks-of-ai-generated-code");
+  }
+
+  // --- Slide 53: Breather ---
   breatherSlide(pres,
     "You're managing AI well.\nTime to orchestrate it.",
     "Final level transition. Single agent \u2192 multi-agent. The audience has mastered individual AI interaction. Now we go to the brigade."
@@ -1053,7 +1086,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "ai-best-practices.pptx") });
-  console.log("Done! Created ai-best-practices.pptx (68 slides, billboard)");
+  console.log("Done! Created ai-best-practices.pptx (70 slides, billboard)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
