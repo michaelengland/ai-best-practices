@@ -122,7 +122,7 @@ async function main() {
   });
 
   // --- Slide 4: The Stats ---
-  bigNum(pres, "1 billion+", "use AI tools monthly. Less than 2% use them well.", {
+  bigNum(pres, "1 billion+", "use AI tools monthly. Fewer than 2% pay for premium.", {
     source: [
       { text: "DataReportal 2026", url: "https://datareportal.com/reports/digital-2026-one-billion-people-using-ai" },
       { text: "Reuters", url: "https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/" }
@@ -131,7 +131,7 @@ async function main() {
   });
 
   // --- Slide 5: The Twist ---
-  bigNum(pres, "19%\nlonger", "when you rely on AI without understanding it", {
+  bigNum(pres, "19%\nlonger", "when developers rely on AI without understanding it", {
     color: D.wrong, numSize: 80,
     source: [{ text: "Addy Osmani", url: "https://addyo.substack.com/p/the-reality-of-ai-assisted-software" }],
     notes: "Source: Addy Osmani — https://addyo.substack.com/p/the-reality-of-ai-assisted-software\nKey contrast: perceived 20% faster vs actual 19% slower after debugging. Gap = active harm, not just missed potential. ~15 seconds."

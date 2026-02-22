@@ -151,8 +151,23 @@ async function main() {
   // ============================================================
 
   hero(pres, "An agent is only as useful\nas what it can reach.", {
-    notes: "Set up the connections concept. Each connection = new capability."
+    notes: "Set up the connections concept. Next slide shows what's possible."
   });
+
+  {
+    const s = darkSlide(pres);
+    const connections = ["Web", "Email", "Calendar", "Docs", "Data", "Custom"];
+    const boxW = 1.3, boxH = 0.7, gap = 0.12;
+    const totalW = connections.length * boxW + (connections.length - 1) * gap;
+    const startX = (10 - totalW) / 2;
+    connections.forEach((label, i) => {
+      const x = startX + i * (boxW + gap);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 2.0, w: boxW, h: boxH, rectRadius: 0.08, fill: { color: D.accent, transparency: 50 }, line: { color: D.accent, width: 1.5 } });
+      s.addText(label, { x, y: 2.0, w: boxW, h: boxH, fontFace: D.b, fontSize: 18, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+    });
+    s.addText("Each connection = a new capability.", { x: 1.5, y: 3.0, w: 7, h: 0.8, fontFace: D.h, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "top" });
+    s.addNotes("Six connection types — name each briefly:\n• Web — Search and fact-check in real time\n• Email — Read context, draft responses\n• Calendar — Scheduling context\n• Docs — Policies, templates, past work\n• Data — Query databases\n• Custom — Via MCP ('USB-C for AI') — any tool you can imagine\nDon't dwell on MCP. Key point: not just web search — agents can reach your whole work environment.");
+  }
 
   exerciseSlide(pres,
     "Give the agent a research task:",
@@ -205,7 +220,7 @@ async function main() {
 
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "workshop-operator.pptx") });
-  console.log("Done! Created workshop-operator.pptx (20 slides)");
+  console.log("Done! Created workshop-operator.pptx (19 slides)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
