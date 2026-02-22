@@ -140,7 +140,19 @@ async function main() {
   // MEET YOUR AI COLLEAGUE
   // ============================================================
 
-  // --- Slide 8: Dory ---
+  // --- Slide 8: Meet your AI colleague ---
+  {
+    const s = darkSlide(pres);
+    const doryPath = require("path").join(__dirname, "../ai-best-practices/assets/Gemini_Generated_Image_21aveo21aveo21av.png");
+    s.addImage({ path: doryPath, x: 0.3, y: 0.5, w: 4.2, h: 4.2 });
+    s.addText("Meet your\nAI colleague.", {
+      x: 5.0, y: 1.5, w: 4.5, h: 2.5,
+      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "left", margin: 0, valign: "middle"
+    });
+    s.addNotes("Set the tone before the punchline. Dory = brilliant, helpful, forgets everything between conversations.");
+  }
+
+  // --- Slide 9: Dory ---
   hero(pres, "Brilliant. Helpful.\nRemembers nothing.", {
     size: 60,
     notes: "AI colleague metaphor. Every conversation starts fresh — no memory. Must provide context each time."
@@ -263,7 +275,7 @@ async function main() {
 
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "workshop-strategist.pptx") });
-  console.log("Done! Created workshop-strategist.pptx (22 slides)");
+  console.log("Done! Created workshop-strategist.pptx (23 slides)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
