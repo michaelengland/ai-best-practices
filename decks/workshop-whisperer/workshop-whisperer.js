@@ -123,7 +123,7 @@ async function main() {
       x: 1.5, y: 3.5, w: 7, h: 0.6,
       fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
     });
-    s.addNotes("Welcome. This is Session 1 of the AI Academy.");
+    s.addNotes("Session 1 of AI Academy.");
   }
 
   // --- Slide 2: Spectrum ---
@@ -132,14 +132,14 @@ async function main() {
   // --- Slide 3: Level set ---
   hero(pres, "You’ve tried AI.\nToday you learn to\ntalk to it properly.", {
     size: 40,
-    notes: "Quick framing. They’re Explorers — they’ve used ChatGPT. But they type vague prompts and get mediocre results. Today that changes."
+    notes: "Quick framing. Audience = Explorers. Used ChatGPT, vague prompts, mediocre results."
   });
 
   // --- Slide 4: The stack in one sentence ---
   hero(pres, "You use apps.\nApps use agents.\nAgents talk to LLMs.", {
     font: D.b, size: 28,
     sub: "You only need to care about the first two.",
-    notes: "Minimal level set — borrowed from main deck. Don’t dwell. The audience needs this context but not a deep dive. ~30 seconds."
+    notes: "Minimal level set from main deck. Don’t dwell. ~30 seconds."
   });
 
   // ============================================================
@@ -200,7 +200,7 @@ async function main() {
     subtitle: "vs. the vague ask",
     wrongText: "Write me a proposal for\nimproving our onboarding process.",
     rightText: "Write a proposal for reducing\nonboarding from 4 to 2 weeks,\nfor the VP of People, under 2 pages.",
-    notes: "Specificity in = specificity out. We didn’t give new information — we described what we actually wanted."
+    notes: "Specificity in = specificity out. No new info — just described actual requirements."
   });
 
   // --- Slide 11: Exercise ---
@@ -240,7 +240,7 @@ async function main() {
     subtitle: "vs. leading the witness",
     wrongText: "Don't you think reducing\nonboarding to 2 weeks\nwould be great?",
     rightText: "Be radically honest about challenges.\nThink step by step.\nChallenge my assumptions.",
-    notes: "These keywords change AI behavior more than you’d expect. A leading question produces sycophantic agreement. Permit uncertainty."
+    notes: "Keywords significantly change AI behavior. Leading questions → sycophantic agreement. Permit uncertainty."
   });
 
   // --- Slide 15: Exercise ---
@@ -260,7 +260,7 @@ async function main() {
     subtitle: "vs. hoping for the best",
     wrongText: "(No format guidance)\n→ Random format, 5-page essay\nwhen you needed bullets.",
     rightText: "One-page executive brief with\nbullet points. Data-driven language.\nReader has 2 minutes.",
-    notes: "You wouldn’t ask a designer for ‘something nice.’ Tell the AI what format, tone, length, and audience you need."
+    notes: "Specify format, tone, length, audience. Same principle as briefing a designer."
   });
 
   // --- Slide 17: Exercise ---
@@ -278,7 +278,7 @@ async function main() {
   exerciseSlide(pres,
     "Open your first output\nand your last output.",
     "Side by side. Same task.\nSame information. Just better words.",
-    "This is the emotional peak. Give them a full minute to compare. The transformation is visceral because they did it themselves."
+    "Emotional peak. Full minute to compare. Transformation is visceral — self-driven."
   );
 
   // --- Slide 19: The beat ---
@@ -299,7 +299,7 @@ async function main() {
   // --- Slide 21: Cliffhanger ---
   hero(pres, "But we never changed\nwhat the AI knew.", {
     color: D.accent,
-    notes: "The cliffhanger — borrowed from the main deck. Every iteration changed the words, but the AI had zero context about their company, team, or situation. Next session fixes that."
+    notes: "Cliffhanger from main deck. All iterations changed words, not context. Next session fixes this."
   });
 
   // --- Slide 22: Next time ---

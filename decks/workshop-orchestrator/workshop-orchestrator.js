@@ -100,14 +100,14 @@ async function main() {
     const s = darkSlide(pres);
     s.addText("Operator → Orchestrator", { x: 1.0, y: 0.8, w: 8, h: 2.5, fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
     s.addText("Coordinate AI teams", { x: 1.5, y: 3.5, w: 7, h: 0.6, fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0 });
-    s.addNotes("Welcome to Session 4 — the final session of the AI Academy. Requires Claude Code.");
+    s.addNotes("Session 4 — final AI Academy session. Requires Claude Code.");
   }
 
   spectrumSlide(pres, 4, 5, "Operator → Orchestrator. Last time, one agent. Today: a team.");
 
   hero(pres, "Last time: one agent\ndoing everything.\nToday: a team.", {
     size: 40,
-    notes: "Recap of Workshop 3. They can set up and run a single agent. But complex work has multiple steps, and one agent trying to do everything will lose focus."
+    notes: "Recap W3. Single agent works but loses focus on multi-step tasks."
   });
 
   // ============================================================

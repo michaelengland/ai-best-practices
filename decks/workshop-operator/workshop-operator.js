@@ -79,15 +79,15 @@ async function main() {
     const s = darkSlide(pres);
     s.addText("Strategist → Operator", { x: 1.0, y: 0.8, w: 8, h: 2.5, fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
     s.addText("Let AI work for you", { x: 1.5, y: 3.5, w: 7, h: 0.6, fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0 });
-    s.addNotes("Welcome to Session 3 of the AI Academy. This session requires Claude Code or equivalent agentic tool.");
+    s.addNotes("Session 3. Requires Claude Code or equivalent agentic tool.");
   }
 
-  spectrumSlide(pres, 3, 4, "Strategist → Operator. You talk to AI well and you’ve set up its playbook. Today the AI does the work.");
+  spectrumSlide(pres, 3, 4, "Strategist → Operator. AI talks and playbook done. Today: AI does the work.");
 
   hero(pres, "You talk to AI like a pro.\nYou’ve set up its playbook.\nBut who’s doing all the work?", {
     size: 36,
     sub: "Still you.",
-    notes: "Callback to Workshop 2’s cliffhanger. They’re still the bottleneck — copy-pasting, searching, assembling. Today that changes."
+    notes: "Callback to W2 cliffhanger. Audience still bottleneck: copy-paste, search, assemble."
   });
 
   // ============================================================
@@ -100,7 +100,7 @@ async function main() {
     steps.forEach((step, i) => {
       s.addText(step, { x: 2.0, y: 1.0 + i * 0.9, w: 6, h: 0.8, fontFace: D.b, fontSize: 28, color: D.text, bold: true, margin: 0, valign: "middle" });
     });
-    s.addNotes("The copy-paste cycle. Every step has ‘you’ in it. You’re the bottleneck at every point.");
+    s.addNotes("Copy-paste cycle. Every step has ‘you’ — human is bottleneck at each point.");
   }
 
   hero(pres, "You’re using a Ferrari\nto carry groceries.", {
@@ -122,7 +122,7 @@ async function main() {
     steps.forEach((step, i) => {
       s.addText(step.text, { x: 2.0, y: 1.0 + i * 0.9, w: 6, h: 0.8, fontFace: D.b, fontSize: 28, color: step.color, bold: true, margin: 0, valign: "middle" });
     });
-    s.addNotes("Same four steps. You only appear at step 4. The agent retrieves, identifies gaps, creates. You review.");
+    s.addNotes("Same four steps. Human only at step 4 (review). Agent handles retrieve, identify, create.");
   }
 
   hero(pres, "Same colleague.\nNow she has hands.", {
@@ -162,7 +162,7 @@ async function main() {
 
   hero(pres, "It found something\nyou wouldn’t have\nthought to provide.", {
     size: 40,
-    notes: "The reveal. The agent didn’t just do what you asked — it found context you wouldn’t have thought to include."
+    notes: "The reveal. Agent found context beyond the explicit request."
   });
 
   // ============================================================
@@ -171,17 +171,17 @@ async function main() {
 
   hero(pres, "Trust, but verify.", {
     size: 60,
-    notes: "You just handed AI the keys. How do you know it’s right?"
+    notes: "Transition to trust. AI has the keys — how to verify?"
   });
 
   exerciseSlide(pres,
     "Pick one claim from\nthe agent’s output.\nVerify it manually.",
     "Is it accurate? Did anything\n‘feel right’ but turn out wrong?",
-    "Give 3-4 minutes. Group discussion: ‘Was it accurate? When do you trust, when do you verify?’ The ‘feels right’ moment is the most dangerous."
+    "3-4 min. Group discussion: accuracy, trust vs verify. ‘Feels right’ = most dangerous moment."
   );
 
   hero(pres, "AI is a power tool,\nnot autopilot.", {
-    notes: "The mindset. You review. You judge. You approve. The agent does the grunt work."
+    notes: "Core mindset: human reviews, judges, approves. Agent does grunt work."
   });
 
   // ============================================================

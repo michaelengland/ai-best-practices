@@ -95,16 +95,16 @@ async function main() {
     const s = darkSlide(pres);
     s.addText("Whisperer → Strategist", { x: 1.0, y: 0.8, w: 8, h: 2.5, fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
     s.addText("Make AI remember what you need", { x: 1.5, y: 3.5, w: 7, h: 0.6, fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0 });
-    s.addNotes("Welcome to Session 2 of the AI Academy.");
+    s.addNotes("Session 2 of AI Academy.");
   }
 
   // --- Slide 2: Spectrum ---
-  spectrumSlide(pres, 2, 3, "Whisperer → Strategist. Last time you learned to talk to AI. Today you make it remember.");
+  spectrumSlide(pres, 2, 3, "Whisperer → Strategist. Previously: talking to AI. Today: making it remember.");
 
   // --- Slide 3: Recap ---
   hero(pres, "Last time you learned\nto talk to AI.\nToday you make it remember.", {
     size: 36,
-    notes: "Quick recap. They built a great prompt last session — role, specifics, structure, keywords, output format. But every new conversation, they type all of that again."
+    notes: "Quick recap. W1 output: role, specifics, structure, keywords, output format. Problem: re-typed every conversation."
   });
 
   // ============================================================
@@ -114,7 +114,7 @@ async function main() {
   // --- Slide 4: The cliffhanger callback ---
   hero(pres, "We never changed\nwhat the AI knew.", {
     color: D.accent,
-    notes: "Callback to the cliffhanger from Workshop 1. Every iteration changed the words. Now we change the information."
+    notes: "Callback to W1 cliffhanger. Previously changed words; now changing information."
   });
 
   // --- Slide 5: Teach ---
@@ -143,7 +143,7 @@ async function main() {
   // --- Slide 8: Dory ---
   hero(pres, "Brilliant. Helpful.\nRemembers nothing.", {
     size: 60,
-    notes: "The AI colleague metaphor. Every conversation starts fresh — no memory of previous interactions, your company, your role. This is why context matters: you have to provide it every single time."
+    notes: "AI colleague metaphor. Every conversation starts fresh — no memory. Must provide context each time."
   });
 
   // ============================================================
@@ -170,7 +170,7 @@ async function main() {
   // --- Slide 11: The problem ---
   hero(pres, "You just pasted all that\ncontext manually.", {
     sub: "Next conversation? You’ll do it all again.",
-    notes: "The natural question: ‘Do I have to do this every time?’ The answer is no — skills fix this."
+    notes: "Anticipate audience question: ‘Every time?’ Answer: no — skills fix this."
   });
 
   // --- Slide 12: What if ---
@@ -195,14 +195,14 @@ async function main() {
   // --- Slide 14: How to ---
   hero(pres, "ChatGPT Settings\n→ Personalization\n→ Custom Instructions", {
     font: D.b, size: 28,
-    notes: "Walk through where to find Custom Instructions. Screen-share this. Wait for everyone to find it. This is the critical setup moment — if people can’t find the setting, the exercise fails."
+    notes: "Walk through Custom Instructions location. Screen-share. Wait for everyone. Critical setup — exercise depends on this."
   });
 
   // --- Slide 15: Exercise ---
   exerciseSlide(pres,
     "Set up your first\ncustom instruction.",
     "\"I work at [company]. My role is [role].\nWhen writing proposals, use [format].\nTone: [style]. Be radically honest.\"",
-    "Give 4-5 minutes. Walk around and help. This is the linchpin exercise — if it works, the whole session clicks."
+    "4-5 minutes. Walk around, help. Linchpin exercise — session depends on this working."
   );
 
   // --- Slide 16: Test it ---
@@ -214,7 +214,7 @@ async function main() {
 
   // --- Slide 17: The aha ---
   hero(pres, "You typed one sentence.\nIt already knew the rest.", {
-    notes: "Let this land. They just experienced the skill working. The custom instruction handled everything they used to type manually."
+    notes: "Let this land. Skill working = custom instruction handles all manual typing."
   });
 
   // ============================================================
@@ -236,7 +236,7 @@ async function main() {
   // --- Slide 19: Many names ---
   hero(pres, "\"Custom instructions\"\n= \"System prompts\"\n= \"Rules\"\n= \"Skills\"", {
     size: 36, font: D.b,
-    notes: "Same concept, many names across tools. If your tool has a way to save reusable instructions, use it. That’s a skill."
+    notes: "Same concept, many names across tools. Any saved reusable instructions = a skill."
   });
 
   // ============================================================
@@ -252,7 +252,7 @@ async function main() {
   // --- Slide 21: Cliffhanger ---
   hero(pres, "But who’s doing\nall the work?\nStill you.", {
     size: 40, color: D.accent,
-    notes: "The cliffhanger for next session. They prompt well, they’ve set up skills, but they’re still copy-pasting, searching, doing the grunt work. Next time, the agent does that."
+    notes: "Cliffhanger. Prompt + skills in place, but still manual grunt work. Next session: agent handles that."
   });
 
   // --- Slide 22: Next time ---

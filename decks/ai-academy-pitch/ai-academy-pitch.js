@@ -134,12 +134,12 @@ async function main() {
   bigNum(pres, "19%\nlonger", "when you rely on AI without understanding it", {
     color: D.wrong, numSize: 80,
     source: [{ text: "Addy Osmani", url: "https://addyo.substack.com/p/the-reality-of-ai-assisted-software" }],
-    notes: "Source: Addy Osmani — https://addyo.substack.com/p/the-reality-of-ai-assisted-software\nDevelopers who felt 20% faster actually took 19% longer once debugging was included. The gap isn\u2019t just unused potential \u2014 it\u2019s active harm. ~15 seconds."
+    notes: "Source: Addy Osmani — https://addyo.substack.com/p/the-reality-of-ai-assisted-software\nKey contrast: perceived 20% faster vs actual 19% slower after debugging. Gap = active harm, not just missed potential. ~15 seconds."
   });
 
   // --- Slide 6: The Gap ---
   hero(pres, "The gap between using AI\nand using AI well\nis massive.", {
-    notes: "Let this land. The audience should be thinking 'that\u2019s us.' ~10 seconds."
+    notes: "Let it land. Goal: self-identification. ~10 seconds."
   });
 
   // --- Slide 7: The Spectrum ---
@@ -180,7 +180,7 @@ async function main() {
       x: 5.0, y: 2.7, w: 4.5, h: 0.8,
       fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("Self-identification moment. Let people find themselves. ~20 seconds.");
+    s.addNotes("Self-identification moment. Pause for audience to locate themselves on spectrum. ~20 seconds.");
   }
 
   // --- Slide 8: The Academy ---
@@ -213,13 +213,13 @@ async function main() {
         fontFace: D.h, fontSize: 24, color: D.white, bold: true, margin: 0, valign: "top"
       });
     });
-    s.addNotes("Walk through each briefly. Each one-liner should create curiosity. ~30 seconds.");
+    s.addNotes("Brief walkthrough of each session. One-liners = curiosity hooks. ~30 seconds.");
   }
 
   // --- Slide 10: CTA ---
   hero(pres, "First session: [date]", {
     sub: "Bring your laptop and a task you do every week.",
-    notes: "Specific, low-commitment ask. 'Not a task you want to learn \u2014 a task you already do. You\u2019ll transform it live.' ~15 seconds."
+    notes: "Specific, low-commitment ask. Emphasis: existing weekly task, not new skill. Live transformation in session. ~15 seconds."
   });
 
   // ============================================================
