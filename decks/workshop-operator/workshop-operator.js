@@ -79,7 +79,7 @@ async function main() {
     const s = darkSlide(pres);
     s.addText("Strategist → Operator", { x: 1.0, y: 0.8, w: 8, h: 2.5, fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
     s.addText("Let AI work for you", { x: 1.5, y: 3.5, w: 7, h: 0.6, fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0 });
-    s.addNotes("Session 3. Requires Claude Code or equivalent agentic tool.");
+    s.addNotes("Session 3. Uses ChatGPT Org — everyone already has this.\n\nFACILITATOR PRE-REQ: Apps (connectors) are disabled by default in ChatGPT Enterprise. Before this session, an admin must go to Workspace Settings → Apps and enable the relevant apps (e.g. Gmail, Google Drive, Google Chat). Test them before the session. Exercise 2 will fail silently if this isn't done.");
   }
 
   spectrumSlide(pres, 3, 4, "Strategist → Operator. AI talks and playbook done. Today: AI does the work.");
@@ -135,15 +135,15 @@ async function main() {
   // ============================================================
 
   exerciseSlide(pres,
-    "Open Claude Code\n(or your agentic tool).",
-    "We’re going to give the agent\na task with a file to read.",
-    "Give 1-2 minutes for setup. Have a sample document ready (policy doc, data file, or memo). Attendees can also use their own files."
+    "Open ChatGPT.",
+    "Upload a file using the paperclip icon\nor drag and drop.\nWe’re going to give it a task.",
+    "Everyone has ChatGPT Org — no setup needed. Note: ChatGPT Org doesn’t use your conversations for training, so company documents are safe to upload. Have a sample document ready (policy doc, data file, or memo). Attendees can also use their own files."
   );
 
   exerciseSlide(pres,
-    "Give the agent a task:",
-    "\"Read [this document] and write\na one-paragraph summary\nfor a non-technical audience.\"",
-    "Give 3-4 minutes. The agent reads the file, processes it, produces output. No copy-paste. Ask: ‘How long would that have taken you manually?’"
+    "Give ChatGPT a task:",
+    "\"Read the document I’ve uploaded and write\na one-paragraph summary\nfor a non-technical audience.\"",
+    "Give 3-4 minutes. ChatGPT reads the file, processes it, produces output — no copy-paste from the attendee. Ask: ‘How long would that have taken you manually?’"
   );
 
   // ============================================================
@@ -156,7 +156,7 @@ async function main() {
 
   {
     const s = darkSlide(pres);
-    const connections = ["Web", "Email", "Calendar", "Docs", "Data", "Custom"];
+    const connections = ["Email", "Calendar", "Files", "Chat", "Web", "Custom"];
     const boxW = 1.3, boxH = 0.7, gap = 0.12;
     const totalW = connections.length * boxW + (connections.length - 1) * gap;
     const startX = (10 - totalW) / 2;
@@ -166,18 +166,18 @@ async function main() {
       s.addText(label, { x, y: 2.0, w: boxW, h: boxH, fontFace: D.b, fontSize: 18, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
     });
     s.addText("Each connection = a new capability.", { x: 1.5, y: 3.0, w: 7, h: 0.8, fontFace: D.h, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "top" });
-    s.addNotes("Six connection types — name each briefly:\n• Web — Search and fact-check in real time\n• Email — Read context, draft responses\n• Calendar — Scheduling context\n• Docs — Policies, templates, past work\n• Data — Query databases\n• Custom — Via MCP ('USB-C for AI') — any tool you can imagine\nDon't dwell on MCP. Key point: not just web search — agents can reach your whole work environment.");
+    s.addNotes("Six app categories — name each with a real example from their world:\n• Email — Gmail: read threads, draft replies, surface action items\n• Calendar — Google Calendar: check availability, prep for meetings\n• Files — Google Drive: pull documents without searching\n• Chat — Google Chat, Slack: find decisions buried in channels\n• Web — live search and fact-checking across the internet\n• Custom — any internal tool or API via MCP\n\nKey point: these are apps already available in ChatGPT Org — the agent can reach into the systems they use every day. Not just the chat box.");
   }
 
   exerciseSlide(pres,
-    "Give the agent a research task:",
-    "\"Research [topic] and summarize\nthe top 3 findings with sources.\"",
-    "Give 4-5 minutes. The agent searches the web, reads results, synthesizes. Watch for: did it find something you didn’t think to look for?"
+    "Switch to agent mode.\nThen try this:",
+    "\"@Gmail Summarise my last 5 unread emails\nand flag anything that needs\na response today.\"",
+    "PRE-REQ: Gmail must be enabled in Workspace Settings → Apps before this session.\n\nTo switch to agent mode: click the tools menu and select ‘Agent’, or type /agent in the composer.\n\nGive 4-5 minutes. The agent connects to their inbox, reads threads, and surfaces action items — they didn’t paste anything. Ask: ‘How long does this normally take you on a Monday morning?’"
   );
 
-  hero(pres, "It found something\nyou wouldn’t have\nthought to provide.", {
+  hero(pres, "You didn’t search.\nYou didn’t paste.\nYou just asked.", {
     size: 40,
-    notes: "The reveal. Agent found context beyond the explicit request."
+    notes: "The reveal. They gave the agent access to their inbox and it did the work — no copy-paste, no manual triage. That’s the shift: from doing to directing."
   });
 
   // ============================================================
@@ -208,9 +208,9 @@ async function main() {
     notes: "Celebrate the crossing."
   });
 
-  hero(pres, "One agent doing one task\nis powerful.\nWhat if you had a whole team?", {
-    size: 36, color: D.accent,
-    notes: "The cliffhanger for Workshop 4."
+  hero(pres, "One agent doing one task\nis powerful.\nWhat if you had a whole team —\neach one specialised?", {
+    size: 32, color: D.accent,
+    notes: "The cliffhanger for Workshop 4. Plant 'specialised' — that's the Custom GPT concept they'll build next session."
   });
 
   breatherSlide(pres,

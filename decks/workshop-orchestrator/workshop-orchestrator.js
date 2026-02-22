@@ -100,7 +100,7 @@ async function main() {
     const s = darkSlide(pres);
     s.addText("Operator → Orchestrator", { x: 1.0, y: 0.8, w: 8, h: 2.5, fontFace: D.h, fontSize: 54, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
     s.addText("Coordinate AI teams", { x: 1.5, y: 3.5, w: 7, h: 0.6, fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0 });
-    s.addNotes("Session 4 — final AI Academy session. Requires Claude Code.");
+    s.addNotes("Session 4 — final AI Academy session. Uses ChatGPT Org — everyone already has this.\n\nFACILITATOR PRE-REQ: Before this session, create and publish three Custom GPTs to the workspace:\n\n• Research Agent — system prompt: 'You are a research analyst. Your only job is to gather and organise information. Always structure output as: Key Finding | Source | Confidence Level. Use web search. Do not draft or synthesise beyond summarising what you find.'\n\n• Draft Agent — system prompt: 'You are a senior writer. You receive structured research briefs — not raw sources. Turn them into polished proposals. Never go back to source material — work only from what you are given.'\n\n• Review Agent — system prompt: 'You are a critical editor. You receive drafts and the original brief. Flag gaps, unsupported claims, and anything that does not answer the brief. Use a checklist format: ✓ for what works, ✗ for what needs fixing, with a one-line reason for each.'\n\nPublish all three to the workspace so they appear in attendees' ChatGPT sidebar before the session starts.");
   }
 
   spectrumSlide(pres, 4, 5, "Operator → Orchestrator. Last time, one agent. Today: a team.");
@@ -174,7 +174,7 @@ async function main() {
   hero(pres, "DEMO", {
     size: 72, color: D.accent,
     sub: "Watch a 3-phase chain run live.",
-    notes: "Facilitator runs a 3-phase chain in Claude Code:\n\u2022 Agent 1 (Research): reads source materials, produces structured brief\n\u2022 Agent 2 (Draft): uses only the brief to write the proposal\n\u2022 Agent 3 (Review): checks against requirements, flags gaps\nNarrate each step. ~8 minutes."
+    notes: "Facilitator runs a 3-phase chain live using the pre-built Custom GPTs:\n\u2022 Open Research Agent (Custom GPT) → give it the task → show the structured Key Finding | Source | Confidence output\n\u2022 Open Draft Agent (Custom GPT) → paste the research brief → show the polished proposal\n\u2022 Open Review Agent (Custom GPT) → paste the draft + original brief → show the critique checklist\n\nNarrate each step: 'Watch — Draft Agent never saw the original documents. It only got the brief. That is filtered context. Each agent stays focused.'\n\nShow the final output. Compare to what a single ChatGPT conversation would have produced. ~8 minutes."
   });
 
   // ============================================================
@@ -182,9 +182,9 @@ async function main() {
   // ============================================================
 
   exerciseSlide(pres,
-    "Build a 2-phase chain.",
-    "Phase 1: Research / gather / summarize.\nSave the output.\nPhase 2: Feed Phase 1’s output\nto a second agent to draft / create.",
-    "Give 10-12 minutes. They choose a task (from previous workshops or prescribed). Run Phase 1, save output, start new context for Phase 2 with the output. Compare to single-agent approach."
+    "Build a 2-phase chain\nusing the Custom GPTs.",
+    "Phase 1: Open Research Agent. Give it your task.\nCopy the output.\nPhase 2: Open Draft Agent. Paste Phase 1’s output.\nGive it the drafting task.",
+    "Give 10-12 minutes. Attendees choose their own task or use the running example. The Custom GPTs are already in their ChatGPT sidebar — no setup needed.\n\nAfter both phases: compare the result to giving one plain ChatGPT conversation the whole task at once. Discussion: where did the chain produce better results? Where did the handoff lose something?\n\nFallback if time is short: facilitator runs Phase 1 live and attendees all do Phase 2 individually."
   );
 
   // ============================================================
@@ -198,9 +198,9 @@ async function main() {
   });
 
   exerciseSlide(pres,
-    "Add a skill to one agent\nin your chain.",
-    "e.g. \"When researching, structure\noutput as: Key Finding, Source,\nConfidence Level.\"",
-    "Give 4-5 minutes. Re-run the chain. See the difference the skill makes at that station."
+    "Look inside the Research Agent.\nWhat would you change?",
+    "Click the agent name → View system prompt.\nBased on what you saw in the chain —\nwhat would you add, remove, or refine?",
+    "Give 4-5 minutes. Facilitator shows where to find the system prompt (click the Custom GPT name in the sidebar → configure). Take 2-3 suggestions from the group and discuss what difference each change would make.\n\nKey point: that system prompt is the skill. Editing it after this session means every future run of that agent gets better. The agent forgets — but the skill doesn't."
   );
 
   hero(pres, "Skills compound.\nThe brigade gets smarter\nevery time.", {
@@ -265,7 +265,7 @@ async function main() {
 
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "workshop-orchestrator.pptx") });
-  console.log("Done! Created workshop-orchestrator.pptx (24 slides)");
+  console.log("Done! Created workshop-orchestrator.pptx (20 slides)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
