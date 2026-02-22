@@ -1,4 +1,5 @@
 node_modules/
 decks/*/slides/
+decks/*/icons/
 ~$*
 .DS_Store

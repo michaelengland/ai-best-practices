@@ -5,7 +5,14 @@
 // Run: node workshop-operator.js
 
 const pptxgen = require("pptxgenjs");
+const React = require("react");
+const ReactDOMServer = require("react-dom/server");
+const sharp = require("sharp");
+const fs = require("fs");
 const path = require("path");
+const {
+  FaGlobe, FaEnvelope, FaFileAlt, FaCalendarAlt, FaComments, FaArrowRight
+} = require("react-icons/fa");
 
 const D = {
   bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
@@ -13,6 +20,17 @@ const D = {
   accent: "00B4D8", wrong: "E63946", wrongBg: "FEE2E2", right: "2D936C", rightBg: "DCFCE7",
   h: "Georgia", b: "Calibri",
 };
+
+const ICONS_DIR = path.join(__dirname, "icons");
+function svgMarkup(Icon, color, size = 256) {
+  return ReactDOMServer.renderToStaticMarkup(React.createElement(Icon, { color, size: String(size) }));
+}
+async function iconPath(name, Icon, color, size = 256) {
+  const filePath = path.join(ICONS_DIR, `${name}.png`);
+  const png = await sharp(Buffer.from(svgMarkup(Icon, color, size))).png().toBuffer();
+  fs.writeFileSync(filePath, png);
+  return filePath;
+}
 
 function darkSlide(pres) {
   const s = pres.addSlide();
@@ -65,6 +83,21 @@ function spectrumSlide(pres, highlightFrom, highlightTo, notes) {
 }
 
 async function main() {
+  console.log("Pre-rendering icons...");
+  fs.mkdirSync(ICONS_DIR, { recursive: true });
+  const icons = {};
+  const iconDefs = [
+    ["envelopeW", FaEnvelope, "#FFFFFF"],
+    ["calendarW", FaCalendarAlt, "#FFFFFF"],
+    ["fileW", FaFileAlt, "#FFFFFF"],
+    ["chatW", FaComments, "#FFFFFF"],
+    ["globeW", FaGlobe, "#FFFFFF"],
+    ["arrowW", FaArrowRight, "#FFFFFF"],
+  ];
+  for (const [name, Icon, color] of iconDefs) {
+    icons[name] = await iconPath(name, Icon, color);
+  }
+
   console.log("Creating presentation...");
   const pres = new pptxgen();
   pres.layout = "LAYOUT_16x9";
@@ -156,16 +189,23 @@ async function main() {
 
   {
     const s = darkSlide(pres);
-    const connections = ["Email", "Calendar", "Files", "Chat", "Web", "Custom"];
-    const boxW = 1.3, boxH = 0.7, gap = 0.12;
-    const totalW = connections.length * boxW + (connections.length - 1) * gap;
+    const connections = [
+      { icon: icons.envelopeW, label: "Email" },
+      { icon: icons.calendarW, label: "Calendar" },
+      { icon: icons.fileW, label: "Files" },
+      { icon: icons.chatW, label: "Chat" },
+      { icon: icons.globeW, label: "Web" },
+      { icon: icons.arrowW, label: "Custom" },
+    ];
+    const iconSize = 0.8;
+    const totalW = connections.length * 1.4 - 0.2;
     const startX = (10 - totalW) / 2;
-    connections.forEach((label, i) => {
-      const x = startX + i * (boxW + gap);
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 2.0, w: boxW, h: boxH, rectRadius: 0.08, fill: { color: D.accent, transparency: 50 }, line: { color: D.accent, width: 1.5 } });
-      s.addText(label, { x, y: 2.0, w: boxW, h: boxH, fontFace: D.b, fontSize: 18, color: D.white, bold: true, align: "center", margin: 0, valign: "middle" });
+    connections.forEach((c, i) => {
+      const x = startX + i * 1.4;
+      s.addImage({ path: c.icon, x: x + (1.2 - iconSize) / 2, y: 1.8, w: iconSize, h: iconSize });
+      s.addText(c.label, { x, y: 2.75, w: 1.2, h: 0.5, fontFace: D.b, fontSize: 18, color: D.muted, align: "center", margin: 0, valign: "top" });
     });
-    s.addText("Each connection = a new capability.", { x: 1.5, y: 3.0, w: 7, h: 0.8, fontFace: D.h, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "top" });
+    s.addText("Each connection = a new capability.", { x: 1.5, y: 3.4, w: 7, h: 0.8, fontFace: D.h, fontSize: 28, color: D.accent, align: "center", margin: 0, valign: "top" });
     s.addNotes("Six app categories — name each with a real example from their world:\n• Email — Gmail: read threads, draft replies, surface action items\n• Calendar — Google Calendar: check availability, prep for meetings\n• Files — Google Drive: pull documents without searching\n• Chat — Google Chat, Slack: find decisions buried in channels\n• Web — live search and fact-checking across the internet\n• Custom — any internal tool or API via MCP\n\nKey point: these are apps already available in ChatGPT Org — the agent can reach into the systems they use every day. Not just the chat box.");
   }
 
@@ -195,6 +235,21 @@ async function main() {
     "3-4 min. Group discussion: accuracy, trust vs verify. ‘Feels right’ = most dangerous moment."
   );
 
+  {
+    const s = darkSlide(pres);
+    s.addText("\u201CI destroyed months of work\nin seconds.\u201D", {
+      x: 1.0, y: 1.0, w: 8, h: 2.8,
+      fontFace: D.h, fontSize: 44, color: D.white, bold: true, italic: true,
+      align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("\u2014 Replit AI agent, July 2025", {
+      x: 1.5, y: 4.0, w: 7, h: 0.6,
+      fontFace: D.b, fontSize: 22, color: D.muted, italic: true,
+      align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Replit/SaaStr incident, July 2025:\nJason Lemkin used Replit's AI vibe coding agent with an explicit code freeze in place. The AI ignored it, deleted the live production database (1,200+ executives, 1,190+ companies wiped), then told him rollback was impossible. He recovered manually — but only by luck. These are the AI's own words from the incident log.\n\nSources:\n• Fortune — https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/\n• The Register — https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/\n\nFACILITATOR (regulated-industry audiences only):\nTea App — July 2025. Women's dating safety app promised government IDs deleted immediately after verification. 72,000 images including 13,000 IDs sat in an unsecured cloud bucket and leaked to 4chan. Class action filed. GDPR and state privacy law exposure. The code was AI-assisted; no one reviewed what data was actually being stored. Source: https://www.exterro.com/resources/data-privacy-alerts/data-privacy-alert-tea-app-data-breach-exposes-legacy-user-verification-photos-and-private-messages\n\nUse either or both depending on audience. Replit lands for everyone. Tea App hits harder for anyone in a regulated industry.");
+  }
+
   hero(pres, "AI is a power tool,\nnot autopilot.", {
     notes: "Core mindset: human reviews, judges, approves. Agent does grunt work."
   });
@@ -220,7 +275,7 @@ async function main() {
 
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "workshop-operator.pptx") });
-  console.log("Done! Created workshop-operator.pptx (19 slides)");
+  console.log("Done! Created workshop-operator.pptx (20 slides)");
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });
