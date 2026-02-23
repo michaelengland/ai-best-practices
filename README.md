@@ -34,14 +34,14 @@ Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator 
 
 ### Workshop Series
 
-Four hands-on sessions, ~45 minutes each. Run as brown bag lunches or team training.
+Four hands-on sessions, ~45 minutes each. Run as brown bag lunches or team training. All workshops use ChatGPT Org.
 
-| Workshop | Slides | You'll learn | You'll need |
-|----------|--------|--------------|-------------|
-| [Whisperer](decks/workshop-whisperer/workshop-whisperer.pptx) ([PDF](decks/workshop-whisperer/workshop-whisperer.pdf)) | 22 | How to talk to AI — 5 prompt engineering techniques | ChatGPT (free tier) |
-| [Strategist](decks/workshop-strategist/workshop-strategist.pptx) ([PDF](decks/workshop-strategist/workshop-strategist.pdf)) | 22 | What AI knows matters more than how you ask | ChatGPT (free tier) |
-| [Operator](decks/workshop-operator/workshop-operator.pptx) ([PDF](decks/workshop-operator/workshop-operator.pdf)) | 18 | Let agents do the work — and when to trust them | [Claude Code](https://claude.ai/claude-code) |
-| [Orchestrator](decks/workshop-orchestrator/workshop-orchestrator.pptx) ([PDF](decks/workshop-orchestrator/workshop-orchestrator.pdf)) | 20 | Chain focused agents together — skills that compound | [Claude Code](https://claude.ai/claude-code) |
+| Workshop | Slides | You'll learn |
+|----------|--------|--------------|
+| [Whisperer](decks/workshop-whisperer/workshop-whisperer.pptx) ([PDF](decks/workshop-whisperer/workshop-whisperer.pdf)) | 22 | How to talk to AI — 5 prompt engineering techniques |
+| [Strategist](decks/workshop-strategist/workshop-strategist.pptx) ([PDF](decks/workshop-strategist/workshop-strategist.pdf)) | 22 | What AI knows matters more than how you ask |
+| [Operator](decks/workshop-operator/workshop-operator.pptx) ([PDF](decks/workshop-operator/workshop-operator.pdf)) | 18 | Let agents do the work — and when to trust them |
+| [Orchestrator](decks/workshop-orchestrator/workshop-orchestrator.pptx) ([PDF](decks/workshop-orchestrator/workshop-orchestrator.pdf)) | 20 | Chain focused agents together — skills that compound |
 
 Need to sell the series first? The [AI Academy pitch deck](decks/ai-academy-pitch/ai-academy-pitch.pptx) ([PDF](decks/ai-academy-pitch/ai-academy-pitch.pdf)) is a 5-minute overview for leadership or attendees.
 
