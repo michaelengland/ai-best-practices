@@ -1,10 +1,10 @@
 # AI Best Practices
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Slides: 160](https://img.shields.io/badge/Slides-160-00B4D8.svg)](#the-decks)
-[![Decks: 6](https://img.shields.io/badge/Decks-6-00B4D8.svg)](#the-decks)
+[![Slides: 215](https://img.shields.io/badge/Slides-215-00B4D8.svg)](#the-decks)
+[![Decks: 7](https://img.shields.io/badge/Decks-7-00B4D8.svg)](#the-decks)
 
-Open-source AI training materials — from prompt engineering to agent orchestration. Everything you need to run an AI literacy program at your company: a self-paced reference deck, a 5-minute pitch deck, and 4 interactive workshop decks with hands-on exercises using ChatGPT and Claude Code.
+Open-source AI training materials — from prompt engineering to agent orchestration to production-grade AI development. Everything you need to run an AI literacy program at your company: a self-paced reference deck, an expert-level builder deck, a 5-minute pitch deck, and 4 interactive workshop decks with hands-on exercises using ChatGPT and Claude Code.
 
 ## Who is this for?
 
@@ -12,12 +12,14 @@ Open-source AI training materials — from prompt engineering to agent orchestra
 - **L&D / training teams** looking for ready-made AI workshop materials
 - **Individual learners** who want a structured path from AI beginner to advanced user
 - **Anyone** who uses ChatGPT but suspects they're not getting the most out of it
+- **Engineers** using or wanting to use Claude Code for production development
 
 ## The Decks
 
 | Deck | Slides | Duration | Purpose |
 |------|--------|----------|---------|
 | [Reference deck](decks/ai-best-practices/ai-best-practices.pptx) ([PDF](decks/ai-best-practices/ai-best-practices.pdf)) | 68 | Self-paced | The complete journey — Skeptic to Orchestrator |
+| [Builder deck](decks/builder/builder.pptx) ([PDF](decks/builder/builder.pdf)) | 55 | ~25 min | The expert playbook — shipping production systems with AI |
 | [AI Academy pitch](decks/ai-academy-pitch/ai-academy-pitch.pptx) ([PDF](decks/ai-academy-pitch/ai-academy-pitch.pdf)) | 10 | ~5 min | Sell the workshop series — get people excited to attend |
 | [Workshop: Whisperer](decks/workshop-whisperer/workshop-whisperer.pptx) ([PDF](decks/workshop-whisperer/workshop-whisperer.pdf)) | 22 | ~45 min | Prompt engineering — 5 hands-on rounds with ChatGPT |
 | [Workshop: Strategist](decks/workshop-strategist/workshop-strategist.pptx) ([PDF](decks/workshop-strategist/workshop-strategist.pdf)) | 22 | ~45 min | Context engineering + setting up your first custom instructions |
@@ -30,10 +32,10 @@ The decks follow a 7-persona AI adoption spectrum. Each workshop covers one cros
 
 ```
 Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator → Builder
-                      Session 1    Session 2    Session 3    Session 4    (horizon)
+                      Session 1    Session 2    Session 3    Session 4    Builder deck
 ```
 
-**Skeptic** — avoids AI. **Explorer** — has tried ChatGPT. **Whisperer** — prompts well. **Strategist** — curates what AI knows. **Operator** — lets agents work. **Orchestrator** — coordinates agent teams. **Builder** — creates tools (beyond these decks).
+**Skeptic** — avoids AI. **Explorer** — has tried ChatGPT. **Whisperer** — prompts well. **Strategist** — curates what AI knows. **Operator** — lets agents work. **Orchestrator** — coordinates agent teams. **Builder** — creates tools, ships production systems with AI (covered in the Builder deck).
 
 ## What's covered
 
@@ -44,6 +46,7 @@ Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator 
 - **Trust frameworks** — when to trust, when to verify, the "feels right" trap
 - **Multi-agent orchestration** — chaining focused agents with filtered context
 - **The kitchen brigade metaphor** — one chef vs. a team of specialists
+- **The Builder's playbook** — MCP servers, rules, skills, idempotent development, monorepo, compliance architecture
 
 ## Design philosophy
 
@@ -69,6 +72,7 @@ node decks/workshop-whisperer/workshop-whisperer.js
 node decks/workshop-strategist/workshop-strategist.js
 node decks/workshop-operator/workshop-operator.js
 node decks/workshop-orchestrator/workshop-orchestrator.js
+node decks/builder/builder.js
 ```
 
 Requires Node.js 18+. All decks are generated programmatically using [PptxGenJS](https://github.com/nickvdyck/PptxGenJS).
