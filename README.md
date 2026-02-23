@@ -79,7 +79,7 @@ Requires Node.js 18+. All decks are generated programmatically using [PptxGenJS]
 
 ## How this was built
 
-This entire suite — narratives, slide designs, and code — was created using [Claude Code](https://claude.ai/claude-code) with the [deckwright](https://github.com/michaelengland/claude-plugins) plugin for structured presentation development.
+This entire suite — narratives, slide designs, and code — was created using [Claude Code](https://claude.ai/claude-code) with the [deckwright](https://github.com/michaelengland/deckwright) plugin for structured presentation development.
 
 ## License
 
