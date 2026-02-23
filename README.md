@@ -15,11 +15,11 @@ Open-source presentation decks for learning and teaching AI — from your first 
 
 **Running AI training for your team?** Grab the [pitch deck](decks/ai-academy-pitch/ai-academy-pitch.pdf) to sell the series, then run the four workshops in order. Each is a ~45 min hands-on session.
 
-**Already shipping code with Claude Code?** The [Builder deck PDF](decks/builder/builder.pdf) is a practitioner's playbook for getting quality AND speed — how to set up your rules, skills, MCP servers, and development environment so AI agents produce production-grade output.
+**Already shipping code with Claude Code?** The [Builder deck PDF](decks/builder/builder.pdf) is a practitioner's playbook for getting quality AND speed — how to set up your AI development infrastructure so agents produce production-grade output.
 
 ## The Decks
 
-All decks follow a 7-level AI adoption spectrum. Pick the level that matches where you are:
+All decks follow a 7-level AI adoption spectrum. The reference deck and workshops are designed to be taken in order:
 
 ```
 Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator → Builder
@@ -51,7 +51,7 @@ Every slide passes the 3-second billboard test. Maximum 15 words on screen, 28pt
 
 ## How this was built
 
-This entire suite — narratives, content outlines, slide designs, and generation code — was built with [Claude Code](https://claude.ai/claude-code) using [deckwright](https://github.com/michaelengland/deckwright), a plugin I created for structured presentation development. The decks are generated programmatically, not designed manually.
+This entire suite — narratives, content outlines, slide designs, and generation code — was built with [Claude Code](https://claude.ai/claude-code) using [deckwright](https://github.com/michaelengland/deckwright) for structured presentation development. The decks are generated programmatically, not designed manually.
 
 ## Regenerating the decks
 
