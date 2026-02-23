@@ -3,66 +3,59 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Slides: 215](https://img.shields.io/badge/Slides-215-00B4D8.svg)](#the-decks)
 [![Decks: 7](https://img.shields.io/badge/Decks-7-00B4D8.svg)](#the-decks)
+[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-00B4D8.svg)](https://claude.ai/claude-code)
 
-Open-source AI training materials — from prompt engineering to agent orchestration to production-grade AI development. Everything you need to run an AI literacy program at your company: a self-paced reference deck, an expert-level builder deck, a 5-minute pitch deck, and 4 interactive workshop decks with hands-on exercises using ChatGPT and Claude Code.
+Open-source presentation decks for learning and teaching AI — from your first ChatGPT prompt to shipping production systems with AI coding agents.
 
-## Who is this for?
+![Slide preview](assets/slide-preview.jpg)
 
-- **Team leads** who want to upskill their team on AI
-- **L&D / training teams** looking for ready-made AI workshop materials
-- **Individual learners** who want a structured path from AI beginner to advanced user
-- **Anyone** who uses ChatGPT but suspects they're not getting the most out of it
-- **Engineers** using or wanting to use Claude Code for production development
+## Start here
+
+**Learning AI on your own?** Start with the [reference deck PDF](decks/ai-best-practices/ai-best-practices.pdf) — self-paced, covers everything from prompt engineering to multi-agent orchestration.
+
+**Running AI training for your team?** Grab the [pitch deck](decks/ai-academy-pitch/ai-academy-pitch.pdf) to sell the series, then run the four workshops in order. Each is a ~45 min hands-on session.
+
+**Already shipping code with Claude Code?** The [Builder deck PDF](decks/builder/builder.pdf) is a practitioner's playbook for getting quality AND speed — how to set up your rules, skills, MCP servers, and development environment so AI agents produce production-grade output.
 
 ## The Decks
 
-| Deck | Slides | Duration | Purpose |
-|------|--------|----------|---------|
-| [Reference deck](decks/ai-best-practices/ai-best-practices.pptx) ([PDF](decks/ai-best-practices/ai-best-practices.pdf)) | 68 | Self-paced | The complete journey — Skeptic to Orchestrator |
-| [Builder deck](decks/builder/builder.pptx) ([PDF](decks/builder/builder.pdf)) | 55 | ~25 min | The expert playbook — shipping production systems with AI |
-| [AI Academy pitch](decks/ai-academy-pitch/ai-academy-pitch.pptx) ([PDF](decks/ai-academy-pitch/ai-academy-pitch.pdf)) | 10 | ~5 min | Sell the workshop series — get people excited to attend |
-| [Workshop: Whisperer](decks/workshop-whisperer/workshop-whisperer.pptx) ([PDF](decks/workshop-whisperer/workshop-whisperer.pdf)) | 22 | ~45 min | Prompt engineering — 5 hands-on rounds with ChatGPT |
-| [Workshop: Strategist](decks/workshop-strategist/workshop-strategist.pptx) ([PDF](decks/workshop-strategist/workshop-strategist.pdf)) | 22 | ~45 min | Context engineering + setting up your first custom instructions |
-| [Workshop: Operator](decks/workshop-operator/workshop-operator.pptx) ([PDF](decks/workshop-operator/workshop-operator.pdf)) | 18 | ~45 min | AI agents, connections, and trust frameworks |
-| [Workshop: Orchestrator](decks/workshop-orchestrator/workshop-orchestrator.pptx) ([PDF](decks/workshop-orchestrator/workshop-orchestrator.pdf)) | 20 | ~45 min | Multi-agent chains with compounding skills |
-
-## The Persona Spectrum
-
-The decks follow a 7-persona AI adoption spectrum. Each workshop covers one crossing:
+All decks follow a 7-level AI adoption spectrum. Pick the level that matches where you are:
 
 ```
 Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator → Builder
-                      Session 1    Session 2    Session 3    Session 4    Builder deck
 ```
 
-**Skeptic** — avoids AI. **Explorer** — has tried ChatGPT. **Whisperer** — prompts well. **Strategist** — curates what AI knows. **Operator** — lets agents work. **Orchestrator** — coordinates agent teams. **Builder** — creates tools, ships production systems with AI (covered in the Builder deck).
+### Reference & Expert Decks
 
-## What's covered
+| Deck | Slides | What it covers |
+|------|--------|----------------|
+| [Reference deck](decks/ai-best-practices/ai-best-practices.pptx) ([PDF](decks/ai-best-practices/ai-best-practices.pdf)) | 68 | The full journey — prompt engineering, context engineering, agents, orchestration |
+| [Builder deck](decks/builder/builder.pptx) ([PDF](decks/builder/builder.pdf)) | 55 | The expert setup — quality AND speed with AI coding agents |
 
-- **Prompt engineering** — role assignment, specificity, structure, power keywords, output definition
-- **Context engineering** — what AI knows matters more than how you ask
-- **Skills / custom instructions** — persistent context that compounds over time
-- **AI agents** — letting AI retrieve its own context and do the work
-- **Trust frameworks** — when to trust, when to verify, the "feels right" trap
-- **Multi-agent orchestration** — chaining focused agents with filtered context
-- **The kitchen brigade metaphor** — one chef vs. a team of specialists
-- **The Builder's playbook** — MCP servers, rules, skills, idempotent development, monorepo, compliance architecture
+### Workshop Series
+
+Four hands-on sessions, ~45 minutes each. Run as brown bag lunches or team training.
+
+| Workshop | Slides | You'll learn | You'll need |
+|----------|--------|--------------|-------------|
+| [Whisperer](decks/workshop-whisperer/workshop-whisperer.pptx) ([PDF](decks/workshop-whisperer/workshop-whisperer.pdf)) | 22 | How to talk to AI — 5 prompt engineering techniques | ChatGPT (free tier) |
+| [Strategist](decks/workshop-strategist/workshop-strategist.pptx) ([PDF](decks/workshop-strategist/workshop-strategist.pdf)) | 22 | What AI knows matters more than how you ask | ChatGPT (free tier) |
+| [Operator](decks/workshop-operator/workshop-operator.pptx) ([PDF](decks/workshop-operator/workshop-operator.pdf)) | 18 | Let agents do the work — and when to trust them | [Claude Code](https://claude.ai/claude-code) |
+| [Orchestrator](decks/workshop-orchestrator/workshop-orchestrator.pptx) ([PDF](decks/workshop-orchestrator/workshop-orchestrator.pdf)) | 20 | Chain focused agents together — skills that compound | [Claude Code](https://claude.ai/claude-code) |
+
+Need to sell the series first? The [AI Academy pitch deck](decks/ai-academy-pitch/ai-academy-pitch.pptx) ([PDF](decks/ai-academy-pitch/ai-academy-pitch.pdf)) is a 5-minute overview for leadership or attendees.
 
 ## Design philosophy
 
-Every slide passes the 3-second billboard test. Maximum 15 words on screen, 28pt+ font, 50%+ whitespace. Detail lives in speaker notes. Workshop decks add "YOUR TURN" exercise slides for hands-on tasks.
+Every slide passes the 3-second billboard test. Maximum 15 words on screen, 28pt+ font, 50%+ whitespace. Detail lives in speaker notes. Inspired by Apple keynotes and TED talk guidelines.
 
-Inspired by Apple keynotes, TED talk guidelines, and the principle that if a slide can't be understood in 3 seconds, it has too much on it.
+## How this was built
 
-## Running the workshops
-
-**Sessions 1-2** (Whisperer, Strategist): Attendees need ChatGPT (free tier works).
-
-**Sessions 3-4** (Operator, Orchestrator): Attendees need [Claude Code](https://claude.ai/claude-code) or equivalent agentic tool.
-
-Each workshop is designed for a ~60 minute brown bag lunch session (~45 min effective content). The facilitator presents teaching slides, then pauses on "YOUR TURN" slides while attendees complete hands-on exercises on their own laptops.
+This entire suite — narratives, content outlines, slide designs, and generation code — was built with [Claude Code](https://claude.ai/claude-code) using [deckwright](https://github.com/michaelengland/deckwright), a plugin I created for structured presentation development. The decks are generated programmatically, not designed manually.
 
 ## Regenerating the decks
+
+The `.js` files are the source of truth. Edit those, not the `.pptx` files.
 
 ```bash
 npm install
@@ -75,12 +68,8 @@ node decks/workshop-orchestrator/workshop-orchestrator.js
 node decks/builder/builder.js
 ```
 
-Requires Node.js 18+. All decks are generated programmatically using [PptxGenJS](https://github.com/nickvdyck/PptxGenJS).
-
-## How this was built
-
-This entire suite — narratives, slide designs, and code — was created using [Claude Code](https://claude.ai/claude-code) with the [deckwright](https://github.com/michaelengland/deckwright) plugin for structured presentation development.
+Requires Node.js 18+. All decks generated with [PptxGenJS](https://github.com/nickvdyck/PptxGenJS).
 
 ## License
 
-MIT — use these materials freely. Attribution appreciated but not required.
+MIT — use freely. Attribution appreciated but not required.
