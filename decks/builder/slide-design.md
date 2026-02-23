@@ -366,7 +366,7 @@ Identical to the main ai-best-practices deck — this is a companion deck in the
 **Layout**: Single message (hero helper)
 **Content**:
 - "Lock the environment,\nnot the agent." — Georgia 44pt white bold
-**Speaker notes**: Bypass all permissions by default. This is counterintuitive — but you're not removing safety, you're moving it. Instead of a permission prompt on every shell command (which you'll rubber-stamp after the 50th one), ensure the environment itself is safe. GCP CLI not logged into prod. AWS credentials scoped to dev. The agent can do anything locally — and it physically cannot touch production. Trust the gated workflow (PR reviews, CI/CD), not per-command prompts.
+**Speaker notes**: Bypass all permissions by default for general coding. This is counterintuitive — but you're not removing safety, you're moving it. Instead of a permission prompt on every shell command (which you'll rubber-stamp after the 50th one), ensure the environment itself is safe. GCP CLI not logged into prod. AWS credentials scoped to dev. The agent can do anything locally — and it physically cannot touch production. Trust the gated workflow (PR reviews, CI/CD), not per-command prompts. The exception: PII sessions. When touching production data, you do NOT bypass — these are careful, involved sessions with managed tool calls where you verify each step. The interaction mode changes with the data.
 
 ### Slide 47: CLI + Tabs
 **Layout**: Two column (dark background)
@@ -399,8 +399,8 @@ Identical to the main ai-best-practices deck — this is a companion deck in the
 - Left body: "Claude Code via Anthropic\nLatest models, best features\nAll general coding" — Calibri 22pt darkText
 - Divider line
 - Right header: "PII" — Georgia 36pt wrong (#E63946) bold
-- Right body: "Claude Code via GCP\nEU region models\nProduction logs, user data" — Calibri 22pt darkText
-**Speaker notes**: You can't get Builder-level speed while also having access to PII through the default path. The split is deliberate: default path uses Claude Code via Anthropic for fast, full-featured general coding. PII path routes through GCP with EU region models for anything touching production logs, user data, or regulated information. Data residency compliance (GDPR). The decision is per-task, not per-project. The Tea App callback: they didn't even know what data they had.
+- Right body: "Claude Code via GCP\nEU region models\nManaged tool calls\nProduction logs, user data" — Calibri 22pt darkText
+**Speaker notes**: You can't get Builder-level speed while also having access to PII through the default path. The split is deliberate: default path uses Claude Code via Anthropic for fast, full-featured general coding with bypass permissions. PII path routes through GCP with EU region models for anything touching production logs, user data, or regulated information — and critically, no bypass permissions. These are careful, involved sessions where you manage each tool call because the data is sensitive. The interaction mode changes with the data. Data residency compliance (GDPR). The decision is per-task, not per-project. The Tea App callback: they didn't even know what data they had.
 
 ### Slide 51: "Compliance is architectural."
 **Layout**: Single message (hero helper, accent color)

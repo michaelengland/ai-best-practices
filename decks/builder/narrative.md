@@ -181,9 +181,10 @@ Skills are for higher-level workflows that would clutter context if always loade
 
 - Rather than approving/denying every individual tool call, check at **stages** (the gated workflow).
 - Going AI-first on everything means too many one-off commands for approve/deny to be anything other than friction.
-- **Always run in bypass permissions by default.**
+- **Always run in bypass permissions by default** for general coding sessions.
 - Safety net is at the **environment level**: the Claude Code shell doesn't have production access. GCP CLI not logged into prod. AWS credentials scoped to dev. The agent physically cannot touch production.
 - Trust the process (gated stages, CI/CD, PR reviews) rather than micromanaging individual tool calls.
+- **Exception: PII sessions.** When working with production data (logs, user data, regulated information), do NOT use bypass permissions. These are careful, involved sessions with managed tool calls — you verify each step because the data is sensitive. The interaction mode changes with the data.
 
 #### VSCode: CLI + Tabs
 
@@ -201,7 +202,7 @@ Skills are for higher-level workflows that would clutter context if always loade
 
 - You can't get this speed while also having access to PII.
 - **Default path:** Claude Code via Anthropic — fast, best features, latest models. Used for all general coding.
-- **PII path:** Claude Code running over GCP with EU region models — for anything touching production logs, user data, or regulated information. Data residency compliance (GDPR).
+- **PII path:** Claude Code running over GCP with EU region models — for anything touching production logs, user data, or regulated information. Data residency compliance (GDPR). No bypass permissions — careful, managed tool calls.
 - **Model/tool agnosticism:** Always pick the best tool for the job. Be "mercenaries" with tooling and models — no vendor lock-in.
 - Cost matters but is secondary to capability right now. The quality and speed gains from frontier models pay for themselves many times over.
 - The Tea App example is what happens when compliance is an afterthought. The Builder approach makes it a first-class architectural decision.

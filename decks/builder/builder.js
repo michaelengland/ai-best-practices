@@ -828,7 +828,7 @@ async function main() {
 
   // --- Slide 46: "Lock the environment, not the agent." ---
   hero(pres, "Lock the environment,\nnot the agent.", {
-    notes: "Bypass all permissions by default. You\u2019re not removing safety, you\u2019re moving it. GCP CLI not logged into prod. AWS credentials scoped to dev. The agent physically cannot touch production. Trust the gated workflow, not per-command prompts."
+    notes: "Bypass all permissions by default for general coding. You\u2019re not removing safety, you\u2019re moving it. GCP CLI not logged into prod. AWS credentials scoped to dev. The agent physically cannot touch production. Trust the gated workflow, not per-command prompts.\nThe exception: PII sessions. When touching production data, you do NOT bypass \u2014 these are careful, involved sessions with managed tool calls where you verify each step. The interaction mode changes with the data."
   });
 
   // --- Slide 47: CLI + Tabs ---
@@ -890,11 +890,11 @@ async function main() {
       x: 5.3, y: 0.8, w: 4.2, h: 0.7,
       fontFace: D.h, fontSize: 36, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    s.addText("Claude Code via GCP\nEU region models\nProduction logs, user data", {
+    s.addText("Claude Code via GCP\nEU region models\nManaged tool calls\nProduction logs, user data", {
       x: 5.3, y: 1.9, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
-    s.addNotes("You can\u2019t get Builder-level speed while also having access to PII through the default path. The split is deliberate: default for general coding, PII path through GCP with EU region models. The decision is per-task, not per-project.");
+    s.addNotes("You can\u2019t get Builder-level speed while also having access to PII through the default path. The split is deliberate: default path uses bypass permissions for fast, full-featured general coding. PII path routes through GCP with EU region models \u2014 and critically, no bypass permissions. These are careful, involved sessions where you manage each tool call because the data is sensitive. The interaction mode changes with the data. The decision is per-task, not per-project.");
   }
 
   // --- Slide 51: "Compliance is architectural." ---

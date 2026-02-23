@@ -166,9 +166,10 @@
 **Content**:
 - Rather than approving/denying every tool call, verify at **stages** (the gated workflow)
 - AI-first means too many one-off commands — approve/deny becomes pure friction
-- **Always run in bypass permissions by default**
+- **Always run in bypass permissions by default** for general coding
 - Safety net is at the **environment level**: Claude Code shell has no production access. GCP CLI not logged into prod. AWS credentials scoped to dev.
 - The agent physically cannot touch production. Trust the process (gated stages, CI/CD, PR reviews).
+- **Exception: PII sessions** — no bypass. Careful, managed tool calls. The interaction mode changes with the data.
 **Emphasis**: medium
 **Speaker notes**: This is counterintuitive for most people — bypass all permissions? The key insight: you're not removing safety, you're moving it. Instead of a permission prompt on every shell command (which you'll rubber-stamp after the 50th one), you ensure the environment itself is safe. The agent can do anything it wants locally — and it can't do anything to production. The gated workflow (PR reviews, CI/CD) is the checkpoint, not a per-command prompt.
 **Transition**: "The right tool for parallel sessions."
@@ -199,8 +200,8 @@
 **Key message**: You can't get this speed with access to PII. Compliance is an architectural decision, not an afterthought.
 **Content**:
 - Default path: Claude Code via Anthropic — fast, best features, latest models. All general coding.
-- PII path: Claude Code running over GCP with EU region models — production logs, user data, regulated information. Data residency (GDPR).
-- Two architectures, chosen per task. Not a compromise — a deliberate split.
+- PII path: Claude Code running over GCP with EU region models — production logs, user data, regulated information. Data residency (GDPR). No bypass permissions — careful, managed tool calls.
+- Two architectures, two interaction modes, chosen per task. Not a compromise — a deliberate split.
 - The Tea App is what happens when compliance is an afterthought.
 - Model/tool agnosticism: always pick the best tool. Cost secondary to capability.
 **Emphasis**: medium
