@@ -51,7 +51,7 @@ Every slide passes the 3-second billboard test. Maximum 15 words on screen, 28pt
 
 ## How this was built
 
-This entire suite — narratives, content outlines, slide designs, and generation code — was built with [Claude Code](https://claude.ai/claude-code) using [deckwright](https://github.com/michaelengland/deckwright) for structured presentation development. The decks are generated programmatically, not designed manually.
+Built by [@michaelengland](https://github.com/michaelengland) using [Claude Code](https://claude.ai/claude-code) and [deckwright](https://github.com/michaelengland/deckwright) for structured presentation development. Every deck — narratives, content outlines, slide designs, and generation code — is produced programmatically, not designed manually.
 
 ## Regenerating the decks
 
