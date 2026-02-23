@@ -11,10 +11,10 @@ const path = require("path");
 // DESIGN SYSTEM (shared with main deck)
 // ============================================================
 const D = {
-  bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
-  white: "FFFFFF", text: "E0E4E8", muted: "94A3B8", darkText: "1E293B",
-  accent: "00B4D8", wrong: "E63946", right: "2D936C",
-  h: "Georgia", b: "Calibri",
+  bg: "0A2540", lightBg: "FFFFFF", glow: "635BFF",
+  white: "FFFFFF", text: "EDEDED", muted: "8B95A5", darkText: "1A1F36",
+  accent: "635BFF", wrong: "FF6B8A", right: "09825D",
+  h: "Georgia", b: "Verdana",
 };
 
 // ============================================================
@@ -163,12 +163,12 @@ async function main() {
       });
       s.addText(label, {
         x, y: 1.6, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 15, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 12, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
           x: x + boxW, y: 1.6, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle"
+          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
         });
       }
     });

@@ -11,10 +11,10 @@ const path = require("path");
 // DESIGN SYSTEM (shared across all decks)
 // ============================================================
 const D = {
-  bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
-  white: "FFFFFF", text: "E0E4E8", muted: "94A3B8", darkText: "1E293B",
-  accent: "00B4D8", wrong: "E63946", wrongBg: "FEE2E2", right: "2D936C", rightBg: "DCFCE7",
-  h: "Georgia", b: "Calibri",
+  bg: "0A2540", lightBg: "FFFFFF", glow: "635BFF",
+  white: "FFFFFF", text: "EDEDED", muted: "8B95A5", darkText: "1A1F36",
+  accent: "635BFF", wrong: "FF6B8A", wrongBg: "FEE2E8", right: "09825D", rightBg: "DCFCE7",
+  h: "Georgia", b: "Verdana",
 };
 
 function darkSlide(pres) {
@@ -83,10 +83,10 @@ function spectrumSlide(pres, highlightFrom, highlightTo, notes) {
     });
     s.addText(label, {
       x, y: 2.0, w: boxW, h: boxH,
-      fontFace: D.b, fontSize: 15, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle"
+      fontFace: D.b, fontSize: 12, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle"
     });
     if (i < labels.length - 1) {
-      s.addText("→", { x: x + boxW, y: 2.0, w: gap, h: boxH, fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle" });
+      s.addText("→", { x: x + boxW, y: 2.0, w: gap, h: boxH, fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle" });
     }
   });
   // Arrow between from and to

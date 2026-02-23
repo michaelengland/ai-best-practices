@@ -15,10 +15,10 @@ const {
 } = require("react-icons/fa");
 
 const D = {
-  bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
-  white: "FFFFFF", text: "E0E4E8", muted: "94A3B8", darkText: "1E293B",
-  accent: "00B4D8", wrong: "E63946", wrongBg: "FEE2E2", right: "2D936C", rightBg: "DCFCE7",
-  h: "Georgia", b: "Calibri",
+  bg: "0A2540", lightBg: "FFFFFF", glow: "635BFF",
+  white: "FFFFFF", text: "EDEDED", muted: "8B95A5", darkText: "1A1F36",
+  accent: "635BFF", wrong: "FF6B8A", wrongBg: "FEE2E8", right: "09825D", rightBg: "DCFCE7",
+  h: "Georgia", b: "Verdana",
 };
 
 const ICONS_DIR = path.join(__dirname, "icons");
@@ -74,8 +74,8 @@ function spectrumSlide(pres, highlightFrom, highlightTo, notes) {
       fill: { color: isHighlighted ? D.accent : D.bg, transparency: isHighlighted ? (i === highlightFrom ? 40 : 0) : 50 },
       line: { color: isHighlighted ? D.accent : D.muted, width: isHighlighted ? 2 : 1, dashType: isBuilder ? "dash" : "solid" }
     });
-    s.addText(label, { x, y: 2.0, w: boxW, h: boxH, fontFace: D.b, fontSize: 15, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle" });
-    if (i < labels.length - 1) { s.addText("→", { x: x + boxW, y: 2.0, w: gap, h: boxH, fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle" }); }
+    s.addText(label, { x, y: 2.0, w: boxW, h: boxH, fontFace: D.b, fontSize: 12, color: isHighlighted ? D.white : D.muted, bold: true, align: "center", margin: 0, valign: "middle" });
+    if (i < labels.length - 1) { s.addText("→", { x: x + boxW, y: 2.0, w: gap, h: boxH, fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle" }); }
   });
   s.addText(labels[highlightFrom] + " → " + labels[highlightTo], { x: 1.0, y: 3.2, w: 8, h: 0.8, fontFace: D.h, fontSize: 32, color: D.accent, bold: true, align: "center", margin: 0, valign: "top" });
   if (notes) s.addNotes(notes);

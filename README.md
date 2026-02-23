@@ -1,9 +1,9 @@
 # AI Best Practices
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Slides: 215](https://img.shields.io/badge/Slides-215-00B4D8.svg)](#the-decks)
-[![Decks: 7](https://img.shields.io/badge/Decks-7-00B4D8.svg)](#the-decks)
-[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-00B4D8.svg)](https://claude.ai/claude-code)
+[![Slides: 215](https://img.shields.io/badge/Slides-215-635BFF.svg)](#the-decks)
+[![Decks: 7](https://img.shields.io/badge/Decks-7-635BFF.svg)](#the-decks)
+[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-635BFF.svg)](https://claude.ai/claude-code)
 
 Open-source presentation decks for learning and teaching AI — from your first ChatGPT prompt to shipping production systems with AI coding agents.
 

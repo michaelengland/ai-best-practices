@@ -20,10 +20,10 @@ const {
 // DESIGN SYSTEM
 // ============================================================
 const D = {
-  bg: "0F0F1A", lightBg: "F8F9FA", glow: "00B4D8",
-  white: "FFFFFF", text: "E0E4E8", muted: "94A3B8", darkText: "1E293B",
-  accent: "00B4D8", wrong: "E63946", wrongBg: "FEE2E2", right: "2D936C", rightBg: "DCFCE7",
-  h: "Georgia", b: "Calibri",
+  bg: "0A2540", lightBg: "FFFFFF", glow: "635BFF",
+  white: "FFFFFF", text: "EDEDED", muted: "8B95A5", darkText: "1A1F36",
+  accent: "635BFF", wrong: "FF6B8A", wrongBg: "FEE2E8", right: "09825D", rightBg: "DCFCE7",
+  h: "Georgia", b: "Verdana",
 };
 
 const ICONS_DIR = path.join(__dirname, "icons");
@@ -181,10 +181,10 @@ async function main() {
   const icons = {};
   const iconDefs = [
     ["ban", FaBan, "#FFFFFF"], ["search", FaSearch, "#FFFFFF"], ["magic", FaMagic, "#FFFFFF"], ["rocket", FaRocket, "#FFFFFF"],
-    ["brain", FaBrain, "#00B4D8"], ["plug", FaPlug, "#00B4D8"], ["robot", FaRobot, "#00B4D8"], ["desktop", FaDesktop, "#00B4D8"],
-    ["globe", FaGlobe, "#00B4D8"], ["envelope", FaEnvelope, "#00B4D8"], ["file", FaFileAlt, "#00B4D8"],
-    ["database", FaDatabase, "#00B4D8"], ["calendar", FaCalendarAlt, "#00B4D8"], ["puzzle", FaPuzzlePiece, "#00B4D8"],
-    ["fish", FaFish, "#00B4D8"], ["arrow", FaArrowRight, "#00B4D8"], ["user", FaUser, "#FFFFFF"], ["bulb", FaLightbulb, "#00B4D8"],
+    ["brain", FaBrain, "#635BFF"], ["plug", FaPlug, "#635BFF"], ["robot", FaRobot, "#635BFF"], ["desktop", FaDesktop, "#635BFF"],
+    ["globe", FaGlobe, "#635BFF"], ["envelope", FaEnvelope, "#635BFF"], ["file", FaFileAlt, "#635BFF"],
+    ["database", FaDatabase, "#635BFF"], ["calendar", FaCalendarAlt, "#635BFF"], ["puzzle", FaPuzzlePiece, "#635BFF"],
+    ["fish", FaFish, "#635BFF"], ["arrow", FaArrowRight, "#635BFF"], ["user", FaUser, "#FFFFFF"], ["bulb", FaLightbulb, "#635BFF"],
     ["banG", FaBan, "#6B7280"], ["searchG", FaSearch, "#6B7280"], ["magicG", FaMagic, "#0891B2"], ["rocketG", FaRocket, "#1E1E1E"],
     ["fishW", FaFish, "#FFFFFF"], ["arrowW", FaArrowRight, "#FFFFFF"],
     ["globeW", FaGlobe, "#FFFFFF"], ["envelopeW", FaEnvelope, "#FFFFFF"], ["fileW", FaFileAlt, "#FFFFFF"],
@@ -248,12 +248,12 @@ async function main() {
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 15, color: isBuilder ? D.muted : D.white, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 12, color: isBuilder ? D.muted : D.white, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
           x: x + boxW, y: 2.2, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 14, color: isBuilder ? D.muted : D.accent, align: "center", margin: 0, valign: "middle"
+          fontFace: D.b, fontSize: 11, color: isBuilder ? D.muted : D.accent, align: "center", margin: 0, valign: "middle"
         });
       }
     });
@@ -281,12 +281,12 @@ async function main() {
       });
       s.addText(label, {
         x, y: 1.6, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 15, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 12, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
           x: x + boxW, y: 1.6, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 14, color: D.muted, align: "center", margin: 0, valign: "middle"
+          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
         });
       }
     });
