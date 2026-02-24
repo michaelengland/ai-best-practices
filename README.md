@@ -1,7 +1,7 @@
 # AI Best Practices
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Decks: 5](https://img.shields.io/badge/Decks-5-635BFF.svg)](#the-decks)
+[![Decks: 6](https://img.shields.io/badge/Decks-6-635BFF.svg)](#the-decks)
 [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-635BFF.svg)](https://claude.ai/claude-code)
 
 Open-source presentation decks for learning and teaching AI — from your first ChatGPT prompt to shipping production systems with AI coding agents.
@@ -13,6 +13,8 @@ Open-source presentation decks for learning and teaching AI — from your first 
 **Learning AI on your own?** Start with the [reference deck PDF](decks/ai-best-practices/ai-best-practices.pdf) — self-paced, covers everything from prompt engineering to multi-agent orchestration.
 
 **Running AI training for your team?** Grab the [pitch deck](decks/ai-academy-pitch/ai-academy-pitch.pdf) to sell the series, then run the two workshops in order. Each is a ~1 hour hands-on session.
+
+**Setting AI policy for your company?** The [AI policy deck PDF](decks/ai-policy/ai-policy.pdf) covers GDPR, data residency, provider tiers, and a concrete recommended setup for EU and non-EU companies.
 
 **Already shipping code with Claude Code?** The [Builder deck PDF](decks/builder/builder.pdf) is a practitioner's playbook for getting quality AND speed — how to set up your AI development infrastructure so agents produce production-grade output.
 
@@ -30,6 +32,7 @@ Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator 
 |------|--------|----------------|
 | [Reference deck](decks/ai-best-practices/ai-best-practices.pptx) ([PDF](decks/ai-best-practices/ai-best-practices.pdf)) | 68 | The full journey — prompt engineering, context engineering, agents, orchestration |
 | [Builder deck](decks/builder/builder.pptx) ([PDF](decks/builder/builder.pdf)) | 55 | The expert setup — quality AND speed with AI coding agents |
+| [AI policy deck](decks/ai-policy/ai-policy.pptx) ([PDF](decks/ai-policy/ai-policy.pdf)) | 33 | AI tool selection for companies — GDPR, data residency, provider tiers, recommended setup |
 
 ### Workshop Series
 
@@ -61,6 +64,7 @@ node decks/ai-academy-pitch/ai-academy-pitch.js
 node decks/workshop-1-strategist/workshop-1-strategist.js
 node decks/workshop-2-orchestrator/workshop-2-orchestrator.js
 node decks/builder/builder.js
+node decks/ai-policy/ai-policy.js
 ```
 
 Requires Node.js 18+. All decks generated with [PptxGenJS](https://github.com/nickvdyck/PptxGenJS).
