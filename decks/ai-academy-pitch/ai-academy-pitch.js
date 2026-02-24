@@ -225,7 +225,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "ai-academy-pitch.pptx") });
-  console.log("Done! Created ai-academy-pitch.pptx (10 slides)");
+  console.log(`Done! Created ai-academy-pitch.pptx (${pres.slides.length} slides)`);
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });

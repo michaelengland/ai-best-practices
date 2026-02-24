@@ -953,7 +953,7 @@ async function main() {
   // ============================================================
   console.log("Writing presentation...");
   await pres.writeFile({ fileName: path.join(__dirname, "builder.pptx") });
-  console.log("Done! Created builder.pptx (55 slides, billboard)");
+  console.log(`Done! Created builder.pptx (${pres.slides.length} slides, billboard)`);
 }
 
 main().catch(err => { console.error("Error:", err); process.exit(1); });

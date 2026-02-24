@@ -483,7 +483,7 @@ async function main() {
   // ============================================================
   const outPath = path.join(__dirname, "workshop-1-strategist.pptx");
   await pres.writeFile({ fileName: outPath });
-  console.log(`Created: ${outPath}`);
+  console.log(`Created: ${outPath} (${pres.slides.length} slides)`);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });
