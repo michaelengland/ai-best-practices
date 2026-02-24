@@ -19,7 +19,7 @@ Inherited from the main deck — same family, same system.
 
 ### Slide 2: The Hook
 **Layout**: Single message (28pt Calibri)
-**Content**: "Last month, someone spent 45 minutes on a one-page summary using ChatGPT. The right approach took 2 minutes."
+**Content**: "Last month, someone spent 45 minutes on a one-page summary. The right approach took 2 minutes."
 **Speaker notes**: Same hook as the main deck — proven and relatable. Let it land. ~15 seconds.
 
 ### Slide 3: The Pivot
@@ -63,7 +63,7 @@ Inherited from the main deck — same family, same system.
 
 ### Slide 10: CTA
 **Layout**: Single message + support
-**Content**: "First workshop: [date]" / "Bring your laptop and a task you do every week."
+**Content**: "Bring your laptop and a task you do every week."
 **Speaker notes**: Specific, low-commitment ask. "Not a task you want to learn — a task you already do. You'll transform it live." ~15 seconds.
 
 ## Source References

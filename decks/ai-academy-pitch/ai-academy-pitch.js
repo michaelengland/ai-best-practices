@@ -110,7 +110,7 @@ async function main() {
   }
 
   // --- Slide 2: The Hook ---
-  hero(pres, "Last month, someone spent 45 minutes\non a one-page summary using ChatGPT.\nThe right approach took 2 minutes.", {
+  hero(pres, "Last month, someone spent\n45 minutes on a one-page summary.\nThe right approach took 2 minutes.", {
     font: D.b, size: 28, color: D.text,
     notes: "Same hook as the main deck \u2014 proven and relatable. Let it land. ~15 seconds."
   });
@@ -138,7 +138,8 @@ async function main() {
   });
 
   // --- Slide 6: The Gap ---
-  hero(pres, "The gap between using AI\nand using AI well\nis massive.", {
+  hero(pres, "The gap between\nusing AI and using AI well\nis massive.", {
+    size: 38,
     notes: "Let it land. Goal: self-identification. ~10 seconds."
   });
 
@@ -215,8 +216,7 @@ async function main() {
   }
 
   // --- Slide 10: CTA ---
-  hero(pres, "First workshop: [date]", {
-    sub: "Bring your laptop and a task you do every week.",
+  hero(pres, "Bring your laptop\nand a task you do every week.", {
     notes: "Specific, low-commitment ask. Emphasis: existing weekly task, not new skill. Live transformation in session. ~15 seconds."
   });
 
