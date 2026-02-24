@@ -35,10 +35,10 @@ Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator 
 
 Two hands-on sessions, ~1 hour each. All workshops use ChatGPT Org.
 
-| Workshop | You'll learn |
-|----------|--------------|
-| Explorer → Strategist | Prompt engineering, context engineering, and custom instructions — from vague prompts to a persistent AI playbook |
-| Strategist → Orchestrator | Agent delegation, trust and verification, and multi-agent chains with Custom GPTs |
+| Workshop | Slides | You'll learn |
+|----------|--------|--------------|
+| [Explorer → Strategist](decks/workshop-1-strategist/workshop-1-strategist.pptx) ([PDF](decks/workshop-1-strategist/workshop-1-strategist.pdf)) | 28 | Prompt engineering, context engineering, and custom instructions — from vague prompts to a persistent AI playbook |
+| [Strategist → Orchestrator](decks/workshop-2-orchestrator/workshop-2-orchestrator.pptx) ([PDF](decks/workshop-2-orchestrator/workshop-2-orchestrator.pdf)) | 25 | Agent delegation, trust and verification, and multi-agent chains with Custom GPTs |
 
 Need to sell the series first? The [AI Academy pitch deck](decks/ai-academy-pitch/ai-academy-pitch.pptx) ([PDF](decks/ai-academy-pitch/ai-academy-pitch.pdf)) is a 5-minute overview for leadership or attendees.
 
