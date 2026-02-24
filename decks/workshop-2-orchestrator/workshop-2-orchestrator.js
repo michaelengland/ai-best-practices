@@ -86,36 +86,36 @@ function exercise(pres, lines, opts = {}) {
   return s;
 }
 
-// Four-step horizontal flow with optional highlight per step
+// Four-step horizontal flow — matches ai-best-practices chain flow (Slide 54)
 function stepsSlide(pres, steps, opts = {}) {
   const s = darkSlide(pres);
-  const stepW = 2.0, gap = 0.15, arrowW = 0.25;
-  const totalW = steps.length * stepW + (steps.length - 1) * (gap + arrowW);
+  const boxW = 1.8, boxH = 0.9, gap = 0.6;
+  const totalW = steps.length * boxW + (steps.length - 1) * gap;
   const startX = (10 - totalW) / 2;
   steps.forEach((step, i) => {
-    const x = startX + i * (stepW + gap + arrowW);
+    const x = startX + i * (boxW + gap);
     const hl = step.highlight;
     s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-      x, y: 1.8, w: stepW, h: 1.0,
+      x, y: 2.2, w: boxW, h: boxH,
+      rectRadius: 0.1,
       fill: { color: hl ? D.accent : D.bg },
-      line: { color: hl ? D.accent : D.muted, width: 1 },
-      rectRadius: 0.05
+      line: hl ? undefined : { color: D.muted, width: 1.5 }
     });
     s.addText(step.label, {
-      x, y: 1.8, w: stepW, h: 1.0,
-      fontFace: D.b, fontSize: 14, color: hl ? D.white : D.text,
-      bold: hl, align: "center", margin: 0, valign: "middle"
+      x, y: 2.2, w: boxW, h: boxH,
+      fontFace: D.b, fontSize: 18, color: hl ? D.white : D.text,
+      bold: true, align: "center", margin: 0, valign: "middle"
     });
     if (i < steps.length - 1) {
-      s.addText("→", {
-        x: x + stepW, y: 1.8, w: gap + arrowW, h: 1.0,
-        fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "middle"
+      s.addText("\u2192", {
+        x: x + boxW, y: 2.2, w: gap, h: boxH,
+        fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
       });
     }
   });
   if (opts.subtitle) {
     s.addText(opts.subtitle, {
-      x: 1.0, y: 3.3, w: 8, h: 0.6,
+      x: 1.0, y: 3.6, w: 8, h: 0.6,
       fontFace: D.b, fontSize: 24, color: D.muted, italic: true, align: "center", margin: 0
     });
   }
@@ -123,15 +123,17 @@ function stepsSlide(pres, steps, opts = {}) {
   return s;
 }
 
+// Giant number — matches ai-best-practices bigNum
 function bigNum(pres, number, caption, opts = {}) {
   const s = darkSlide(pres);
   s.addText(number, {
-    x: 1.0, y: 0.8, w: 8, h: 2.5,
-    fontFace: D.h, fontSize: 120, color: D.accent, bold: true, align: "center", margin: 0, valign: "bottom"
+    x: 0.5, y: 1.0, w: 9, h: 2.5,
+    fontFace: D.h, fontSize: opts.numSize || 120,
+    color: opts.color || D.white, bold: true, align: "center", margin: 0, valign: "bottom"
   });
   s.addText(caption, {
-    x: 1.5, y: 3.5, w: 7, h: 0.8,
-    fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
+    x: 1.5, y: 3.6, w: 7, h: 0.8,
+    fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
   });
   if (opts.notes) s.addNotes(opts.notes);
   return s;
@@ -179,12 +181,12 @@ async function main() {
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.2, w: boxW, h: boxH,
         fill: { color: isHighlight ? D.accent : D.bg },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1 },
-        rectRadius: 0.05
+        line: { color: isHighlight ? D.accent : D.muted, width: 1.5 },
+        rectRadius: 0.08
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+        fontFace: D.b, fontSize: 12, color: isHighlight ? D.white : D.muted,
         bold: isHighlight, align: "center", margin: 0, valign: "middle"
       });
     });
@@ -240,28 +242,31 @@ async function main() {
   // SECTION 3: CONNECTIONS (Slides 7-9)
   // ============================================================
 
-  // --- Slide 7: What an Agent Can Reach ---
+  // --- Slide 7: What an Agent Can Reach (icon row — matches ai-best-practices Slide 46) ---
   {
     const s = darkSlide(pres);
     s.addText("An agent is only as useful\nas what it can reach", {
-      x: 0.8, y: 0.6, w: 8.4, h: 1.2,
+      x: 0.8, y: 0.4, w: 8.4, h: 1.2,
       fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    const connections = ["Email", "Calendar", "Files", "Chat", "Web", "Custom"];
-    const chipW = 1.2, chipH = 0.5, chipGap = 0.2;
-    const totalChipW = connections.length * chipW + (connections.length - 1) * chipGap;
-    const chipStartX = (10 - totalChipW) / 2;
-    connections.forEach((label, i) => {
-      const x = chipStartX + i * (chipW + chipGap);
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y: 2.5, w: chipW, h: chipH,
-        fill: { color: D.bg },
-        line: { color: D.accent, width: 1.5 },
-        rectRadius: 0.05
-      });
-      s.addText(label, {
-        x, y: 2.5, w: chipW, h: chipH,
-        fontFace: D.b, fontSize: 14, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+    const iconsDir = path.join(__dirname, "..", "ai-best-practices", "icons");
+    const connections = [
+      { icon: "envelopeW.png", label: "Email" },
+      { icon: "calendarW.png", label: "Calendar" },
+      { icon: "fileW.png", label: "Files" },
+      { icon: "puzzleW.png", label: "Chat" },
+      { icon: "globeW.png", label: "Web" },
+      { icon: "arrowW.png", label: "Custom" },
+    ];
+    const iconSize = 0.8;
+    const totalW = connections.length * 1.4 - 0.2;
+    const startX = (10 - totalW) / 2;
+    connections.forEach((c, i) => {
+      const x = startX + i * 1.4;
+      s.addImage({ path: path.join(iconsDir, c.icon), x: x + (1.2 - iconSize) / 2, y: 1.8, w: iconSize, h: iconSize });
+      s.addText(c.label, {
+        x: x - 0.1, y: 2.8, w: 1.4, h: 0.6,
+        fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
       });
     });
     s.addNotes("Real examples from their world: Monday morning email triage (Email), meeting prep from calendar invites (Calendar), finding that doc someone mentioned in Slack (Chat + Files), researching a competitor (Web). These aren't hypothetical — they're the tasks that eat their mornings.");
@@ -420,10 +425,7 @@ async function main() {
       fontFace: D.b, fontSize: 20, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
     });
     // Divider
-    s.addShape(pres.shapes.RECTANGLE, {
-      x: 4.97, y: 1.2, w: 0.06, h: 2.0,
-      fill: { color: D.accent }
-    });
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 2.6, line: { color: D.accent, width: 2 } });
     // Right column
     s.addText("Workshop 2", {
       x: 5.3, y: 1.2, w: 4.2, h: 0.8,
@@ -460,13 +462,15 @@ async function main() {
   // SECTION 10: CLOSING (Slides 22-25)
   // ============================================================
 
-  // --- Slide 22: 1.5 Hours ---
+  // --- Slide 22: 1.5 Hours (wrong color — bottleneck) ---
   bigNum(pres, "1.5 hrs", "of you being the bottleneck", {
+    color: D.wrong,
     notes: "The rational payoff begins. Manual workflow: search, copy-paste, draft, re-prompt, reformat, review, apply. All the steps they recognised in Slide 3. \"1.5 hours of grunt work where you're the bottleneck at every step.\""
   });
 
-  // --- Slide 23: 15 Minutes ---
-  bigNum(pres, "15 min", "of judgment — the part only humans can do", {
+  // --- Slide 23: 15 Minutes (right color — judgment) ---
+  bigNum(pres, "15 min", "of judgment \u2014 the part only humans can do", {
+    color: D.right,
     notes: "Chained workflow: agents handle 1 hour 15 minutes of work. You spend 15 minutes on judgment — reviewing, deciding, approving. \"Same proposal. The chain gets smarter every time. Your feedback becomes skills.\""
   });
 
@@ -484,12 +488,12 @@ async function main() {
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 1.8, w: boxW, h: boxH,
         fill: { color: isHighlight ? D.accent : D.bg },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1 },
-        rectRadius: 0.05
+        line: { color: isHighlight ? D.accent : D.muted, width: 1.5 },
+        rectRadius: 0.08
       });
       s.addText(label, {
         x, y: 1.8, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+        fontFace: D.b, fontSize: 12, color: isHighlight ? D.white : D.muted,
         bold: isHighlight, align: "center", margin: 0, valign: "middle"
       });
     });

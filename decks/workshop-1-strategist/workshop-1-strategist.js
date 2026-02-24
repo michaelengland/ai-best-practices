@@ -159,12 +159,12 @@ async function main() {
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.2, w: boxW, h: boxH,
         fill: { color: isHighlight ? D.accent : D.bg },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1 },
-        rectRadius: 0.05
+        line: { color: isHighlight ? D.accent : D.muted, width: 1.5 },
+        rectRadius: 0.08
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+        fontFace: D.b, fontSize: 12, color: isHighlight ? D.white : D.muted,
         bold: isHighlight, align: "center", margin: 0, valign: "middle"
       });
     });
@@ -435,31 +435,29 @@ async function main() {
     s.addNotes("Second emotional peak — bigger than the first. The three-way comparison shows the full journey. If time is tight, this can be a facilitator demo. Point out: column 1 to 2 was five techniques. Column 2 to 3 was custom instructions. The second jump required zero effort per conversation.");
   }
 
-  // --- Slide 26: GPS That Remembers ---
+  // --- Slide 26: GPS That Remembers (light bg — matches ai-best-practices Slide 43) ---
   {
-    const s = darkSlide(pres);
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
     // Left column
-    s.addText("Directions every trip", {
-      x: 0.5, y: 1.5, w: 4.2, h: 0.8,
-      fontFace: D.h, fontSize: 32, color: D.muted, bold: true, align: "center", margin: 0, valign: "bottom"
+    s.addText("Directions\nevery trip", {
+      x: 0.5, y: 1.5, w: 4.2, h: 1.2,
+      fontFace: D.h, fontSize: 32, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("Effort. Every. Time.", {
-      x: 0.5, y: 2.5, w: 4.2, h: 0.6,
-      fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
+      x: 0.5, y: 2.8, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
     });
     // Divider
-    s.addShape(pres.shapes.RECTANGLE, {
-      x: 4.97, y: 1.5, w: 0.06, h: 2.6,
-      fill: { color: D.accent }
-    });
+    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
     // Right column
-    s.addText("GPS that remembers", {
-      x: 5.3, y: 1.5, w: 4.2, h: 0.8,
-      fontFace: D.h, fontSize: 32, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
+    s.addText("GPS that\nremembers", {
+      x: 5.3, y: 1.5, w: 4.2, h: 1.2,
+      fontFace: D.h, fontSize: 32, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText("Compounds permanently.", {
-      x: 5.3, y: 2.5, w: 4.2, h: 0.6,
-      fontFace: D.b, fontSize: 22, color: D.accent, italic: true, align: "center", margin: 0, valign: "top"
+      x: 5.3, y: 2.8, w: 4.2, h: 0.8,
+      fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top"
     });
     s.addNotes("GPS metaphor cements the concept. Prompt engineering = giving directions every trip. Skills = a GPS that remembers your preferences. \"Custom instructions, system prompts, project rules — all the same thing. All skills. All compound.\"");
   }
