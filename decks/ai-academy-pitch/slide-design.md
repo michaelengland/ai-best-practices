@@ -1,6 +1,6 @@
 # AI Academy — Pitch Deck Slide Design
 
-> **Next step:** Use **/deck-flow:present** to generate the .pptx file.
+> **Next step:** Use **/deckwright:present** to generate the .pptx file.
 
 ## Visual Direction
 
@@ -14,7 +14,7 @@ Inherited from the main deck — same family, same system.
 
 ### Slide 1: Title
 **Layout**: Title slide
-**Content**: "AI Academy" / "From Explorer to Orchestrator in four lunch hours"
+**Content**: "AI Academy" / "From Explorer to Orchestrator in two sessions"
 **Speaker notes**: Brief. Let the title sit. ~10 seconds.
 
 ### Slide 2: The Hook
@@ -51,21 +51,19 @@ Inherited from the main deck — same family, same system.
 
 ### Slide 8: The Academy
 **Layout**: Single message (44pt hero) + support
-**Content**: "Four sessions. One lunch hour each." / "Bring your laptop."
+**Content**: "Two sessions.\nOne hour each." / "Bring your laptop."
 **Speaker notes**: The sell starts here. Emphasize: practical, time-bound, low-commitment. ~15 seconds.
 
 ### Slide 9: The Curriculum
-**Layout**: Four rows (steps layout)
+**Layout**: Two rows (steps layout)
 **Content**:
-- Session 1: Explorer → Whisperer — "Learn to talk to AI properly"
-- Session 2: Whisperer → Strategist — "Make AI remember what you need"
-- Session 3: Strategist → Operator — "Let AI work for you"
-- Session 4: Operator → Orchestrator — "Coordinate AI teams"
-**Speaker notes**: Walk through each briefly. Each one-liner should create curiosity. "Learn to talk to AI properly" — what does that even mean? Come find out. ~30 seconds.
+- Workshop 1: Explorer → Strategist — "From vague prompts to a persistent AI playbook"
+- Workshop 2: Strategist → Orchestrator — "From doing the work to directing AI teams"
+**Speaker notes**: Walk through each briefly. Each one-liner should create curiosity. ~30 seconds.
 
 ### Slide 10: CTA
 **Layout**: Single message + support
-**Content**: "First session: [date]" / "Bring your laptop and a task you do every week."
+**Content**: "First workshop: [date]" / "Bring your laptop and a task you do every week."
 **Speaker notes**: Specific, low-commitment ask. "Not a task you want to learn — a task you already do. You'll transform it live." ~15 seconds.
 
 ## Source References

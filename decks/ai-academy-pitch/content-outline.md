@@ -1,6 +1,6 @@
 # AI Academy — Pitch Deck Content Outline
 
-> **Next step:** Use **/deck-flow:design** to plan slides and visual direction.
+> **Next step:** Use **/deckwright:design** to plan slides and visual direction.
 
 ## Overview
 - **Estimated duration**: ~5 minutes (presented live)
@@ -35,14 +35,12 @@
 
 ---
 
-### Section 3: The Academy — "Four sessions, four levels"
-**Key message**: The AI Academy is four practical, hands-on lunch sessions that progressively level you up.
+### Section 3: The Academy — "Two sessions, four levels"
+**Key message**: The AI Academy is two practical, hands-on sessions that take you from Explorer to Orchestrator.
 **Content**:
-- "Four sessions. One lunch hour each. Bring your laptop."
-- Session 1: Explorer → Whisperer — learn to talk to AI properly
-- Session 2: Whisperer → Strategist — make AI remember what you need
-- Session 3: Strategist → Operator — let AI work for you
-- Session 4: Operator → Orchestrator — coordinate AI teams
+- "Two sessions. One hour each. Bring your laptop."
+- Workshop 1: Explorer → Strategist — from vague prompts to a persistent AI playbook
+- Workshop 2: Strategist → Orchestrator — from doing the work to directing AI teams
 - "Not lectures. You'll have ChatGPT open. You'll do the work."
 **Emphasis**: High (this is the sell)
 **Speaker notes**: Emphasize hands-on. "You'll see the difference in real time." ~90 seconds.
@@ -53,7 +51,7 @@
 ### Section 4: CTA — "Bring your laptop and a task"
 **Key message**: Sign up, show up, bring a real task.
 **Content**:
-- "First session: [date]"
+- "First workshop: [date]"
 - "Bring your laptop and a task you do every week."
 **Emphasis**: Medium
 **Speaker notes**: Simple, specific, low-commitment. ~30 seconds.

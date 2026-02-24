@@ -1,12 +1,12 @@
 # AI Academy — Pitch Deck Narrative
 
-> **Next step:** Use **/deck-flow:craft** to structure this narrative into a content outline.
+> **Next step:** Use **/deckwright:craft** to structure this narrative into a content outline.
 
 ## Overview
 
 - **Audience**: Company-wide — all roles, all levels. Most have tried ChatGPT. Few use it seriously.
 - **Purpose**: Get people excited to attend the AI Academy workshops. They should leave thinking "I need to sign up for this."
-- **Key message**: You're already using AI. You're just not using it well. The AI Academy fixes that in four lunch sessions.
+- **Key message**: You're already using AI. You're just not using it well. The AI Academy fixes that in two hands-on sessions.
 - **Framework**: Problem → Solution → Impact
 - **Tone**: Same as the main deck — playful, provocative, not corporate. Borrow the energy, not the depth.
 - **Format**: ~12 slides, ~5 minutes presented live. Billboard design (reuse main deck's visual system).
@@ -44,19 +44,17 @@ Self-identification moment — same as the main deck but now it's a teaser, not 
 
 ### The Solution: AI Academy
 
-Introduce the academy — four hands-on workshops:
+Introduce the academy — two hands-on workshops:
 
-- "Four sessions. One lunch hour each. Bring your laptop."
+- "Two sessions. One hour each. Bring your laptop."
 - The curriculum as persona crossings:
-  - Session 1: **Explorer → Whisperer** — Learn to talk to AI properly
-  - Session 2: **Whisperer → Strategist** — Make AI remember what you need
-  - Session 3: **Strategist → Operator** — Let AI work for you
-  - Session 4: **Operator → Orchestrator** — Coordinate AI teams
+  - Workshop 1: **Explorer → Strategist** — From vague prompts to a persistent AI playbook
+  - Workshop 2: **Strategist → Orchestrator** — From doing the work to directing AI teams
 - "Not lectures. You'll have ChatGPT open. You'll do the work. You'll see the difference in real time."
 
 ### CTA: Sign Up
 
-- "First session: [date]. Bring your laptop and a task you do every week."
+- "First workshop: [date]. Bring your laptop and a task you do every week."
 - Simple, specific, low-commitment ask.
 
 ## Source References

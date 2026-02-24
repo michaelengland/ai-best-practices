@@ -102,7 +102,7 @@ async function main() {
       x: 1.0, y: 0.8, w: 8, h: 2.5,
       fontFace: D.h, fontSize: 72, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    s.addText("From Explorer to Orchestrator in four lunch hours", {
+    s.addText("From Explorer to Orchestrator in two sessions", {
       x: 1.5, y: 3.5, w: 7, h: 0.6,
       fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
     });
@@ -184,7 +184,7 @@ async function main() {
   }
 
   // --- Slide 8: The Academy ---
-  hero(pres, "Four sessions.\nOne lunch hour each.", {
+  hero(pres, "Two sessions.\nOne hour each.", {
     sub: "Bring your laptop.",
     notes: "The sell starts here. Practical, time-bound, low-commitment. ~15 seconds."
   });
@@ -193,13 +193,11 @@ async function main() {
   {
     const s = darkSlide(pres);
     const sessions = [
-      { num: "1", crossing: "Explorer \u2192 Whisperer", desc: "Learn to talk to AI properly" },
-      { num: "2", crossing: "Whisperer \u2192 Strategist", desc: "Make AI remember what you need" },
-      { num: "3", crossing: "Strategist \u2192 Operator", desc: "Let AI work for you" },
-      { num: "4", crossing: "Operator \u2192 Orchestrator", desc: "Coordinate AI teams" },
+      { num: "1", crossing: "Explorer \u2192 Strategist", desc: "From vague prompts to a persistent AI playbook" },
+      { num: "2", crossing: "Strategist \u2192 Orchestrator", desc: "From doing the work to directing AI teams" },
     ];
     sessions.forEach((sess, i) => {
-      const y = 0.8 + i * 1.1;
+      const y = 1.4 + i * 1.5;
       s.addText(sess.num, {
         x: 0.8, y, w: 0.8, h: 0.9,
         fontFace: D.h, fontSize: 36, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
@@ -217,7 +215,7 @@ async function main() {
   }
 
   // --- Slide 10: CTA ---
-  hero(pres, "First session: [date]", {
+  hero(pres, "First workshop: [date]", {
     sub: "Bring your laptop and a task you do every week.",
     notes: "Specific, low-commitment ask. Emphasis: existing weekly task, not new skill. Live transformation in session. ~15 seconds."
   });
