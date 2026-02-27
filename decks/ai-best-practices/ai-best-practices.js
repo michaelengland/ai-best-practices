@@ -159,14 +159,14 @@ function wrongRight(pres, opts) {
   s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: cardY, w: 0.06, h: cardH, fill: { color: D.wrong } });
   s.addText(opts.wrongText, {
     x: 0.8, y: cardY + 0.2, w: 3.6, h: cardH - 0.4,
-    fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top"
+    fontFace: D.b, fontSize: 18, color: D.darkText, margin: 0, valign: "top"
   });
   // Right card
   s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 4.2, h: cardH, fill: { color: D.rightBg } });
   s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 0.06, h: cardH, fill: { color: D.right } });
   s.addText(opts.rightText, {
     x: 5.6, y: cardY + 0.2, w: 3.6, h: cardH - 0.4,
-    fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top"
+    fontFace: D.b, fontSize: 18, color: D.darkText, margin: 0, valign: "top"
   });
   if (opts.notes) s.addNotes(opts.notes);
   return s;
@@ -418,7 +418,7 @@ async function main() {
       });
       s.addText(q, {
         x: x + 0.15, y, w: 3.5, h: 1.2,
-        fontFace: D.b, fontSize: 22, color: D.white, bold: true, margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 18, color: D.white, bold: true, margin: 0, valign: "middle"
       });
     });
     s.addNotes("We\u2019re going to make this simple. The questions represent common confusions. The audience should feel like someone is finally asking their questions. We\u2019ll answer all of these in the next few slides. Transition: Let\u2019s start with the basics \u2014 how is AI actually structured?");
@@ -531,60 +531,60 @@ async function main() {
       fill: { color: D.accent, transparency: 85 },
       line: { color: D.accent, width: 1.5 }
     });
-    s.addText("Write me a proposal for improving\nour onboarding process.", {
+    s.addText("Make me a presentation about\nmaking a cup of tea.", {
       x: 1.8, y: 1.1, w: 6.4, h: 1.6,
       fontFace: D.b, fontSize: 28, color: D.white, margin: 0, valign: "middle", align: "center"
     });
-    s.addText("\u2192 Generic, surface-level output", {
+    s.addText("\u2192 Generic, forgettable slides", {
       x: 1.5, y: 3.2, w: 7, h: 0.8,
       fontFace: D.b, fontSize: 28, color: D.muted, margin: 0, align: "center", valign: "top"
     });
-    s.addNotes("This is the baseline prompt that everyone starts with. The output is recognizably mediocre \u2014 generic proposal with bland headers, placeholder content, no specifics, no awareness of your company. Sound familiar? Over the next five slides, we\u2019ll transform this same task by changing only the words. Transition: The first fix is the easiest.");
+    s.addNotes("This is the baseline. Generic slides with clip-art energy \u2014 no personality, no structure, no specifics. Over the next five slides, we transform this same task by changing only the words. Transition: The first fix is the easiest.");
   }
 
-  // --- Slide 25: Wrong/Right — Assign a Role ---
+  // --- Slide 24: Wrong/Right — Assign a Role ---
   wrongRight(pres, {
     headline: "Assign a Role",
     subtitle: "vs. talking to a stranger",
-    wrongText: "Write me a proposal for\nimproving our onboarding process.",
-    rightText: "You are a senior HR operations\nconsultant. Write me a proposal for\nimproving our onboarding process.",
-    notes: "The same vague request produces noticeably different output. The role sets the AI\u2019s default tone, depth, and perspective. A role frames everything that follows. Always start here. More relevant frameworks, industry terminology, realistic timelines \u2014 just from telling the AI who it is. Transition: Now let\u2019s get specific."
+    wrongText: "Make me a presentation about\nmaking a cup of tea.",
+    rightText: "You are a presentation designer\nwho specialises in turning everyday\nprocesses into engaging visual stories.\nMake me a presentation about\nmaking a cup of tea.",
+    notes: "The role sets the AI\u2019s default tone, depth, and perspective. Notice the visual thinking, the narrative framing, the audience awareness \u2014 just from telling the AI who it is. Transition: Now let\u2019s get specific."
   });
 
-  // --- Slide 26: Wrong/Right — Be Specific ---
+  // --- Slide 25: Wrong/Right — Be Specific ---
   wrongRight(pres, {
     headline: "Be Specific",
     subtitle: "vs. the vague ask",
-    wrongText: "Write me a proposal for\nimproving our onboarding process.",
-    rightText: "Write a proposal for reducing\nonboarding from 4 to 2 weeks,\nfor the VP of People, under 2 pages.",
-    notes: "Specificity in the request = specificity in the output. We didn\u2019t give new information \u2014 we described what we actually wanted. No audience, no constraints, no direction = the AI guesses everything. Treat it like briefing a colleague, not searching Google. Transition: Next \u2014 don\u2019t overload it."
+    wrongText: "Make me a presentation about\nmaking a cup of tea.",
+    rightText: "A 10-slide deck for a team\nonboarding session. British-style\nloose-leaf tea. Cover water temperature,\nsteeping time, and milk-first\nvs. milk-last.",
+    notes: "Specificity in = specificity out. We didn\u2019t give new information \u2014 we described what we actually wanted. No audience, no constraints, no direction = the AI guesses everything. Transition: Next \u2014 don\u2019t overload it."
   });
 
-  // --- Slide 27: Wrong/Right — One Task at a Time ---
+  // --- Slide 26: Wrong/Right — One Task at a Time ---
   wrongRight(pres, {
     headline: "One Task at a Time",
     subtitle: "vs. the kitchen sink",
-    wrongText: "Write the proposal, draft an email,\ncreate a budget spreadsheet,\nand summarize risks.",
-    rightText: "Structure the proposal with:\n1. Problem statement\n2. Proposed solution\n3. Expected outcomes\n4. Timeline",
-    notes: "The kitchen-sink prompt is one of the most common mistakes. Five requests tangled together \u2014 tries everything, nails nothing. If you have 5 tasks, send 5 prompts. One task, clear structure \u2014 the AI mirrors your organization. Source: CodeSignal — https://codesignal.com/blog/prompt-engineering-best-practices-2025/\nTransition: Now let\u2019s add power keywords."
+    wrongText: "Create the slides, write speaker\nnotes, design a handout,\nand plan a follow-up quiz.",
+    rightText: "First, outline the key steps\nin the right order.\nThen we\u2019ll build each slide.",
+    notes: "The kitchen-sink prompt tries everything, nails nothing. One task, clear structure \u2014 the AI mirrors your organisation. Source: CodeSignal — https://codesignal.com/blog/prompt-engineering-best-practices-2025/\nTransition: Now let\u2019s add power keywords."
   });
 
-  // --- Slide 28: Wrong/Right — Power Keywords ---
+  // --- Slide 27: Wrong/Right — Power Keywords ---
   wrongRight(pres, {
     headline: "Power Keywords",
     subtitle: "vs. leading the witness",
-    wrongText: "Don't you think reducing\nonboarding to 2 weeks\nwould be great?",
-    rightText: "Be radically honest about challenges.\nThink step by step.\nChallenge my assumptions.",
-    notes: "'Radically honest,' 'think step by step,' 'challenge my assumptions,' and 'flag uncertainty' are four of the highest-leverage keyword modifiers. A leading question produces sycophantic agreement \u2014 an echo chamber. Permit uncertainty \u2014 an AI that says 'I\u2019m not sure' is more useful than one that confidently makes things up.\nSources:\n\u2022 OpenAI — https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api\n\u2022 DigitalOcean — https://www.digitalocean.com/resources/articles/prompt-engineering-best-practices\nTransition: One more \u2014 define what you want back."
+    wrongText: "Don\u2019t you think tea is great and\neveryone should learn to make\nit properly?",
+    rightText: "Think step by step. Challenge\nassumptions about what the audience\nalready knows. Be opinionated \u2014\ntake a stance on milk-first.",
+    notes: "Leading questions produce sycophantic agreement. Power keywords like 'think step by step,' 'challenge assumptions,' and 'be opinionated' change the AI\u2019s behaviour more than you\u2019d expect.\nSources:\n\u2022 OpenAI — https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api\n\u2022 DigitalOcean — https://www.digitalocean.com/resources/articles/prompt-engineering-best-practices\nTransition: One more \u2014 define what you want back."
   });
 
-  // --- Slide 29: Wrong/Right — Define the Output ---
+  // --- Slide 28: Wrong/Right — Define the Output ---
   wrongRight(pres, {
     headline: "Define the Output",
     subtitle: "vs. hoping for the best",
-    wrongText: "(No format guidance)\n\u2192 Random format, 5-page essay\nwhen you needed bullets.",
-    rightText: "One-page executive brief with\nbullet points. Data-driven language.\nReader has 2 minutes.",
-    notes: "You wouldn\u2019t ask a designer for 'something nice.' Defining format, tone, length, and audience assumptions produces immediately usable output. For extra precision, include a short example of what good output looks like \u2014 a quick example beats a long description. Every iteration changed wording. We never changed what the AI knew. That\u2019s the setup for the Strategist section. Transition: Let\u2019s see the transformation."
+    wrongText: "(No format guidance)\n\u2192 Random format, wall of text\nwhen you needed slides.",
+    rightText: "Billboard-style slides, max 15 words\nper slide, with detailed speaker notes.\nAudience has zero tea knowledge.",
+    notes: "Defining format, tone, length, and audience assumptions produces immediately usable output. Every iteration changed wording. We never changed what the AI knew. Transition: Let\u2019s see the transformation."
   });
 
   // --- Slide 30: Before/After ---
@@ -595,7 +595,7 @@ async function main() {
       x: 0.5, y: 0.8, w: 4.2, h: 0.6,
       fontFace: D.h, fontSize: 28, color: D.muted, bold: true, margin: 0, align: "center"
     });
-    s.addText("\"Write me a proposal for\nimproving our onboarding\nprocess.\"", {
+    s.addText("\"Make me a presentation about\nmaking a cup of tea.\"", {
       x: 0.5, y: 1.6, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 28, color: D.muted, italic: true, margin: 0, align: "center", valign: "top"
     });
@@ -606,11 +606,11 @@ async function main() {
       x: 5.3, y: 0.8, w: 4.2, h: 0.6,
       fontFace: D.h, fontSize: 28, color: D.accent, bold: true, margin: 0, align: "center"
     });
-    s.addText("Senior HR consultant\n4 to 2 weeks, VP of People\nStep by step, challenge me\nOne-page brief, bullets", {
+    s.addText("Presentation designer\n10 slides, loose-leaf, milk-first\nStep by step, be opinionated\nBillboard, 15 words max", {
       x: 5.3, y: 1.6, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 28, color: D.accent, margin: 0, align: "center", valign: "top"
     });
-    s.addNotes("Full final prompt: 'You are a senior HR operations consultant. Write a proposal for reducing onboarding from 4 to 2 weeks. Aimed at VP of People, leadership review format, under 2 pages. Structure: problem, solution, outcomes, resources, timeline. Be radically honest, challenge assumptions, flag uncertainty. One-page exec brief with bullets, data-driven language.'\n\nRole + Specificity + Structure + Keywords + Output Definition. Same task, same background info, dramatically different result \u2014 purely from how the request was phrased. This is the hinge of the deck. Transition: Celebrate the progress, then plant the seed.");
+    s.addNotes("Full final prompt: 'You are a presentation designer who specialises in turning everyday processes into engaging visual stories. Create a 10-slide deck for a team onboarding session. British-style loose-leaf tea. Cover water temperature, steeping time, and milk-first vs. milk-last. First outline the key steps. Think step by step. Challenge assumptions. Be opinionated. Billboard-style slides, max 15 words per slide, detailed speaker notes. Audience has zero tea knowledge.' Same task, dramatically different result \u2014 purely from how the request was phrased. Transition: Celebrate the progress, then plant the seed.");
   }
 
   // --- Slide 31: "Same task. Same information. Just better words." ---
@@ -649,7 +649,7 @@ async function main() {
       x: 0.5, y: 1.5, w: 4.2, h: 1.0,
       fontFace: D.h, fontSize: 32, color: D.muted, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    s.addText("Could be for any company.", {
+    s.addText("Covers tea bags and mugs.", {
       x: 0.5, y: 3.0, w: 4.2, h: 0.8,
       fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
     });
@@ -664,7 +664,7 @@ async function main() {
       x: 5.3, y: 3.0, w: 4.2, h: 0.8,
       fontFace: D.b, fontSize: 24, color: D.accent, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("Left: Same well-crafted prompt from the Whisperer section. Output is plausible but generic \u2014 reads like it could be for any company.\nRight: Same prompt + background info (current onboarding stats, company size & structure, known pain points, relevant policies). Output sounds like someone who works here.\nSources:\n\u2022 Elastic — https://www.elastic.co/search-labs/blog/context-engineering-vs-prompt-engineering\n\u2022 KDnuggets — https://www.kdnuggets.com/context-engineering-is-the-new-prompt-engineering\nTransition: Let's meet the metaphor that explains why.");
+    s.addNotes("Left: Generic tea presentation \u2014 covers tea bags, mugs, boiling water. Right: Same prompt + context about the Sage Smart Kettle on the third floor, the loose-leaf collection in the blue tin, Dave in accounting\u2019s warming-the-pot rule. Output sounds like someone who actually works in this office.\nSources:\n\u2022 Elastic — https://www.elastic.co/search-labs/blog/context-engineering-vs-prompt-engineering\n\u2022 KDnuggets — https://www.kdnuggets.com/context-engineering-is-the-new-prompt-engineering\nTransition: Let's meet the metaphor that explains why.");
   }
 
   // --- Slide 36: Meet Dory ---
@@ -710,13 +710,13 @@ async function main() {
     notes: "The natural question after context engineering: 'Do I have to feed all this context every time?' This plants the seed. Skills are the answer. Transition: What if the AI already knew?"
   });
 
-  // --- Slide 42: Without vs With a Skill (Wrong/Right) ---
+  // --- Slide 41: Without vs With a Skill (Wrong/Right) ---
   wrongRight(pres, {
     headline: "Without vs. With a Skill",
     subtitle: "same prompt, different starting point",
-    wrongText: "Role: senior HR consultant\nFormat: leadership brief\nTone: direct, data-driven\nAudience: VP of People\n\nTyped. Every. Single. Time.",
-    rightText: "\"Write a proposal for reducing\nonboarding from 4 to 2 weeks.\"\n\nThat\u2019s it.\nThe skill knows the rest.",
-    notes: "This is the concrete proof of what skills do. The left side shows all the context the audience learned to provide in the Whisperer section \u2014 role, format, tone, audience. Without a skill, you type this every time. With a skill (custom instruction), it\u2019s saved once. You just ask for the task. Same output quality, fraction of the effort. This makes skills tangible, not abstract. Transition: Here\u2019s the metaphor."
+    wrongText: "Role: presentation designer\nFormat: billboard, 15 words max\nTone: opinionated, visual\nAudience: new hires\n\nTyped. Every. Single. Time.",
+    rightText: "\"Make me a presentation about\nmaking a cup of tea.\"\n\nThat\u2019s it.\nThe skill knows the rest.",
+    notes: "The left side shows all the context from the Whisperer section \u2014 role, format, tone, audience. Without a skill, you type this every time. With a skill, it\u2019s saved once. The skill: 'All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template.' Next time you ask for any presentation \u2014 not just tea \u2014 she already knows the format. Transition: Here\u2019s the metaphor."
   });
 
   // --- Slide 43: GPS metaphor (light bg) ---
@@ -773,7 +773,7 @@ async function main() {
         fontFace: D.b, fontSize: 28, color: D.text, bold: true, margin: 0, valign: "middle"
       });
     });
-    s.addNotes("The copy-paste cycle is so universal it's invisible. Drawing it as steps makes people see the pattern:\n1. You decide which documents to provide\n2. You copy-paste into the AI chat\n3. You read the output\n4. You manually apply it\n\nProblems: You're the bottleneck. You don't know what context AI needs. You're doing grunt work. Every step has 'you' in it. Transition: There's a better metaphor for this.");
+    s.addNotes("The copy-paste cycle: You search 'how to brew loose-leaf tea,' paste three articles into the chat, AI drafts slides, you manually drop them into PowerPoint. Every step has 'you' in it. Transition: There's a better metaphor for this.");
   }
 
   // --- Slide 43: "You're using a Ferrari to carry groceries." ---
@@ -797,7 +797,7 @@ async function main() {
         fontFace: D.b, fontSize: 28, color: step.color, bold: true, margin: 0, valign: "middle"
       });
     });
-    s.addNotes("Same four steps, but the human only appears at step 4. The agent retrieves its own context, identifies gaps and goes back for more, creates/edits outputs directly, and you review and approve. Human moved from 'operator at every step' to 'reviewer at the end.' Same Dory, same memory issues, but now she has hands, eyes, and a to-do list. One great chef who finds ingredients, preps, cooks, and plates. You taste-test at the end. Transition: Let's meet this new Dory.");
+    s.addNotes("Agent searches tea brewing best practices, steeping times, water temperatures. Checks your office kitchen doc \u2014 finds the kettle model and tea inventory. Creates the full slide deck in your company template. You review. Same four steps. You only appear at step 4. Transition: Let's meet this new Dory.");
   }
 
   // --- Slide 45: "Same Dory. Now she has hands." ---
@@ -840,7 +840,7 @@ async function main() {
       x: 0.5, y: 0.8, w: 4.2, h: 0.7,
       fontFace: D.h, fontSize: 36, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    s.addText("You copy-paste\nYou forget the budget memo\nVP asks \u2014 too late", {
+    s.addText("Generic tea facts\nMisses your office setup\nYou fill the gaps", {
       x: 0.5, y: 1.9, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
@@ -851,11 +851,11 @@ async function main() {
       x: 5.3, y: 0.8, w: 4.2, h: 0.7,
       fontFace: D.h, fontSize: 36, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    s.addText("Agent reads directly\nFinds what you forgot\nFlags what you missed", {
+    s.addText("Slide 4 references the Sage Smart\nKettle in the third-floor kitchen\nand links to the user manual", {
       x: 5.3, y: 1.9, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
-    s.addNotes("The forgotten budget memo is the killer detail. Everyone has this story.\nWithout connections: Copy-paste HR handbook, survey results, team structure. Forget the budget memo. Proposal misses cost constraints. VP asks about it \u2014 too late.\nWith connections: Agent reads HR system directly. Pulls survey data automatically. Finds the budget memo you forgot. Flags a policy constraint you didn't know existed.\nThe agent found context you wouldn't have thought to provide. Transition: But can you trust it?");
+    s.addNotes("Without connections: generic tea brewing facts from the web. With connections: agent reads your office kitchen guide, finds the Sage Smart Kettle model, pulls the tea inventory from the shared drive. The agent found context you wouldn\u2019t have thought to provide. Trust beat: 'The agent says oolong steeps for 2 minutes. You check. It\u2019s 3\u20135 minutes. That\u2019s the job \u2014 judgment, not typing.' Transition: But can you trust it?");
   }
 
   // --- Slide 48: "Trust, but verify." ---
@@ -950,7 +950,7 @@ async function main() {
         fontFace: D.b, fontSize: 20, color: D.accent, align: "center", margin: 0, valign: "top"
       });
     });
-    s.addNotes("Operator: One chef doing everything solo. Works for single tasks, but a 10-course dinner alone = burnout, mistakes, forgotten appetizer.\nOrchestrator: Kitchen brigade \u2014 multiple chefs at stations. A classroom of Dorys, each doing one focused step. Each fresh, focused, brilliant at one thing.\nLLMs are bad at long chains but excellent at focused tasks. The kitchen brigade leverages the strength. Third Dory touchpoint. Transition: Let's name the principle.");
+    s.addNotes("Kitchen brigade metaphor \u2014 now almost literal, because we\u2019re making tea in a kitchen. One chef doing everything solo vs. specialised stations. LLMs are bad at long chains but excellent at focused tasks. Third Dory touchpoint. Transition: Let's name the principle.");
   }
 
   // --- Slide 53: "The trick isn't making one AI smarter..." ---
@@ -968,11 +968,11 @@ async function main() {
       { label: "Review", color: D.accent },
       { label: "You", color: D.right },
     ];
-    const boxW = 1.8, boxH = 0.9;
-    const totalW = phases.length * boxW + (phases.length - 1) * 0.6;
+    const boxW = 2.0, boxH = 0.9;
+    const totalW = phases.length * boxW + (phases.length - 1) * 0.5;
     const startX = (10 - totalW) / 2;
     phases.forEach((p, i) => {
-      const x = startX + i * (boxW + 0.6);
+      const x = startX + i * (boxW + 0.5);
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.2, w: boxW, h: boxH,
         rectRadius: 0.1,
@@ -980,16 +980,16 @@ async function main() {
       });
       s.addText(p.label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 24, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
       });
       if (i < phases.length - 1) {
         s.addText("\u2192", {
-          x: x + boxW, y: 2.2, w: 0.6, h: boxH,
-          fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+          x: x + boxW, y: 2.2, w: 0.5, h: boxH,
+          fontFace: D.b, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
         });
       }
     });
-    s.addNotes("The onboarding proposal chain:\n\u2022 Agent 1 (Research) \u2014 researches onboarding process, pulls metrics from HR, reads surveys, summarizes pain points \u2192 structured brief\n\u2022 Agent 2 (Draft) \u2014 uses the brief to draft a proposal, one-page exec brief for VP of People \u2192 polished proposal\n\u2022 Agent 3 (Review) \u2014 reviews against leadership template and compliance policy, flags gaps \u2192 final draft + notes\n\u2022 You \u2014 review, adjust, approve. The part only humans can do: judgment.\n\nThree principles: Single job (each link has one clear job), Filtered context (context is filtered between steps), Compounding quality (each step builds on verified output). Smell test: If your initial prompt is getting long and complex, you need a Phase 0 \u2014 an agent whose only job is to figure out what the rest of the chain needs. Transition: The rule.");
+    s.addNotes("The tea presentation chain: Research Agent finds brewing temps, steeping times, tea varieties from food science sources. Draft Agent creates billboard slides with speaker notes. Review Agent checks accuracy (fact-checks all temperatures) and brand compliance. You review, adjust, approve \u2014 the part only humans can do. Transition: The rule.");
   }
 
   // --- Slide 55: "Each agent does one thing. The chain does everything." ---
@@ -1008,9 +1008,9 @@ async function main() {
   {
     const s = darkSlide(pres);
     const agents = [
-      { name: "Research Agent", skill: "+ Research Standards" },
-      { name: "Draft Agent", skill: "+ Leadership Proposals" },
-      { name: "Review Agent", skill: "+ Compliance Policy" },
+      { name: "Research Agent", skill: "+ Peer-reviewed food\n   science sources" },
+      { name: "Draft Agent", skill: "+ Billboard design,\n   15 words max" },
+      { name: "Review Agent", skill: "+ Company brand guide,\n   fact-check temperatures" },
     ];
     const colW = 2.8, gap = 0.3;
     const totalW = agents.length * colW + (agents.length - 1) * gap;
@@ -1026,31 +1026,31 @@ async function main() {
         fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
       });
     });
-    s.addNotes("Same onboarding chain, now upgraded with skills:\n\u2022 Agent 1 (Research) + 'Research Standards' \u2014 knows where to look, what data to prioritize, how to structure the brief. Already knows the company's data sources.\n\u2022 Agent 2 (Draft) + 'Leadership Proposals' \u2014 knows the VP's preferred format, tone, level of detail, how to frame costs. Every proposal sounds like it was written for this audience.\n\u2022 Agent 3 (Review) + 'Compliance Policy' \u2014 knows regulations, required disclaimers, approval workflows. Catches policy gaps you didn't know existed.\nWith skills, each agent already knows its specialty. Transition: What makes skills special?");
+    s.addNotes("Tea-specific skills: Research Agent knows to use peer-reviewed food science sources for brewing data. Draft Agent knows billboard design \u2014 15 words max per slide. Review Agent knows the company brand guide and fact-checks all temperatures against source material. Transition: What makes skills special?");
   }
 
   // --- Slide 58: "Skills compound." ---
   hero(pres, "Skills compound.\nThe brigade gets smarter\nevery time.", {
     size: 40,
-    notes: "This is the compounding beat. Your feedback from each chain run becomes new skills. The VP's format becomes the 'Leadership Proposals' skill. Compliance gaps become the updated 'Compliance Policy' skill. Even though Dory won't remember, the skills will. Final Dory touchpoint. Transition: Let's see the numbers."
+    notes: "This is the compounding beat. Your feedback from each chain run becomes new skills \u2014 food science sources, billboard format, temperature accuracy. Even though Dory won\u2019t remember, the skills will. Final Dory touchpoint. Transition: Let\u2019s see the numbers."
   });
 
   // --- Slide 62: "1.5 hrs" ---
   bigNum(pres, "1.5 hrs", "of you being the bottleneck", {
     color: D.wrong, source: "Illustrative estimate",
-    notes: "Walk through the 7 steps verbally:\n1. Search for onboarding docs and survey data (20 min)\n2. Copy-paste into AI, ask for draft (10 min)\n3. Read output, realize it's missing budget context (5 min)\n4. Find budget data, re-prompt (15 min)\n5. Reformat to leadership template (20 min)\n6. Ask AI to review draft (10 min)\n7. Manually apply suggestions (15 min)\nTotal: ~1.5 hours of you being the bottleneck. This is the manual workflow the audience has watched evolve through the entire deck. Now it's at full scale and the pain is vivid. Transition: Now the chained way."
+    notes: "1.5 hours of you being the bottleneck \u2014 searching tea brewing articles, copy-pasting into ChatGPT, realising it missed the office kitchen context, re-prompting, reformatting to company template, reviewing, manually applying suggestions. Every step has 'you' in it. Transition: Now the chained way."
   });
 
   // --- Slide 63: "15 min" ---
   bigNum(pres, "15 min", "of judgment \u2014 the part only humans can do", {
     color: D.right,
-    notes: "Walk through the chain:\n\u2022 Agent 1 researches (pulls metrics, reads surveys, summarizes pain points)\n\u2022 Agent 2 drafts (one-page exec brief for VP of People)\n\u2022 Agent 3 reviews (checks against leadership template and compliance policy)\n\u2022 You judge (review, adjust, approve)\nSame proposal quality. The chain did 1 hour 15 minutes of grunt work. You spent 15 minutes on judgment \u2014 the part only humans can do. Transition: And it gets better every time."
+    notes: "Walk through the chain:\n\u2022 Research Agent finds brewing temps, steeping times, tea varieties\n\u2022 Draft Agent creates billboard slides with speaker notes\n\u2022 Review Agent fact-checks temperatures and checks brand compliance\n\u2022 You review, adjust, approve\nSame tea presentation quality. 15 minutes of judgment \u2014 the part only humans can do. Transition: And it gets better every time."
   });
 
-  // --- Slide 64: "Same proposal. The chain gets smarter every time." ---
-  hero(pres, "Same proposal.\nThe chain gets smarter\nevery time.", {
+  // --- Slide 64: "Same tea presentation. The chain gets smarter every time." ---
+  hero(pres, "Same tea presentation.\nThe chain gets smarter\nevery time.", {
     sub: "Your feedback becomes skills. She won't remember, but the skills will.",
-    notes: "Emotional climax. The skills compounding beat is the final Dory touchpoint. Your feedback from each run becomes new skills \u2014 the VP's format, compliance gaps, research standards. Even though Dory forgets, the skills persist. Same proposal. 15 minutes of judgment instead of 1.5 hours of grunt work. And next time it's even faster. Transition to closing."
+    notes: "Emotional climax. The skills-compounding beat is the final Dory touchpoint. Your feedback from each run becomes new skills \u2014 food science sources, billboard format, temperature accuracy. Even though Dory forgets, the skills persist. Same tea presentation. 15 minutes of judgment instead of 1.5 hours of grunt work. And next time it\u2019s even faster. Transition to closing."
   });
 
   // ============================================================
@@ -1063,16 +1063,16 @@ async function main() {
     "Emotional reset before the callback. Pause. Let the pacing shift."
   );
 
-  // --- Slide 69: "Remember the 45-minute conversation?" ---
-  hero(pres, "Remember the\n45-minute summary?", {
-    size: 48,
-    notes: "Callback to slide 2. They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. Transition: The punchline."
+  // --- Slide 68: Callback ---
+  hero(pres, "Remember\n\u2018Make me a presentation about\nmaking a cup of tea\u2019?", {
+    size: 36,
+    notes: "Callback to slide 23. They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck. Transition: The punchline."
   });
 
-  // --- Slide 70: "Two minutes. That's the trick." ---
-  hero(pres, "Two minutes.\nThat\u2019s the trick.", {
-    size: 72,
-    notes: "The same task. Two minutes. That's the trick. Now you know it too. Let this land. Long pause. This is the emotional peak of the entire deck. Everything from slide 1 has been building to this moment. Transition: One final thought."
+  // --- Slide 69: Punchline ---
+  hero(pres, "Ten slides. Speaker notes.\nFact-checked. Branded.\nFifteen minutes.", {
+    size: 54,
+    notes: "The punchline. Same task. Polished output. Fifteen minutes. Let this land. Long pause. This is the emotional peak of the entire deck. Transition: One final thought."
   });
 
   // --- Slide 71: CTA ---

@@ -1,6 +1,6 @@
 # Getting Agents to Give Up Their Secrets - Narrative
 
-> **Next step:** Use **/deck-flow:craft** to structure this narrative into a content outline.
+> **Next step:** Use **/deckwright:craft** to structure this narrative into a content outline.
 
 ## Overview
 
@@ -82,13 +82,13 @@ The deck takes you **Skeptic → Orchestrator**. Builder is visible on the spect
 **Job: Transform how the audience communicates with AI. Five techniques, one running example.**
 
 - Section divider: "Prompt Engineering — How to Stop Getting Useless Answers"
-- The baseline: "Write me a proposal for improving our onboarding process." → generic output
+- The baseline: "Make me a presentation about making a cup of tea." → generic, forgettable slides with clip-art energy
 - Five iterations on the same task, changing only the words:
-  1. **Assign a Role** — "You are a senior HR operations consultant..."
-  2. **Be Specific** — "Reducing onboarding from 4 to 2 weeks, for the VP of People..."
-  3. **One Task at a Time** — Structure with numbered sections instead of kitchen-sink requests
-  4. **Power Keywords** — "Be radically honest. Think step by step. Challenge my assumptions."
-  5. **Define the Output** — "One-page executive brief with bullet points. Reader has 2 minutes."
+  1. **Assign a Role** — "You are a presentation designer who specializes in turning everyday processes into engaging visual stories..."
+  2. **Be Specific** — "A 10-slide deck for a team onboarding session. British-style loose-leaf tea. Cover water temperature, steeping time, and milk-first vs. milk-last."
+  3. **One Task at a Time** — "First, outline the key steps in the right order. Then we'll build each slide."
+  4. **Power Keywords** — "Think step by step. Challenge assumptions about what the audience already knows. Be opinionated — take a stance on milk-first."
+  5. **Define the Output** — "Billboard-style slides, max 15 words per slide, with detailed speaker notes. Audience has zero tea knowledge."
 - Before/after comparison showing the transformation
 - "Same task. Same information. Just better words."
 - **Cliffhanger:** "But we never changed what the AI knew."
@@ -107,7 +107,7 @@ Sources: CodeSignal, OpenAI, DigitalOcean
 
 #### Context Engineering
 - "Same prompt. Different information. Dramatically different result."
-- Side-by-side: "Plausible but generic" vs "Sounds like someone who works here" — same prompt, added context
+- Side-by-side: "Plausible but generic" (covers tea bags and mugs) vs "Sounds like someone who works here" (knows about the Sage Smart Kettle on the third floor, the loose-leaf collection in the blue tin, and that Dave in accounting is militant about warming the pot first) — same prompt, added context
 - Meet your AI colleague (blue tang fish image) — "Brilliant. Helpful. Remembers nothing."
 - The attention problem: "Too much. Contradictory. Too broad." — three ways to confuse your AI
   - 57% of orgs have AI agents in production, but 32% cite quality as top barrier (Source: Sombra)
@@ -121,6 +121,8 @@ Sources: CodeSignal, OpenAI, DigitalOcean
 - Introduce custom instructions / system prompts / project rules — "Write once, the AI always knows."
 - GPS metaphor: Directions every trip (effort every time) vs. GPS that learns (compounds permanently)
 - "Custom instructions" = "System prompts" = "Rules" = "Skills" — same concept, many names
+- The skill: "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template. Assume a non-expert audience."
+- "Next time you ask for any presentation — not just tea — she already knows the format."
 - "If your tool has a way to save reusable instructions, use it. That's a skill."
   - Source: CodeConductor
 
@@ -134,11 +136,12 @@ Sources: CodeSignal, OpenAI, DigitalOcean
 
 **Job: Shift from "I use AI" to "AI works for me." Introduce agent autonomy, then address trust.**
 
-- The copy-paste trap: 1. You search → 2. You paste → 3. AI drafts → 4. You apply. "You're using a Ferrari to carry groceries."
-- Agent-driven workflow: 1. Agent retrieves → 2. Agent identifies gaps → 3. Agent creates → 4. You review
+- The copy-paste trap: 1. You search "how to brew loose-leaf tea" → 2. You paste three articles into the chat → 3. AI drafts slides → 4. You manually drop them into PowerPoint. "You're using a Ferrari to carry groceries."
+- Agent-driven workflow: 1. Agent searches tea brewing best practices, steeping times, water temperatures → 2. Agent checks your office kitchen doc and finds the kettle model and tea inventory → 3. Agent creates the full slide deck in your company template → 4. You review
 - "Same colleague. Now she has hands." — eyes, a phone, and a to-do list
 - Connections: Web, Email, Docs, Data, Calendar, Custom (MCP referenced inline as "USB-C for AI")
-- Without connections vs. with connections — the forgotten budget memo story
+- Without connections vs. with connections — without: generic tea facts; with: "Slide 4 references the Sage Smart Kettle in the third-floor kitchen and links to the user manual."
+- Scenario-specific trust beat: "The agent says oolong steeps for 2 minutes. Does it? You check. It's 3–5 minutes. That's the job — judgment, not typing."
 - "Trust, but verify." — never trust numbers you didn't provide, verify claims, use AI for drafts not decisions
 - "AI is a power tool, not autopilot."
 - "When the answer 'feels right' but you can't verify it — that's the most dangerous moment."
@@ -169,14 +172,14 @@ The failure? Three fundamentals skipped: no data inventory, no data minimization
 
 **Job: The payoff. One agent becomes a team. Skills (already known) now apply per-agent in chains.**
 
-- Kitchen brigade: one chef doing everything solo vs. specialized stations (Prep, Grill, Sauce, Plate)
+- Kitchen brigade: one chef doing everything solo vs. specialized stations (Prep, Grill, Sauce, Plate) — and now it's almost literal, because we're making tea in a kitchen
 - "The trick isn't making one AI smarter. It's making many work together."
-- Chain flow: Research → Draft → Review → You
+- Chain flow: **Research Agent** (finds brewing temps, steeping times, tea varieties) → **Draft Agent** (creates billboard slides with speaker notes) → **Review Agent** (checks accuracy, brand compliance, readability) → You
 - "Each agent does one thing. The chain does everything."
-- **Skills per agent** (brief — the audience already knows what skills are): "You already set up skills for yourself. Now each agent gets its own." Research Agent + Research Standards, Draft Agent + Leadership Proposals, Review Agent + Compliance Policy.
+- **Skills per agent** (brief — the audience already knows what skills are): "You already set up skills for yourself. Now each agent gets its own." Research Agent + "Use peer-reviewed food science sources," Draft Agent + "Billboard design, 15 words max," Review Agent + "Company brand guide, fact-check all temperatures."
 - "Skills compound. The brigade gets smarter every time."
 - 1.5 hrs of you being the bottleneck vs. 15 min of judgment — the part only humans can do
-- "Same proposal. The chain gets smarter every time. Your feedback becomes skills. She won't remember, but the skills will."
+- "Same tea presentation. The chain gets smarter every time. Your feedback becomes skills. She won't remember, but the skills will."
 
 **Persona crossing:** You were an **Operator**. Now you're an **Orchestrator**.
 
@@ -185,11 +188,11 @@ The failure? Three fundamentals skipped: no data inventory, no data minimization
 ### Closing: Full Circle
 
 - Breather: "Let's come back to where we started."
-- "Remember the 45-minute summary?"
-- "Two minutes. That's the trick."
+- "Remember 'Make me a presentation about making a cup of tea'?"
+- "Ten slides. Speaker notes. Fact-checked. Branded. Fifteen minutes."
 - "The secret was never in the AI." / "Now go try it — one task, this week."
 
-**Speaker notes for callback:** They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade.
+**Speaker notes for callback:** They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck — not because the AI got smarter, but because they did.
 
 ---
 
@@ -236,7 +239,7 @@ Referenced inline in the Operator section (Connections slide) as "USB-C for AI."
 - **Slide count:** ~68 slides (billboard design). Each slide passes the 3-second test. Detail lives in speaker notes.
 - **Persona system:** Seven personas, five crossings. No level numbers. Each section IS one crossing. Builder shown on spectrum but not covered.
 - **Key structural change from v2:** Skills relocated from Orchestrator to Strategist section. Skills are introduced as persistent single-agent context (custom instructions), then referenced in Orchestrator as "each agent gets its own." This makes Orchestrator lighter and skills more accessible.
-- **Running example thread:** Onboarding proposal flows through: Whisperer (prompt iterations) → Strategist (context proof, AI asks questions) → Operator (copy-paste trap → agent, with connections) → Orchestrator (manual vs chained, 1.5hrs vs 15min).
+- **Running example thread:** Tea presentation flows through: Whisperer ("Make me a presentation about making a cup of tea" → five prompt iterations) → Strategist (context proof with office kitchen details — Sage Smart Kettle, blue tin, Dave's warming-the-pot rule; skill = billboard design defaults) → Operator (copy-paste trap with tea articles → agent with connections to web + office kitchen doc; trust beat = oolong steeping time) → Orchestrator (Research/Draft/Review chain, 1.5hrs vs 15min).
 - **Dory/AI colleague analogy:** Blue tang fish image (AI-generated, copyright-clean). On-screen references use "your AI colleague" and "she" — "Dory" only in speaker notes for presenter context. Touchpoints: Strategist (introduction + attention problem), Operator (same colleague + connections + trust), Orchestrator (kitchen brigade + skills compound).
 - **Billboard design rules:** Max 15 words on screen, 28pt+ font, 50%+ whitespace, no cards/boxes (except Wrong/Right comparisons), sources as subtle 11pt bottom-right citations on stat slides.
-- **Closing:** No toolkit table, no 30-day challenge, no spectrum recap. Straight from Orchestrator climax → breather → callback → punchline → CTA. Tight emotional landing.
+- **Closing:** No toolkit table, no 30-day challenge, no spectrum recap. Straight from Orchestrator climax → breather → callback ("Remember 'Make me a presentation about making a cup of tea'?") → punchline ("Ten slides. Fifteen minutes.") → CTA. Tight emotional landing.

@@ -28,8 +28,8 @@ This workshop uses **ChatGPT Org**, which all attendees have access to. No addit
 ### Exercise Setup (2 min)
 
 - "Open ChatGPT on your laptop. We're going to transform the same task — first the words, then the information."
-- Prescribe the task OR let them choose: "Pick a real task you do at work — a proposal, an email, a summary, a plan."
-- **Prescribed fallback**: "Write me a proposal for improving our onboarding process."
+- Prescribe the task OR let them choose: "Pick a real task you do at work — a presentation, an email, a summary, a plan."
+- **Prescribed fallback**: "Make me a presentation about making a cup of tea."
 
 ---
 
@@ -89,7 +89,7 @@ This workshop uses **ChatGPT Org**, which all attendees have access to. No addit
 ### Exercise 7: Add Context (4 min)
 
 - **Teach** (1 min): "Every round so far changed the words. Now we change the information."
-- **Exercise**: Take the prompt from Round 6. Add 3–4 sentences of real context: "Our company has 500 employees. Current onboarding takes 4 weeks. HR team of 3. Last attempt to fix this failed because..."
+- **Exercise**: Take the prompt from Round 6. Add 3–4 sentences of real context: "Our office has a Sage Smart Kettle on the third floor. We have a loose-leaf collection in the blue tin — mostly Earl Grey and oolong. Dave in accounting is militant about warming the pot first. The audience is new hires who've never used the office kitchen."
 - **Compare**: Output goes from "plausible but generic" to "sounds like someone who works here."
 - **The aha**: "Same prompt. Different information. Dramatically bigger jump than all five techniques combined."
 
@@ -121,9 +121,9 @@ This workshop uses **ChatGPT Org**, which all attendees have access to. No addit
 - **Teach** (2 min): Walk through ChatGPT's Custom Instructions settings. Screen-share the location: Settings → Personalisation → Custom Instructions. Wait for everyone to find it.
 - **Exercise** (4 min): Set up a custom instruction:
   - "I work at [company]. My role is [role]."
-  - "When writing proposals, use [format]. Tone: [style]. Audience: [who]."
+  - "When creating presentations, use billboard design — max 15 words per slide, with speaker notes. Tone: [style]. Audience: [who]."
   - "Be radically honest. Challenge my assumptions. Flag uncertainty."
-- **Test it** (2 min): Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: "Write a proposal for reducing onboarding from 4 to 2 weeks."
+- **Test it** (2 min): Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: "Make me a presentation about making a cup of tea."
 - **The aha**: "You typed one sentence. It already knew the rest."
 
 ### The Grand Reveal (2 min)

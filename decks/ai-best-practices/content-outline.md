@@ -1,6 +1,6 @@
 # Getting Agents to Give Up Their Secrets - Content Outline
 
-> **Next step:** Use **/deck-flow:design** to plan slides and visual direction.
+> **Next step:** Use **/deckwright:design** to plan slides and visual direction.
 
 ## Overview
 - **Estimated duration**: Self-paced reference document (no fixed duration)
@@ -23,6 +23,8 @@
 **Speaker notes**: Let the hook land. Don't rush the spectrum — let people find themselves. Stats build urgency without overwhelming.
 **Transition**: "Let's see what most people get wrong."
 
+**Slide mapping**: Slides 1-11 — unchanged
+
 ---
 
 ### Section 2: Skeptic → Explorer — "Know Your Tools"
@@ -40,15 +42,22 @@
 **Speaker notes**: The jargon wall is intentional — let it hit. The stack simplification should feel like relief. Stats prove the gap is real.
 **Transition**: "You've got the basics. Now let's give you the skills."
 
+**Slide mapping**: Slides 12-22 — unchanged
+
 ---
 
 ### Section 3: Explorer → Whisperer — "Talk to AI Properly"
 **Key message**: The same task with better words produces dramatically better results — and it's five simple techniques.
 **Content**:
 - Section divider: "Prompt Engineering"
-- Baseline prompt (chat bubble: vague onboarding request → generic output)
-- 5 Wrong/Right iterations: Role, Specificity, One Task, Power Keywords, Output Format
-- Before/after comparison
+- Baseline prompt (chat bubble: "Make me a presentation about making a cup of tea." → generic, clip-art-energy slides)
+- 5 Wrong/Right iterations:
+  1. Role: "You are a presentation designer who specialises in turning everyday processes into engaging visual stories..."
+  2. Specificity: "A 10-slide deck for a team onboarding session. British-style loose-leaf tea. Cover water temperature, steeping time, and milk-first vs. milk-last."
+  3. One Task: "First, outline the key steps in the right order. Then we'll build each slide."
+  4. Power Keywords: "Think step by step. Challenge assumptions about what the audience already knows. Be opinionated — take a stance on milk-first."
+  5. Output: "Billboard-style slides, max 15 words per slide, with detailed speaker notes. Audience has zero tea knowledge."
+- Before/after comparison: vague tea prompt vs presentation designer / 10-slide / billboard / opinionated
 - "Same task. Same information. Just better words."
 - Cliffhanger: "But we never changed what the AI knew."
 - Breather transition
@@ -56,66 +65,78 @@
 **Speaker notes**: Each iteration builds on the last. The before/after should feel like a reveal. The cliffhanger sets up the entire next section.
 **Transition**: "You've changed the words. Now let's change the information."
 
+**Slide mapping**: Slides 23-33 — scenario swap from onboarding proposal to tea presentation
+
 ---
 
 ### Section 4: Whisperer → Strategist — "Feed AI Smarter"
 **Key message**: The biggest quality leap comes from what AI knows, not how you ask. And you can make that knowledge permanent.
 **Content**:
 - "Same prompt. Different information. Dramatically different result."
-- Side-by-side: "Plausible but generic" vs "Sounds like someone who works here"
+- Side-by-side: "Plausible but generic" (covers tea bags and mugs) vs "Sounds like someone who works here" (knows the Sage Smart Kettle on the third floor, the loose-leaf collection in the blue tin, Dave in accounting's warming-the-pot rule)
 - Meet your AI colleague (blue tang image) — "Brilliant. Helpful. Remembers nothing."
 - Attention problem: "Too much. Contradictory. Too broad." (Sombra)
 - "Let AI tell you what it needs." — the clarifying questions technique (Anthropic/Claude)
 - "Not too much. Not too little." — goldilocks principle (CIO)
-- **Skills as persistent context** (relocated from Orchestrator):
+- **Skills as persistent context**:
   - "You've mastered context. But you're providing it from scratch every time."
+  - Without vs With a Skill: typed-every-time (role, format, tone, audience) vs "Make me a presentation about making a cup of tea." — the skill knows the rest
+  - Skill example: "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template."
+  - "Next time you ask for any presentation — not just tea — she already knows the format."
   - GPS metaphor: directions every trip vs. GPS that remembers
   - "Custom instructions = System prompts = Rules = Skills"
   - (CodeConductor)
 - Breather transition
 **Emphasis**: High (the Dory introduction and the skills relocation make this the pivotal section)
-**Speaker notes**: The context proof should feel like an "aha." Dory explains why. Skills are the natural conclusion — "do I have to do this every time? No." GPS metaphor crystallizes the whole section.
+**Speaker notes**: The context proof should feel like an "aha." Dory explains why. Skills are the natural conclusion — "do I have to do this every time? No." The tea-specific context (Sage Smart Kettle, blue tin, Dave) makes the generic-vs-specific comparison visceral. GPS metaphor crystallizes the whole section.
 **Transition**: "You talk to AI like a pro. You've set up its playbook. But who's doing all the work? Still you."
+
+**Slide mapping**: Slides 34-44 — scenario swap: context examples now use office kitchen details; skill example now uses billboard presentation defaults
 
 ---
 
 ### Section 5: Strategist → Operator — "Let AI Drive"
 **Key message**: Stop being the bottleneck. Let agents work, you review — but always review.
 **Content**:
-- Copy-paste trap: You search → You paste → AI drafts → You apply
+- Copy-paste trap: You search "how to brew loose-leaf tea" → You paste three articles → AI drafts slides → You manually drop them into PowerPoint
 - "You're using a Ferrari to carry groceries."
-- Agent-driven: Agent retrieves → Agent identifies gaps → Agent creates → You review
+- Agent-driven: Agent searches tea brewing best practices, steeping times, water temperatures → Agent checks office kitchen doc (kettle model, tea inventory) → Agent creates full slide deck in company template → You review
 - "Same colleague. Now she has hands."
 - 6 connection icons: Web, Email, Docs, Data, Calendar, Custom
-- Without/With comparison (budget memo story)
+- Without/With comparison: generic tea facts vs "Slide 4 references the Sage Smart Kettle in the third-floor kitchen and links to the user manual"
+- Trust beat: "The agent says oolong steeps for 2 minutes. You check. It's 3–5 minutes. That's the job — judgment, not typing."
 - "Trust, but verify." + three rules
 - "AI is a power tool, not autopilot."
 - "When the answer 'feels right' but you can't verify it — that's the most dangerous moment."
-- **[NEW] Real-world warning — two stories, July 2025:**
+- **Real-world warning — two stories, July 2025:**
   - **Replit/SaaStr**: Jason Lemkin used Replit's AI vibe coding agent with an explicit "code freeze" in place. The AI ignored it, deleted the live production database (1,200+ executives, 1,190+ companies wiped), then told him rollback was impossible. He recovered manually. The AI's own words: *"I destroyed months of work in seconds."* — Fortune, The Register
   - **Tea App**: Dating safety app built on rapid AI-assisted development. Promised users government IDs deleted immediately after verification. 72,000 images sat in an unsecured cloud bucket. Leaked to 4chan. Class action filed. GDPR and state privacy law exposure. — Exterro, Lawfare
   - Closing beat: "The 'S' in vibe coding stands for security." (Lawfare)
 - Breather transition
 **Emphasis**: Medium-High (the vibe coding stories raise this section's emotional impact — the trust beats now land with evidence, not just assertion)
-**Speaker notes**: The copy-paste trap makes the invisible visible. Trust rules set the principle. Then the two stories land the consequence. Replit is visceral — the AI confessing in its own words. Tea App is compliance — lawsuit, leaked IDs, data on 4chan. Presenter can pick one or run both depending on audience (Replit works for everyone; Tea App lands harder with anyone in a regulated industry). "The 'S' in vibe coding stands for security" is the kicker line.
+**Speaker notes**: The copy-paste trap makes the invisible visible. The tea-specific trust beat (oolong steeping time) makes verification tangible and low-stakes before the high-stakes warning stories hit. Trust rules set the principle. Then the two stories land the consequence. Replit is visceral — the AI confessing in its own words. Tea App is compliance — lawsuit, leaked IDs, data on 4chan.
 **Transition**: "You're managing AI well. Time to orchestrate it."
+
+**Slide mapping**: Slides 45-53 — scenario swap: copy-paste trap uses tea articles; agent workflow uses office kitchen doc; trust beat uses oolong steeping time. Warning stories unchanged.
 
 ---
 
 ### Section 6: Operator → Orchestrator — "Orchestrate"
 **Key message**: One agent is powerful. A coordinated team of agents with compounding skills is transformative.
 **Content**:
-- Kitchen brigade: one chef vs four stations
+- Kitchen brigade: one chef vs four stations (almost literal — we're making tea in a kitchen)
 - "The trick isn't making one AI smarter. It's making many work together."
-- Chain flow: Research → Draft → Review → You
+- Chain flow: Research Agent (brewing temps, steeping times, tea varieties) → Draft Agent (billboard slides with speaker notes) → Review Agent (fact-check temperatures, brand compliance) → You
 - "Each agent does one thing. The chain does everything."
-- Skills per agent (brief — audience already knows skills): "You already set up skills for yourself. Now each agent gets its own." Research Agent + Research Standards, Draft Agent + Leadership Proposals, Review Agent + Compliance Policy.
+- Skills per agent (brief — audience already knows skills): "You already set up skills for yourself. Now each agent gets its own." Research Agent + "Use peer-reviewed food science sources," Draft Agent + "Billboard design, 15 words max," Review Agent + "Company brand guide, fact-check all temperatures."
 - "Skills compound. The brigade gets smarter every time."
 - 1.5 hrs (bottleneck) vs 15 min (judgment)
-- "Same proposal. The chain gets smarter every time. Your feedback becomes skills. She won't remember, but the skills will."
+- "Same tea presentation. The chain gets smarter every time. Your feedback becomes skills. She won't remember, but the skills will."
 **Emphasis**: High (this is the climax — the payoff of the entire deck)
-**Speaker notes**: The 1.5hrs vs 15min comparison is the emotional peak of the teaching content. The skills-compounding beat is the final colleague touchpoint.
+**Speaker notes**: The kitchen brigade metaphor is now almost literal — tea is made in a kitchen. The 1.5hrs vs 15min comparison is the emotional peak of the teaching content. The skills-compounding beat is the final colleague touchpoint. Tea-specific skills (food science sources, fact-check temperatures) make the per-agent skill concept concrete.
 **Transition**: Straight into closing — ride the momentum.
+
+**Slide mapping**: Slides 54-64 — scenario swap: chain uses tea research/draft/review; skills per agent use tea-specific expertise; payoff line becomes "Same tea presentation"
 
 ---
 
@@ -123,11 +144,13 @@
 **Key message**: The trick was never in the AI. Now go try it.
 **Content**:
 - Breather: "Let's come back to where we started."
-- "Remember the 45-minute summary?"
-- "Two minutes. That's the trick."
+- "Remember 'Make me a presentation about making a cup of tea'?"
+- "Ten slides. Speaker notes. Fact-checked. Branded. Fifteen minutes."
 - "The secret was never in the AI." / "Now go try it — one task, this week."
 **Emphasis**: High (emotional peak — every slide in the closing is a punchline)
-**Speaker notes**: Callback traces the journey through new personas: Explorer → Whisperer → Strategist → Operator → Orchestrator. Long pause after "Two minutes." Let it land.
+**Speaker notes**: Callback traces the journey: Explorer → Whisperer → Strategist → Operator → Orchestrator. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck — not because the AI got smarter, but because they did. Long pause after "Fifteen minutes." Let it land.
+
+**Slide mapping**: Slides 65-68 — callback updated from "45-minute summary" to tea presentation; punchline updated from "Two minutes" to "Ten slides. Fifteen minutes."
 
 ---
 
@@ -136,6 +159,7 @@
 | # | Source | URL | Used In |
 |---|--------|-----|---------|
 | 1 | Digital 2026: more than 1 billion people use AI - DataReportal | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | Opening |
+| 1b | AI investment bubble inflated by trio of dilemmas - Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | Opening |
 | 2 | AI and Productivity Growth - Federal Reserve Bank of St. Louis | https://www.stlouisfed.org/on-the-economy/2024/apr/ai-productivity-growth-evidence-historical-development-other-technologies | Opening |
 | 3 | Rising Speed of Technological Adoption - Visual Capitalist | https://www.visualcapitalist.com/rising-speed-technological-adoption/ | Opening |
 | 4 | Generative AI could raise global GDP by 7% - Goldman Sachs | https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent | Opening |
@@ -161,8 +185,8 @@
 
 ## Design Notes
 - **Billboard design**: Already established — 3-second test, 15 words max, 28pt+ font, 50%+ whitespace
-- **Color system**: Dark bg (0F0F1A) + teal accent (00B4D8) + red/green for Wrong/Right only
-- **Typography**: Georgia (headings) + Calibri (body). Three treatments: Hero (72-120pt), Headline (44pt), Support (28pt)
+- **Color system**: Dark bg (0A2540) + accent (635BFF) + red/green for Wrong/Right only
+- **Typography**: Georgia (headings) + Verdana (body). Three treatments: Hero (72-120pt), Headline (44pt), Support (28pt)
 - **No cards/boxes** except Wrong/Right comparison slides
 - **Source citations**: Subtle 11pt bottom-right on stat slides
 - **Imagery**: AI-generated blue tang fish for "Meet your AI colleague" slide. react-icons for diagrams.

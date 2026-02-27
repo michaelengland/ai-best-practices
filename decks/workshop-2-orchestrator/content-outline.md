@@ -68,7 +68,7 @@
 ### Section 6: Break It Down — Phases become agents
 **Key message**: Every complex task has phases. Each phase becomes one agent with one job.
 **Content**:
-- Group exercise: Facilitator presents a complex task (the onboarding proposal or another multi-step scenario)
+- Group exercise: Facilitator presents a complex task (the tea presentation or another multi-step scenario)
 - "What are the phases? What does each phase produce? What does the next phase need from the previous one?"
 - Write phases on whiteboard or shared doc. Target: 3–4 phases (e.g., Research → Draft → Review → Approval)
 - "Each phase becomes one agent. Each agent has one job."
@@ -94,7 +94,7 @@
 ### Section 8: Build Your Own Chain
 **Key message**: A 2-phase chain on your own task proves the pattern works — and reveals where handoffs matter.
 **Content**:
-- Setup: Choose a task (running task from Workshop 1, or prescribed). Use the pre-built agents in a 2-phase chain.
+- Setup: Choose a task (running task from Workshop 1, or the tea presentation). Use the pre-built agents in a 2-phase chain.
 - Phase 1: Open the Research Agent. Give it the task. Save the output.
 - Phase 2: Open the Draft Agent. Paste Phase 1's output. Give it the drafting task.
 - Compare: "How does this compare to giving one ChatGPT conversation the whole task at once?"
@@ -120,7 +120,7 @@
 **Key message**: You started as an Explorer. You're now an Orchestrator. The secret was never in the AI.
 **Content**:
 - The payoff: "1.5 hours of you being the bottleneck. 15 minutes of judgment — the part only humans can do."
-- "Same proposal. The chain gets smarter every time. Your feedback becomes skills."
+- "Same tea presentation. The chain gets smarter every time. Your feedback becomes skills."
 - Full spectrum with Explorer → Orchestrator highlighted. "You started as an Explorer. You're now an Orchestrator."
 - Journey recap: "You learned to whisper. You became a strategist. You let agents operate. You orchestrated the brigade."
 - "The secret was never in the AI. Now go try it — one task, this week."

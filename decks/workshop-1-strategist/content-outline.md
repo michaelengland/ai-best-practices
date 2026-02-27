@@ -23,8 +23,8 @@
 **Key message**: Everything in this session builds on one real task from your actual work.
 **Content**:
 - "Open ChatGPT on your laptop"
-- "Pick a real task you do at work — a proposal, an email, a summary, a plan"
-- Prescribed fallback: "Write me a proposal for improving our onboarding process"
+- "Pick a real task you do at work — a presentation, an email, a summary, a plan"
+- Prescribed fallback: "Make me a presentation about making a cup of tea"
 **Emphasis**: low
 **Speaker notes**: 60 seconds to open ChatGPT and think of a task. Offer both free choice and the prescribed option. Walk the room — make sure everyone's ready before moving on.
 **Transition**: "Let's see what a vague prompt gets us."
@@ -65,7 +65,7 @@
 **Key message**: Changing the information produces a bigger jump than all five prompt techniques combined.
 **Content**:
 - The pivot: "Five techniques. Dramatic improvement. But we never changed what the AI knew. Watch what happens when we do."
-- Exercise: Take the prompt from Round 6. Add 3–4 sentences of real context — company size, team, constraints, what's been tried before.
+- Exercise: Take the prompt from Round 6. Add 3–4 sentences of real context — "Our office has a Sage Smart Kettle on the third floor. We have a loose-leaf collection in the blue tin — mostly Earl Grey and oolong. Dave in accounting is militant about warming the pot first. The audience is new hires who've never used the office kitchen."
 - Compare: "Plausible but generic" → "sounds like someone who works here."
 - The aha: "Same prompt. Different information. Dramatically bigger jump."
 **Emphasis**: high
@@ -88,11 +88,11 @@
 **Key message**: Custom instructions make your context permanent. Type the task once — the AI already knows the rest.
 **Content**:
 - Teach: Walk through ChatGPT Settings → Personalisation → Custom Instructions. Screen-share the location. Wait for everyone.
-- Exercise: Set up a custom instruction — role, company, format preferences, tone, power keywords
-- Test: Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just the task.
+- Exercise: Set up a custom instruction — role, company, presentation format (billboard design, max 15 words per slide, speaker notes), tone, power keywords
+- Test: Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: "Make me a presentation about making a cup of tea."
 - The aha: "You typed one sentence. It already knew the rest."
 **Emphasis**: high
-**Speaker notes**: This is the linchpin exercise. If custom instructions setup stalls, the session stalls. Screen-share the settings walkthrough. Walk the room. Have the exact path ready (Settings → Personalisation → Custom Instructions) and verify before the session — ChatGPT moves this periodically. Template for attendees: "I work at [company]. My role is [role]. When writing proposals, use [format]. Tone: [style]. Be radically honest. Challenge my assumptions. Flag uncertainty." The test must be in a NEW conversation — if they test in the same one, the aha doesn't land.
+**Speaker notes**: This is the linchpin exercise. If custom instructions setup stalls, the session stalls. Screen-share the settings walkthrough. Walk the room. Have the exact path ready (Settings → Personalisation → Custom Instructions) and verify before the session — ChatGPT moves this periodically. Template for attendees: "I work at [company]. My role is [role]. When creating presentations, use billboard design — max 15 words per slide, with speaker notes. Tone: [style]. Be radically honest. Challenge my assumptions. Flag uncertainty." The test must be in a NEW conversation — if they test in the same one, the aha doesn't land.
 **Transition**: "Let's see what just happened."
 
 ### Section 9: The Grand Reveal — Three versions, one task

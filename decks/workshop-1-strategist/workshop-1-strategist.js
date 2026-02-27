@@ -83,13 +83,13 @@ function wrongRight(pres, opts) {
   s.addShape(pres.shapes.RECTANGLE, { x: 0.5, y: cardY, w: 0.06, h: cardH, fill: { color: D.wrong } });
   s.addText(opts.wrongText, {
     x: 0.8, y: cardY + 0.2, w: 3.6, h: cardH - 0.4,
-    fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top"
+    fontFace: D.b, fontSize: 18, color: D.darkText, margin: 0, valign: "top"
   });
   s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 4.2, h: cardH, fill: { color: D.rightBg } });
   s.addShape(pres.shapes.RECTANGLE, { x: 5.3, y: cardY, w: 0.06, h: cardH, fill: { color: D.right } });
   s.addText(opts.rightText, {
     x: 5.6, y: cardY + 0.2, w: 3.6, h: cardH - 0.4,
-    fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, valign: "top"
+    fontFace: D.b, fontSize: 18, color: D.darkText, margin: 0, valign: "top"
   });
   if (opts.notes) s.addNotes(opts.notes);
   return s;
@@ -190,7 +190,7 @@ async function main() {
     { text: "Open ChatGPT on your laptop", large: true },
     { text: "Pick a real task from your work" },
     { text: "a proposal, an email, a summary, a plan", small: true },
-    { text: "Or use: \"Write me a proposal for improving our onboarding process\"", small: true }
+    { text: "Or use: \"Make me a presentation about making a cup of tea\"", small: true }
   ], {
     notes: "60 seconds to open ChatGPT and think of a task. Offer both free choice and the prescribed option. Walk the room — make sure everyone's ready. This task carries through the entire session and into Workshop 2."
   });
@@ -215,8 +215,8 @@ async function main() {
   wrongRight(pres, {
     headline: "Assign a Role",
     subtitle: "One sentence changes everything",
-    wrongText: "Write me a proposal for improving onboarding",
-    rightText: "You are a senior HR director at a mid-size tech company. Write me a proposal for improving onboarding",
+    wrongText: "Make me a presentation about making tea",
+    rightText: "You are a senior office manager at a mid-size tech company. Make me a presentation about making tea",
     notes: "One sentence of setup changes everything — tone, depth, perspective, terminology. The AI stops being a generic assistant and starts being a domain expert."
   });
 
@@ -232,8 +232,8 @@ async function main() {
   wrongRight(pres, {
     headline: "Be Specific",
     subtitle: "Specificity in = specificity out",
-    wrongText: "Write a proposal for improving onboarding",
-    rightText: "Write a 2-page proposal for the VP of People. We have 500 employees. Current onboarding: 4 weeks.",
+    wrongText: "Make a presentation about making tea",
+    rightText: "A 10-slide deck for new hires. British-style loose-leaf tea. Cover equipment, steeping time, and milk-first debate.",
     notes: "Specificity in = specificity out. WHO is it for, WHAT are the constraints, HOW long should it be. The output now addresses a real situation, not a generic one."
   });
 
@@ -249,8 +249,8 @@ async function main() {
   wrongRight(pres, {
     headline: "One Task at a Time",
     subtitle: "Structure in = structure out",
-    wrongText: "Write a proposal, include metrics, add a timeline, and suggest a budget",
-    rightText: "1. Summarise the current problem\n2. Propose a solution\n3. Outline key metrics\n4. Suggest a timeline",
+    wrongText: "Make a presentation about tea, cover equipment, technique, preferences, and cleanup",
+    rightText: "1. Outline the key steps in order\n2. Cover equipment needed\n3. Walk through the process\n4. Note team preferences",
     notes: "The kitchen-sink prompt tries everything, nails nothing. Structure your request and the AI mirrors your organisation. Numbered sections or clear steps work best."
   });
 
@@ -266,7 +266,7 @@ async function main() {
   wrongRight(pres, {
     headline: "Power Keywords",
     subtitle: "Words that change AI behaviour",
-    wrongText: "What do you think about our onboarding?",
+    wrongText: "Don't you think tea is great and everyone should learn it?",
     rightText: "Be radically honest.\nThink step by step.\nChallenge my assumptions.",
     notes: "These keywords change the AI's behaviour more than you'd expect. \"Be radically honest\" stops sycophancy. \"Think step by step\" improves reasoning. \"Challenge my assumptions\" surfaces blind spots."
   });
@@ -283,8 +283,8 @@ async function main() {
   wrongRight(pres, {
     headline: "Define the Output",
     subtitle: "Tell AI exactly what you need",
-    wrongText: "Write something about improving onboarding",
-    rightText: "Format: 2-page memo.\nTone: professional but direct.\nAudience: VP of People.",
+    wrongText: "Write something about making tea",
+    rightText: "Format: billboard slides, max 15 words.\nTone: friendly but practical.\nAudience: new hires, zero tea knowledge.",
     notes: "You wouldn't ask a designer for \"something nice.\" Tell the AI the format, tone, length, and audience. The output should be immediately usable — right format, right tone, right length."
   });
 
@@ -319,9 +319,9 @@ async function main() {
   // --- Slide 18: Your Turn — Add Context ---
   exercise(pres, [
     { text: "Add 3–4 sentences of real context:" },
-    { text: "Company size. Team.\nConstraints. What's been tried.", large: true }
+    { text: "Equipment. Tea types.\nTeam preferences. Who's it for.", large: true }
   ], {
-    notes: "Take the prompt from Technique 5. Add real detail — numbers, names, constraints. Coach the room to be specific: not \"we're a mid-size company\" but \"500 employees, HR team of 3, last attempt failed because of budget.\" Then compare. Ask: \"Which made a bigger difference — five techniques or four sentences of context?\""
+    notes: "Take the prompt from Technique 5. Add real detail — numbers, names, constraints. Coach the room to be specific: not \"we have tea\" but \"Our office has a Sage Smart Kettle on the third floor. Loose-leaf collection in the blue tin — mostly Earl Grey and oolong. Dave in accounting is militant about warming the pot first. The audience is new hires who've never used the office kitchen.\" Then compare. Ask: \"Which made a bigger difference — five techniques or four sentences of context?\""
   });
 
   // ============================================================
@@ -392,7 +392,7 @@ async function main() {
     { text: "Write your custom instruction:" },
     { text: "\"I work at [company]. My role is [role].\nFormat: [format]. Tone: [style].\nBe radically honest. Challenge my assumptions.\"", large: false }
   ], {
-    notes: "4 minutes to write. Walk the room. Help anyone stuck. Then test: \"Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: 'Write a proposal for reducing onboarding from 4 to 2 weeks.'\" Must be a new conversation — if they test in the same one, the aha doesn't land."
+    notes: "4 minutes to write. Walk the room. Help anyone stuck. Then test: \"Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: 'Make me a presentation about making a cup of tea.'\" Must be a new conversation — if they test in the same one, the aha doesn't land."
   });
 
   // --- Slide 24: One Sentence. It Already Knew. ---

@@ -370,7 +370,7 @@ async function main() {
     { text: "What does each phase produce?", small: true },
     { text: "What does the next phase need\nfrom the previous one?", small: true }
   ], {
-    notes: "Group exercise. Facilitator presents a complex task (the onboarding proposal or another multi-step scenario). Discussion with whiteboard or shared doc. Target: 3-4 phases. e.g., Research → Draft → Review → Approval. Don't let it go beyond 4 — more than that overcomplicates the demo. 5-6 minutes."
+    notes: "Group exercise. Facilitator presents a complex task (the tea presentation or another multi-step scenario). Discussion with whiteboard or shared doc. Target: 3-4 phases. e.g., Research → Draft → Review → Approval. Don't let it go beyond 4 — more than that overcomplicates the demo. 5-6 minutes."
   });
 
   // --- Slide 16: The Chain ---
@@ -405,7 +405,7 @@ async function main() {
     { text: "Phase 2: Open Draft Agent\n→ paste Phase 1's output → draft" },
     { text: "How does this compare to one\nconversation doing everything?", small: true }
   ], {
-    notes: "10 minutes. Attendees choose their running task from Workshop 1 or the prescribed one. Custom GPTs are in the ChatGPT sidebar. Fallback if time runs short: Phase 1 becomes a facilitator demo, attendees do Phase 2 only. The discussion matters more than both phases completing. Ask: \"Where did the chain produce better results? Where did the handoff lose something?\""
+    notes: "10 minutes. Attendees choose their running task from Workshop 1 or the tea presentation. Custom GPTs are in the ChatGPT sidebar. Fallback if time runs short: Phase 1 becomes a facilitator demo, attendees do Phase 2 only. The discussion matters more than both phases completing. Ask: \"Where did the chain produce better results? Where did the handoff lose something?\""
   });
 
   // ============================================================
@@ -471,7 +471,7 @@ async function main() {
   // --- Slide 23: 15 Minutes (right color — judgment) ---
   bigNum(pres, "15 min", "of judgment \u2014 the part only humans can do", {
     color: D.right,
-    notes: "Chained workflow: agents handle 1 hour 15 minutes of work. You spend 15 minutes on judgment — reviewing, deciding, approving. \"Same proposal. The chain gets smarter every time. Your feedback becomes skills.\""
+    notes: "Chained workflow: agents handle 1 hour 15 minutes of work. You spend 15 minutes on judgment — reviewing, deciding, approving. \"Same tea presentation. The chain gets smarter every time. Your feedback becomes skills.\""
   });
 
   // --- Slide 24: The Full Journey ---

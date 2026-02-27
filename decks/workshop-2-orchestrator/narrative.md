@@ -123,7 +123,7 @@ Publish all three to the workspace so they appear in attendees' ChatGPT sidebar.
 
 ### Exercise 4: Break It Down (6 min)
 
-- **Group exercise**: Facilitator presents a complex task (the onboarding proposal or another multi-step scenario).
+- **Group exercise**: Facilitator presents a complex task (the tea presentation or another multi-step scenario).
 - "What are the phases of this task? What does each phase produce? What does the next phase need from the previous one?"
 - Write phases on whiteboard or shared doc. Target: 3–4 phases. e.g., Research → Draft → Review → Approval.
 - "Each phase becomes one agent. Each agent has one job."
@@ -145,7 +145,7 @@ Publish all three to the workspace so they appear in attendees' ChatGPT sidebar.
 
 ### Exercise 5: Build Your Own Chain (10 min)
 
-- **Setup** (1 min): Attendees choose a task (their running task from Workshop 1, or the prescribed one). They'll use the pre-built agents in a 2-phase chain.
+- **Setup** (1 min): Attendees choose a task (their running task from Workshop 1, or the tea presentation). They'll use the pre-built agents in a 2-phase chain.
 - **Phase 1**: Open the Research Agent. Give it the task. Save the output (copy to a doc or notes).
 - **Phase 2**: Open the Draft Agent. Paste Phase 1's output. Give it the drafting task.
 - **Compare**: "How does this compare to giving one ChatGPT conversation the whole task at once?"
@@ -164,7 +164,7 @@ Publish all three to the workspace so they appear in attendees' ChatGPT sidebar.
 ### The Payoff (2 min)
 
 - Show the comparison: "1.5 hours of you being the bottleneck. 15 minutes of judgment — the part only humans can do."
-- "Same proposal. The chain gets smarter every time. Your feedback becomes skills."
+- "Same tea presentation. The chain gets smarter every time. Your feedback becomes skills."
 
 ### Closing: What You've Unlocked (3 min)
 
