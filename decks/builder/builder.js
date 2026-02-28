@@ -196,8 +196,27 @@ function twoCol(pres, opts) {
   return s;
 }
 
+// MCP/Skills tool slide with principle tag
+function toolSlide(pres, d) {
+  const s = darkSlide(pres);
+  s.addText(d.title, {
+    x: 1.0, y: 1.0, w: 8, h: 1.2,
+    fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+  });
+  s.addText(d.body, {
+    x: 1.5, y: 2.4, w: 7, h: 1.2,
+    fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
+  });
+  s.addText(d.principle, {
+    x: 6.5, y: 4.8, w: 3, h: 0.4,
+    fontFace: D.b, fontSize: 16, color: D.accent, italic: true, align: "right", margin: 0
+  });
+  if (d.notes) s.addNotes(d.notes);
+  return s;
+}
+
 // ============================================================
-// MAIN
+// MAIN — 62 slides (see BUILDER_REVIEW.md for restructure notes)
 // ============================================================
 async function main() {
   console.log("Creating presentation...");
@@ -221,10 +240,10 @@ async function main() {
       x: 1.5, y: 3.5, w: 7, h: 0.6,
       fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
     });
-    s.addNotes("Let the title sit. This deck is the Builder persona \u2014 the expert-level companion to the main AI Best Practices deck. The audience is already at Orchestrator level or is an engineer wanting to go deep on Claude Code setup.");
+    s.addNotes("Let the title sit. This deck is the Builder persona \u2014 the expert-level companion to the main AI Best Practices deck. The audience may be engineers who\u2019ve seen the main deck, or senior engineers arriving fresh. No assumption of Claude Code familiarity.");
   }
 
-  // --- Slide 2: Spectrum — Builder highlighted ---
+  // --- Slide 2: Spectrum \u2014 Builder highlighted ---
   {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
@@ -261,20 +280,20 @@ async function main() {
       x: 5.0, y: 2.7, w: 4.5, h: 0.8,
       fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("Callback to the main deck\u2019s spectrum. The audience should recognize the progression. Skeptic through Orchestrator is covered in the main deck. Builder is the horizon \u2014 this deck goes deep on what it actually looks like.");
+    s.addNotes("Callback to the main deck\u2019s spectrum. The audience should recognize the progression. Everything before Builder is covered in the main deck. This deck goes deep on what the Builder persona actually looks like in practice.");
   }
 
   // --- Slide 3: "41%" ---
   bigNum(pres, "41%", "of GitHub code is now AI-generated", {
     source: [{ text: "Second Talent", url: "https://www.secondtalent.com/resources/ai-coding-assistant-statistics/" }],
-    notes: "Source: Second Talent. Vibe coding went from joke to industry practice in under a year. The tools work. Adoption is explosive. Move through quickly \u2014 the audience already lives this."
+    notes: "Source: Second Talent. Vibe coding went from joke to industry practice in under a year. The tools work. Adoption is explosive. The audience already knows this \u2014 validate it quickly."
   });
 
   // --- Slide 4: "Vibe coding." ---
   hero(pres, "Vibe coding.", {
     size: 54,
     sub: "Karpathy tweet to Collins Word of the Year\nin 9 months.",
-    notes: "Andrej Karpathy coined \u2018vibe coding\u2019 in February 2025. By November 2025 it was Collins Dictionary Word of the Year. The speed of adoption is the point."
+    notes: "Andrej Karpathy coined \u2018vibe coding\u2019 in February 2025. By November 2025 it was Collins Dictionary Word of the Year. The speed of adoption is the point \u2014 this isn\u2019t a niche practice anymore, it\u2019s mainstream."
   });
 
   // --- Slide 5: "90%" ---
@@ -297,7 +316,7 @@ async function main() {
   bigNum(pres, "19%\nlonger", "when developers rely on AI\nwithout understanding it", {
     color: D.wrong, numSize: 80,
     source: [{ text: "Addy Osmani", url: "https://addyo.substack.com/p/the-reality-of-ai-assisted-software" }],
-    notes: "Source: Addy Osmani. Developers who felt 20% faster actually took 19% longer once debugging and cleanup were included. The gap between \u2018uses AI tools\u2019 and \u2018uses AI tools well\u2019 is massive."
+    notes: "Source: Addy Osmani. Developers who felt 20% faster actually took 19% longer once debugging and cleanup were included. The gap between \u2018uses AI tools\u2019 and \u2018uses AI tools well\u2019 is massive. This stat is the anchor \u2014 it directly contradicts what people feel."
   });
 
   // --- Slide 8: "1.7\u00D7" ---
@@ -416,21 +435,56 @@ async function main() {
 
   // --- Slide 16: Breather ---
   breatherSlide(pres,
-    "So how do you actually do this?\nHere\u2019s the full setup.",
+    "So how do you actually do this?",
     "Transition from complication to resolution. The audience is primed. Everything from here is the answer."
   );
 
   // ============================================================
-  // RESOLUTION: ROLE + THESIS (Slides 17-25)
+  // OPINIONATED STANCE (Slides 17-18) — collapsed from 6 to 2
   // ============================================================
 
-  // --- Slide 17: "An army of eager juniors." ---
+  // --- Slide 17: "This is my opinionated best practice." ---
+  hero(pres, "This is my opinionated\nbest practice.", {
+    notes: "Plant the flag. Not the only way. Not a framework. A working setup from daily production use \u2014 what I\u2019ve arrived at after going all-in on AI-assisted development. The principles transfer everywhere. The specific tools are what works best right now, and \u2018right now\u2019 changes fast."
+  });
+
+  // --- Slide 18: "I chose Claude Code. Here's why." ---
+  {
+    const s = darkSlide(pres);
+    s.addText("I chose Claude Code. Here\u2019s why.", {
+      x: 0.5, y: 0.6, w: 9, h: 0.9,
+      fontFace: D.h, fontSize: 40, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    const cols = [
+      { title: "Best Model", body: "Frontier coding\nbenchmarks.\nNot brand loyalty." },
+      { title: "Agentic-First", body: "Terminal-native.\nTool use,\nnot autocomplete." },
+      { title: "Richest Context", body: "MCP, rules,\nskills, hooks.\nCore design." }
+    ];
+    cols.forEach((col, i) => {
+      const x = 0.5 + i * 3.2;
+      s.addText(col.title, {
+        x, y: 1.8, w: 2.8, h: 0.8,
+        fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "bottom"
+      });
+      s.addText(col.body, {
+        x, y: 2.8, w: 2.8, h: 1.6,
+        fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
+      });
+    });
+    s.addNotes("Three reasons on one slide, not three separate pitches. (1) Best frontier model for coding: SWE-bench, agentic coding tasks, tool use. When the model does 90%+ of the work, model quality is the bottleneck. (2) Agentic-first, not copilot-adapted: built as an agent from the ground up, not a copilot retrofitted. Plans, executes, verifies. (3) Richest context engineering system: MCP servers, rules, skills, hooks \u2014 core design, not bolted on.\n\nThe honest caveat: be mercenaries with tooling. If something better arrives tomorrow, switch. The principles are tool-agnostic. These tools are the best implementation right now.");
+  }
+
+  // ============================================================
+  // ROLE + THESIS (Slides 19-27) — reframed around quality question
+  // ============================================================
+
+  // --- Slide 19: "An army of eager juniors." ---
   hero(pres, "An army of\neager juniors.", {
     size: 54,
     notes: "Reframe the OX Security \u2018Army of Juniors\u2019 from problem to operating model. Coding agents ARE an army of eager juniors. The question is: who\u2019s managing them?"
   });
 
-  // --- Slide 18: Manager + Tech Lead ---
+  // --- Slide 20: Manager + Tech Lead ---
   twoCol(pres, {
     leftTitle: "Manager",
     leftBody: "Improve the process\nBuild skills & workflows\nInvest in infrastructure",
@@ -441,7 +495,7 @@ async function main() {
     notes: "Two hats, worn simultaneously. As engineering manager: improve the system agents work within. As tech lead: verify output at each stage. You never write code. You manage and verify code."
   });
 
-  // --- Slide 19: Forbes quote ---
+  // --- Slide 21: Forbes quote ---
   {
     const s = darkSlide(pres);
     s.addText("\u201CCode production has become cheap.\nSystem composition and judgment\nare now the critical skills.\u201D", {
@@ -457,35 +511,35 @@ async function main() {
     s.addNotes("Source: Forbes Tech Council. HBR (Dec 2025) adds: \u2018Every AI change should be double-checked with automatic checks, tests that confirm things still work, and at least one human review.\u2019 The industry is converging on this view.");
   }
 
-  // --- Slide 20: "We never write code manually." ---
-  hero(pres, "We never write a single\nline of code manually.", {
-    sub: "This forces the investment.",
-    notes: "By refusing to write code manually, you force yourself to invest in the infrastructure that makes AI output reliable. The constraint creates the discipline."
-  });
-
-  // --- Slide 21: Quality OR Speed ---
+  // --- Slide 22: Quality OR Speed — the quality question setup ---
   wrongRight(pres, {
     headline: "The old trade-off",
     wrongText: "Quality OR speed\n\nPick one.\n\nEvery engineering decision\nwas a compromise.",
     rightText: "?\n\n\n\nThe answer was always\n\u2018it depends.\u2019",
-    notes: "The audience knows this trade-off intimately. Ship fast and fix later, or build it right and ship slow. This was the fundamental constraint for decades."
+    notes: "Speed is solved \u2014 AI agents give you speed. But the complication slides showed what happens: 19% slower, 1.7\u00D7 more issues, 45% fail security. The question isn\u2019t speed anymore. The question is: how does quality keep pace? This slide sets up the central tension."
   });
 
-  // --- Slide 22: Quality AND Speed ---
+  // --- Slide 23: Quality AND Speed — the answer requires investment ---
   wrongRight(pres, {
     headline: "The new reality",
     wrongText: "Speed alone\n\n= catastrophic\nquality drop\n\n19% slower. 1.7\u00D7 issues.\n45% fail security.",
     rightText: "Quality AND speed\n\nCI/CD, linting, tests,\nPR gates\n\nThe same best practices\n\u2014 enforced.",
-    notes: "The old trade-off is dead \u2014 but only with investment. Without infrastructure: speed + catastrophe. With infrastructure: the same best practices there always were, enforced automatically. This is the promise of the deck."
+    notes: "The old trade-off is dead \u2014 but only with investment. Without infrastructure: speed + catastrophe. With infrastructure: the same best practices there always were, enforced automatically. Quality keeps pace only if you invest in the system."
   });
 
-  // --- Slide 23: Three Principles ---
+  // --- Slide 24: "We never write code manually." — the mechanism ---
+  hero(pres, "We never write a single\nline of code manually.", {
+    sub: "This forces the investment.",
+    notes: "Now this earns itself. The audience knows the quality question (how does quality keep pace with speed?). The answer: by refusing to write code manually, you force yourself to invest in the infrastructure that makes AI output reliable. The constraint creates the discipline. If you still write code by hand, you can get away without rules, skills, or verification. If you don\u2019t \u2014 you have to build the machine."
+  });
+
+  // --- Slide 25: Three Principles ---
   {
     const s = darkSlide(pres);
     const cols = [
       { title: "Perfect Context", body: "Not too little.\nNot too much." },
       { title: "No Hidden Failures", body: "Every failure\nmust be visible." },
-      { title: "Gated Workflow", body: "Agent verifies.\nThen you verify." }
+      { title: "Gated Workflow", body: "Stages, not yolo.\nTwo layers of verification." }
     ];
     cols.forEach((col, i) => {
       const x = 0.5 + i * 3.2;
@@ -498,158 +552,119 @@ async function main() {
         fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
       });
     });
-    s.addNotes("These three principles are the lens for everything that follows. Every tool, rule, skill, and practice serves one or more of these. Perfect context drives MCP and rules. No hidden failures drives Firecrawl. Gated workflow drives Superpowers and stage-based review.");
+    s.addNotes("Three principles \u2014 how quality keeps pace. Every tool that follows maps to one or more. Perfect context: right information, right time. No hidden failures: every error surfaced. Gated workflow: staged verification, nothing skipped.");
   }
 
-  // --- Slide 24: Gated Workflow ---
+  // --- Slide 26: Architecture Map ---
   {
     const s = darkSlide(pres);
-    const phases = [
-      { label: "Brainstorm" },
-      { label: "Plan" },
-      { label: "Implement" },
-      { label: "Review" }
-    ];
-    const boxW = 1.8, boxH = 0.8, gap = 0.4;
-    const totalW = phases.length * boxW + (phases.length - 1) * gap;
-    const startX = (10 - totalW) / 2;
-    phases.forEach((p, i) => {
-      const x = startX + i * (boxW + gap);
+    s.addText("the approach", {
+      x: 3.0, y: 0.9, w: 4, h: 0.5,
+      fontFace: D.b, fontSize: 18, color: D.muted, italic: true, align: "center", margin: 0, valign: "bottom"
+    });
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x: 3.0, y: 1.5, w: 4, h: 0.8,
+      rectRadius: 0.08,
+      fill: { color: D.bg },
+      line: { color: D.accent, width: 2.5 }
+    });
+    s.addText("Gated Workflow", {
+      x: 3.0, y: 1.5, w: 4, h: 0.8,
+      fontFace: D.h, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("\u2191", {
+      x: 4.0, y: 2.45, w: 2, h: 0.5,
+      fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    const bBoxW = 2.4, bGap = 0.4;
+    const bTotalW = 3 * bBoxW + 2 * bGap;
+    const bStartX = (10 - bTotalW) / 2;
+    const toolLabels = ["Rules", "MCP Servers", "Skills"];
+    toolLabels.forEach((label, i) => {
+      const x = bStartX + i * (bBoxW + bGap);
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y: 2.0, w: boxW, h: boxH,
+        x, y: 3.1, w: bBoxW, h: 0.8,
         rectRadius: 0.08,
         fill: { color: D.bg },
-        line: { color: D.accent, width: 2 }
+        line: { color: D.muted, width: 1.5 }
       });
-      s.addText(p.label, {
-        x, y: 2.0, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 22, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+      s.addText(label, {
+        x, y: 3.1, w: bBoxW, h: 0.8,
+        fontFace: D.h, fontSize: 24, color: D.muted, bold: true, align: "center", margin: 0, valign: "middle"
       });
-      if (i < phases.length - 1) {
-        s.addText("\u2192", {
-          x: x + boxW, y: 2.0, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
-        });
-      }
     });
-    s.addText("Each stage produces an artifact.\nEach artifact gets validated.", {
-      x: 1.5, y: 3.4, w: 7, h: 1.0,
-      fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
+    s.addText("the tools", {
+      x: 3.0, y: 4.0, w: 4, h: 0.5,
+      fontFace: D.b, fontSize: 18, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("The gated workflow prevents the agent from yoloing straight into code. Brainstorm produces requirements. Plan produces architecture. Implement produces code + tests. Review validates against requirements. No stage is skipped.");
+    s.addNotes("Here\u2019s the system that implements the three principles. We\u2019ll walk through each layer. Rules tell the agent how to behave. MCP servers give it new capabilities. Skills are workflows loaded on demand. And the gated workflow \u2014 the approach that sits on top \u2014 keeps everything in stages. We\u2019ll cover the tools first, then see how the gated workflow connects them.");
   }
 
-  // --- Slide 25: Two-Layer Verification ---
-  twoCol(pres, {
-    leftTitle: "Agent verifies",
-    leftBody: "Runs tests\nChecks linting\nIterates until passing",
-    rightTitle: "You verify",
-    rightBody: "Solves the problem?\nMeets requirements?\nArchitecturally sound?",
-    leftColor: D.accent,
-    rightColor: D.white,
-    notes: "Two layers, not one. The agent catches mechanical errors. You catch design errors. Neither layer alone is sufficient."
-  });
+  // --- Slide 27: Breather ---
+  breatherSlide(pres,
+    "Let\u2019s start with the tools.",
+    "Transition into the tool sections. The audience has the three principles and the architecture map. Now they learn the instruments."
+  );
 
   // ============================================================
-  // RESOLUTION: MCP SERVERS (Slides 26-31)
+  // MCP SERVERS (Slides 28-32)
   // ============================================================
 
-  // --- Slide 26: Section divider ---
+  // --- Slide 28: Section divider ---
   sectionDivider(pres, {
     title: "MCP Servers",
-    subtitle: "The foundation",
+    subtitle: "New capabilities for the agent",
     notes: "MCP servers provide capabilities the agent needs constant, low-level access to. Always available, not loaded on demand."
   });
 
-  // --- Slide 27: Context7 ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Context7", {
-      x: 1.0, y: 1.0, w: 8, h: 1.2,
-      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Live docs at prompt time.\nNo hallucinated APIs.", {
-      x: 1.5, y: 2.4, w: 7, h: 1.2,
-      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
-    });
-    s.addText("perfect context", {
-      x: 6.5, y: 4.8, w: 3, h: 0.4,
-      fontFace: D.b, fontSize: 16, color: D.accent, italic: true, align: "right", margin: 0
-    });
-    s.addNotes("Context7 fetches live, version-specific library documentation and injects it into context at prompt time. Instead of relying on stale training data, the agent works from real, current docs. Prevents hallucinated APIs, outdated patterns, wrong-version code.");
-  }
+  // --- Slide 29: "What are MCP servers?" ---
+  hero(pres, "Connect a server.\nGain a capability.", {
+    size: 54,
+    notes: "The audience may not know what MCP is. MCP servers give the agent capabilities it doesn\u2019t have natively \u2014 fetch live docs, navigate code with compiler-level precision, scrape the web reliably. Connect one and the agent gains new tools. They\u2019re always available, not loaded on demand. Three are always loaded because the agent always needs them."
+  });
 
-  // --- Slide 28: Language Server MCPs ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Language Servers", {
-      x: 1.0, y: 1.0, w: 8, h: 1.2,
-      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Compiler-level code navigation.\nNot grep.", {
-      x: 1.5, y: 2.4, w: 7, h: 1.2,
-      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
-    });
-    s.addText("perfect context", {
-      x: 6.5, y: 4.8, w: 3, h: 0.4,
-      fontFace: D.b, fontSize: 16, color: D.accent, italic: true, align: "right", margin: 0
-    });
-    s.addNotes("Language Server MCPs (pyright, typescript-language-server, gopls) give the agent IDE-level semantic understanding: go-to-definition, find-references, diagnostics. Compiler-level navigation instead of grepping through files.");
-  }
+  // --- Slide 30: Context7 ---
+  toolSlide(pres, {
+    title: "Context7",
+    body: "Live docs at prompt time.\nNo hallucinated APIs.",
+    principle: "perfect context",
+    notes: "Context7 fetches live, version-specific library documentation and injects it into context at prompt time. Instead of relying on stale training data, the agent works from real, current docs. Prevents hallucinated APIs, outdated patterns, wrong-version code."
+  });
 
-  // --- Slide 29: Firecrawl ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Firecrawl", {
-      x: 1.0, y: 1.0, w: 8, h: 1.2,
-      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Reliable web access.\nNo silent failures.", {
-      x: 1.5, y: 2.4, w: 7, h: 1.2,
-      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
-    });
-    s.addText("no hidden failures", {
-      x: 6.5, y: 4.8, w: 3, h: 0.4,
-      fontFace: D.b, fontSize: 16, color: D.accent, italic: true, align: "right", margin: 0
-    });
-    s.addNotes("WebFetch gets rejected by sites, pages are too large and get truncated, content gets summarized in ways that lose critical detail \u2014 and none of this is obvious. Firecrawl handles all of this reliably.");
-  }
+  // --- Slide 31: Language Server MCPs ---
+  toolSlide(pres, {
+    title: "Language Servers",
+    body: "Compiler-level code navigation.\nNot grep.",
+    principle: "perfect context",
+    notes: "Language Server MCPs (pyright, typescript-language-server, gopls) give the agent IDE-level semantic understanding: go-to-definition, find-references, diagnostics. Compiler-level navigation instead of grepping through files."
+  });
 
-  // --- Slide 30: Superpowers ---
-  {
-    const s = darkSlide(pres);
-    s.addText("Superpowers", {
-      x: 1.0, y: 1.0, w: 8, h: 1.2,
-      fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("TDD. Systematic debugging.\nVerification before completion.", {
-      x: 1.5, y: 2.4, w: 7, h: 1.2,
-      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
-    });
-    s.addText("gated workflow", {
-      x: 6.5, y: 4.8, w: 3, h: 0.4,
-      fontFace: D.b, fontSize: 16, color: D.accent, italic: true, align: "right", margin: 0
-    });
-    s.addNotes("Superpowers enforces TDD (red-green-refactor), systematic debugging (investigate root cause before guessing), verification-before-completion. Prevents the agent from skipping steps.");
-  }
-
-  // --- Slide 31: "Always available." ---
-  hero(pres, "Always available.\nNot progressive disclosure.", {
-    notes: "Why MCP for these four? The agent needs them constantly. Docs on every task. Code navigation on every file. Web access whenever researching. Discipline on every implementation."
+  // --- Slide 32: Firecrawl ---
+  toolSlide(pres, {
+    title: "Firecrawl",
+    body: "Reliable web access.\nNo silent failures.",
+    principle: "no hidden failures",
+    notes: "WebFetch gets rejected by sites, pages are too large and get truncated, content gets summarized in ways that lose critical detail \u2014 and none of this is obvious. Firecrawl handles all of this reliably."
   });
 
   // ============================================================
-  // RESOLUTION: RULES (Slides 32-35)
+  // RULES (Slides 33-37)
   // ============================================================
 
-  // --- Slide 32: Section divider ---
+  // --- Slide 33: Section divider ---
   sectionDivider(pres, {
-    title: ".claude/rules/",
-    subtitle: "Modular. Context-filtered. Always right.",
-    notes: "Everything lives in .claude/rules/. Each rule file defines when it activates \u2014 every time, or filtered to specific file extensions."
+    title: "Rules",
+    subtitle: "Standing instructions, enforced automatically",
+    notes: "Rules are standing instructions the agent follows on every task. Your engineering standards, written as files, enforced automatically."
   });
 
-  // --- Slide 33: Rule categories ---
+  // --- Slide 34: "What are rules?" ---
+  hero(pres, "Linter rules,\nbut for the agent\u2019s\nentire behavior.", {
+    size: 40,
+    notes: "Rules are standing instructions the agent follows \u2014 how to write code, communicate, use git \u2014 written as files, enforced automatically. You write them once, the agent follows them forever. Think of linter rules, but for the agent\u2019s entire behavior, not just code style. If you\u2019ve used a CLAUDE.md file, rules are the modular evolution \u2014 instead of one file with everything, each concern gets its own file that declares when it activates."
+  });
+
+  // --- Slide 35: Rule Categories ---
   {
     const s = darkSlide(pres);
     s.addText("Five rule files. Five concerns.", {
@@ -674,30 +689,36 @@ async function main() {
     s.addNotes("Each category is a separate file. Tool usage prevents hidden failures. Communication enforces honesty. Coding enforces quality. Git workflow enforces process. Language-specific rules activate only for that language\u2019s files.");
   }
 
-  // --- Slide 34: "Filtered by extension." ---
+  // --- Slide 36: "Filtered by extension." ---
   hero(pres, "Python rules load\nfor Python files.\nNothing else.", {
     size: 40,
     notes: "The key insight: activation scoping. The agent doesn\u2019t load Python rules when editing TypeScript. Each file is small, focused, defines its own trigger. Not too little, not too much."
   });
 
-  // --- Slide 35: "Perfect context through modularization." ---
+  // --- Slide 37: "Perfect context through modularization." ---
   hero(pres, "Perfect context\nthrough modularization.", {
     color: D.accent,
     notes: "Summary of the rules section. Modular files, activation scoping, right context for the right task. No bloat, no missing context."
   });
 
   // ============================================================
-  // RESOLUTION: SKILLS (Slides 36-41)
+  // SKILLS (Slides 38-44)
   // ============================================================
 
-  // --- Slide 36: Section divider ---
+  // --- Slide 38: Section divider ---
   sectionDivider(pres, {
     title: "Skills",
-    subtitle: "On-demand. Compounding.",
+    subtitle: "Learned workflows, loaded when needed",
     notes: "Skills are for higher-level workflows that would clutter context if always loaded. Pulled in on demand \u2014 progressive disclosure."
   });
 
-  // --- Slide 37: MCP vs Skills ---
+  // --- Slide 39: "What are skills?" ---
+  hero(pres, "Rules are \u2018always do this.\u2019\nSkills are \u2018here\u2019s how,\nwhen the time comes.\u2019", {
+    size: 36,
+    notes: "The agent carries a catalog of available skills. When your request matches one \u2014 either because you called it by name or the agent recognized the fit \u2014 it loads the full playbook for that task. Skills stay out of context until needed, because carrying every workflow at all times would be like reading every runbook before starting your day."
+  });
+
+  // --- Slide 40: MCP vs Skills ---
   twoCol(pres, {
     leftTitle: "MCP",
     leftBody: "Always available\nLow-level access\nDocs, navigation, web",
@@ -705,21 +726,21 @@ async function main() {
     rightBody: "On-demand\nHigher-level workflows\nLoaded when needed",
     leftColor: D.accent,
     rightColor: D.white,
-    notes: "The split is about context economy. MCP servers are the foundation \u2014 always loaded. Skills are loaded on demand. An MCP server like Notion loads its entire tool surface. A skill wrapping a CLI is a fraction of that."
+    notes: "The split is about context economy. MCP servers are always loaded. Skills are loaded on demand. An MCP server like Notion loads its entire tool surface. A skill wrapping a CLI is a fraction of that."
   });
 
-  // --- Slide 38: "Skill wrapping a CLI." ---
+  // --- Slide 41: "Skill wrapping a CLI." ---
   hero(pres, "A skill teaching a CLI\nbeats an MCP with 50 tools.", {
     size: 40,
-    notes: "For focused operations, prefer a skill that teaches the agent to call a CLI over loading a full MCP server. Example: pulling a feature ticket \u2014 a skill wrapping `gh` is far leaner than the full Linear MCP."
+    notes: "For focused operations, prefer a skill that teaches the agent to call a CLI over loading a full MCP server. A skill wrapping `gh` is far leaner than the full Linear MCP."
   });
 
-  // --- Slide 39: "10%" ---
+  // --- Slide 42: "10%" ---
   bigNum(pres, "10%", "of your time building skills\nfrom today\u2019s pain points", {
     notes: "The 10% rule: ~1 hour per day building and improving skills based on where the agent got stuck. This isn\u2019t optional polish \u2014 it\u2019s the compounding mechanism."
   });
 
-  // --- Slide 40: What becomes a skill ---
+  // --- Slide 43: What becomes a skill ---
   {
     const s = darkSlide(pres);
     s.addText("Every wall becomes a skill.", {
@@ -738,24 +759,24 @@ async function main() {
     s.addNotes("Real examples. Each was a task where the agent circled \u2014 tried multiple approaches, hit walls, burned time. After the session, each pain point got turned into a skill. Next time: no circling.");
   }
 
-  // --- Slide 41: "Each day's pain becomes tomorrow's skill." ---
+  // --- Slide 44: "Each day's pain becomes tomorrow's skill." ---
   hero(pres, "Each day\u2019s pain\nbecomes tomorrow\u2019s skill.", {
     color: D.accent,
     notes: "The compounding engine. Without 10% investment, you hit the same walls daily. With it, every wall becomes a skill. The investment pays off exponentially."
   });
 
   // ============================================================
-  // RESOLUTION: ENVIRONMENT (Slides 42-48)
+  // ENVIRONMENT (Slides 45-52) — moved before Gated Workflow
   // ============================================================
 
-  // --- Slide 42: Section divider ---
+  // --- Slide 45: Section divider ---
   sectionDivider(pres, {
     title: "Development Environment",
-    subtitle: "Parallel. Isolated. Full visibility.",
-    notes: "The tools and principles are set. Now the environment they run in."
+    subtitle: "Where the system runs",
+    notes: "The tools are set. Now the machine they run on. Environment is developer setup \u2014 parallel sessions, monorepo, permissions, compliance. Different category from the agent\u2019s behavior layers."
   });
 
-  // --- Slide 43: Parallel Sessions ---
+  // --- Slide 46: Parallel Sessions ---
   {
     const s = darkSlide(pres);
     const items = ["Feature A", "Feature B", "Feature C"];
@@ -764,7 +785,6 @@ async function main() {
     const startX = (10 - totalW) / 2;
     items.forEach((label, i) => {
       const x = startX + i * (colW + gap);
-      // Tab
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 1.0, w: colW, h: 0.5,
         rectRadius: 0.06,
@@ -775,9 +795,7 @@ async function main() {
         x, y: 1.0, w: colW, h: 0.5,
         fontFace: D.b, fontSize: 16, color: D.accent, align: "center", margin: 0, valign: "middle"
       });
-      // Arrow
       s.addText("\u2193", { x, y: 1.5, w: colW, h: 0.4, fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0 });
-      // Worktree
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 1.9, w: colW, h: 0.5,
         rectRadius: 0.06,
@@ -788,9 +806,7 @@ async function main() {
         x, y: 1.9, w: colW, h: 0.5,
         fontFace: D.b, fontSize: 16, color: D.muted, align: "center", margin: 0, valign: "middle"
       });
-      // Arrow
       s.addText("\u2193", { x, y: 2.4, w: colW, h: 0.4, fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0 });
-      // DB
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.8, w: colW, h: 0.5,
         rectRadius: 0.06,
@@ -801,7 +817,6 @@ async function main() {
         x, y: 2.8, w: colW, h: 0.5,
         fontFace: D.b, fontSize: 16, color: D.muted, align: "center", margin: 0, valign: "middle"
       });
-      // Label
       s.addText(label, {
         x, y: 3.5, w: colW, h: 0.5,
         fontFace: D.b, fontSize: 20, color: D.white, bold: true, align: "center", margin: 0
@@ -814,24 +829,24 @@ async function main() {
     s.addNotes("The manager/tech lead role creates downtime. Fill it by opening another session on another feature via git worktree. Each session: own containers, own database, fully isolated.");
   }
 
-  // --- Slide 44: "One repo = one context boundary." ---
+  // --- Slide 47: "One repo = one context boundary." ---
   hero(pres, "One repo =\none context boundary.", {
     size: 54,
     notes: "Monorepo means full visibility across services, infrastructure, shared code. The agent can trace a feature end-to-end without switching repos."
   });
 
-  // --- Slide 45: "30%" ---
+  // --- Slide 48: "30%" ---
   bigNum(pres, "30%", "productivity gains for AI agents\nin monorepos", {
     source: [{ text: "Nx Blog", url: "https://nx.dev/blog/the-missing-multiplier-for-ai-agent-productivity" }],
-    notes: "Source: Nx Blog, January 2026. Claims monorepos unlock 30% productivity gains for AI agents. Spectro Cloud: \u2018Will AI turn 2026 into the year of the monorepo?\u2019 IaC alongside application code \u2014 modify a Lambda, its IAM role, and the frontend, all in one session."
+    notes: "Source: Nx Blog, January 2026. IaC alongside application code \u2014 modify a Lambda, its IAM role, and the frontend, all in one session."
   });
 
-  // --- Slide 46: "Lock the environment, not the agent." ---
+  // --- Slide 49: "Lock the environment, not the agent." ---
   hero(pres, "Lock the environment,\nnot the agent.", {
-    notes: "Bypass all permissions by default for general coding. You\u2019re not removing safety, you\u2019re moving it. GCP CLI not logged into prod. AWS credentials scoped to dev. The agent physically cannot touch production. Trust the gated workflow, not per-command prompts.\nThe exception: PII sessions. When touching production data, you do NOT bypass \u2014 these are careful, involved sessions with managed tool calls where you verify each step. The interaction mode changes with the data."
+    notes: "Bypass all permissions by default for general coding. You\u2019re not removing safety, you\u2019re moving it. GCP CLI not logged into prod. AWS credentials scoped to dev. The agent physically cannot touch production. Exception: PII sessions \u2014 no bypass, managed tool calls."
   });
 
-  // --- Slide 47: CLI + Tabs ---
+  // --- Slide 50: CLI + Tabs ---
   twoCol(pres, {
     leftTitle: "CLI",
     leftBody: "Latest features.\nAlways ahead\nof the plugin.",
@@ -839,10 +854,10 @@ async function main() {
     rightBody: "Parallel sessions.\nOne tab\nper worktree.",
     leftColor: D.accent,
     rightColor: D.accent,
-    notes: "CLI, not the VSCode extension \u2014 always one or two releases ahead. Tabs, not sidebar \u2014 sidebar means one session at a time. Tabs allow the parallel sessions the idempotent development approach requires."
+    notes: "CLI, not the VSCode extension \u2014 always ahead. Tabs, not sidebar \u2014 parallel sessions."
   });
 
-  // --- Slide 48: "90 / 10" ---
+  // --- Slide 51: "90 / 10" ---
   {
     const s = darkSlide(pres);
     s.addText([
@@ -857,24 +872,13 @@ async function main() {
       x: 1.5, y: 3.6, w: 7, h: 0.8,
       fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("Most of the day: product engineering across multiple features. Keep notes of where the agent got stuck. End of day: ~1 hour turning pain points into skills, improving rules, refining workflows. The compounding engine.");
+    s.addNotes("Most of the day: product engineering across multiple features. End of day: ~1 hour turning pain points into skills. The compounding engine.");
   }
 
-  // ============================================================
-  // RESOLUTION: COMPLIANCE (Slides 49-51)
-  // ============================================================
-
-  // --- Slide 49: "Be mercenaries with tooling." ---
-  hero(pres, "Be mercenaries\nwith tooling.", {
-    sub: "Best tool. Best model. Always.",
-    notes: "No vendor lock-in. Always pick the best tool for the job. Cost is secondary to capability right now \u2014 the ROI on frontier models pays for itself many times over."
-  });
-
-  // --- Slide 50: Compliance two paths ---
+  // --- Slide 52: Compliance — Two Paths ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
-    // Left
     s.addText("Default", {
       x: 0.5, y: 0.8, w: 4.2, h: 0.7,
       fontFace: D.h, fontSize: 36, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
@@ -883,9 +887,7 @@ async function main() {
       x: 0.5, y: 1.9, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
-    // Divider
     s.addShape(pres.shapes.LINE, { x: 5.0, y: 0.8, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
-    // Right
     s.addText("PII", {
       x: 5.3, y: 0.8, w: 4.2, h: 0.7,
       fontFace: D.h, fontSize: 36, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
@@ -894,26 +896,94 @@ async function main() {
       x: 5.3, y: 1.9, w: 4.2, h: 2.5,
       fontFace: D.b, fontSize: 22, color: D.darkText, margin: 0, align: "center", valign: "top"
     });
-    s.addNotes("You can\u2019t get Builder-level speed while also having access to PII through the default path. The split is deliberate: default path uses bypass permissions for fast, full-featured general coding. PII path routes through GCP with EU region models \u2014 and critically, no bypass permissions. These are careful, involved sessions where you manage each tool call because the data is sensitive. The interaction mode changes with the data. The decision is per-task, not per-project.");
+    s.addNotes("You can\u2019t get Builder-level speed while also having access to PII. Default path: fast, full-featured, bypass permissions. PII path: GCP, EU region models, managed tool calls, no bypass. The decision is per-task, not per-project.");
   }
 
-  // --- Slide 51: "Compliance is architectural." ---
-  hero(pres, "Compliance is architectural,\nnot an afterthought.", {
-    color: D.accent,
-    notes: "The Tea App is what happens when compliance is an afterthought. The Builder approach makes it a first-class architectural decision."
+  // ============================================================
+  // GATED WORKFLOW (Slides 53-57) — now the climax section
+  // ============================================================
+
+  // --- Slide 53: Section divider ---
+  sectionDivider(pres, {
+    title: "Gated Workflow",
+    subtitle: "How it all comes together",
+    notes: "The approach that sits on top of the tools. Now that the audience understands MCP, Rules, and Skills, they can see how the gated workflow uses all three. This is the climax section."
+  });
+
+  // --- Slide 54: Gated Workflow flow ---
+  {
+    const s = darkSlide(pres);
+    const phases = [
+      { label: "Brainstorm" },
+      { label: "Plan" },
+      { label: "Implement" },
+      { label: "Review" }
+    ];
+    const boxW = 2.1, boxH = 0.8, gap = 0.2;
+    const totalW = phases.length * boxW + (phases.length - 1) * gap;
+    const startX = (10 - totalW) / 2;
+    phases.forEach((p, i) => {
+      const x = startX + i * (boxW + gap);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x, y: 2.0, w: boxW, h: boxH,
+        rectRadius: 0.08,
+        fill: { color: D.bg },
+        line: { color: D.accent, width: 2 }
+      });
+      s.addText(p.label, {
+        x, y: 2.0, w: boxW, h: boxH,
+        fontFace: D.b, fontSize: 18, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      if (i < phases.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 2.0, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 20, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+        });
+      }
+    });
+    s.addText("Each stage produces an artifact.\nEach artifact gets validated.", {
+      x: 1.5, y: 3.4, w: 7, h: 1.0,
+      fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("The gated workflow prevents the agent from yoloing straight into code. Brainstorm produces requirements. Plan produces architecture. Implement produces code + tests. Review validates against requirements. No stage is skipped. Rules enforce standards at every stage. MCP servers provide context during each stage. Skills like Superpowers define the workflow itself.");
+  }
+
+  // --- Slide 55: Two-Layer Verification ---
+  twoCol(pres, {
+    leftTitle: "Agent verifies",
+    leftBody: "Runs tests\nChecks linting\nIterates until passing",
+    rightTitle: "You verify",
+    rightBody: "Solves the problem?\nMeets requirements?\nArchitecturally sound?",
+    leftColor: D.accent,
+    rightColor: D.white,
+    notes: "Two layers, not one. The agent catches mechanical errors \u2014 runs the tests, checks the linting, iterates. You catch design errors \u2014 does this actually solve the problem? Neither layer alone is sufficient."
+  });
+
+  // --- Slide 56: Superpowers ---
+  toolSlide(pres, {
+    title: "Superpowers",
+    body: "The gated workflow, as a plugin.",
+    principle: "gated workflow",
+    notes: "Superpowers is an opinionated agentic workflow plugin \u2014 a skill, not an MCP server. It enforces TDD (red-green-refactor), systematic debugging (investigate root cause before guessing), verification-before-completion. The gated workflow as code. The agent can\u2019t skip steps because the skill defines the process."
+  });
+
+  // --- Slide 57: "The approach that uses all three." ---
+  hero(pres, "Rules enforce standards.\nMCP provides context.\nSkills define the workflow.\nThe approach connects them.", {
+    size: 32, color: D.accent,
+    notes: "Tie it together. Rules enforce quality at every stage. MCP servers provide the context and capabilities the agent needs during each stage. Skills \u2014 especially Superpowers \u2014 define the staged workflow itself. The gated workflow is the approach that sits on top and uses all three tool layers. This is the climax. The audience should now see the full picture."
   });
 
   // ============================================================
-  // CLOSING (Slides 52-55)
+  // CLOSING (Slides 58-62)
   // ============================================================
 
-  // --- Slide 52: Breather ---
+  // --- Slide 58: Breather ---
   breatherSlide(pres,
     "That\u2019s the full system.\nHere\u2019s how it connects.",
     "Pause before the closing. The audience has absorbed the full setup. Now tie it together."
   );
 
-  // --- Slide 53: Three Principles Recap ---
+  // --- Slide 59: Three Principles Recap ---
   {
     const s = darkSlide(pres);
     s.addText("Every piece. Three principles.", {
@@ -933,16 +1003,61 @@ async function main() {
       x: 1.2, y: 1.8, w: 7.6, h: 3.0,
       fontFace: D.b, fontSize: 24, margin: 0, valign: "top"
     });
-    s.addNotes("Rapid-fire recap. Each tool maps to a principle. The audience should see the system as a whole \u2014 an integrated machine where every part serves the three principles.");
+    s.addNotes("Rapid-fire recap. Each tool maps to a principle. The gated workflow is the approach on top \u2014 powered by Superpowers, enforced through two-layer verification, backstopped by CI/CD. The audience should see the system as a whole \u2014 not individual pieces, but an integrated machine.");
   }
 
-  // --- Slide 54: "The Builder's job isn't writing code." ---
+  // --- Slide 60: Architecture Map callback ---
+  {
+    const s = darkSlide(pres);
+    s.addText("the approach", {
+      x: 3.0, y: 0.9, w: 4, h: 0.5,
+      fontFace: D.b, fontSize: 18, color: D.accent, italic: true, align: "center", margin: 0, valign: "bottom"
+    });
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x: 3.0, y: 1.5, w: 4, h: 0.8,
+      rectRadius: 0.08,
+      fill: { color: D.bg },
+      line: { color: D.accent, width: 2.5 }
+    });
+    s.addText("Gated Workflow", {
+      x: 3.0, y: 1.5, w: 4, h: 0.8,
+      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("\u2191", {
+      x: 4.0, y: 2.45, w: 2, h: 0.5,
+      fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    const bBoxW = 2.4, bGap = 0.4;
+    const bTotalW = 3 * bBoxW + 2 * bGap;
+    const bStartX = (10 - bTotalW) / 2;
+    const toolLabels = ["Rules", "MCP Servers", "Skills"];
+    toolLabels.forEach((label, i) => {
+      const x = bStartX + i * (bBoxW + bGap);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+        x, y: 3.1, w: bBoxW, h: 0.8,
+        rectRadius: 0.08,
+        fill: { color: D.bg },
+        line: { color: D.accent, width: 1.5 }
+      });
+      s.addText(label, {
+        x, y: 3.1, w: bBoxW, h: 0.8,
+        fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+    });
+    s.addText("the tools", {
+      x: 3.0, y: 4.0, w: 4, h: 0.5,
+      fontFace: D.b, fontSize: 18, color: D.accent, italic: true, align: "center", margin: 0, valign: "top"
+    });
+    s.addNotes("Remember the map? Now every box has been covered. The audience has seen each layer in detail. All boxes are lit up in accent color \u2014 the system is complete. This visual callback reinforces the architecture before the final message.");
+  }
+
+  // --- Slide 61: "The Builder's job isn't writing code." ---
   hero(pres, "The Builder\u2019s job\nisn\u2019t writing code.", {
     size: 54,
     notes: "Pause. Let it land. This is the emotional climax."
   });
 
-  // --- Slide 55: "It's building the machine that writes code well." ---
+  // --- Slide 62: "It's building the machine that writes code well." ---
   hero(pres, "It\u2019s building the machine\nthat writes code well.", {
     size: 54, color: D.accent,
     notes: "The closing line. Quality AND speed \u2014 but only with the investment. The old trade-off is dead. The Builder\u2019s job is building the machine. Pause. Let it sit."

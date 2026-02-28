@@ -4,11 +4,11 @@
 
 ## Overview
 
-- **Audience**: Engineers, technical leads, and anyone doing prototyping, vibe coding, or production development who is using or wants to use Claude Code. Technical depth assumed — this is the expert-level deck.
-- **Purpose**: Behavior change — "I need to invest in my AI development infrastructure, not just use AI tools." The audience should leave with a concrete understanding of what a production-grade AI-assisted development setup looks like and why each piece matters.
+- **Audience**: Senior engineers, technical leads, and anyone doing prototyping, vibe coding, or production development with AI coding tools. They're experts in their field but may be "vanilla" in their agent setup — possibly using basic AI assistants, maybe not. No assumption of Claude Code familiarity. Technical depth assumed; Claude Code-specific terminology is NOT assumed.
+- **Purpose**: Behavior change — "I need to invest in my AI development infrastructure, not just use AI tools." The audience should leave with a concrete understanding of what a production-grade AI-assisted development setup looks like, why each piece matters, and enough clarity on the concepts (MCP, rules, skills) to go implement it.
 - **Key message**: Expertise hasn't become less important — it's become the only thing that matters. The engineer's job has changed from writing code to managing and verifying AI output, and doing that well requires deliberate investment in tooling, rules, skills, and workflow.
 - **Framework**: Situation → Complication → Resolution
-- **Tone**: Direct, practitioner-to-practitioner. No hype. Radically honest about trade-offs. Concrete examples over abstractions.
+- **Tone**: Direct, practitioner-to-practitioner. No hype. Radically honest about trade-offs. Concrete examples over abstractions. This is presented as an opinionated best practice — confident, not apologetic.
 - **Visual style**: Same design system as the main ai-best-practices deck — dark background (#0F0F1A), cyan accent (#00B4D8), Georgia headings, Calibri body, billboard design (3-second test, minimal words per slide).
 
 ## Narrative Arc
@@ -66,13 +66,48 @@ Three fundamentals skipped: no data inventory, no data minimization, didn't foll
 - Only engineers can ship to production because only they understand what quality code, infrastructure, and compliance actually look like.
 - No matter how great the AI setup is, someone has to **review the output**. That someone needs expertise.
 
-**Transition:** *"So how do you actually do this? Here's the full setup."*
+**Transition:** *"So how do you actually do this?"*
 
 ---
 
 ### Resolution: The Builder's Playbook
 
-**Job: This is the meat. Walk through the entire system — what it is, why it matters, and how the pieces connect.**
+**Job: This is the meat. Walk through the entire system — what it is, why it matters, and how the pieces connect. But first: frame the opinionated stance, explain why Claude Code, and give the audience a vocabulary for what's coming.**
+
+#### This Is My Opinionated Best Practice
+
+**Job: Plant the flag. This isn't a generic framework — it's a working setup from daily production use.**
+
+- This is my opinionated best practice. Not the only way. Not a framework. A working setup from daily production use — what I've arrived at after going all-in on AI-assisted development.
+- The principles transfer everywhere. The specific tools are what works best right now, and "right now" changes fast.
+- Be mercenaries with tooling — use what's best today, switch when something better arrives.
+- But right now, this is what's best.
+
+#### Why Claude Code. Why Claude.
+
+**Job: Justify the specific tool choice. The audience might use Copilot, Cursor, ChatGPT — explain why this setup is built on Claude Code specifically.**
+
+- "Be mercenaries with tooling" means picking the best tool for the job. Right now, that's Claude Code running Claude.
+- **The model:** Claude (Opus/Sonnet) is the best frontier model for coding. Not because of brand loyalty — because of benchmark reality. SWE-bench, agentic coding tasks, tool use, extended thinking. When the model is doing 90%+ of the work, model quality isn't a nice-to-have. It's the bottleneck.
+- **The agent:** Claude Code is agentic-first, not copilot-adapted. Terminal-native. Built around tool use, not autocomplete. The architecture matters: it plans, then executes, then verifies — which maps directly to the gated workflow.
+- **The infrastructure:** Claude Code has the richest context engineering system available — MCP servers, rules, skills, hooks. These aren't bolted on. They're the core design. The model is great, but the model inside this system is transformative.
+- **The honest caveat:** If something better arrives tomorrow, switch. The principles (perfect context, no hidden failures, gated workflow) are tool-agnostic. The specific tools are the best implementation of those principles right now.
+
+#### The Architecture Map
+
+**Job: One visual showing the four layers of the system. Labels only — no definitions yet. Give the audience a mental scaffold so they know where they are as you walk through each piece. Definitions come inline, right before each section.**
+
+A single slide showing four layers:
+- **Rules** — how the agent behaves
+- **MCP Servers** — what the agent can do
+- **Skills** — workflows loaded on demand
+- **Gated Workflow** — stages, not yolo
+
+No detail. Just the map. Each piece gets explained when we get there.
+
+**Transition:** *"Let's start with what changes about your role."*
+
+---
 
 #### The Changed Role of Engineers
 
@@ -90,20 +125,24 @@ Everything in the Builder's setup serves three goals:
 
 1. **Relentless pursuit of perfect context** — not too little, not too much. The AI needs exactly the right information for the current task.
 2. **No hidden failures** — WebFetch silently rejected by a site, HTML too large and summarized in a way that loses critical detail, a tool that fails without you noticing. Every failure must be visible.
-3. **Gated workflow** — Brainstorm → Plan → Implement → Review. Each stage produces a concrete artifact that gets validated before moving on. The agent never goes straight into code.
+3. **Gated workflow** — How do you stop the agent from charging straight into code and writing 500 wrong lines? Stages. Brainstorm → Plan → Implement → Review. Each stage produces a concrete artifact that gets validated before moving on. The agent never goes straight into code.
 
 #### MCP Servers: The Foundation
 
-MCP servers provide capabilities the agent needs constant, low-level access to:
+**What are MCP servers?** Rules tell the agent HOW to behave. MCP servers are a different thing entirely — they give the agent new capabilities, things it can DO. Connect an MCP server and the agent gains new tools: fetch live library documentation, navigate code with compiler-level precision, scrape the web reliably. They give the agent new senses and hands.
+
+These four are always loaded because the agent always needs them:
 
 - **Context7** — Fetches live, version-specific library documentation at prompt time. Prevents hallucinated APIs, outdated patterns, wrong-version code. The AI works from *real* docs, not stale training data.
 - **Language Server MCPs** (pyright, typescript-language-server, gopls — whichever the project needs) — Gives the AI the same semantic understanding your IDE has: go-to-definition, find-references, diagnostics, symbol resolution. Compiler-level code navigation instead of grepping through files.
 - **Firecrawl** — Web scraping/research MCP. Solves the hidden failure problem: WebFetch gets rejected by sites, pages are too large, content gets summarized and loses context. Firecrawl handles all of this reliably.
-- **Superpowers** — Structured skill library that enforces disciplined workflows: TDD (red-green-refactor), systematic debugging (investigate before guessing), verification-before-completion. Prevents the agent from skipping steps.
+- **Superpowers** — Structured discipline library that enforces disciplined workflows: TDD (red-green-refactor), systematic debugging (investigate before guessing), verification-before-completion. Prevents the agent from skipping steps.
 
 **Why MCP for these:** They need to be available constantly, at low-level. Progressive disclosure doesn't apply — the agent always needs docs, always needs code navigation, always needs web access, always needs discipline.
 
 #### Rules: Modular, Context-Filtered, Always-On
+
+**What are rules?** Standing instructions the agent follows on every task. Your engineering standards — how to write code, how to communicate, how to use git — written as files, enforced automatically. You write them once, the agent follows them forever. Think of linter rules, but for the agent's entire behavior, not just code style. If you've used a CLAUDE.md file before, rules are the modular evolution of that — instead of one file with everything, each concern gets its own file.
 
 Everything lives in `.claude/rules/`. Each rule file defines when it activates (every time, or filtered to specific file extensions). Perfect context through modularization.
 
@@ -137,9 +176,11 @@ Everything lives in `.claude/rules/`. Each rule file defines when it activates (
 - Activated only when working with that language's files
 - Contain quality specifics for that language (e.g. Python typing, TypeScript strict mode, Go error handling patterns)
 
-**Why `.claude/rules/`:** Modular files that define their own activation scope. The agent always gets exactly the right rules for the current task without context bloat. Perfect context, not too much, not too little.
+**Why modular rules:** Each file defines its own activation scope. The agent always gets exactly the right rules for the current task without context bloat. Python rules load for Python files, nothing else. Perfect context, not too much, not too little.
 
 #### Skills: Progressive Disclosure + Compounding Investment
+
+**What are skills?** Learned workflows the agent draws from when relevant. The agent carries a catalog of available skills. When your request matches one — either because you called it by name or the agent recognized the fit — it loads the full playbook for that task. Skills stay out of context until needed, because carrying every workflow at all times would be like reading every runbook before starting your day. Rules are "always do this." Skills are "here's how to do this specific thing, when the time comes."
 
 Skills are for higher-level workflows that would clutter context if always loaded. They're pulled in on demand.
 
@@ -266,3 +307,5 @@ Skills are for higher-level workflows that would clutter context if always loade
 - **Practical over theoretical:** Every section describes a concrete setup element with a specific "why." No generic advice.
 - **The README** should be updated to include this deck in the table once it's generated.
 - **No workshop format:** This is a reference/presentation deck, not a hands-on workshop. The audience is expected to implement the setup themselves.
+- **New sections added:** Three new sections at the start of the Resolution: (1) "This is my opinionated best practice" framing, (2) "Why Claude Code, Why Claude" justification, (3) "Architecture Map" — a single visual showing the four layers (rules, MCP, skills, gated workflow) with labels only. Definitions are inline, right before each section, so the audience learns what something IS immediately before learning WHY it matters.
+- **No assumed Claude Code knowledge:** The audience may have never used Claude Code. Concepts like MCP servers, rules, and skills are introduced from scratch with plain-language definitions inline at each section. CLAUDE.md is referenced as an aside for those who happen to know it, not as a starting assumption.
