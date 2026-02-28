@@ -30,7 +30,7 @@ Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator 
 
 | Deck | Slides | What it covers |
 |------|--------|----------------|
-| [Reference deck](decks/ai-best-practices/ai-best-practices.pptx) ([PDF](decks/ai-best-practices/ai-best-practices.pdf)) | 70 | The full journey — prompt engineering, context engineering, agents, orchestration |
+| [Reference deck](decks/ai-best-practices/ai-best-practices.pptx) ([PDF](decks/ai-best-practices/ai-best-practices.pdf)) | 71 | The full journey — prompt engineering, context engineering, agents, orchestration |
 | [Builder deck](decks/builder/builder.pptx) ([PDF](decks/builder/builder.pdf)) | 55 | The expert setup — quality AND speed with AI coding agents |
 | [AI policy deck](decks/ai-policy/ai-policy.pptx) ([PDF](decks/ai-policy/ai-policy.pdf)) | 33 | AI tool selection for companies — GDPR, data residency, provider tiers, recommended setup |
 
