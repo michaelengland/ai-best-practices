@@ -13,7 +13,7 @@
 ### Section 1: Opening — "Where Are You?"
 **Key message**: AI is a massive opportunity and you're already equipped — you just need to learn the trick.
 **Content**:
-- Title + hook: "45 minutes on a one-page summary. The right approach took 2 minutes."
+- Title + hook: Karpathy "slop" → "skill issue" contrast (October 2025 → December 2025). Co-founder of OpenAI dismisses AI tools, then two months later: "I've never felt this much behind. This is a skill issue." (Sources: Dwarkesh Podcast, Karpathy on X)
 - "This deck is about the trick."
 - 7-persona spectrum (Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator → Builder). Most people at Explorer. Deck takes you to Orchestrator. Builder dimmed as horizon.
 - Stats: 1B+ users (DataReportal), <2% premium (Reuters), tech adoption timeline, $4.4T value / 31% production (McKinsey, ServiceNow)
@@ -148,9 +148,9 @@
 - "Ten slides. Speaker notes. Fact-checked. Branded. Fifteen minutes."
 - "The secret was never in the AI." / "Now go try it — one task, this week."
 **Emphasis**: High (emotional peak — every slide in the closing is a punchline)
-**Speaker notes**: Callback traces the journey: Explorer → Whisperer → Strategist → Operator → Orchestrator. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck — not because the AI got smarter, but because they did. Long pause after "Fifteen minutes." Let it land.
+**Speaker notes**: Callback traces the journey: Explorer → Whisperer → Strategist → Operator → Orchestrator. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck — not because the AI got smarter, but because they did. Karpathy called it a skill issue. This deck just taught you the skill. Long pause after "Fifteen minutes." Let it land.
 
-**Slide mapping**: Slides 65-68 — callback updated from "45-minute summary" to tea presentation; punchline updated from "Two minutes" to "Ten slides. Fifteen minutes."
+**Slide mapping**: Slides 66-69 — callback references tea presentation; punchline is "Ten slides. Fifteen minutes."
 
 ---
 
@@ -158,8 +158,11 @@
 
 | # | Source | URL | Used In |
 |---|--------|-----|---------|
-| 1 | Digital 2026: more than 1 billion people use AI - DataReportal | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | Opening |
-| 1b | AI investment bubble inflated by trio of dilemmas - Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | Opening |
+| 1 | Andrej Karpathy on Dwarkesh Podcast — "It's slop" | https://www.dwarkesh.com/p/andrej-karpathy | Opening (Hook) |
+| 1b | Karpathy on X — "skill issue" post, Dec 26 2025 | https://x.com/karpathy/status/2004607146781278521 | Opening (Hook) |
+| 1c | Pragmatic Engineer — "When AI Writes Almost All Code" | https://newsletter.pragmaticengineer.com/p/when-ai-writes-almost-all-code-what | Opening (Hook) |
+| 2 | Digital 2026: more than 1 billion people use AI - DataReportal | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | Opening |
+| 2b | AI investment bubble inflated by trio of dilemmas - Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | Opening |
 | 2 | AI and Productivity Growth - Federal Reserve Bank of St. Louis | https://www.stlouisfed.org/on-the-economy/2024/apr/ai-productivity-growth-evidence-historical-development-other-technologies | Opening |
 | 3 | Rising Speed of Technological Adoption - Visual Capitalist | https://www.visualcapitalist.com/rising-speed-technological-adoption/ | Opening |
 | 4 | Generative AI could raise global GDP by 7% - Goldman Sachs | https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent | Opening |

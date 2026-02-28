@@ -10,9 +10,9 @@
 ## Content Outline
 
 ### Section 1: The Hook — "What if your whole team knew?"
-**Key message**: There's a massive gap between using AI and using it well — and it costs real time.
+**Key message**: There's a massive gap between using AI and using it well — and even the experts feel it.
 **Content**:
-- "Last month, someone spent 45 minutes on a one-page summary. The right approach took 2 minutes."
+- Karpathy hook: Co-founder of OpenAI called AI tools "slop" in October 2025. Two months later: "I've never felt this much behind. This is a skill issue." (Sources: Dwarkesh Podcast, Karpathy on X)
 - "What if your whole team knew the trick?"
 - 1B+ use AI monthly. <2% use it well. (DataReportal, Reuters)
 - 41% of code is AI-generated. 19% longer without understanding. (Second Talent, Addy Osmani)
@@ -62,6 +62,8 @@
 
 | Source | URL | Used For |
 |--------|-----|----------|
+| Karpathy on Dwarkesh Podcast | https://www.dwarkesh.com/p/andrej-karpathy | Hook — "slop" quote |
+| Karpathy on X (Dec 26 2025) | https://x.com/karpathy/status/2004607146781278521 | Hook — "skill issue" quote |
 | DataReportal 2026 | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | 1B+ stat |
 | Reuters | (via DataReportal) | <2% stat |
 | Second Talent | https://www.secondtalent.com/resources/ai-coding-assistant-statistics/ | 41% stat |

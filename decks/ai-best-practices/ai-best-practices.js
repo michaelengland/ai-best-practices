@@ -218,16 +218,24 @@ async function main() {
     s.addNotes("Let the title sit. Don't rush into the hook \u2014 give people a moment to read. AI Best Practices \u2014 a practical guide to AI that actually works.");
   }
 
-  // --- Slide 2: Hook story ---
-  hero(pres, "Last month, someone spent 45 minutes\non a one-page summary using ChatGPT.\nThe right approach took 2 minutes.", {
-    font: D.b, size: 28, color: D.text,
-    notes: "Tell the full story: 'I watched someone go back and forth \u2014 copy, paste, no that\u2019s not right, copy, paste, closer but... The same task took 2 minutes once they knew the trick.' Let it land \u2014 this is the emotional anchor. The entire closing calls back to this person."
+  // --- Slide 2: Hook — "It's slop." ---
+  hero(pres, "\u201CIt\u2019s slop.\u201D", {
+    size: 72,
+    sub: "\u2014 Andrej Karpathy, co-founder of OpenAI, October 2025",
+    notes: "Let the quote sit. The audience may or may not know who Karpathy is \u2014 the attribution does the work. 'The co-founder of the company that made ChatGPT dismissed AI tools as slop. That was October 2025.' Source: Dwarkesh Podcast, https://www.dwarkesh.com/p/andrej-karpathy"
   });
 
-  // --- Slide 3: "This deck is about the trick." ---
+  // --- Slide 3: Hook — "This is a skill issue." ---
+  hero(pres, "\u201CI\u2019ve never felt this much behind.\nThis is a skill issue.\u201D", {
+    size: 40,
+    sub: "\u2014 Same person. Two months later.",
+    notes: "Two months later \u2014 December 26th \u2014 same person. 'I've never felt this much behind as a programmer. A failure to claim the boost feels decidedly like a skill issue.' Same tools existed both times. What changed was how he learned to use them. If the co-founder of OpenAI had a skill gap \u2014 what about the rest of us? Source: https://x.com/karpathy/status/2004607146781278521"
+  });
+
+  // --- Slide 4: "This deck is about the trick." ---
   hero(pres, "This deck is about\nthe trick.", {
     size: 72,
-    notes: "Pause after this. Let it land. The entire closing (slide ~70) calls back to this moment. This is the thesis statement of the whole presentation."
+    notes: "Pause after this. Let it land. The Karpathy contrast just set up the skill gap. This promises the solution. The entire closing calls back to this moment. This is the thesis statement of the whole presentation."
   });
 
   // --- Slide 4: Spectrum (7 personas) ---
@@ -1066,7 +1074,7 @@ async function main() {
   // --- Slide 68: Callback ---
   hero(pres, "Remember\n\u2018Make me a presentation about\nmaking a cup of tea\u2019?", {
     size: 36,
-    notes: "Callback to slide 23. They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck. Transition: The punchline."
+    notes: "Callback to slide 24. They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck \u2014 not because the AI got smarter, but because they did. Karpathy called it a skill issue. This deck just taught you the skill. Transition: The punchline."
   });
 
   // --- Slide 69: Punchline ---

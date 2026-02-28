@@ -17,15 +17,22 @@ Inherited from the main deck — same family, same system.
 **Content**: "AI Academy" / "From Explorer to Orchestrator in two sessions"
 **Speaker notes**: Brief. Let the title sit. ~10 seconds.
 
-### Slide 2: The Hook
-**Layout**: Single message (28pt Calibri)
-**Content**: "Last month, someone spent 45 minutes on a one-page summary. The right approach took 2 minutes."
-**Speaker notes**: Same hook as the main deck — proven and relatable. Let it land. ~15 seconds.
+### Slide 2: The Hook — "It's slop."
+**Layout**: Hero quote (48pt Calibri) + attribution sub (22pt, muted)
+**Content**: "\"It's slop.\"" / — Co-founder of OpenAI, October 2025
+**Speaker notes**: "The co-founder of the company that made ChatGPT called AI tools slop. That was October 2025." Let it sit. ~10 seconds.
+**Source**: Dwarkesh Podcast, October 2025
 
-### Slide 3: The Pivot
+### Slide 3: The Hook — "This is a skill issue."
+**Layout**: Hero quote (32pt Calibri) + attribution sub (22pt, muted)
+**Content**: "\"I've never felt this much behind.\nThis is a skill issue.\"" / — Same person. Two months later.
+**Speaker notes**: "Two months later — same person — 'This is a skill issue.' If the co-founder of OpenAI has a skill gap, what about our team?" ~15 seconds.
+**Source**: Karpathy on X, December 26, 2025
+
+### Slide 4: The Pivot
 **Layout**: Single message (44pt hero)
 **Content**: "What if your whole team knew the trick?"
-**Speaker notes**: This is the shift from individual anecdote to organizational opportunity. Pause. ~10 seconds.
+**Speaker notes**: Shift from the Karpathy skill gap to organizational opportunity. Pause. ~10 seconds.
 
 ### Slide 4: The Stats
 **Layout**: Big number + support (two stats combined)

@@ -109,16 +109,24 @@ async function main() {
     s.addNotes("Let the title sit. ~10 seconds.");
   }
 
-  // --- Slide 2: The Hook ---
-  hero(pres, "Last month, someone spent\n45 minutes on a one-page summary.\nThe right approach took 2 minutes.", {
-    font: D.b, size: 28, color: D.text,
-    notes: "Same hook as the main deck \u2014 proven and relatable. Let it land. ~15 seconds."
+  // --- Slide 2: The Hook — "It's slop." ---
+  hero(pres, "\u201CIt\u2019s slop.\u201D", {
+    size: 72,
+    sub: "\u2014 Co-founder of OpenAI, October 2025",
+    notes: "Let the quote sit. 'The co-founder of the company that made ChatGPT called AI tools slop. That was October 2025.' ~10 seconds. Source: Dwarkesh Podcast, https://www.dwarkesh.com/p/andrej-karpathy"
   });
 
-  // --- Slide 3: The Pivot ---
+  // --- Slide 3: The Hook — "This is a skill issue." ---
+  hero(pres, "\u201CI\u2019ve never felt this much behind.\nThis is a skill issue.\u201D", {
+    size: 36,
+    sub: "\u2014 Same person. Two months later.",
+    notes: "Two months later \u2014 same person \u2014 'This is a skill issue.' If the co-founder of OpenAI has a skill gap, what about our team? ~15 seconds. Source: https://x.com/karpathy/status/2004607146781278521"
+  });
+
+  // --- Slide 4: The Pivot ---
   hero(pres, "What if your whole team\nknew the trick?", {
     size: 48,
-    notes: "Shift from individual anecdote to organizational opportunity. Pause. ~10 seconds."
+    notes: "Shift from the Karpathy skill gap to organizational opportunity. Pause. ~10 seconds."
   });
 
   // --- Slide 4: The Stats ---

@@ -35,9 +35,10 @@ The deck takes you **Skeptic → Orchestrator**. Builder is visible on the spect
 
 #### Hook
 - Title: "Getting Agents to Give Up Their Secrets"
-- Emotional anchor: "Last month, someone spent 45 minutes on a one-page summary using ChatGPT. The right approach took 2 minutes."
+- Emotional anchor: In October 2025, Andrej Karpathy — co-founder of OpenAI, the company that made ChatGPT — went on a podcast and dismissed AI tools as "slop." Two months later, December 26th, he posted: "I've never felt this much behind as a programmer. A failure to claim the boost feels decidedly like a skill issue." Same person. Same tools available both times. The difference was learning how to use them.
+  - Sources: Dwarkesh Podcast (October 2025); Karpathy on X (December 26, 2025); Pragmatic Engineer (January 2026)
 - "This deck is about the trick."
-- The closing (slide ~66) calls back to this moment.
+- The closing calls back to the tea running example, then lands: "The secret was never in the AI."
 
 #### Spectrum
 - Show all 7 personas on a horizontal progression: Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator → Builder
@@ -192,7 +193,7 @@ The failure? Three fundamentals skipped: no data inventory, no data minimization
 - "Ten slides. Speaker notes. Fact-checked. Branded. Fifteen minutes."
 - "The secret was never in the AI." / "Now go try it — one task, this week."
 
-**Speaker notes for callback:** They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck — not because the AI got smarter, but because they did.
+**Speaker notes for callback:** They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck — not because the AI got smarter, but because they did. Karpathy called it a skill issue. This deck just taught you the skill.
 
 ---
 
@@ -200,8 +201,11 @@ The failure? Three fundamentals skipped: no data inventory, no data minimization
 
 | # | Source | URL | Used In |
 |---|--------|-----|---------|
-| 1 | Digital 2026: more than 1 billion people use AI - DataReportal | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | Opening |
-| 1b | AI investment bubble inflated by trio of dilemmas - Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | Opening |
+| 1 | Andrej Karpathy on Dwarkesh Podcast — "It's slop" | https://www.dwarkesh.com/p/andrej-karpathy | Opening (Hook) |
+| 1b-k | Karpathy on X — "skill issue" post, Dec 26 2025 | https://x.com/karpathy/status/2004607146781278521 | Opening (Hook) |
+| 1c-k | Pragmatic Engineer — "When AI Writes Almost All Code" | https://newsletter.pragmaticengineer.com/p/when-ai-writes-almost-all-code-what | Opening (Hook) |
+| 2 | Digital 2026: more than 1 billion people use AI - DataReportal | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | Opening |
+| 2b | AI investment bubble inflated by trio of dilemmas - Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | Opening |
 | 2 | AI and Productivity Growth - Federal Reserve Bank of St. Louis | https://www.stlouisfed.org/on-the-economy/2024/apr/ai-productivity-growth-evidence-historical-development-other-technologies | Opening |
 | 3 | Rising Speed of Technological Adoption - Visual Capitalist | https://www.visualcapitalist.com/rising-speed-technological-adoption/ | Opening |
 | 4 | Generative AI could raise global GDP by 7% - Goldman Sachs | https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent | Opening |

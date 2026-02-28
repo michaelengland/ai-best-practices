@@ -15,12 +15,13 @@
 
 ### Opening: The Hook
 
-Borrow the 45-minute story from the main deck — it's proven and relatable:
+Borrow the Karpathy story from the main deck — named, sourced, and hard-hitting:
 
-- "Last month, someone spent 45 minutes on a one-page summary using ChatGPT. The right approach took 2 minutes."
+- In October 2025, Andrej Karpathy — co-founder of OpenAI — called AI tools "slop." Two months later: "I've never felt this much behind. This is a skill issue." Same person. Same tools.
+  - Sources: Dwarkesh Podcast (October 2025); Karpathy on X (December 26, 2025)
 - **Pivot to organizational scope:** "What if your whole team knew the trick?"
 
-This shifts from individual anecdote to company opportunity in one line.
+This shifts from one of the world's top AI experts feeling behind to the company opportunity in one line. If the co-founder of OpenAI had a skill gap, your team definitely does.
 
 ### The Gap: Why This Matters
 
@@ -63,6 +64,8 @@ All borrowed from the main deck:
 
 | Source | URL | Used For |
 |--------|-----|----------|
+| Karpathy on Dwarkesh Podcast | https://www.dwarkesh.com/p/andrej-karpathy | Hook — "slop" quote |
+| Karpathy on X (Dec 26 2025) | https://x.com/karpathy/status/2004607146781278521 | Hook — "skill issue" quote |
 | DataReportal 2026 | https://datareportal.com/reports/digital-2026-one-billion-people-using-ai | 1B+ stat |
 | Reuters | https://www.reuters.com/commentary/breakingviews/ai-investment-bubble-inflated-by-trio-dilemmas-2025-09-25/ | <2% stat |
 | Second Talent | https://www.secondtalent.com/resources/ai-coding-assistant-statistics/ | 41% stat |

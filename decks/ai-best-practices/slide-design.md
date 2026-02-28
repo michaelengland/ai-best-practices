@@ -36,19 +36,27 @@
 **Speaker notes**: Let the title sit. Don't rush.
 **Status**: Keep as-is
 
-#### Slide 2: Hook
-**Layout**: Single message (28pt, Verdana)
-**Content**: "Last month, someone spent 45 minutes on a one-page summary using ChatGPT. The right approach took 2 minutes."
-**Speaker notes**: Tell the full story. This is the emotional anchor — the closing calls back to this.
-**Status**: Keep as-is
+#### Slide 2: Hook — "It's slop."
+**Layout**: Hero quote (72pt, Georgia) + attribution sub (28pt, muted)
+**Content**: "\"It's slop.\"" / — Andrej Karpathy, co-founder of OpenAI, October 2025
+**Speaker notes**: Let the quote sit. The audience may or may not know who Karpathy is — the attribution does the work. "The co-founder of the company that made ChatGPT dismissed AI tools as slop. That was October 2025."
+**Status**: MODIFY — replaces 45-minute anecdote with Karpathy "slop" quote
+**Source**: Dwarkesh Podcast, October 2025
 
-#### Slide 3: "This deck is about the trick."
+#### Slide 3: Hook — "This is a skill issue."
+**Layout**: Hero quote (40pt, Georgia) + attribution sub (28pt, muted)
+**Content**: "\"I've never felt this much behind.\nThis is a skill issue.\"" / — Same person. Two months later.
+**Speaker notes**: "Two months later — December 26th — same person. 'I've never felt this much behind as a programmer. A failure to claim the boost feels decidedly like a skill issue.' Same tools existed both times. What changed was how he learned to use them. If the co-founder of OpenAI had a skill gap — what about the rest of us?"
+**Status**: NEW — second half of Karpathy contrast (adds one slide to deck)
+**Source**: Karpathy on X, December 26, 2025
+
+#### Slide 4: "This deck is about the trick."
 **Layout**: Single message (72pt hero)
 **Content**: "This deck is about the trick."
-**Speaker notes**: Pause. Let it land.
-**Status**: Keep as-is
+**Speaker notes**: Pause. Let it land. The Karpathy contrast just set up the skill gap. This promises the solution.
+**Status**: Keep as-is (renumbered from slide 3)
 
-#### Slide 4: Spectrum
+#### Slide 5: Spectrum
 **Layout**: Diagram — 7 labeled boxes in horizontal progression
 **Content**: Skeptic → Explorer → Whisperer → Strategist → Operator → Orchestrator → Builder
 **Speaker notes**: Seven personas. This deck covers Skeptic → Orchestrator. Builder is the horizon.
@@ -350,8 +358,8 @@
 #### Slide 68: Callback
 **Layout**: Single message (36pt)
 **Content**: "Remember\n'Make me a presentation about\nmaking a cup of tea'?"
-**Speaker notes**: Callback to slide 23. They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck.
-**Status**: MODIFY — callback updated from "45-minute summary" to tea presentation
+**Speaker notes**: Callback to slide 24. They were an Explorer who became an Orchestrator. They learned to whisper (prompt engineering). They became a strategist (context + skills). They let agents operate. They orchestrated the brigade. The tea presentation went from generic clip-art to a polished, fact-checked, branded deck — not because the AI got smarter, but because they did. Karpathy called it a skill issue. This deck just taught you the skill.
+**Status**: MODIFY — speaker notes updated to reference Karpathy hook
 
 #### Slide 69: Punchline
 **Layout**: Single message (54pt hero)
