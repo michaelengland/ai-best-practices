@@ -150,27 +150,34 @@ async function main() {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
     const highlight = [1, 2, 3]; // Explorer, Whisperer, Strategist
-    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const boxW = 1.3, boxH = 0.7, gap = 0.08;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
       const x = startX + i * (boxW + gap);
       const isHighlight = highlight.includes(i);
+      const isBuilder = i === 6;
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.2, w: boxW, h: boxH,
-        fill: { color: isHighlight ? D.accent : D.bg },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1.5 },
+        fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
+        line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
         rectRadius: 0.08
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 12, color: isHighlight ? D.white : D.muted,
-        bold: isHighlight, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+        bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
+      if (i < labels.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 2.2, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
+        });
+      }
     });
     s.addText("Two levels in one session", {
       x: 1.5, y: 3.4, w: 7, h: 0.6,
-      fontFace: D.b, fontSize: 28, color: D.muted, align: "center", margin: 0
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
     });
     s.addNotes("Don't dwell on the spectrum — it's context, not content. Point out where they are (Explorer) and where they'll be (Strategist). Energy: \"We're moving fast today.\"");
   }

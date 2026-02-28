@@ -228,7 +228,7 @@ async function main() {
   {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
-    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const boxW = 1.3, boxH = 0.7, gap = 0.08;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
@@ -240,11 +240,11 @@ async function main() {
         x, y: 1.6, w: boxW, h: boxH,
         rectRadius: 0.08,
         fill: { color: isBuilder ? D.accent : D.bg, transparency: isBuilder ? 0 : 50 },
-        line: { color: isBuilder ? D.accent : (isOrch ? D.accent : D.muted), width: isBuilder ? 2 : 1, dashType: isBuilder ? "solid" : (i < 6 ? "solid" : "dash") }
+        line: { color: isBuilder ? D.accent : (isOrch ? D.accent : D.muted), width: 1.5 }
       });
       s.addText(label, {
         x, y: 1.6, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 12, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 11, color: textColor, bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
@@ -255,7 +255,7 @@ async function main() {
     });
     s.addText("The main deck takes you here.", {
       x: 0.5, y: 2.7, w: 4.5, h: 0.8,
-      fontFace: D.h, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
     s.addText("This deck is here.", {
       x: 5.0, y: 2.7, w: 4.5, h: 0.8,

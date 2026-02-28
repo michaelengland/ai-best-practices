@@ -242,7 +242,7 @@ async function main() {
   {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
-    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const boxW = 1.3, boxH = 0.7, gap = 0.08;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
@@ -251,17 +251,17 @@ async function main() {
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.2, w: boxW, h: boxH,
         rectRadius: 0.08,
-        fill: { color: D.accent, transparency: isBuilder ? 95 : 85 },
+        fill: { color: isBuilder ? D.bg : D.accent, transparency: isBuilder ? 50 : 0 },
         line: { color: isBuilder ? D.muted : D.accent, width: 1.5, dashType: isBuilder ? "dash" : "solid" }
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 12, color: isBuilder ? D.muted : D.white, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 11, color: isBuilder ? D.muted : D.white, bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
           x: x + boxW, y: 2.2, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 11, color: isBuilder ? D.muted : D.accent, align: "center", margin: 0, valign: "middle"
+          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
         });
       }
     });
@@ -272,7 +272,7 @@ async function main() {
   {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
-    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const boxW = 1.3, boxH = 0.7, gap = 0.08;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
@@ -285,11 +285,11 @@ async function main() {
         x, y: 1.6, w: boxW, h: boxH,
         rectRadius: 0.08,
         fill: { color: isHighlighted ? D.accent : D.bg, transparency: isHighlighted ? 0 : 50 },
-        line: { color: isHighlighted ? D.accent : (isTarget ? D.accent : D.muted), width: isHighlighted || isTarget ? 2 : 1, dashType: isBuilder ? "dash" : "solid" }
+        line: { color: isHighlighted ? D.accent : (isTarget ? D.accent : D.muted), width: 1.5, dashType: isBuilder ? "dash" : "solid" }
       });
       s.addText(label, {
         x, y: 1.6, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 12, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 11, color: textColor, bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
@@ -300,11 +300,11 @@ async function main() {
     });
     s.addText("Most people are here.", {
       x: 0.5, y: 2.7, w: 4.5, h: 0.8,
-      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
     s.addText("This deck takes you here.", {
       x: 5.0, y: 2.7, w: 4.5, h: 0.8,
-      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
     s.addNotes("Most readers will self-identify at Explorer. They\u2019ve tried ChatGPT, maybe heard of prompt engineering. The Orchestrator indicator shows where this deck takes them. Builder is visible but dimmed \u2014 beyond scope. Transition: Let\u2019s look at the numbers.");
   }

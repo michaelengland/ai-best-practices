@@ -155,7 +155,7 @@ async function main() {
   {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
-    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const boxW = 1.3, boxH = 0.7, gap = 0.08;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
@@ -168,11 +168,11 @@ async function main() {
         x, y: 1.6, w: boxW, h: boxH,
         rectRadius: 0.08,
         fill: { color: isExplorer ? D.accent : D.bg, transparency: isExplorer ? 0 : 50 },
-        line: { color: isExplorer ? D.accent : (isOrchestrator ? D.accent : D.muted), width: isExplorer || isOrchestrator ? 2 : 1, dashType: isBuilder ? "dash" : "solid" }
+        line: { color: isExplorer ? D.accent : (isOrchestrator ? D.accent : D.muted), width: 1.5, dashType: isBuilder ? "dash" : "solid" }
       });
       s.addText(label, {
         x, y: 1.6, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 12, color: textColor, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 11, color: textColor, bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
       if (i < labels.length - 1) {
         s.addText("\u2192", {
@@ -183,11 +183,11 @@ async function main() {
     });
     s.addText("Most of us are here.", {
       x: 0.5, y: 2.7, w: 4.5, h: 0.8,
-      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
     s.addText("The AI Academy takes you here.", {
       x: 5.0, y: 2.7, w: 4.5, h: 0.8,
-      fontFace: D.h, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "top"
     });
     s.addNotes("Self-identification moment. Pause for audience to locate themselves on spectrum. ~20 seconds.");
   }

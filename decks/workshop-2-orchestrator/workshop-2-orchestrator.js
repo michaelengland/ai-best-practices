@@ -109,7 +109,7 @@ function stepsSlide(pres, steps, opts = {}) {
     if (i < steps.length - 1) {
       s.addText("\u2192", {
         x: x + boxW, y: 2.2, w: gap, h: boxH,
-        fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
     }
   });
@@ -172,27 +172,34 @@ async function main() {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
     const highlight = [3, 4, 5]; // Strategist, Operator, Orchestrator
-    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const boxW = 1.3, boxH = 0.7, gap = 0.08;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
       const x = startX + i * (boxW + gap);
       const isHighlight = highlight.includes(i);
+      const isBuilder = i === 6;
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
         x, y: 2.2, w: boxW, h: boxH,
-        fill: { color: isHighlight ? D.accent : D.bg },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1.5 },
+        fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
+        line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
         rectRadius: 0.08
       });
       s.addText(label, {
         x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 12, color: isHighlight ? D.white : D.muted,
-        bold: isHighlight, align: "center", margin: 0, valign: "middle"
+        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+        bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
+      if (i < labels.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 2.2, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
+        });
+      }
     });
-    s.addText("Two more levels. By the end, you're an Orchestrator.", {
+    s.addText("Two more levels. By the end, you\u2019re an Orchestrator.", {
       x: 1.0, y: 3.4, w: 8, h: 0.6,
-      fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
     });
     s.addNotes("Quick callback to Workshop 1. They crossed Explorer → Strategist last time. Today: Strategist → Orchestrator. \"You talk to AI like a pro. You've set up its playbook. But look at every step of your workflow...\"");
   }
@@ -479,27 +486,34 @@ async function main() {
     const s = darkSlide(pres);
     const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
     const highlight = [1, 2, 3, 4, 5]; // Explorer through Orchestrator
-    const boxW = 1.2, boxH = 0.7, gap = 0.1;
+    const boxW = 1.3, boxH = 0.7, gap = 0.08;
     const totalW = labels.length * boxW + (labels.length - 1) * gap;
     const startX = (10 - totalW) / 2;
     labels.forEach((label, i) => {
       const x = startX + i * (boxW + gap);
       const isHighlight = highlight.includes(i);
+      const isBuilder = i === 6;
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y: 1.8, w: boxW, h: boxH,
-        fill: { color: isHighlight ? D.accent : D.bg },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1.5 },
+        x, y: 2.2, w: boxW, h: boxH,
+        fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
+        line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
         rectRadius: 0.08
       });
       s.addText(label, {
-        x, y: 1.8, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 12, color: isHighlight ? D.white : D.muted,
-        bold: isHighlight, align: "center", margin: 0, valign: "middle"
+        x, y: 2.2, w: boxW, h: boxH,
+        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+        bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
       });
+      if (i < labels.length - 1) {
+        s.addText("\u2192", {
+          x: x + boxW, y: 2.2, w: gap, h: boxH,
+          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
+        });
+      }
     });
-    s.addText("You started as an Explorer.\nYou're now an Orchestrator.", {
-      x: 1.0, y: 3.0, w: 8, h: 1.0,
-      fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0
+    s.addText("You started as an Explorer.\nYou\u2019re now an Orchestrator.", {
+      x: 1.0, y: 3.4, w: 8, h: 1.0,
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
     });
     s.addNotes("Graduation moment. \"You learned to whisper. You became a strategist. You let agents operate. You orchestrated the brigade.\" This is the emotional payoff. Make it feel earned — they completed a 2-session AI Academy. Builder is still dimmed — that's the horizon for those who want to go further.");
   }
