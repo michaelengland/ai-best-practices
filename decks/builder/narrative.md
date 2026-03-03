@@ -124,7 +124,7 @@ No detail. Just the map. Each piece gets explained when we get there.
 Everything in the Builder's setup serves three goals:
 
 1. **Relentless pursuit of perfect context** — not too little, not too much. The AI needs exactly the right information for the current task.
-2. **No hidden failures** — WebFetch silently rejected by a site, HTML too large and summarized in a way that loses critical detail, a tool that fails without you noticing. Every failure must be visible.
+2. **Always grounded** — the agent should never be quietly working from wrong or missing information. Two failure modes, same root cause: stale training data (the library API changed six months ago and the AI doesn't know) and silent retrieval failure (WebFetch rejected, HTML truncated and losing detail). Context7 solves the first — live docs, not training data. Firecrawl solves the second — reliable retrieval, not silent failure. Both ensure the agent operates on current, verifiably-retrieved information.
 3. **Gated workflow** — How do you stop the agent from charging straight into code and writing 500 wrong lines? Stages. Brainstorm → Plan → Implement → Review. Each stage produces a concrete artifact that gets validated before moving on. The agent never goes straight into code.
 
 #### MCP Servers: The Foundation
@@ -133,9 +133,9 @@ Everything in the Builder's setup serves three goals:
 
 These four are always loaded because the agent always needs them:
 
-- **Context7** — Fetches live, version-specific library documentation at prompt time. Prevents hallucinated APIs, outdated patterns, wrong-version code. The AI works from *real* docs, not stale training data.
-- **Language Server MCPs** (pyright, typescript-language-server, gopls — whichever the project needs) — Gives the AI the same semantic understanding your IDE has: go-to-definition, find-references, diagnostics, symbol resolution. Compiler-level code navigation instead of grepping through files.
-- **Firecrawl** — Web scraping/research MCP. Solves the hidden failure problem: WebFetch gets rejected by sites, pages are too large, content gets summarized and loses context. Firecrawl handles all of this reliably.
+- **Context7** — Fetches live, version-specific library documentation at prompt time. Prevents hallucinated APIs, outdated patterns, wrong-version code. The AI works from *real* docs, not stale training data. *Principle: always grounded.*
+- **Language Server MCPs** (pyright, typescript-language-server, gopls — whichever the project needs) — Gives the AI the same semantic understanding your IDE has: go-to-definition, find-references, diagnostics, symbol resolution. Compiler-level code navigation instead of grepping through files. *Principle: perfect context.*
+- **Firecrawl** — Web scraping/research MCP. Solves the silent retrieval problem: WebFetch gets rejected by sites, pages are too large, content gets summarized and loses context. Firecrawl handles all of this reliably. *Principle: always grounded.*
 - **Superpowers** — Structured discipline library that enforces disciplined workflows: TDD (red-green-refactor), systematic debugging (investigate before guessing), verification-before-completion. Prevents the agent from skipping steps.
 
 **Why MCP for these:** They need to be available constantly, at low-level. Progressive disclosure doesn't apply — the agent always needs docs, always needs code navigation, always needs web access, always needs discipline.
@@ -149,7 +149,7 @@ Everything lives in `.claude/rules/`. Each rule file defines when it activates (
 **Tool usage rules** (always active):
 - BEFORE using any library or API: fetch current docs from official source
 - NEVER use WebFetch or WebSearch — always Firecrawl
-- These prevent the most common hidden failures.
+- These enforce the "always grounded" principle: live docs, reliable retrieval, no silent gaps.
 
 **Communication rules** (always active):
 - ALWAYS be radically honest
@@ -256,8 +256,8 @@ Skills are for higher-level workflows that would clutter context if always loade
 
 **Job: Tie it together. The audience should see the system as a whole, not individual pieces.**
 
-- Every piece serves the three principles: perfect context, no hidden failures, gated workflow.
-- MCP servers give the agent perfect context (docs, code navigation) and reliable tools (Firecrawl over WebFetch).
+- Every piece serves the three principles: perfect context, always grounded, gated workflow.
+- MCP servers give the agent perfect context (code navigation) and ground truth (Context7 for live docs, Firecrawl for reliable web — never stale, never silent).
 - Rules enforce quality automatically. Skills compound daily. The gated workflow catches problems at stages, not after deployment.
 - Parallel sessions, monorepo, and bypassed permissions remove friction. Environment-level safety prevents catastrophe.
 - The old trade-off is dead: you get quality AND speed. But only if you build the infrastructure.

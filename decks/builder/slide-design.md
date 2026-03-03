@@ -253,9 +253,9 @@ Identical to the main ai-best-practices deck — this is a companion deck in the
 **Layout**: Three column (dark background)
 **Content**:
 - "Perfect Context" / "Not too little.\nNot too much."
-- "No Hidden Failures" / "Every failure\nmust be visible."
+- "Always Grounded" / "Live data.\nNo silent gaps."
 - "Gated Workflow" / "Stages, not yolo.\nTwo layers of verification."
-**Speaker notes**: These three principles are the lens for everything that follows. Every tool maps to one or more principles. The gated workflow gets its own deep-dive section after the tools — for now, just establish it as a principle.
+**Speaker notes**: These three principles are the lens for everything that follows. "Always Grounded" is the one that needs most explanation — it covers two failure modes with the same root cause: the agent quietly working from wrong information. Stale training data (the API changed, the AI doesn't know) and silent retrieval failure (WebFetch rejected, HTML truncated) are the same problem. Context7 and Firecrawl are the two-part solution. The gated workflow gets its own deep-dive after the tools.
 
 ### Slide 30: Breather
 **Layout**: Breather
@@ -287,8 +287,8 @@ Identical to the main ai-best-practices deck — this is a companion deck in the
 **Content**:
 - "Context7" — Georgia 44pt white bold
 - "Live docs at prompt time.\nNo hallucinated APIs." — Calibri 28pt muted
-- Principle tag bottom-right: "perfect context" — 16pt cyan italic
-**Speaker notes**: Context7 fetches live, version-specific library documentation and injects it into context at prompt time. Instead of relying on stale training data, the agent works from real, current docs. Prevents hallucinated APIs, outdated patterns, wrong-version code.
+- Principle tag bottom-right: "always grounded" — 16pt cyan italic
+**Speaker notes**: Context7 fetches live, version-specific library documentation and injects it into context at prompt time. Instead of relying on stale training data, the agent works from real, current docs. Prevents hallucinated APIs, outdated patterns, wrong-version code. This is the first half of "always grounded" — live data, not training data.
 
 ### Slide 34: Language Server MCPs
 **Layout**: Single message with principle tag
@@ -302,9 +302,9 @@ Identical to the main ai-best-practices deck — this is a companion deck in the
 **Layout**: Single message with principle tag
 **Content**:
 - "Firecrawl" — Georgia 44pt white bold
-- "Reliable web access.\nNo silent failures." — Calibri 28pt muted
-- Principle tag bottom-right: "no hidden failures" — 16pt cyan italic
-**Speaker notes**: WebFetch gets rejected by sites, pages are too large and get truncated, content gets summarized in ways that lose critical detail — and none of this is obvious. Firecrawl handles all of this reliably.
+- "Reliable web access.\nNo silent gaps." — Calibri 28pt muted
+- Principle tag bottom-right: "always grounded" — 16pt cyan italic
+**Speaker notes**: WebFetch gets rejected by sites, pages are too large and get truncated, content gets summarized in ways that lose critical detail — and none of this is obvious. Firecrawl handles all of this reliably. This is the second half of "always grounded" — reliable retrieval, not silent failure. Note: both Context7 and Firecrawl share this tag. They're solving the same root problem from two directions.
 
 ---
 
@@ -335,7 +335,7 @@ Identical to the main ai-best-practices deck — this is a companion deck in the
   - "Coding — TDD, SOLID, self-describing code"
   - "Git workflow — branch naming, PR closes issue"
   - "Language-specific — filtered by file extension"
-**Speaker notes**: Each category is a separate file. Tool usage prevents hidden failures. Communication enforces honesty. Coding enforces quality. Git workflow enforces process. Language-specific rules activate only for that language's files.
+**Speaker notes**: Each category is a separate file. Tool usage enforces "always grounded" — fetch live docs, use Firecrawl not WebFetch. Communication enforces honesty. Coding enforces quality. Git workflow enforces process. Language-specific rules activate only for that language's files.
 
 ### Slide 39: "Filtered by extension."
 **Layout**: Single message (hero helper)
@@ -532,10 +532,10 @@ Identical to the main ai-best-practices deck — this is a companion deck in the
 **Content**:
 - Headline: "Every piece. Three principles." — Georgia 36pt white bold
 - Bullets (principle in cyan, tools in muted):
-  - "Perfect context → Context7, Language Servers, Rules, Monorepo"
-  - "No hidden failures → Firecrawl, Tool usage rules"
+  - "Perfect context → Language Servers, Rules, Monorepo"
+  - "Always grounded → Context7, Firecrawl, Tool usage rules"
   - "Gated workflow → Superpowers, Two-layer verification, CI/CD"
-**Speaker notes**: Rapid-fire recap. Each tool maps to a principle. The gated workflow is the approach on top — powered by Superpowers, enforced through two-layer verification, backstopped by CI/CD. The audience should see the system as a whole — not individual pieces, but an integrated machine.
+**Speaker notes**: Rapid-fire recap. Each tool maps to a principle. "Always grounded" now groups Context7 and Firecrawl together — both prevent the agent from working on wrong information, from two directions. The gated workflow is the approach on top — powered by Superpowers, enforced through two-layer verification, backstopped by CI/CD.
 
 ### Slide 64: "The Builder's job isn't writing code."
 **Layout**: Single message (hero helper)

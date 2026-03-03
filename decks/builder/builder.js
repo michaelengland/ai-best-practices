@@ -538,7 +538,7 @@ async function main() {
     const s = darkSlide(pres);
     const cols = [
       { title: "Perfect Context", body: "Not too little.\nNot too much." },
-      { title: "No Hidden Failures", body: "Every failure\nmust be visible." },
+      { title: "Always Grounded", body: "Live data.\nNo silent gaps." },
       { title: "Gated Workflow", body: "Stages, not yolo.\nTwo layers of verification." }
     ];
     cols.forEach((col, i) => {
@@ -552,7 +552,7 @@ async function main() {
         fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
       });
     });
-    s.addNotes("Three principles \u2014 how quality keeps pace. Every tool that follows maps to one or more. Perfect context: right information, right time. No hidden failures: every error surfaced. Gated workflow: staged verification, nothing skipped.");
+    s.addNotes("Three principles \u2014 how quality keeps pace. Every tool that follows maps to one or more. Perfect context: right information, right time. Always grounded: two failure modes, same root cause \u2014 stale training data and silent retrieval failure. Context7 solves the first, Firecrawl solves the second. Gated workflow: staged verification, nothing skipped.");
   }
 
   // --- Slide 26: Architecture Map ---
@@ -627,8 +627,8 @@ async function main() {
   toolSlide(pres, {
     title: "Context7",
     body: "Live docs at prompt time.\nNo hallucinated APIs.",
-    principle: "perfect context",
-    notes: "Context7 fetches live, version-specific library documentation and injects it into context at prompt time. Instead of relying on stale training data, the agent works from real, current docs. Prevents hallucinated APIs, outdated patterns, wrong-version code."
+    principle: "always grounded",
+    notes: "Context7 fetches live, version-specific library documentation and injects it into context at prompt time. Instead of relying on stale training data, the agent works from real, current docs. Prevents hallucinated APIs, outdated patterns, wrong-version code. First half of \u2018always grounded\u2019 \u2014 live data, not training data."
   });
 
   // --- Slide 31: Language Server MCPs ---
@@ -642,9 +642,9 @@ async function main() {
   // --- Slide 32: Firecrawl ---
   toolSlide(pres, {
     title: "Firecrawl",
-    body: "Reliable web access.\nNo silent failures.",
-    principle: "no hidden failures",
-    notes: "WebFetch gets rejected by sites, pages are too large and get truncated, content gets summarized in ways that lose critical detail \u2014 and none of this is obvious. Firecrawl handles all of this reliably."
+    body: "Reliable web access.\nNo silent gaps.",
+    principle: "always grounded",
+    notes: "WebFetch gets rejected by sites, pages are too large and get truncated, content gets summarized in ways that lose critical detail \u2014 and none of this is obvious. Firecrawl handles all of this reliably. Second half of \u2018always grounded\u2019 \u2014 reliable retrieval, not silent failure. Both Context7 and Firecrawl share this tag: solving the same root problem from two directions."
   });
 
   // ============================================================
@@ -992,10 +992,10 @@ async function main() {
     });
     s.addText([
       { text: "Perfect context", options: { bold: true, color: D.accent, breakLine: true } },
-      { text: "  Context7, Language Servers, Rules, Monorepo", options: { color: D.muted, breakLine: true } },
+      { text: "  Language Servers, Rules, Monorepo", options: { color: D.muted, breakLine: true } },
       { text: "", options: { breakLine: true, fontSize: 12 } },
-      { text: "No hidden failures", options: { bold: true, color: D.accent, breakLine: true } },
-      { text: "  Firecrawl, Tool usage rules", options: { color: D.muted, breakLine: true } },
+      { text: "Always grounded", options: { bold: true, color: D.accent, breakLine: true } },
+      { text: "  Context7, Firecrawl, Tool usage rules", options: { color: D.muted, breakLine: true } },
       { text: "", options: { breakLine: true, fontSize: 12 } },
       { text: "Gated workflow", options: { bold: true, color: D.accent, breakLine: true } },
       { text: "  Superpowers, Two-layer verification, CI/CD", options: { color: D.muted } }
@@ -1003,7 +1003,7 @@ async function main() {
       x: 1.2, y: 1.8, w: 7.6, h: 3.0,
       fontFace: D.b, fontSize: 24, margin: 0, valign: "top"
     });
-    s.addNotes("Rapid-fire recap. Each tool maps to a principle. The gated workflow is the approach on top \u2014 powered by Superpowers, enforced through two-layer verification, backstopped by CI/CD. The audience should see the system as a whole \u2014 not individual pieces, but an integrated machine.");
+    s.addNotes("Rapid-fire recap. Each tool maps to a principle. \u2018Always grounded\u2019 groups Context7 and Firecrawl together \u2014 both prevent the agent from working on wrong information, from two directions. The gated workflow is the approach on top \u2014 powered by Superpowers, enforced through two-layer verification, backstopped by CI/CD.");
   }
 
   // --- Slide 60: Architecture Map callback ---

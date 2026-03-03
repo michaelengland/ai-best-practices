@@ -124,25 +124,25 @@
 **Transition**: "Every piece of the setup serves three goals."
 
 ### Section 11: Resolution — Three Principles
-**Key message**: Perfect context, no hidden failures, gated workflow — the three lenses for everything that follows.
+**Key message**: Perfect context, always grounded, gated workflow — the three lenses for everything that follows.
 **Content**:
 1. **Relentless pursuit of perfect context** — not too little, not too much. The AI needs exactly the right information for the current task.
-2. **No hidden failures** — WebFetch silently rejected, HTML summarized and losing detail, tools failing without notice. Every failure must be visible.
+2. **Always grounded** — the agent should never be quietly working from wrong or missing information. Two failure modes: stale training data (Context7 solves this — live docs) and silent retrieval failure (Firecrawl solves this — reliable web). Both ensure the agent operates on current, verifiably-retrieved information.
 3. **Gated workflow** — How do you stop the agent from charging straight into code and writing 500 wrong lines? Stages. Brainstorm → Plan → Implement → Review. Each stage produces a concrete artifact that gets validated before moving on.
 **Emphasis**: high
-**Speaker notes**: These three principles are the lens for everything that follows. Each tool maps to one or more principles. The gated workflow gets its own deep-dive section later — for now, just establish it as a principle. The audience should be thinking "how do you actually enforce these?" — and the next sections answer that.
+**Speaker notes**: These three principles are the lens for everything that follows. Each tool maps to one or more principles. "Always grounded" is the one that needs most explanation — it covers two failure modes that look different but have the same root cause: the agent quietly working from wrong information. Stale training data and silent retrieval failure are the same problem. Context7 and Firecrawl are the two-part solution. The gated workflow gets its own deep-dive section later — for now, just establish it as a principle. The audience should be thinking "how do you actually enforce these?" — and the next sections answer that.
 **Transition**: "Let's start with the tools."
 
 ### Section 12: Resolution — MCP Servers
 **Key message**: MCP servers give the agent new capabilities — things it can DO. These three are always loaded.
 **Content**:
 - **What are MCP servers?** Rules tell the agent how to behave. MCP servers are different — they give the agent new capabilities, things it can DO. Connect one and the agent gains new tools: fetch live docs, navigate code with compiler-level precision, scrape the web reliably. They give the agent new senses and hands.
-- **Context7** — Live, version-specific library docs at prompt time. Prevents hallucinated APIs, outdated patterns, wrong-version code. *Principle: perfect context.*
+- **Context7** — Live, version-specific library docs at prompt time. Prevents hallucinated APIs, outdated patterns, wrong-version code. The AI works from real docs, not stale training data. *Principle: always grounded.*
 - **Language Server MCPs** (pyright, typescript-language-server, gopls — whichever the project needs) — Same semantic understanding as your IDE: go-to-definition, find-references, diagnostics. Compiler-level navigation instead of grepping. *Principle: perfect context.*
-- **Firecrawl** — Web scraping/research. WebFetch gets rejected by sites, pages too large, content summarized and losing detail. Firecrawl handles it reliably. *Principle: no hidden failures.*
+- **Firecrawl** — Web scraping/research. WebFetch gets rejected by sites, pages too large, content summarized and losing detail. Firecrawl handles it reliably. *Principle: always grounded.*
 - Why MCP for these: they need to be available constantly. Progressive disclosure doesn't apply — the agent always needs these.
 **Emphasis**: high
-**Speaker notes**: The "What are MCP servers?" definition is critical — the audience may not know this concept. "Rules tell the agent how to behave. MCP servers give it new capabilities." Then walk through each server and tie it to a principle. Context7: the agent works from real docs, not stale training data — perfect context. Language servers: compiler-level understanding — perfect context. Firecrawl: solves silent failures that WebFetch creates — no hidden failures. The "why MCP" point distinguishes these from skills: always available, not loaded on demand.
+**Speaker notes**: The "What are MCP servers?" definition is critical — the audience may not know this concept. "Rules tell the agent how to behave. MCP servers give it new capabilities." Then walk through each server and tie it to a principle. Context7: the agent works from real docs, not stale training data — always grounded. Language servers: compiler-level understanding — perfect context. Firecrawl: solves silent retrieval failures that WebFetch creates — always grounded. The key insight: Context7 and Firecrawl are solving the same root problem from two directions. Stale training data is as invisible as a silently-rejected WebFetch. Both leave the agent operating on assumptions. "Always grounded" is what prevents both. The "why MCP" point distinguishes these from skills: always available, not loaded on demand.
 **Transition**: "MCP gives the agent capabilities. Rules tell it how to behave."
 
 ### Section 13: Resolution — Rules
@@ -150,7 +150,7 @@
 **Content**:
 - **What are rules?** Standing instructions the agent follows on every task. Your engineering standards — how to write code, communicate, use git — written as files, enforced automatically. You write them once, the agent follows them forever. Think of linter rules, but for the agent's entire behavior, not just code style. If you've used a CLAUDE.md file, rules are the modular evolution — instead of one file with everything, each concern gets its own file.
 - Everything in `.claude/rules/`. Each file defines when it activates (always, or filtered to file extension).
-- **Tool usage rules** (always active): Fetch current docs before using any library/API. Never use WebFetch — always Firecrawl. *Prevents hidden failures.*
+- **Tool usage rules** (always active): Fetch current docs before using any library/API. Never use WebFetch — always Firecrawl. *Enforces always grounded: live docs, reliable retrieval, no silent gaps.*
 - **Communication rules** (always active): Be radically honest. Never flatter. Never guess. Never rely on training data. Surface trade-offs.
 - **Coding rules** (always active): Self-describing code, no obvious comments. SOLID principles. TDD. Never proceed if requirements ambiguous.
 - **Git workflow rules** (always active): Branch naming conventions. PR must close an issue. Never commit to main.
@@ -260,8 +260,8 @@
 ### Section 22: Closing — It All Compounds
 **Key message**: The Builder's job isn't writing code. It's building the machine that writes code well.
 **Content**:
-- Every piece maps to the three principles: perfect context, no hidden failures, gated workflow
-- MCP = perfect context (docs, code navigation) + no hidden failures (Firecrawl)
+- Every piece maps to the three principles: perfect context, always grounded, gated workflow
+- MCP = perfect context (code navigation) + always grounded (Context7 for live docs, Firecrawl for reliable web)
 - Rules = quality enforcement, automatically
 - Skills = compound daily through 10% investment
 - Gated workflow = the approach that uses them all — stages, verification, discipline
