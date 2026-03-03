@@ -146,13 +146,25 @@
   - "SOC 2, ISO 27001, ISO 42001"
 **Speaker notes**: Claude Pro ($20/month) is under Anthropic's Consumer Terms — training IS allowed (with opt-out), no DPA applies, the contracting entity is Anthropic PBC (US), not Anthropic Ireland. Only Claude Team/Enterprise/API are under Commercial Terms with the explicit contractual prohibition on training and the DPA with EU SCCs. Same pattern: ChatGPT Plus trains by default with account-level opt-out. GitHub Copilot Free allows training on your code. The bright line: free and consumer tiers should not be approved for work use.
 
-### Slide 15: Transition to comparison
+### Slide 15: Transition to provider choice
 **Layout**: Breather (dark bg, accent italic)
 **Content**:
-- "So which tiers,\nfrom which providers?" (Georgia, 28pt, accent, italic)
-**Speaker notes**: Transition to the provider comparison — the core reference section of the deck.
+- "Platform or direct provider?\nTwo paths. One structural choice." (Georgia, 28pt, accent, italic)
+**Speaker notes**: Transition. The audience has seen why tiers matter — now introduce the structural choice EU companies face: an EU-native platform that sits in front of multiple models (like Langdock), or a direct relationship with a US provider's enterprise tier. The platform option is new to most readers — make this framing clear before the comparison slides.
 
-### Slide 16: Provider comparison — products & training
+### Slide 16: EU-native platform — consider this first
+**Layout**: Light bg, structured text (profile style)
+**Content**:
+- Headline: "Consider an EU-native platform first" (Georgia, 40pt, darkText, bold)
+- Subhead: "One DPA with an EU company. EU data residency by default. Every major model." (Verdana, 18pt, accent)
+- "**Langdock** — German GmbH, hosted on Azure Frankfurt" (Verdana, 20pt, darkText, bold)
+- "ISO 27001 · SOC 2 Type II · GDPR-native DPA · No model training" (Verdana, 18pt, muted)
+- "30+ models: Claude Opus 4.6, GPT-5, Gemini 2.5 Pro, Mistral — many in EU regions" (Verdana, 18pt, darkText)
+- "~€23.20/user/month · Merck, Der Spiegel, Personio, Volksbank" (Verdana, 16pt, muted)
+- Source: [langdock.com/security](https://langdock.com/security) (Verdana, 11pt, muted, hyperlink)
+**Speaker notes**: Langdock is a German GmbH, hosted on Microsoft Azure in Frankfurt — EU data residency is the default on the standard tier, not an enterprise add-on to negotiate for. No training on customer data. One DPA with an EU company (not US-based providers relying on SCCs). Supports 30+ models: Claude Opus 4.6/Sonnet 4.6, GPT-5 series, Gemini 2.5 Pro/Flash, Mistral Large, Llama — with many available in EU regions. One interface for chat, agents, workflows, and integrations. Used by Merck (33,000 MAU), Der Spiegel, Personio, Volksbank, Eppendorf, SumUp, 5,000+ companies. Trade-off: adding a platform vendor, though it replaces multiple vendor relationships. If you have strong model preferences or existing enterprise contracts, a direct provider may be simpler — which is what the next two slides cover. Sources: langdock.com/security, trust.langdock.com/faq.
+
+### Slide 17: Provider comparison — products & training
 **Layout**: Light bg, table
 **Content**:
 - Headline: "The provider landscape" (Georgia, 40pt, darkText, bold)
@@ -167,7 +179,7 @@
 
 **Speaker notes**: Four providers dominate. Each offers both general-use assistants and coding tools. The no-training guarantee is available from all four — but only at enterprise tiers. OpenAI rebranded "Team" to "Business" in 2025. Codex is now a full cloud-based agentic platform (GPT-5.3-Codex, Feb 2026), not just a coding tool. Gemini Code Assist comes in Standard and Enterprise editions. M365 Copilot is a paid add-on (~$30/user/month), not included with M365 subscriptions. Provider policies change frequently — verify current terms before acting.
 
-### Slide 17: Provider comparison — compliance & residency
+### Slide 18: Provider comparison — compliance & residency
 **Layout**: Light bg, table
 **Content**:
 - Headline: "Compliance & data residency" (Georgia, 40pt, darkText, bold)
@@ -181,14 +193,14 @@
 
 **Speaker notes**: EU data residency varies dramatically. Google: native across 10+ EU regions on Vertex AI with contractual data location commitments. OpenAI: added EU residency for Enterprise/Edu (storage at rest since Feb 2025, inference residency since Jan 2026). ChatGPT Business does NOT yet have EU residency. Microsoft: EU Data Boundary applies for M365 Copilot EU users, but Anthropic model calls and Bing web search queries are excluded (as of Jan 2026). Azure OpenAI offers EU residency via Standard/DataZone deployment. Anthropic: no direct EU residency, but Claude models available on Vertex AI and Bedrock in EU regions. Transfer mechanisms: OpenAI uses SCCs and is notably NOT DPF-certified. Anthropic uses SCCs via Anthropic Ireland Limited. Google uses its CDPA. Microsoft uses DPA + EU Data Boundary. Certification highlights: Anthropic has the broadest pure-play AI certification matrix (SOC 2 Type II, ISO 27001, ISO 42001, HIPAA, CSA STAR, NIST 800-171, FedRAMP High). All four hold ISO 42001.
 
-### Slide 18: DPA ≠ data residency
+### Slide 19: DPA ≠ data residency
 **Layout**: Hero (dark bg)
 **Content**:
 - "A DPA ≠ data residency." (Georgia, 54pt, white, bold)
 - "One governs the relationship.\nThe other controls the geography." (Verdana, 24pt, muted)
 **Speaker notes**: A DPA (Data Processing Agreement) says: "you won't train on my data" and "you'll help me with deletion requests." It does NOT control where data is physically processed. It's a governance document, not a geography document. This distinction matters because most decision makers assume "we signed a DPA, we're compliant." A DPA is necessary but not sufficient for full compliance posture.
 
-### Slide 19: DPA + SCCs vs EU data residency
+### Slide 20: DPA + SCCs vs EU data residency
 **Layout**: twoCol (dark bg)
 **Content**:
 - Left title: "DPA + SCCs" (accent)
@@ -197,7 +209,7 @@
 - Right body: "Data never leaves the EU\nNo cross-border transfer\nNo Schrems-style risk\nStronger regulatory posture"
 **Speaker notes**: DPA + SCCs is the standard practice for EU companies using US SaaS — legally valid, widely used, same posture as Microsoft 365 or Salesforce. The residual risk: SCCs have been invalidated before (Schrems I in 2015, Schrems II in 2020) and AI tools are under heightened regulatory scrutiny (EUR 15M OpenAI fine, EDPB ChatGPT Taskforce). EU data residency removes this risk entirely — data never leaves the EU, no Chapter V transfer to justify. Both are GDPR-legal. The difference is risk profile under supervisory authority scrutiny and whether your sector requires actual data localisation.
 
-### Slide 20: 11% sensitive data
+### Slide 21: 11% sensitive data
 **Layout**: BigNum (dark bg)
 **Content**:
 - "11%" (Georgia, 120pt, wrong, bold)
@@ -205,14 +217,14 @@
 - Source: "Cyberhaven" (Verdana, 11pt, muted, hyperlink)
 **Speaker notes**: Cyberhaven research found that 11% of what employees copy and paste into ChatGPT is sensitive data — customer names, financial information, proprietary content. This is not malice; it's muscle memory. Someone drafts a customer email, pastes the thread for context, and now a real name + email + complaint details are on US servers. You cannot policy your way around human behaviour at this scale.
 
-### Slide 21: Assume PII will enter
+### Slide 22: Assume PII will enter
 **Layout**: Hero (dark bg)
 **Content**:
 - "Assume PII will enter\nyour tools." (Georgia, 54pt, accent, bold)
 - "Make the default path safe enough\nthat it doesn't matter." (Verdana, 24pt, muted)
 **Speaker notes**: The honest starting point for EU companies: you cannot prevent PII from entering AI tools. A customer name in an email draft, a real account number in a data analysis, a client's project details in a brainstorm. Instead of relying on unenforceable "don't paste PII" policies, make the default path safe enough that accidental PII exposure is already covered. This means EU data residency as the default for EU companies, not a secondary path.
 
-### Slide 22: Workarounds
+### Slide 23: Workarounds
 **Layout**: Light bg, structured text
 **Content**:
 - Headline: "EU data residency\nfor any provider" (Georgia, 36pt, darkText, bold)
@@ -223,7 +235,7 @@
   - "M365 Copilot" (accent, bold) + "EU Data Boundary automatic. Exceptions: Anthropic calls, Bing search." (regular)
 **Speaker notes**: These workarounds are the practical answer for EU companies wanting the best models with EU compliance. GCP/Vertex is the most versatile: Claude models available in Belgium, Netherlands, Frankfurt, Zurich, Paris, Milan, Finland, Warsaw, Madrid, London. Full model lineup: Opus 4.6, Sonnet 4.6, Haiku 4.5. Mistral also available. Claude Code env vars documented at code.claude.com/docs/en/third-party-integrations. Azure OpenAI (now Microsoft Foundry): use Standard or DataZone deployment, not Global. M365 Copilot's EU Data Boundary is automatic for EU users but the Anthropic subprocessor exception (added Jan 2026) is worth noting.
 
-### Slide 23: Two-path architecture
+### Slide 24: Two-path architecture
 **Layout**: twoCol (light bg)
 **Content**:
 - Left title: "General Work" (accent)
@@ -232,7 +244,7 @@
 - Right body: "Customer data\nFinancial records\nProduction debugging\nClaims processing\n\nEU data residency"
 **Speaker notes**: The two-path architecture makes policy practical rather than restrictive. For EU companies: make the default path EU-resident, because PII will enter accidentally. For non-EU companies: the split still applies (enterprise tier for everything, extra controls for sensitive data) but without the data residency requirement. The key insight: this isn't a restrictive policy. It's an architectural choice that makes the right thing the easy thing.
 
-### Slide 24: Department examples
+### Slide 25: Department examples
 **Layout**: Light bg, structured text
 **Content**:
 - Headline: "Every department. Same split." (Georgia, 36pt, darkText, bold)
@@ -243,13 +255,13 @@
   - "Finance analysing named client accounts" → "PII path" (wrong color)
 **Speaker notes**: These examples span departments deliberately — the two-path model isn't just an engineering concern. The decision is per-task, not per-department. The same person in finance might use the general path for one task and the PII path for another.
 
-### Slide 25: Transition to resolution
+### Slide 26: Transition to resolution
 **Layout**: Breather (dark bg, accent italic)
 **Content**:
 - "Time for the actual decision." (Georgia, 28pt, accent, italic)
 **Speaker notes**: Transition. The audience has the landscape, the rules, the comparison, and the architecture. Now give them the decision framework and the concrete answer.
 
-### Slide 26: Five questions
+### Slide 27: Five questions
 **Layout**: Light bg, structured text
 **Content**:
 - Headline: "Five questions to ask\nbefore any vendor conversation" (Georgia, 36pt, darkText, bold)
@@ -257,33 +269,39 @@
   - "1" (accent, bold) + "What data touches the tool?" (bold) + "PII = enterprise tier minimum. Sensitive + EU = EU residency." (regular)
   - "2" (accent, bold) + "Where are your customers?" (bold) + "EU customers = GDPR applies. Consider residency, not just SCCs." (regular)
   - "3" (accent, bold) + "Engineering vs everyone else?" (bold) + "Different departments = different risk profiles." (regular)
-  - "4" (accent, bold) + "How many tools can you manage?" (bold) + "Every tool = a DPA, a policy, training. Sweet spot: 2-3." (regular)
+  - "4" (accent, bold) + "How many tools can you manage?" (bold) + "Every direct provider = a DPA, a tier distinction, training. Platform approach: one DPA, all models." (regular)
   - "5" (accent, bold) + "What's your compliance maturity?" (bold) + "No DPO? Pick the simplest path." (regular)
-**Speaker notes**: Question 1 is the most important — it determines minimum tier and whether EU residency matters. Question 4 is the most underestimated — every tool is a DPA to sign, a policy to enforce, an integration to secure, and a training burden. Fewer tools managed well beats many tools managed poorly. Question 5 is about honesty: startups with no compliance function should pick one enterprise-tier tool with a signed DPA and keep it simple.
+**Speaker notes**: Question 1 is the most important — it determines minimum tier and whether EU residency matters. Question 4 is what most companies underestimate: each direct provider relationship is a DPA to sign, a tier distinction to communicate to employees, and a training programme to run. For EU companies, the platform approach (Langdock) collapses this: one DPA with an EU company, one interface for employees, one admin dashboard for policy. Question 5 is about honesty — if you don't have a DPO, pick the simplest path: Langdock or one provider at enterprise tier with a signed DPA.
 
-### Slide 27: Section divider — Recommended Setup
+### Slide 28: Section divider — Recommended Setup
 **Layout**: sectionDivider (dark bg)
 **Content**:
 - "The Recommended Setup" (Georgia, 54pt, white, bold)
 - "A concrete starting point" (Verdana, 28pt, accent, italic)
 **Speaker notes**: This section provides an opinionated starting point for both EU and non-EU companies. These are informed suggestions based on the research in this deck — not legal advice. Have your legal team review before implementing.
 
-### Slide 28: EU vs non-EU recommendations
-**Layout**: twoCol (light bg)
+### Slide 29: For EU companies — three paths
+**Layout**: Light bg, structured text (three-option format)
 **Content**:
-- Left title: "EU Companies" (accent)
-- Left body: "General use:\nWorkspace Gemini, M365 Copilot,\nor ChatGPT Enterprise\n\nCoding:\nClaude Code via Vertex AI\nor GitHub Copilot Business"
-- Right title: "Non-EU Companies" (accent)
-- Right body: "General use:\nClaude Team or\nChatGPT Business\n\nCoding:\nClaude Code (Team/API)\nor GitHub Copilot Business"
-**Speaker notes**: EU recommendation leads with providers offering native EU data handling: Google Workspace Gemini (CDPA, ISO 42001), M365 Copilot (EU Data Boundary, ~$30/user/month add-on), or ChatGPT Enterprise (EU residency for storage + inference). Claude Team is viable via SCCs but has a weaker compliance posture — no direct EU residency. For coding, Claude Code via Vertex AI or Bedrock in EU region gives EU data residency. Non-EU companies have a simpler choice: Claude Team or ChatGPT Business with a signed DPA, Claude Code directly on Team/Enterprise/API plan, or GitHub Copilot Business. If already paying for M365, evaluate Copilot before adding another tool — zero procurement overhead for DPA and compliance.
+- Headline: "The recommended setup for EU companies" (Georgia, 38pt, darkText, bold)
+- "A — EU-native platform" (Verdana, 18pt, accent, bold) + "(recommended)" (Verdana, 14pt, accent)
+- "Langdock — German GmbH, Azure Frankfurt, EU residency by default, ~€23.20/user/month" (Verdana, 16pt, darkText)
+- "B — Embedded AI" (Verdana, 18pt, darkText, bold)
+- "M365 Copilot (~$30/user/month, EU Data Boundary) · Workspace Gemini (native EU, CDPA)" (Verdana, 16pt, darkText)
+- "C — Direct provider" (Verdana, 18pt, muted, bold)
+- "ChatGPT Enterprise (EU residency available) · Claude Team (DPA + EU SCCs, no EU residency)" (Verdana, 16pt, muted)
+- Divider line (muted)
+- "Non-EU: Claude Team or ChatGPT Business with DPA" (Verdana, 14pt, muted)
+- "Coding: Claude Code via Vertex/Bedrock in EU region · GitHub Copilot Business" (Verdana, 14pt, muted)
+**Speaker notes**: Option A (Langdock) is the recommended starting point for EU companies evaluating from scratch: EU-native, EU data residency out of the box, no tier complexity, one DPA with an EU company, access to 30+ models. Option B is genuinely compelling regardless of your current stack — particularly if you want to minimise vendor count and already have a Microsoft or Google enterprise agreement. Option C for companies with a strong model preference or existing contract — ChatGPT Enterprise now has full EU data residency; Claude Team is legally defensible via SCCs but has no EU data residency from Anthropic directly (use Claude models via Langdock or Claude Code on Vertex/Bedrock for EU residency). Non-EU companies: Claude Team or ChatGPT Business with DPA remains the simple default. Coding: Claude Code via Vertex AI or Bedrock in EU region; GitHub Copilot Business/Enterprise. These are informed suggestions, not legal advice.
 
-### Slide 29: The bright line
+### Slide 30: The bright line
 **Layout**: Hero (dark bg)
 **Content**:
 - "Free tiers are not approved\nfor work. Full stop." (Georgia, 44pt, wrong, bold)
 **Speaker notes**: The single highest-impact policy decision: free and consumer tiers of ANY provider are not approved for work use. This includes: free ChatGPT, Claude Free/Pro/Max (Consumer Terms — training allowed), ChatGPT Plus (trains by default), GitHub Copilot Free (training allowed), consumer Copilot without M365 login. No DPA, potential training on your data, no way to honour deletion requests.
 
-### Slide 30: Six policy components
+### Slide 31: Six policy components
 **Layout**: Light bg, structured text
 **Content**:
 - Headline: "What your AI policy needs" (Georgia, 36pt, darkText, bold)
@@ -297,19 +315,19 @@
   - "6" (accent, bold) + "Roles & responsibilities" (bold) + "Who approves, monitors, responds." (regular)
 **Speaker notes**: This is a starting point, not an exhaustive policy. Have your legal team review and adapt it. Templates: GDPR Local offers a free AI literacy policy template, FRSecure has an AI acceptable use policy template. The most overlooked component is incident reporting — employees need to know what to do if they accidentally paste PII into an unapproved tool. Treat it as a potential data breach (72-hour GDPR notification requirement). AI literacy training is enforceable under EU AI Act Article 4 — not optional. Make it clear: the company is liable (not individual employees), but individuals must follow the policy.
 
-### Slide 31: Transition to closing
+### Slide 32: Transition to closing
 **Layout**: Breather (dark bg, accent italic)
 **Content**:
 - "And remember..." (Georgia, 28pt, accent, italic)
 **Speaker notes**: Pause before the closing. The audience has the framework, the comparison, the recommendation, and the policy checklist. Now tie it together.
 
-### Slide 32: Closing part 1
+### Slide 33: Closing part 1
 **Layout**: Hero (dark bg)
 **Content**:
 - "The gap between using AI safely\nand using AI recklessly\nisn't about which model\nis smartest." (Georgia, 40pt, white, bold)
 **Speaker notes**: Let this land. The deck has given the reader everything they need. This closing reframes the entire deck as an empowering choice, not a restrictive burden.
 
-### Slide 33: Closing part 2
+### Slide 34: Closing part 2
 **Layout**: Hero (dark bg, accent color)
 **Content**:
 - "It's about which setup\nyou choose —\nand whether you\nchoose at all." (Georgia, 44pt, accent, bold)
@@ -333,6 +351,14 @@
 - [EU AI Act Article 99 (Penalties)](https://artificialintelligenceact.eu/article/99/) — Up to 7% global turnover
 - [EDPB guidance on international transfers](https://www.edpb.europa.eu/sme-data-protection-guide/international-data-transfers_en) — SME transfer guidance
 - [TechGDPR on AI and GDPR](https://techgdpr.com/blog/ai-and-the-gdpr-understanding-the-foundations-of-compliance/) — GDPR foundations for AI
+
+### Langdock
+- [Langdock Homepage](https://langdock.com/) — platform overview, model-agnostic enterprise AI adoption
+- [Langdock Security](https://langdock.com/security) — ISO 27001, SOC 2 Type II, EU hosting, no model training, DPA
+- [Langdock Enterprise](https://langdock.com/enterprise) — deployment options (multi-tenant SaaS to on-premise), BYOK, interoperability
+- [Langdock Trust Center FAQ](https://trust.langdock.com/faq) — GDPR compliance details: hosted in Frankfurt (Azure), EU entity, DPA in terms
+- [Langdock Models](https://langdock.com/models) — full model list with EU/global region indicators
+- [Langdock Pricing](https://langdock.com/pricing) — ~€23.20/user/month (Business, up to 1,000 users, AI models included)
 
 ### Provider Policies — OpenAI
 - [OpenAI Enterprise Privacy](https://openai.com/enterprise-privacy/) — No-training policy, DPA, SOC 2 for Business/Enterprise (updated Jan 2026)

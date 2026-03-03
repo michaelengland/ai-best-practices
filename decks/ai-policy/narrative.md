@@ -84,7 +84,25 @@ This isn't just for engineering. The same split applies to every department:
 - Finance modelling with anonymised data → general path
 - Finance analysing named client accounts → PII path
 
-**Provider comparison** — four providers, two dimensions each:
+**Provider comparison** — five options across two categories:
+
+**The Platform Alternative: EU-Native AI Platforms**
+
+Before comparing individual US-based providers, EU companies should consider a different architecture entirely: EU-native AI platforms that sit in front of multiple model providers.
+
+**Langdock** is the leading example. A German GmbH, hosted on Microsoft Azure Frankfurt — meaning EU data residency is the default on the standard tier, not an enterprise add-on. ISO 27001 certified, SOC 2 Type II audited. No training on customer data. One DPA with an EU company (not US-based providers with SCCs). Supports 30+ models — Claude Opus 4.6/Sonnet 4.6, GPT-5 series, Gemini 2.5 Pro/Flash, Mistral Large, Llama, and others — with many available in EU regions. One interface for chat, agents, workflows, and integrations. Trusted by Merck (33,000 monthly active users), Der Spiegel, Personio, Volksbank, Eppendorf, SumUp, and 5,000+ companies.
+
+The trade-off: instead of navigating the tier distinctions and DPAs of four separate US providers, you have one relationship with an EU company that abstracts the model layer. Your employees get access to the best models from all providers through one interface. Your admin team manages one policy layer, one usage dashboard, one support contact.
+
+Pricing: ~€23.20/user/month (Business tier, up to 1,000 users) with AI model costs included. For organisations with existing enterprise model contracts, BYOK (bring your own API keys) is also available. Enterprise deployment options scale from single-tenant SaaS to on-premise for very large organisations.
+
+The argument against: you're adding a platform vendor to your stack (though it replaces multiple vendor relationships). And if you have strong model preferences or existing enterprise contracts with a specific provider, a direct relationship may be simpler.
+
+For most EU companies evaluating their AI tooling from scratch — especially those without a dedicated compliance or IT team — the platform approach is worth considering before defaulting to a direct provider tier.
+
+---
+
+**Direct Provider Options**
 
 **OpenAI**
 - *General use*: ChatGPT (Free / Plus / Business / Enterprise). Note: "ChatGPT Team" was rebranded to "ChatGPT Business" in 2025.
@@ -154,7 +172,7 @@ EU customers = GDPR applies. This doesn't mean you must have EU data residency (
 Different departments have different risk profiles. Code with test data is low risk. Ops evaluating real customer claims is high risk. The policy needs to account for both — likely with different tool tiers or routing for different data types.
 
 **4. How many tools can you manage?**
-Every tool is a DPA to sign, a policy to enforce, an integration to secure, and a training burden. Fewer is better — but one tool rarely fits all use cases. The sweet spot is usually 2-3: one general-purpose assistant, one coding tool, and possibly the embedded AI you're already paying for (Microsoft Copilot).
+Every direct provider relationship is a DPA to sign, a tier distinction to understand, a policy to enforce, and an integration to secure. Fewer is better. The sweet spot is usually 2-3: one general-purpose assistant, one coding tool, and possibly the embedded AI you're already paying for (Microsoft Copilot). For EU companies evaluating from scratch, an EU-native platform like Langdock may collapse the multi-vendor management problem entirely: one DPA, one interface, access to all the major models. The question is whether you value that consolidation over having a direct relationship with a specific model provider.
 
 **5. What's your compliance maturity?**
 If you have a DPO and established processes, you can handle the complexity of multiple tools with different compliance postures. If you're a startup with no compliance function, pick the simplest path: one enterprise-tier tool with a signed DPA.
@@ -166,11 +184,25 @@ If you have a DPO and established processes, you can handle the complexity of mu
 **The honest starting point for EU companies**: Assume PII will enter your AI tools. Not because employees are careless, but because the line between "general work" and "PII work" is invisible in practice. A customer name in an email draft, a real account number in a data analysis, a client's project details in a brainstorm — Cyberhaven found 11% of data pasted into ChatGPT is sensitive. You cannot policy your way around this. Instead, make the default path safe enough that accidental PII exposure is already covered.
 
 **For general use (every department)**:
-Pick ONE provider with EU data handling at the enterprise tier. For EU companies, the strongest options are:
-- **Google Workspace Gemini** — native EU data handling under the CDPA, no training, ISO 42001
-- **Microsoft 365 Copilot** (paid add-on, ~$30/user/month) — inherits M365 EU Data Boundary, no training. Note: Anthropic model calls and Bing web search queries are currently excluded from the EU Data Boundary
-- **ChatGPT Enterprise** — EU data residency now available (storage at rest + inference). Note: ChatGPT Business does NOT yet offer EU data residency
-- **Claude Team** — DPA with EU SCCs, no training, but data processed globally (no EU data residency from Anthropic directly). Legally defensible via SCCs, but weaker posture than providers offering actual EU residency
+Pick ONE approach with EU data handling. For EU companies, the choice starts with a structural question: **platform or direct provider?**
+
+**Option A — EU-native platform (recommended starting point for most EU companies)**
+
+- **Langdock** — German GmbH, hosted on Azure Frankfurt. EU data residency by default on the standard tier — no cross-border transfer issues, no tier gotchas. ISO 27001, SOC 2 Type II, GDPR-native DPA. No training on customer data. Access to 30+ models (Claude, GPT-5, Gemini 2.5, Mistral) through one interface, with many available in EU regions. One platform for chat, agents, workflows, and integrations. ~€23.20/user/month (Business, up to 1,000 users, models included). Trusted by Merck, Der Spiegel, Personio, Volksbank.
+
+This is particularly compelling for EU companies without a dedicated compliance team: one vendor, one DPA, one interface, full EU data residency out of the box. No need to understand which tier of which US provider offers EU data residency.
+
+**Option B — Embedded AI in your existing stack**
+
+- **Microsoft 365 Copilot** (paid add-on, ~$30/user/month) — inherits M365 EU Data Boundary, no training. Zero procurement overhead if you're already on M365 — same DPA, same compliance posture. Note: Anthropic model calls and Bing web search queries are currently excluded from the EU Data Boundary
+- **Google Workspace Gemini** — native EU data handling under the CDPA, no training, ISO 42001. Similarly seamless if your organisation already runs on Google Workspace
+
+Worth considering regardless of your current setup — particularly if you want to minimise vendor count and leverage an existing Microsoft or Google enterprise agreement.
+
+**Option C — Direct provider relationship (if you have a strong model preference)**
+
+- **ChatGPT Enterprise** — EU data residency now available (storage at rest + inference). Note: ChatGPT Business does NOT yet offer EU data residency. ~$30/user/month
+- **Claude Team** — DPA with EU SCCs, no training, but data processed globally (no EU data residency from Anthropic directly). Legally defensible via SCCs, but weaker posture than Langdock or providers with actual EU residency. ~$30/user/month. Alternatively: use Claude models via Langdock with EU data residency included
 
 For non-EU companies, Claude Team or ChatGPT Business with a signed DPA is a strong and simpler default.
 
@@ -223,6 +255,14 @@ The right AI setup isn't about which model is smartest. It's about which setup p
 - [EU AI Act Article 99 (Penalties)](https://artificialintelligenceact.eu/article/99/) — Up to 7% global turnover
 - [EDPB guidance on international transfers](https://www.edpb.europa.eu/sme-data-protection-guide/international-data-transfers_en) — SME transfer guidance
 - [TechGDPR on AI and GDPR](https://techgdpr.com/blog/ai-and-the-gdpr-understanding-the-foundations-of-compliance/) — GDPR foundations for AI
+
+### Langdock
+- [Langdock Homepage](https://langdock.com/) — platform overview, model-agnostic enterprise AI adoption
+- [Langdock Security](https://langdock.com/security) — ISO 27001, SOC 2 Type II, EU hosting, no model training, DPA
+- [Langdock Enterprise](https://langdock.com/enterprise) — deployment options (multi-tenant SaaS to on-premise), BYOK, interoperability
+- [Langdock Trust Center FAQ](https://trust.langdock.com/faq) — GDPR compliance details: hosted in Frankfurt (Azure), EU entity, DPA in terms
+- [Langdock Models](https://langdock.com/models) — full model list with EU/global region indicators; 10% markup on model provider pricing for API
+- [Langdock Pricing](https://langdock.com/pricing) — ~€23.20/user/month (Business, up to 1,000 users, AI models included)
 
 ### Provider Policies — OpenAI
 - [OpenAI Enterprise Privacy](https://openai.com/enterprise-privacy/) — No-training policy, DPA, SOC 2 for Business/Enterprise (updated Jan 2026)
@@ -278,4 +318,7 @@ The right AI setup isn't about which model is smartest. It's about which setup p
 - **DPA nuance**: Decision makers often assume "we signed a DPA, we're compliant." The deck needs to clearly explain that DPA ≠ data residency, and both have their place depending on data sensitivity.
 - **Open question**: Pricing context was not included. Decision makers will ask about cost. Consider adding per-seat pricing for the recommended tiers in the craft phase, or flagging it as "check current pricing" since it changes frequently.
 - **Claude Pro/Max gap**: Claude Pro and Max are popular tiers but are under Consumer Terms (no DPA, training allowed with opt-out). This is a common gotcha — decision makers may think "we're paying, so we're covered." The deck should make this distinction very clear: paying ≠ enterprise terms. Only Team/Enterprise/API get the Commercial Terms and DPA.
-- **Verification date**: All provider claims verified against official documentation on 24 February 2026. Provider policies change frequently — flag a "last verified" date on comparison slides.
+- **Verification date**: All provider claims verified against official documentation on 24 February 2026. Langdock details verified 3 March 2026. Provider policies change frequently — flag a "last verified" date on comparison slides.
+- **Langdock positioning**: Langdock is introduced as the leading example of an EU-native AI platform, not as the only one. The narrative framing (platform vs. direct provider) is the structural insight; Langdock is the concrete recommendation. If the deck audience includes Langdock competitors, the framing still holds.
+- **Langdock pricing note**: €23.20/user/month includes AI model usage for chat/agents. The models page shows API pricing separately (model provider cost + 10%). This is relevant if organisations want to build internal tools via the API layer.
+- **Langdock vs Gemini/M365 Copilot**: The previous version effectively defaulted EU companies to Gemini. The updated version defaults to Langdock, and positions Gemini/M365 Copilot as valid alternatives worth considering regardless of your stack — not just "if you're already there." Their main advantage is vendor consolidation (one fewer relationship if you're already paying for M365 or Google Workspace), not that they're exclusively for locked-in users.

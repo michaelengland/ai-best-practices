@@ -68,21 +68,25 @@
 **Transition**: So which tiers, from which providers? Let's compare.
 
 ### Section 6: The provider landscape
-**Key message**: Four providers dominate AI tooling — here's how they compare on the dimensions that matter for your business
+**Key message**: Before choosing a specific AI provider, EU companies face a structural choice: EU-native platform or direct US provider relationship
 **Content**:
-- Comparison table across four providers (OpenAI, Anthropic, Google, Microsoft) and two dimensions (general use, coding):
+- The two approaches:
+  - **Platform approach**: An EU-native AI platform sits in front of multiple models — one DPA with an EU company, EU data residency by default, access to all major models through one interface
+  - **Direct provider approach**: Choose a tier from one of the four major US providers
+- Langdock (platform approach): German GmbH, Azure Frankfurt, ISO 27001, SOC 2 Type II, no training, ~€23.20/user/month. 30+ models (Claude, GPT-5, Gemini 2.5, Mistral) with many in EU regions. Used by Merck (33k MAU), Der Spiegel, Personio, Volksbank.
+- Direct provider comparison table (OpenAI / Anthropic / Google / Microsoft):
 
 | | OpenAI | Anthropic | Google | Microsoft |
 |---|---|---|---|---|
 | General use | ChatGPT | Claude.ai | Gemini | Copilot |
 | Coding | Codex | Claude Code | Gemini Code Assist | GitHub Copilot |
-| Enterprise no-training? | Yes (Business/Enterprise) | Yes (Team/Enterprise/API) | Yes (Workspace/Vertex) | Yes (M365 Copilot/Business+) |
+| Enterprise no-training? | Yes (Business/Enterprise) | Yes (Team/Enterprise/API) | Yes (Workspace/Vertex) | Yes (M365/Business+) |
 | DPA available? | Business/Enterprise/API | Team/Enterprise/API | Workspace/Vertex | M365/Azure/GH Business+ |
-| EU data residency? | Enterprise/Edu + API | No (workaround via GCP/AWS) | Native (Vertex AI, many EU regions) | M365 EU Boundary + Azure regions |
+| EU data residency? | Enterprise/Edu + API | No (workaround via GCP/AWS) | Native (Vertex, 10+ EU regions) | M365 EU Boundary + Azure |
 | Transfer mechanism | SCCs (not DPF-certified) | SCCs via Anthropic Ireland | CDPA | DPA + EU Data Boundary |
 
 **Emphasis**: high
-**Speaker notes**: This table is the core reference of the deck. Key observations: (1) Every provider offers enterprise no-training guarantees — but only at the right tier. (2) EU data residency varies dramatically: Google is native across 10+ EU regions on Vertex AI, OpenAI added it for Enterprise/Edu (storage + inference), Microsoft has EU Data Boundary (with exceptions — Anthropic model calls and Bing web queries excluded), Anthropic has no direct EU residency but models are available on Vertex AI and Bedrock in EU regions. (3) OpenAI is notably NOT DPF-certified — relies solely on SCCs. (4) Anthropic has the broadest compliance certifications (SOC 2 Type II, ISO 27001, ISO 42001, HIPAA, CSA STAR, NIST 800-171, FedRAMP High). Google has ISO 42001 across GCP, Workspace, and Gemini App. OpenAI now holds ISO 42001 alongside SOC 2 Type 2 and the full 27000 suite. Microsoft has 90+ compliance offerings. Provider policies change frequently — verify before acting on this table.
+**Speaker notes**: The platform/direct choice is the structural insight for EU companies. Langdock's main advantage: EU data residency by default on the standard tier — no tier gotchas, no cross-border transfer complexity, one DPA with an EU company. It supports Claude, GPT, and Gemini models, so you're not sacrificing model quality. The direct provider table remains relevant for companies with existing vendor relationships or specific model requirements. Key table observations: (1) every provider offers no-training at the right tier; (2) EU data residency varies — Google is native across 10+ EU regions, OpenAI added it for Enterprise/Edu, Microsoft has EU Data Boundary (with exceptions — Anthropic model calls and Bing queries excluded), Anthropic has no direct EU residency; (3) OpenAI is NOT DPF-certified. Provider policies change frequently — verify before acting.
 **Transition**: The table shows the "what." But the gap between a DPA and actual EU data residency matters more than most people realise.
 
 ### Section 7: DPA ≠ data residency
@@ -129,25 +133,26 @@
 - 1. What data touches the tool? (PII = enterprise tier minimum; sensitive + EU = EU residency)
 - 2. Where are your customers? (EU customers = GDPR applies, consider residency not just SCCs)
 - 3. Engineering vs everyone else? (Different departments = different risk profiles)
-- 4. How many tools can you manage? (Every tool = a DPA, a policy, training. Sweet spot: 2-3.)
+- 4. How many tools can you manage? (Every direct provider relationship = a DPA, a tier distinction, training. EU companies evaluating from scratch: consider a platform like Langdock — one DPA, one interface, all models.)
 - 5. What's your compliance maturity? (No DPO = pick the simplest path)
 **Emphasis**: medium
-**Speaker notes**: These five questions should be asked before any vendor conversation. Question 1 is most important — it determines the minimum tier and whether EU residency matters. Question 4 is the one most companies underestimate: every tool is a DPA to sign, a policy to enforce, an integration to secure, and a training burden. Fewer tools managed well beats many tools managed poorly. Question 5 is about honesty: if you don't have a DPO or established processes, pick one provider at enterprise tier with a signed DPA and keep it simple.
+**Speaker notes**: Question 1 is most important — determines minimum tier and whether EU residency matters. Question 4 is what most companies underestimate: each direct provider relationship is a DPA to sign, a tier distinction to communicate to employees, and a training programme to run. For EU companies, the platform approach collapses this: one DPA with an EU company, one interface for employees, one admin dashboard for policy. Question 5 is about honesty — if you don't have a DPO, pick the simplest path: Langdock or one provider at enterprise tier with a signed DPA.
 **Transition**: If you want a concrete starting point instead of a framework, here's what we'd suggest.
 
 ### Section 11: The recommended setup
-**Key message**: A concrete, opinionated starting point for both EU and non-EU companies
+**Key message**: A concrete, opinionated starting point — EU companies should start with an EU-native platform
 **Content**:
 - **For EU companies** — assume PII will enter:
-  - General use: Google Workspace Gemini (native EU, CDPA) or M365 Copilot (EU Data Boundary, ~$30/user/month add-on) or ChatGPT Enterprise (EU residency). Claude Team viable via SCCs but weaker posture.
+  - **Option A — EU-native platform (recommended)**: Langdock. German GmbH, Azure Frankfurt, EU data residency by default, no training, ISO 27001 + SOC 2 Type II. One DPA with an EU company. 30+ models through one interface. ~€23.20/user/month.
+  - **Option B — Embedded AI**: M365 Copilot (~$30/user/month add-on, EU Data Boundary) or Google Workspace Gemini (native EU, CDPA). Worth considering regardless of your current stack — particularly if you want to minimise vendor count.
+  - **Option C — Direct provider**: ChatGPT Enterprise (EU data residency available) or Claude Team (DPA + EU SCCs, no direct EU residency). Valid if you have a strong model preference or existing enterprise contract.
   - Coding: Claude Code via Vertex AI or Bedrock in EU region. GitHub Copilot Business/Enterprise.
 - **For non-EU companies**:
   - General use: Claude Team or ChatGPT Business — DPA, no training, straightforward.
-  - Coding: Claude Code (Team/Enterprise/API plan) or GitHub Copilot Business.
-- **Embedded AI**: If you already pay for M365, evaluate Copilot before adding another tool.
-- **The bright line**: Free / personal / consumer tiers are not approved for work. Full stop.
+  - Coding: Claude Code (Team/Enterprise/API) or GitHub Copilot Business.
+- **The bright line**: Free / consumer tiers are not approved for work. Full stop.
 **Emphasis**: high
-**Speaker notes**: The EU recommendation leads with providers offering native EU data handling. Claude Team is a strong model ecosystem but lacks direct EU residency — recommended via Vertex/Bedrock routing for EU companies. For non-EU companies, Claude Team or ChatGPT Business with a DPA is the simplest default. The bright line on free tiers: no DPA, potential training on your data, no way to honour deletion requests. This includes Claude Pro/Max (Consumer Terms), ChatGPT Plus (trains by default), GitHub Copilot Free (training allowed), consumer Copilot without M365 login. These are our informed suggestions based on the data in this deck — not legal advice. Have your legal team review before implementing.
+**Speaker notes**: The EU recommendation leads with Langdock as the default for companies evaluating from scratch — EU-native, EU data residency out of the box, no tier complexity. Options B and C are genuine alternatives: M365 Copilot and Workspace Gemini are strong regardless of your current stack (particularly seamless if you already have an enterprise agreement with Microsoft or Google), and ChatGPT Enterprise/Claude Team are valid for companies with specific model preferences or existing contracts. Claude Team via Langdock is an option if you want Claude's models with EU data residency. The bright line on free tiers is unchanged: Claude Pro/Max (Consumer Terms), ChatGPT Plus (trains by default), GitHub Copilot Free (training allowed), consumer Copilot without M365 login — all off the table for work. These are informed suggestions, not legal advice.
 **Transition**: The tools are chosen. Now you need the policy to govern them.
 
 ### Section 12: What your AI policy needs
@@ -190,6 +195,14 @@
 - [EU AI Act Article 99 (Penalties)](https://artificialintelligenceact.eu/article/99/) — Up to 7% global turnover
 - [EDPB guidance on international transfers](https://www.edpb.europa.eu/sme-data-protection-guide/international-data-transfers_en) — SME transfer guidance
 - [TechGDPR on AI and GDPR](https://techgdpr.com/blog/ai-and-the-gdpr-understanding-the-foundations-of-compliance/) — GDPR foundations for AI
+
+### Langdock
+- [Langdock Homepage](https://langdock.com/) — platform overview, model-agnostic enterprise AI adoption
+- [Langdock Security](https://langdock.com/security) — ISO 27001, SOC 2 Type II, EU hosting, no model training, DPA
+- [Langdock Enterprise](https://langdock.com/enterprise) — deployment options (multi-tenant SaaS to on-premise), BYOK, interoperability
+- [Langdock Trust Center FAQ](https://trust.langdock.com/faq) — GDPR compliance details: hosted in Frankfurt (Azure), EU entity, DPA in terms
+- [Langdock Models](https://langdock.com/models) — full model list with EU/global region indicators
+- [Langdock Pricing](https://langdock.com/pricing) — ~€23.20/user/month (Business, up to 1,000 users, AI models included)
 
 ### Provider Policies — OpenAI
 - [OpenAI Enterprise Privacy](https://openai.com/enterprise-privacy/) — No-training policy, DPA, SOC 2 for Business/Enterprise (updated Jan 2026)

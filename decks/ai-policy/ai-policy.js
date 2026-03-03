@@ -383,16 +383,56 @@ async function main() {
   });
 
   // ============================================================
-  // PROVIDER COMPARISON (Slides 15-24)
+  // PROVIDER COMPARISON (Slides 15-25)
   // ============================================================
 
-  // --- Slide 15: Transition to comparison ---
+  // --- Slide 15: Transition to provider choice ---
   breatherSlide(pres,
-    "So which tiers,\nfrom which providers?",
-    "Transition to the provider comparison \u2014 the core reference section of the deck."
+    "Platform or direct provider?\nTwo paths. One structural choice.",
+    "Transition. The audience has seen why tiers matter \u2014 now introduce the structural choice EU companies face: an EU-native platform that sits in front of multiple models (like Langdock), or a direct relationship with a US provider\u2019s enterprise tier. The platform option is new to most readers \u2014 make this framing clear before the comparison slides."
   );
 
-  // --- Slide 16: Provider comparison — products & training ---
+  // --- Slide 16: EU-native platform — consider this first ---
+  {
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
+    s.addText("Consider an EU-native platform first", {
+      x: 0.5, y: 0.2, w: 9, h: 1.2,
+      fontFace: D.h, fontSize: 40, color: D.darkText, bold: true, margin: 0
+    });
+    s.addText("One DPA with an EU company. EU data residency by default. Every major model.", {
+      x: 0.5, y: 1.6, w: 9, h: 0.45,
+      fontFace: D.b, fontSize: 18, color: D.accent, margin: 0
+    });
+    s.addText([
+      { text: "Langdock", options: { bold: true, color: D.darkText, fontSize: 20, fontFace: D.b } },
+      { text: " \u2014 German GmbH, hosted on Azure Frankfurt", options: { color: D.darkText, fontSize: 20, fontFace: D.b, breakLine: true } }
+    ], {
+      x: 0.5, y: 2.15, w: 9, h: 0.55,
+      margin: 0, valign: "top"
+    });
+    s.addText("ISO 27001 \u00B7 SOC 2 Type II \u00B7 GDPR-native DPA \u00B7 No model training", {
+      x: 0.5, y: 2.8, w: 9, h: 0.4,
+      fontFace: D.b, fontSize: 18, color: D.muted, margin: 0
+    });
+    s.addText("30+ models: Claude Opus 4.6, GPT-5, Gemini 2.5 Pro, Mistral \u2014 many in EU regions", {
+      x: 0.5, y: 3.3, w: 9, h: 0.5,
+      fontFace: D.b, fontSize: 18, color: D.darkText, margin: 0
+    });
+    s.addText("~\u20AC23.20/user/month \u00B7 Merck, Der Spiegel, Personio, Volksbank", {
+      x: 0.5, y: 3.88, w: 9, h: 0.4,
+      fontFace: D.b, fontSize: 16, color: D.muted, margin: 0
+    });
+    s.addText([
+      { text: "langdock.com/security", options: { fontFace: D.b, fontSize: 11, color: D.muted, hyperlink: { url: "https://langdock.com/security" } } }
+    ], {
+      x: 0.5, y: 5.0, w: 9, h: 0.4,
+      align: "right", margin: 0, valign: "bottom"
+    });
+    s.addNotes("Langdock is a German GmbH, hosted on Microsoft Azure in Frankfurt \u2014 EU data residency is the default on the standard tier, not an enterprise add-on to negotiate for. No training on customer data. One DPA with an EU company (not US-based providers relying on SCCs). Supports 30+ models: Claude Opus 4.6/Sonnet 4.6, GPT-5 series, Gemini 2.5 Pro/Flash, Mistral Large, Llama \u2014 with many available in EU regions. One interface for chat, agents, workflows, and integrations. Used by Merck (33,000 MAU), Der Spiegel, Personio, Volksbank, Eppendorf, SumUp, 5,000+ companies. Trade-off: adding a platform vendor, though it replaces multiple vendor relationships. If you have strong model preferences or existing enterprise contracts, a direct provider may be simpler \u2014 which is what the next two slides cover. Sources: langdock.com/security, trust.langdock.com/faq.");
+  }
+
+  // --- Slide 17: Provider comparison — products & training ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
@@ -574,61 +614,88 @@ async function main() {
   }
 
   // ============================================================
-  // RESOLUTION (Slides 25-33)
+  // RESOLUTION (Slides 26-34)
   // ============================================================
 
-  // --- Slide 25: Transition to resolution ---
+  // --- Slide 26: Transition to resolution ---
   breatherSlide(pres,
     "Time for the actual decision.",
     "Transition. The audience has the landscape, the rules, the comparison, and the architecture. Now give them the decision framework and the concrete answer."
   );
 
-  // --- Slide 26: Five questions ---
+  // --- Slide 27: Five questions ---
   {
-    const s = darkSlide(pres);
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
     s.addText("Five questions to ask\nbefore any vendor conversation", {
-      x: 0.5, y: 0.3, w: 9, h: 1.1,
-      fontFace: D.h, fontSize: 34, color: D.white, bold: true, margin: 0
+      x: 0.5, y: 0.15, w: 9, h: 1.0,
+      fontFace: D.h, fontSize: 34, color: D.darkText, bold: true, margin: 0
     });
     const questions = [
-      "What data touches the tool?",
-      "Where are your customers?",
-      "Engineering vs everyone else?",
-      "How many tools can you manage?",
-      "What\u2019s your compliance maturity?"
+      { q: "What data touches the tool?", desc: "PII = enterprise tier minimum. Sensitive + EU = EU residency." },
+      { q: "Where are your customers?", desc: "EU customers = GDPR applies. Consider residency, not just SCCs." },
+      { q: "Engineering vs everyone else?", desc: "Different departments = different risk profiles." },
+      { q: "How many tools can you manage?", desc: "Every direct provider = a DPA, a tier distinction, training. Platform approach: one DPA, all models." },
+      { q: "What\u2019s your compliance maturity?", desc: "No DPO? Pick the simplest path." }
     ];
     const textParts = [];
-    questions.forEach((q, i) => {
-      textParts.push({ text: (i + 1) + "  ", options: { bold: true, color: D.accent, fontSize: 24, fontFace: D.b } });
-      textParts.push({ text: q, options: { color: D.text, fontSize: 24, fontFace: D.b, breakLine: true } });
+    questions.forEach((item, i) => {
+      textParts.push({ text: (i + 1) + "  ", options: { bold: true, color: D.accent, fontSize: 18, fontFace: D.b } });
+      textParts.push({ text: item.q, options: { bold: true, color: D.darkText, fontSize: 18, fontFace: D.b } });
+      textParts.push({ text: "  " + item.desc, options: { color: D.muted, fontSize: 16, fontFace: D.b, breakLine: true } });
       if (i < questions.length - 1) {
-        textParts.push({ text: "", options: { fontSize: 10, breakLine: true } });
+        textParts.push({ text: "", options: { fontSize: 6, breakLine: true } });
       }
     });
     s.addText(textParts, {
-      x: 0.7, y: 1.6, w: 8.6, h: 3.7,
+      x: 0.7, y: 1.3, w: 8.6, h: 4.1,
       margin: 0, valign: "top"
     });
-    s.addNotes("1. What data touches the tool? PII = enterprise tier minimum. Sensitive + EU = EU residency. 2. Where are your customers? EU customers = GDPR applies. Consider residency, not just SCCs. 3. Engineering vs everyone else? Different departments = different risk profiles. 4. How many tools can you manage? Every tool = a DPA, a policy, training. Sweet spot: 2\u20133. 5. What\u2019s your compliance maturity? No DPO? Pick the simplest path. Question 1 is the most important \u2014 it determines minimum tier and whether EU residency matters. Question 4 is the most underestimated. Question 5 is about honesty: startups with no compliance function should pick one enterprise-tier tool with a signed DPA and keep it simple.");
+    s.addNotes("Question 1 is the most important \u2014 it determines minimum tier and whether EU residency matters. Question 2: EU customers = GDPR applies. Consider residency, not just SCCs. Question 3: Different departments = different risk profiles. Question 4 is what most companies underestimate: each direct provider relationship is a DPA to sign, a tier distinction to communicate to employees, and a training programme to run. For EU companies, the platform approach (Langdock) collapses this: one DPA with an EU company, one interface for employees, one admin dashboard for policy. Question 5 is about honesty \u2014 if you don\u2019t have a DPO, pick the simplest path: Langdock or one provider at enterprise tier with a signed DPA.");
   }
 
-  // --- Slide 27: Section divider — Recommended Setup ---
+  // --- Slide 28: Section divider — Recommended Setup ---
   sectionDivider(pres, {
     title: "The Recommended Setup",
     subtitle: "A concrete starting point",
     notes: "This section provides an opinionated starting point for both EU and non-EU companies. These are informed suggestions based on the research in this deck \u2014 not legal advice. Have your legal team review before implementing."
   });
 
-  // --- Slide 28: EU vs non-EU recommendations ---
-  twoCol(pres, {
-    leftTitle: "EU Companies",
-    leftBody: "Assume PII will enter.\nDefault to EU-resident.\n\nGeneral use:\nGoogle Workspace Gemini\n\nCoding:\nClaude Code via Vertex AI",
-    rightTitle: "Non-EU Companies",
-    rightBody: "Enterprise tier + DPA\nas the baseline.\n\nGeneral use:\nClaude Team\nor ChatGPT Business\n\nCoding:\nClaude Code (Team/API)",
-    leftColor: D.accent,
-    rightColor: D.accent,
-    notes: "EU recommendation: the two-path split only applies to coding — general use tools will inevitably handle PII (customer names in emails, real data in analysis), so default to EU-resident for everything non-coding. Google Workspace Gemini is the strongest default: native EU data handling under the CDPA, no training, ISO 42001. Alternatives: M365 Copilot (EU Data Boundary, ~$30/user/month add-on — note Anthropic model calls excluded from EU Boundary), or ChatGPT Enterprise (EU residency for storage + inference). Claude Team is viable via SCCs but weaker posture — no direct EU residency. For coding: Claude Code via Vertex AI (EU region) for any work that touches production data or could encounter PII. General coding with test data can use Claude Code directly on Team/Enterprise/API plan. GitHub Copilot Business is an alternative for coding (no training, no prompt retention). Non-EU companies: Claude Team or ChatGPT Business with a signed DPA. If already paying for M365, evaluate Copilot before adding another tool."
-  });
+  // --- Slide 29: For EU companies — three paths ---
+  {
+    const s = pres.addSlide();
+    s.background = { color: D.lightBg };
+    s.addText("The recommended setup for EU companies", {
+      x: 0.5, y: 0.15, w: 9, h: 1.2,
+      fontFace: D.h, fontSize: 38, color: D.darkText, bold: true, margin: 0
+    });
+    s.addText([
+      { text: "A \u2014 EU-native platform", options: { bold: true, color: D.accent, fontSize: 18, fontFace: D.b } },
+      { text: "  (recommended)", options: { color: D.accent, fontSize: 14, fontFace: D.b, breakLine: true } },
+      { text: "Langdock \u2014 German GmbH, Azure Frankfurt, EU residency by default, ~\u20AC23.20/user/month", options: { color: D.darkText, fontSize: 16, fontFace: D.b, breakLine: true } },
+      { text: "", options: { fontSize: 6, breakLine: true } },
+      { text: "B \u2014 Embedded AI", options: { bold: true, color: D.darkText, fontSize: 18, fontFace: D.b, breakLine: true } },
+      { text: "M365 Copilot (~$30/user/month, EU Data Boundary) \u00B7 Workspace Gemini (native EU, CDPA)", options: { color: D.darkText, fontSize: 16, fontFace: D.b, breakLine: true } },
+      { text: "", options: { fontSize: 6, breakLine: true } },
+      { text: "C \u2014 Direct provider", options: { bold: true, color: D.muted, fontSize: 18, fontFace: D.b, breakLine: true } },
+      { text: "ChatGPT Enterprise (EU residency available) \u00B7 Claude Team (DPA + EU SCCs, no EU residency)", options: { color: D.muted, fontSize: 16, fontFace: D.b, breakLine: true } }
+    ], {
+      x: 0.5, y: 1.45, w: 9, h: 3.1,
+      margin: 0, valign: "top"
+    });
+    s.addShape(pres.shapes.LINE, {
+      x: 0.5, y: 4.6, w: 9, h: 0,
+      line: { color: D.muted, width: 1 }
+    });
+    s.addText([
+      { text: "Non-EU: Claude Team or ChatGPT Business with DPA", options: { color: D.muted, fontSize: 14, fontFace: D.b, breakLine: true } },
+      { text: "Coding: Claude Code via Vertex/Bedrock in EU region \u00B7 GitHub Copilot Business", options: { color: D.muted, fontSize: 14, fontFace: D.b } }
+    ], {
+      x: 0.5, y: 4.7, w: 9, h: 0.7,
+      margin: 0, valign: "top"
+    });
+    s.addNotes("Option A (Langdock) is the recommended starting point for EU companies evaluating from scratch: EU-native, EU data residency out of the box, no tier complexity, one DPA with an EU company, access to 30+ models. Option B is genuinely compelling regardless of your current stack \u2014 particularly if you want to minimise vendor count and already have a Microsoft or Google enterprise agreement. Option C for companies with a strong model preference or existing contract \u2014 ChatGPT Enterprise now has full EU data residency; Claude Team is legally defensible via SCCs but has no EU data residency from Anthropic directly (use Claude models via Langdock or Claude Code on Vertex/Bedrock for EU residency). Non-EU companies: Claude Team or ChatGPT Business with DPA remains the simple default. Coding: Claude Code via Vertex AI or Bedrock in EU region; GitHub Copilot Business/Enterprise. These are informed suggestions, not legal advice.");
+  }
 
   // --- Slide 29: The bright line ---
   hero(pres, "Free tiers are not approved\nfor work. Full stop.", {
