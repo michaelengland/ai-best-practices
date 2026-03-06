@@ -338,7 +338,7 @@ async function main() {
   // --- Slide 19: Brilliant. Helpful. Remembers Nothing. ---
   {
     const s = darkSlide(pres);
-    const doryPath = path.join(__dirname, "..", "ai-best-practices", "assets", "Gemini_Generated_Image_21aveo21aveo21av.png");
+    const doryPath = path.join(__dirname, "..", "ai-best-practices", "assets", "blue-tang-transparent.png");
     s.addImage({ path: doryPath, x: 0.3, y: 0.5, w: 4.2, h: 4.2 });
     s.addText("Brilliant. Helpful.\nRemembers nothing.", {
       x: 5.0, y: 1.5, w: 4.5, h: 2.5,
