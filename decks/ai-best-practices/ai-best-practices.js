@@ -794,15 +794,15 @@ async function main() {
   });
 
   // --- Slide 46: Skills — "From the drawer." ---
-  hero(pres, "Rules are \u2018always do this.\u2019\nSkills are \u2018here\u2019s how,\nwhen the time comes.\u2019", {
+  hero(pres, "Skills live in the drawer.\nPulled onto the page when needed.\nGone when done.", {
     size: 36,
-    notes: "'So what happens to all those brilliant workflows that don\u2019t fit on the page?' Skills. Instructions kept in a drawer, pulled out only when the task needs them. They don\u2019t sit on the A4 page. They don\u2019t take up memory. They arrive when relevant and leave when done. Rule example (always on the page): 'All presentations use billboard design.' Skill example (from the drawer): 'How to write a project proposal' \u2014 step-by-step workflow with structure, tone, approval process. Loaded when you ask for a proposal, gone when you don\u2019t. Another: 'How to summarise meeting notes' \u2014 only loaded when summarising."
+    notes: "'So what happens to all those brilliant workflows that don\u2019t fit on the page?' Skills. Instructions kept in a drawer, pulled onto the page only when the task needs them. They don\u2019t sit on the A4 page permanently. They don\u2019t take up memory between tasks. She pulls one out, uses it, puts it back. The page stays clean. Rule example (always on the page): 'All presentations use billboard design.' Skill example (from the drawer): 'How to write a project proposal' \u2014 step-by-step workflow with structure, tone, approval process. Pulled onto the page when you ask for a proposal, back in the drawer when you don\u2019t."
   });
 
-  // --- Slide 47: "Rules ground. Skills arrive." ---
-  hero(pres, "Rules ground every conversation.\nSkills arrive when needed.", {
+  // --- Slide 47: "The page stays clean." ---
+  hero(pres, "The page stays clean.\nThe drawer holds the rest.", {
     color: D.accent,
-    notes: "The landing line. The A4 page stays clean \u2014 only the essentials earn a permanent spot. The drawer holds everything else. She pulls out what she needs, when she needs it. This is the distinction that separates someone who 'uses AI' from someone who has built a system. Transition to breather."
+    notes: "The landing line. Rules earn a permanent spot on the page \u2014 only the essentials. Everything else lives in the drawer as skills, pulled out when relevant. This is the distinction that separates someone who 'uses AI' from someone who has built a system. The A4 page doesn\u2019t fill up because skills come and go. Transition to breather."
   });
 
   // --- Slide 48: Breather ---
