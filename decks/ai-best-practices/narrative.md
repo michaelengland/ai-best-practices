@@ -117,15 +117,38 @@ Sources: CodeSignal, OpenAI, DigitalOcean
 - "Not too much. Not too little. The right context at the right time."
   - Source: CIO
 
-#### Skills as Persistent Context
+#### Rules: Stop Retyping Your Best Ideas
+
 - "You've mastered context. But you're providing it from scratch every time."
-- Introduce custom instructions / system prompts / project rules — "Write once, the AI always knows."
-- GPS metaphor: Directions every trip (effort every time) vs. GPS that learns (compounds permanently)
-- "Custom instructions" = "System prompts" = "Rules" = "Skills" — same concept, many names
-- The skill: "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template. Assume a non-expert audience."
+- Every conversation, you're re-explaining who you are, how you like things done, what format you want. "That's like giving your colleague the same briefing every single morning."
+- The fix: **Rules** — standing instructions you write once, and the AI follows every time. No retyping.
+- Rule example (tea thread): "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template. Assume a non-expert audience."
 - "Next time you ask for any presentation — not just tea — she already knows the format."
-- "If your tool has a way to save reusable instructions, use it. That's a skill."
+- Broader examples: "Always reply in British English." "Be concise — bullet points over paragraphs." "When I ask for a summary, include three key takeaways."
+- GPS metaphor: Directions every trip (effort every time) vs. GPS that remembers your preferences (compounds permanently)
+- "If your tool has a way to save reusable instructions, use it. That's a rule."
   - Source: CodeConductor
+
+#### The A4 Problem: When Rules Fill Up
+
+- Callback to Dory: "Remember your forgetful colleague? Here's what her memory actually looks like."
+- Visual: Dory with a single piece of A4 paper. That's it. That's her entire memory.
+- "Everything she knows right now fits on this one page. Your rules go on this page — they're always there, grounding every conversation."
+- The temptation: "Your first instinct? Put all your best prompts, all your ideas, everything you've ever learned about getting good results — onto this page."
+- The problem: "The page fills up. And when it does, she doesn't just slow down — she forgets everything. Back to nothing. Back to 'Make me a presentation about making a cup of tea' with clip-art energy."
+- Even before the page is full: "Cram too much on there and she gets confused. Contradictory instructions. Competing priorities. She doesn't know which rule matters most."
+- "Rules are powerful. But the page is small. You need to be selective about what earns a permanent spot."
+
+#### Skills: The On-Demand Solution
+
+- "So what happens to all those brilliant workflows that don't fit on the page?"
+- **Skills** — instructions kept in a drawer, pulled out only when the task needs them. They don't sit on the A4 page. They don't take up memory. They arrive when relevant and leave when done.
+- "Rules are 'always do this.' Skills are 'here's how to do this specific thing, when the time comes.'"
+- Tea thread example for the rule (always loaded): "All presentations use billboard design." — on the A4 page, always.
+- Broader example for the skill (on demand): "How to write a project proposal" — step-by-step workflow with structure, tone, approval process. Loaded when you ask for a proposal, gone when you don't.
+- Another skill example: "How to summarise meeting notes" — format, what to include, who gets what version. Only loaded when summarising.
+- "The A4 page stays clean. The drawer holds everything else. She pulls out what she needs, when she needs it."
+- "Rules ground every conversation. Skills arrive when needed."
 
 **Persona crossing:** You were a **Whisperer**. Now you're a **Strategist** — you don't just talk to AI well, you've set up its playbook.
 
@@ -177,7 +200,7 @@ The failure? Three fundamentals skipped: no data inventory, no data minimization
 - "The trick isn't making one AI smarter. It's making many work together."
 - Chain flow: **Research Agent** (finds brewing temps, steeping times, tea varieties) → **Draft Agent** (creates billboard slides with speaker notes) → **Review Agent** (checks accuracy, brand compliance, readability) → You
 - "Each agent does one thing. The chain does everything."
-- **Skills per agent** (brief — the audience already knows what skills are): "You already set up skills for yourself. Now each agent gets its own." Research Agent + "Use peer-reviewed food science sources," Draft Agent + "Billboard design, 15 words max," Review Agent + "Company brand guide, fact-check all temperatures."
+- **Rules and skills per agent** (brief — the audience already knows the distinction): "You set up rules and skills for yourself. Now each agent gets its own." Research Agent rule: "Use peer-reviewed food science sources." Draft Agent rule: "Billboard design, 15 words max." Review Agent skill: "Company brand guide verification checklist" — pulled from the drawer when reviewing, not cluttering the other agents.
 - "Skills compound. The brigade gets smarter every time."
 - 1.5 hrs of you being the bottleneck vs. 15 min of judgment — the part only humans can do
 - "Same tea presentation. The chain gets smarter every time. Your feedback becomes skills. She won't remember, but the skills will."
@@ -242,8 +265,8 @@ Referenced inline in the Operator section (Connections slide) as "USB-C for AI."
 
 - **Slide count:** ~68 slides (billboard design). Each slide passes the 3-second test. Detail lives in speaker notes.
 - **Persona system:** Seven personas, five crossings. No level numbers. Each section IS one crossing. Builder shown on spectrum but not covered.
-- **Key structural change from v2:** Skills relocated from Orchestrator to Strategist section. Skills are introduced as persistent single-agent context (custom instructions), then referenced in Orchestrator as "each agent gets its own." This makes Orchestrator lighter and skills more accessible.
-- **Running example thread:** Tea presentation flows through: Whisperer ("Make me a presentation about making a cup of tea" → five prompt iterations) → Strategist (context proof with office kitchen details — Sage Smart Kettle, blue tin, Dave's warming-the-pot rule; skill = billboard design defaults) → Operator (copy-paste trap with tea articles → agent with connections to web + office kitchen doc; trust beat = oolong steeping time) → Orchestrator (Research/Draft/Review chain, 1.5hrs vs 15min).
-- **Dory/AI colleague analogy:** Blue tang fish image (AI-generated, copyright-clean). On-screen references use "your AI colleague" and "she" — "Dory" only in speaker notes for presenter context. Touchpoints: Strategist (introduction + attention problem), Operator (same colleague + connections + trust), Orchestrator (kitchen brigade + skills compound).
+- **Key structural change from v2:** Skills relocated from Orchestrator to Strategist section. Rules introduced first as "stop retyping" persistent instructions, then the Dory A4 sheet reveals the memory limit, then skills arrive as the on-demand solution. Referenced in Orchestrator as "each agent gets its own rules and skills." This makes Orchestrator lighter and the rules/skills distinction accessible to non-tech audiences.
+- **Running example thread:** Tea presentation flows through: Whisperer ("Make me a presentation about making a cup of tea" → five prompt iterations) → Strategist (context proof with office kitchen details — Sage Smart Kettle, blue tin, Dave's warming-the-pot rule; rule = billboard design defaults; A4 sheet shows memory limit; skill = "how to write a project proposal" as on-demand workflow) → Operator (copy-paste trap with tea articles → agent with connections to web + office kitchen doc; trust beat = oolong steeping time) → Orchestrator (Research/Draft/Review chain, rules + skills per agent, 1.5hrs vs 15min).
+- **Dory/AI colleague analogy:** Blue tang fish image (AI-generated, copyright-clean). On-screen references use "your AI colleague" and "she" — "Dory" only in speaker notes for presenter context. Touchpoints: Strategist (introduction + attention problem, then A4 sheet callback for rules/skills distinction), Operator (same colleague + connections + trust), Orchestrator (kitchen brigade + rules and skills compound). The A4 sheet visual is a key new beat — Dory holding a single piece of paper represents her entire working memory.
 - **Billboard design rules:** Max 15 words on screen, 28pt+ font, 50%+ whitespace, no cards/boxes (except Wrong/Right comparisons), sources as subtle 11pt bottom-right citations on stat slides.
 - **Closing:** No toolkit table, no 30-day challenge, no spectrum recap. Straight from Orchestrator climax → breather → callback ("Remember 'Make me a presentation about making a cup of tea'?") → punchline ("Ten slides. Fifteen minutes.") → CTA. Tight emotional landing.

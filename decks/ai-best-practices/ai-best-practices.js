@@ -678,7 +678,7 @@ async function main() {
   // --- Slide 36: Meet Dory ---
   {
     const s = darkSlide(pres);
-    const doryPath = path.join(__dirname, "assets", "Gemini_Generated_Image_21aveo21aveo21av.png");
+    const doryPath = path.join(__dirname, "assets", "blue-tang-transparent.png");
     s.addImage({ path: doryPath, x: 0.3, y: 0.5, w: 4.2, h: 4.2 });
     // Right: just 4 words
     s.addText("Meet your\nAI colleague.", {
@@ -718,16 +718,16 @@ async function main() {
     notes: "The natural question after context engineering: 'Do I have to feed all this context every time?' This plants the seed. Skills are the answer. Transition: What if the AI already knew?"
   });
 
-  // --- Slide 41: Without vs With a Skill (Wrong/Right) ---
+  // --- Slide 41: Without vs With a Rule (Wrong/Right) ---
   wrongRight(pres, {
-    headline: "Without vs. With a Skill",
+    headline: "Without vs. With a Rule",
     subtitle: "same prompt, different starting point",
     wrongText: "Role: presentation designer\nFormat: billboard, 15 words max\nTone: opinionated, visual\nAudience: new hires\n\nTyped. Every. Single. Time.",
-    rightText: "\"Make me a presentation about\nmaking a cup of tea.\"\n\nThat\u2019s it.\nThe skill knows the rest.",
-    notes: "The left side shows all the context from the Whisperer section \u2014 role, format, tone, audience. Without a skill, you type this every time. With a skill, it\u2019s saved once. The skill: 'All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template.' Next time you ask for any presentation \u2014 not just tea \u2014 she already knows the format. Transition: Here\u2019s the metaphor."
+    rightText: "\"Make me a presentation about\nmaking a cup of tea.\"\n\nThat\u2019s it.\nThe rule knows the rest.",
+    notes: "The left side shows all the context from the Whisperer section \u2014 role, format, tone, audience. Without a rule, you type this every time. A rule is a standing instruction you write once: 'All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template.' Next time you ask for any presentation \u2014 not just tea \u2014 she already knows the format. Other examples: 'Always reply in British English.' 'Be concise \u2014 bullet points over paragraphs.' Source: CodeConductor \u2014 https://codeconductor.ai/blog/context-engineering/\nTransition: Here\u2019s the metaphor."
   });
 
-  // --- Slide 43: GPS metaphor (light bg) ---
+  // --- Slide 42: GPS metaphor (light bg) ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
@@ -743,7 +743,7 @@ async function main() {
     // Divider
     s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
     // Right column
-    s.addText("GPS that learns", {
+    s.addText("GPS that remembers", {
       x: 5.3, y: 1.5, w: 4.2, h: 1.2,
       fontFace: D.h, fontSize: 32, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
     });
@@ -751,19 +751,64 @@ async function main() {
       x: 5.3, y: 2.8, w: 4.2, h: 0.8,
       fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("Prompt engineering = giving directions for each individual trip. Effort every time. Doesn\u2019t compound.\nContext engineering + skills = programming a GPS with home, office, preferences, traffic patterns. Gets smarter the more you invest. Compounds permanently.\nTransition: These persistent instructions have many names.");
+    s.addNotes("Without rules = giving directions for each individual trip. Effort every time. Doesn\u2019t compound.\nWith rules = programming a GPS with home, work, preferences. Gets smarter the more you invest. Compounds permanently.\nBut here\u2019s the thing \u2014 what happens when you try to put too many preferences in?");
   }
 
-  // --- Slide 43: "Custom instructions = System prompts = Rules = Skills" ---
-  hero(pres, "\"Custom instructions\"\n= \"System prompts\"\n= \"Rules\"\n= \"Skills\"", {
-    size: 36, font: D.b,
-    notes: "Same concept, many names. Whether triggered by you, the app, or the AI itself differs across tools. The principle is identical. ChatGPT custom instructions, Claude Project rules, system prompts \u2014 all skills. If your tool has a way to save reusable instructions, use it. That\u2019s a skill. Source: CodeConductor — https://codeconductor.ai/blog/context-engineering/\nTransition: You\u2019re now a Strategist."
+  // --- Slide 43: Dory + A4 sheet (paper is the hero, Dory is small callback) ---
+  {
+    const s = darkSlide(pres);
+    // Large A4 paper — the hero element, centre-left
+    s.addShape(pres.shapes.RECTANGLE, {
+      x: 1.2, y: 0.5, w: 3.2, h: 4.5,
+      fill: { color: "F8F8F8" },
+      shadow: { type: "outer", blur: 10, offset: 4, color: "000000", opacity: 0.3 }
+    });
+    // Rules text on the paper
+    s.addText("Rules\n\n\u2022 Billboard design\n\u2022 British English\n\u2022 Be concise\n\u2022 No jargon", {
+      x: 1.5, y: 0.8, w: 2.6, h: 3.8,
+      fontFace: D.b, fontSize: 16, color: D.darkText, margin: 0, valign: "top"
+    });
+    // "Her entire memory." text — right side
+    s.addText("Her entire memory.", {
+      x: 5.2, y: 0.8, w: 4.2, h: 2.0,
+      fontFace: D.h, fontSize: 48, color: D.white, bold: true, margin: 0, valign: "middle"
+    });
+    // Small Dory image — bottom-right as a subtle callback
+    s.addImage({
+      path: path.join(__dirname, "assets", "blue-tang-transparent.png"),
+      x: 7.2, y: 3.0, w: 2.2, h: 2.2,
+      sizing: { type: "contain", w: 2.2, h: 2.2 }
+    });
+    s.addNotes("Callback to slide 35. 'Remember your forgetful colleague? Here\u2019s what her memory actually looks like.' One piece of A4 paper. That\u2019s it. Everything she knows right now \u2014 your rules, your request, the conversation \u2014 fits on this one page. Your rules go on this page. They\u2019re always there, grounding every conversation. She starts every task with your rules already loaded. That\u2019s powerful. But...");
+  }
+
+  // --- Slide 44: "Your first instinct?" ---
+  hero(pres, "Your first instinct?\nFill the whole page.", {
+    notes: "Empathy beat. The audience is thinking exactly this: 'I\u2019ll put all my best prompts, all my ideas, everything I\u2019ve ever learned about getting good results onto this page.' It\u2019s the natural instinct. And it\u2019s the wrong one."
   });
 
-  // --- Slide 44: Breather ---
+  // --- Slide 45: "The page fills up." ---
+  hero(pres, "The page fills up.\nShe forgets everything.\nBack to nothing.", {
+    size: 36, color: D.accent,
+    notes: "Two failure modes, both catastrophic. First: before the page is even full, cram too much on there and she gets confused \u2014 contradictory instructions, competing priorities, she doesn\u2019t know which rule matters most. Second: the page actually fills up and she loses context entirely. Back to 'Make me a presentation about making a cup of tea' with clip-art energy. The very thing you were trying to avoid. 'Rules are powerful. But the page is small. You need to be selective about what earns a permanent spot.'"
+  });
+
+  // --- Slide 46: Skills — "From the drawer." ---
+  hero(pres, "Rules are \u2018always do this.\u2019\nSkills are \u2018here\u2019s how,\nwhen the time comes.\u2019", {
+    size: 36,
+    notes: "'So what happens to all those brilliant workflows that don\u2019t fit on the page?' Skills. Instructions kept in a drawer, pulled out only when the task needs them. They don\u2019t sit on the A4 page. They don\u2019t take up memory. They arrive when relevant and leave when done. Rule example (always on the page): 'All presentations use billboard design.' Skill example (from the drawer): 'How to write a project proposal' \u2014 step-by-step workflow with structure, tone, approval process. Loaded when you ask for a proposal, gone when you don\u2019t. Another: 'How to summarise meeting notes' \u2014 only loaded when summarising."
+  });
+
+  // --- Slide 47: "Rules ground. Skills arrive." ---
+  hero(pres, "Rules ground every conversation.\nSkills arrive when needed.", {
+    color: D.accent,
+    notes: "The landing line. The A4 page stays clean \u2014 only the essentials earn a permanent spot. The drawer holds everything else. She pulls out what she needs, when she needs it. This is the distinction that separates someone who 'uses AI' from someone who has built a system. Transition to breather."
+  });
+
+  // --- Slide 48: Breather ---
   breatherSlide(pres,
     "You talk to AI like a pro.\nYou\u2019ve set up its playbook.\nBut who\u2019s doing all the work? Still you.",
-    "Persona crossing: Whisperer \u2192 Strategist. The audience can prompt, feed context, and set up persistent instructions. But they\u2019re still the bottleneck at every step. Transition: Let\u2019s change that."
+    "Persona crossing: Whisperer \u2192 Strategist. The audience can prompt, feed context, set up rules, and organise skills. But they\u2019re still the bottleneck at every step. Transition: Let\u2019s change that."
   );
 
   // ============================================================
@@ -1005,20 +1050,20 @@ async function main() {
     notes: "Distilled principle. Break big tasks into focused steps. Pass results forward. Filter context between each. The 'write this down' moment. Transition: But how does each agent know what to do?"
   });
 
-  // --- Slide 56: Skills per agent ---
-  hero(pres, "Skills", {
+  // --- Slide 64: Rules & Skills per agent ---
+  hero(pres, "Rules & Skills", {
     size: 72,
-    sub: "You already know these.\nNow each agent gets its own.",
-    notes: "Brief \u2014 the audience learned skills in the Strategist section as persistent single-agent instructions. This just connects the concept to chains: each agent in the kitchen brigade gets a focused skill set. The playbook each chef follows. Transition: Let\u2019s see it in action."
+    sub: "You set these up for yourself.\nNow each agent gets its own.",
+    notes: "Brief \u2014 the audience already knows the distinction from the Strategist section. Rules (always loaded) and skills (on demand) now apply per-agent. Each chef in the kitchen brigade gets a focused playbook. Transition: Let\u2019s see it in action."
   });
 
-  // --- Slide 57: Skills in Action ---
+  // --- Slide 65: Rules & Skills in Action ---
   {
     const s = darkSlide(pres);
     const agents = [
-      { name: "Research Agent", skill: "+ Peer-reviewed food\n   science sources" },
-      { name: "Draft Agent", skill: "+ Billboard design,\n   15 words max" },
-      { name: "Review Agent", skill: "+ Company brand guide,\n   fact-check temperatures" },
+      { name: "Research Agent", label: "Rule:", detail: "Peer-reviewed food\nscience sources" },
+      { name: "Draft Agent", label: "Rule:", detail: "Billboard design,\n15 words max" },
+      { name: "Review Agent", label: "Skill:", detail: "Brand guide\nverification checklist" },
     ];
     const colW = 2.8, gap = 0.3;
     const totalW = agents.length * colW + (agents.length - 1) * gap;
@@ -1026,15 +1071,19 @@ async function main() {
     agents.forEach((a, i) => {
       const x = startX + i * (colW + gap);
       s.addText(a.name, {
-        x, y: 1.8, w: colW, h: 1.0,
+        x, y: 1.5, w: colW, h: 0.8,
         fontFace: D.b, fontSize: 28, color: D.accent, bold: true, align: "center", margin: 0, valign: "bottom"
       });
-      s.addText(a.skill, {
+      s.addText(a.label, {
+        x, y: 2.4, w: colW, h: 0.5,
+        fontFace: D.b, fontSize: 18, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
+      });
+      s.addText(a.detail, {
         x, y: 2.9, w: colW, h: 1.0,
-        fontFace: D.b, fontSize: 24, color: D.muted, align: "center", margin: 0, valign: "top"
+        fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
       });
     });
-    s.addNotes("Tea-specific skills: Research Agent knows to use peer-reviewed food science sources for brewing data. Draft Agent knows billboard design \u2014 15 words max per slide. Review Agent knows the company brand guide and fact-checks all temperatures against source material. Transition: What makes skills special?");
+    s.addNotes("Research Agent rule (always loaded): use peer-reviewed food science sources for brewing data. Draft Agent rule (always loaded): billboard design, 15 words max. Review Agent skill (from the drawer): company brand guide verification checklist \u2014 pulled in only when reviewing, not cluttering the other agents\u2019 A4 pages. The distinction matters at scale: rules keep each agent focused, skills arrive when that agent\u2019s specific task needs them. Transition: What makes this special?");
   }
 
   // --- Slide 58: "Skills compound." ---

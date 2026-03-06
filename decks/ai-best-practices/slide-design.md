@@ -16,15 +16,17 @@
 | Change | Impact |
 |--------|--------|
 | Slides 23-30: Onboarding scenario → tea presentation | 8 slides modified (content swap, layouts unchanged) |
-| Slide 35: Context comparison speaker notes | Notes-only change |
-| Slide 42: Without/With a Skill content | 1 slide modified |
-| Slide 47: Without/With connections content | 1 slide modified |
-| Slide 57: Chain flow speaker notes | Notes-only change |
-| Slide 60: Skills in action — agent skill names | 1 slide modified |
-| Slide 64: "Same proposal" → "Same tea presentation" | 1 slide modified |
-| Slides 66-67: Closing callback and punchline | 2 slides modified |
+| Slide 34: Context comparison speaker notes | Notes-only change |
+| Slide 41: "Without/With a Skill" → "Without/With a Rule" | 1 slide modified (concept swap) |
+| Slide 42: GPS metaphor speaker notes + "learns" → "remembers" | 1 slide modified |
+| Slide 43: "Custom instructions = ..." → Dory + A4 sheet | 1 slide REBUILT (new layout + content) |
+| Slides 44-47: NEW — A4 problem + skills distinction | 4 slides ADDED |
+| Slide 53: Without/With connections content | 1 slide modified (renumbered from 50) |
+| Slide 64-65: "Skills" → "Rules & Skills" per agent | 2 slides modified (renumbered from 61-62) |
+| Slide 69: "Same proposal" → "Same tea presentation" | 1 slide modified (renumbered from 66) |
+| Slides 71-72: Closing callback and punchline | 2 slides modified (renumbered from 68-69) |
 | Speaker notes throughout: scenario references | Notes-only changes |
-| Total | ~68 slides (no structural change) |
+| Total | **~73 slides (+3 structural change)** |
 
 ## Slide Plan
 
@@ -156,7 +158,7 @@
 
 ---
 
-### Section 4: Whisperer → Strategist — "Feed AI Smarter" (11 slides)
+### Section 4: Whisperer → Strategist — "Feed AI Smarter" (14 slides)
 
 #### Slide 33: "Same prompt. Different information."
 **Layout**: Single message + sub text
@@ -198,34 +200,63 @@
 **Content**: "You've mastered context. But you're providing it from scratch every time."
 **Status**: Keep as-is
 
-#### Slide 41: Without vs. With a Skill
+#### Slide 41: Without vs. With a Rule
 **Layout**: Wrong/Right (light bg, two cards)
 **Content**:
 - Wrong: "Role: presentation designer\nFormat: billboard, 15 words max\nTone: opinionated, visual\nAudience: new hires\n\nTyped. Every. Single. Time."
-- Right: '"Make me a presentation about making a cup of tea."\n\nThat's it.\nThe skill knows the rest.'
-**Speaker notes**: The left side shows all the context from the Whisperer section — role, format, tone, audience. Without a skill, you type this every time. With a skill, it's saved once. The skill: "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template." Next time you ask for any presentation — not just tea — she already knows the format.
-**Status**: MODIFY — content swap from proposal to tea presentation
+- Right: '"Make me a presentation about making a cup of tea."\n\nThat's it.\nThe rule knows the rest.'
+**Speaker notes**: The left side shows all the context from the Whisperer section — role, format, tone, audience. Without a rule, you type this every time. A rule is a standing instruction you write once: "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template." Next time you ask for any presentation — not just tea — she already knows the format. Other examples: "Always reply in British English." "Be concise — bullet points over paragraphs." Source: CodeConductor — https://codeconductor.ai/blog/context-engineering/
+**Status**: MODIFY — "Skill" → "Rule"; speaker notes reframed around rules concept
 
 #### Slide 42: GPS metaphor
 **Layout**: Two-column (light bg)
-**Content**: Left: "Directions every trip" / "Effort. Every. Time." (red) Right: "GPS that learns" / "Compounds permanently." (green)
-**Status**: Keep as-is
+**Content**: Left: "Directions every trip" / "Effort. Every. Time." (red) Right: "GPS that remembers" / "Compounds permanently." (green)
+**Speaker notes**: Without rules = giving directions for each individual trip. Effort every time. Doesn't compound. With rules = programming a GPS with home, work, preferences. Gets smarter the more you invest. Compounds permanently. But here's the thing — what happens when you try to put too many preferences in?
+**Status**: MODIFY — "GPS that learns" → "GPS that remembers"; speaker notes reframed for rules, adds transition to A4 problem
 
-#### Slide 43: "Custom instructions = System prompts = Rules = Skills"
-**Layout**: Single message (36pt, Verdana)
-**Content**: '"Custom instructions" = "System prompts" = "Rules" = "Skills"'
-**Status**: Keep as-is
+#### Slide 43: Dory + A4 sheet
+**Layout**: Image + text (dark bg — blue tang image left, text right)
+**Content**: Blue tang image (same asset as slide 35) + "Her entire memory." / Visual: piece of A4 paper overlaid near the fish
+**Speaker notes**: Callback to slide 35. "Remember your forgetful colleague? Here's what her memory actually looks like." One piece of A4 paper. That's it. Everything she knows right now — your rules, your request, the conversation — fits on this one page. Your rules go on this page. They're always there, grounding every conversation. She starts every task with your rules already loaded. That's powerful. But...
+**Status**: NEW — replaces old "Custom instructions = System prompts = Rules = Skills"
 
-#### Slide 44: Breather
+#### Slide 44: "Your first instinct?"
+**Layout**: Single message (44pt hero)
+**Content**: "Your first instinct?\nFill the whole page."
+**Speaker notes**: Empathy beat. The audience is thinking exactly this: "I'll put all my best prompts, all my ideas, everything I've ever learned about getting good results onto this page." It's the natural instinct. And it's the wrong one.
+**Status**: NEW
+
+#### Slide 45: "The page fills up."
+**Layout**: Single message (accent color, 36pt)
+**Content**: "The page fills up.\nShe forgets everything.\nBack to nothing."
+**Speaker notes**: Two failure modes, both catastrophic. First: before the page is even full, cram too much on there and she gets confused — contradictory instructions, competing priorities, she doesn't know which rule matters most. Second: the page actually fills up and she loses context entirely. Back to "Make me a presentation about making a cup of tea" with clip-art energy. The very thing you were trying to avoid. "Rules are powerful. But the page is small. You need to be selective about what earns a permanent spot."
+**Status**: NEW
+
+#### Slide 46: Skills — "From the drawer."
+**Layout**: Single message + sub (hero, 54pt)
+**Content**: "Rules are 'always do this.'\nSkills are 'here's how,\nwhen the time comes.'"
+**Speaker notes**: "So what happens to all those brilliant workflows that don't fit on the page?" Skills. Instructions kept in a drawer, pulled out only when the task needs them. They don't sit on the A4 page. They don't take up memory. They arrive when relevant and leave when done. Rule example (always on the page): "All presentations use billboard design." Skill example (from the drawer): "How to write a project proposal" — step-by-step workflow with structure, tone, approval process. Loaded when you ask for a proposal, gone when you don't. Another: "How to summarise meeting notes" — only loaded when summarising.
+**Status**: NEW
+
+#### Slide 47: "Rules ground. Skills arrive."
+**Layout**: Single message (hero, 44pt, accent color)
+**Content**: "Rules ground every conversation.\nSkills arrive when needed."
+**Speaker notes**: The landing line. The A4 page stays clean — only the essentials earn a permanent spot. The drawer holds everything else. She pulls out what she needs, when she needs it. This is the distinction that separates someone who "uses AI" from someone who has built a system. Transition to breather.
+**Status**: NEW
+
+#### Slide 48: Breather
 **Layout**: Breather (italic accent)
 **Content**: "You talk to AI like a pro. You've set up its playbook. But who's doing all the work? Still you."
-**Status**: Keep as-is
+**Speaker notes**: Persona crossing: Whisperer → Strategist. The audience can prompt, feed context, set up rules, and organise skills. But they're still the bottleneck at every step. Transition: Let's change that.
+**Status**: KEEP (was old slide 44, renumbered)
 
 ---
 
 ### Section 5: Strategist → Operator — "Let AI Drive" (10 slides)
 
-#### Slide 45: Copy-paste trap
+> **Note:** All slide numbers in Sections 5-7 shift +3 from the previous design due to the 3 new slides in Section 4.
+
+#### Slide 49: Copy-paste trap
 **Layout**: Steps (4 lines, left-aligned, dark bg)
 **Content**: "1. You search" / "2. You paste" / "3. AI drafts" / "4. You apply"
 **Speaker notes**: The copy-paste cycle: You search "how to brew loose-leaf tea," paste three articles into the chat, AI drafts slides, you manually drop them into PowerPoint. Every step has "you" in it.
@@ -314,16 +345,17 @@
 **Content**: "Each agent does one thing. The chain does everything."
 **Status**: Keep as-is
 
-#### Slide 61: Skills per agent
+#### Slide 64: Rules & Skills per agent
 **Layout**: Single message + sub (hero, 72pt)
-**Content**: "Skills" / "You already know these. Now each agent gets its own."
-**Status**: Keep as-is
+**Content**: "Rules & Skills" / "You set these up for yourself. Now each agent gets its own."
+**Speaker notes**: Brief — the audience already knows the distinction from the Strategist section. Rules (always loaded) and skills (on demand) now apply per-agent. Each chef in the kitchen brigade gets a focused playbook. Transition: Let's see it in action.
+**Status**: MODIFY — "Skills" → "Rules & Skills"; sub-text updated
 
-#### Slide 62: Skills in action
-**Layout**: Three-column (agent names + skill names)
-**Content**: Research Agent + "Peer-reviewed food science sources", Draft Agent + "Billboard design, 15 words max", Review Agent + "Company brand guide, fact-check temperatures"
-**Speaker notes**: Tea-specific skills: Research Agent knows to use peer-reviewed food science sources for brewing data. Draft Agent knows billboard design — 15 words max per slide. Review Agent knows the company brand guide and fact-checks all temperatures against source material.
-**Status**: MODIFY — content swap from generic business skills to tea-specific skills
+#### Slide 65: Rules & skills in action
+**Layout**: Three-column (agent names + rule/skill labels)
+**Content**: Research Agent + "Rule: Peer-reviewed food science sources", Draft Agent + "Rule: Billboard design, 15 words max", Review Agent + "Skill: Brand guide verification checklist"
+**Speaker notes**: Research Agent rule (always loaded): use peer-reviewed food science sources for brewing data. Draft Agent rule (always loaded): billboard design, 15 words max. Review Agent skill (from the drawer): company brand guide verification checklist — pulled in only when reviewing, not cluttering the other agents' A4 pages. The distinction matters at scale: rules keep each agent focused, skills arrive when that agent's specific task needs them.
+**Status**: MODIFY — labels distinguish rules from skills; Review Agent uses a skill not a rule
 
 #### Slide 63: "Skills compound."
 **Layout**: Single message (40pt)
@@ -379,9 +411,10 @@
 | Status | Count |
 |--------|-------|
 | Keep as-is | 52 |
-| Modify (content swap) | 14 (slides 23-29, 34, 41, 50, 57, 59, 62, 66, 68, 69) |
-| Modify (speaker notes only) | 4 (slides 45, 47, 57, 59) |
-| **Total** | **~70 slides** |
+| New (Section 4: A4 problem + skills) | 4 (slides 43, 44, 45, 46, 47) |
+| Modify (content/concept swap) | 15 (slides 23-29, 34, 41, 42, 53, 60, 62, 64, 65, 69, 71, 72) |
+| Modify (speaker notes only) | 4 (slides 49, 51, 60, 62) |
+| **Total** | **~73 slides** |
 
 ## Source References
 

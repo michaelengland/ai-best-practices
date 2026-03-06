@@ -78,17 +78,34 @@
 - Attention problem: "Too much. Contradictory. Too broad." (Sombra)
 - "Let AI tell you what it needs." — the clarifying questions technique (Anthropic/Claude)
 - "Not too much. Not too little." — goldilocks principle (CIO)
-- **Skills as persistent context**:
+- **Rules — stop retyping your best ideas**:
   - "You've mastered context. But you're providing it from scratch every time."
-  - Without vs With a Skill: typed-every-time (role, format, tone, audience) vs "Make me a presentation about making a cup of tea." — the skill knows the rest
-  - Skill example: "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template."
+  - "That's like giving your colleague the same briefing every single morning."
+  - Rules = standing instructions written once, followed every time. No retyping.
+  - Rule example (tea thread): "All presentations use billboard design. Max 15 words per slide. Always include speaker notes. Use the company template."
   - "Next time you ask for any presentation — not just tea — she already knows the format."
-  - GPS metaphor: directions every trip vs. GPS that remembers
-  - "Custom instructions = System prompts = Rules = Skills"
+  - Broader examples: "Always reply in British English." "Be concise." "Summaries include three key takeaways."
+  - GPS metaphor: directions every trip vs. GPS that remembers your preferences
   - (CodeConductor)
+- **The A4 problem — when rules fill up**:
+  - Callback to Dory: "Remember your forgetful colleague? Here's what her memory actually looks like."
+  - Visual: Dory with a single piece of A4 paper — her entire memory
+  - Rules go on this page. Always there. Grounding every conversation.
+  - Temptation: put ALL your best prompts and ideas on this page
+  - Problem: the page fills up → she forgets everything → back to nothing. Even before it's full, too much = confusion, contradictions.
+  - "Rules are powerful. But the page is small."
+- **Skills — the on-demand solution**:
+  - "So what happens to all those brilliant workflows that don't fit on the page?"
+  - Skills = instructions in a drawer, pulled out when the task needs them. Don't sit on the A4 page.
+  - "Rules are 'always do this.' Skills are 'here's how, when the time comes.'"
+  - Rule (always loaded): "All presentations use billboard design." — on the A4 page.
+  - Skill (on demand): "How to write a project proposal" — loaded when needed, gone when done.
+  - Skill: "How to summarise meeting notes" — only loaded when summarising.
+  - "The A4 page stays clean. The drawer holds everything else."
+  - "Rules ground every conversation. Skills arrive when needed."
 - Breather transition
-**Emphasis**: High (the Dory introduction and the skills relocation make this the pivotal section)
-**Speaker notes**: The context proof should feel like an "aha." Dory explains why. Skills are the natural conclusion — "do I have to do this every time? No." The tea-specific context (Sage Smart Kettle, blue tin, Dave) makes the generic-vs-specific comparison visceral. GPS metaphor crystallizes the whole section.
+**Emphasis**: High (the Dory/A4 visual is the emotional anchor; the rules→problem→skills arc gives the section a three-act structure)
+**Speaker notes**: The context proof should feel like an "aha." Dory explains why context matters. Rules are the natural conclusion — "do I have to do this every time? No." Then the A4 sheet makes the limitation tangible and visual. The temptation beat creates empathy — "I would have done that too." Skills arrive as the elegant solution. Tea stays in rules (thread continuity), broader examples in skills (shows universality).
 **Transition**: "You talk to AI like a pro. You've set up its playbook. But who's doing all the work? Still you."
 
 **Slide mapping**: Slides 34-44 — scenario swap: context examples now use office kitchen details; skill example now uses billboard presentation defaults
