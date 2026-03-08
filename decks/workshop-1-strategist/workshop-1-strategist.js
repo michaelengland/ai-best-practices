@@ -117,6 +117,45 @@ function exercise(pres, lines, opts = {}) {
   return s;
 }
 
+// Spectrum callback — quick flash, no subtitle
+function spectrum(pres, highlight, opts = {}) {
+  const s = darkSlide(pres);
+  const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
+  const boxW = 1.3, boxH = 0.7, gap = 0.08;
+  const totalW = labels.length * boxW + (labels.length - 1) * gap;
+  const startX = (10 - totalW) / 2;
+  labels.forEach((label, i) => {
+    const x = startX + i * (boxW + gap);
+    const isHighlight = highlight.includes(i);
+    const isBuilder = i === 6;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x, y: 2.2, w: boxW, h: boxH,
+      fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
+      line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
+      rectRadius: 0.08
+    });
+    s.addText(label, {
+      x, y: 2.2, w: boxW, h: boxH,
+      fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+      bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
+    });
+    if (i < labels.length - 1) {
+      s.addText("\u2192", {
+        x: x + boxW, y: 2.2, w: gap, h: boxH,
+        fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
+      });
+    }
+  });
+  if (opts.subtitle) {
+    s.addText(opts.subtitle, {
+      x: 1.0, y: 3.4, w: 8, h: 0.6,
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
+    });
+  }
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+
 // ============================================================
 // MAIN
 // ============================================================
@@ -146,41 +185,10 @@ async function main() {
   }
 
   // --- Slide 2: The Spectrum ---
-  {
-    const s = darkSlide(pres);
-    const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
-    const highlight = [1, 2, 3]; // Explorer, Whisperer, Strategist
-    const boxW = 1.3, boxH = 0.7, gap = 0.08;
-    const totalW = labels.length * boxW + (labels.length - 1) * gap;
-    const startX = (10 - totalW) / 2;
-    labels.forEach((label, i) => {
-      const x = startX + i * (boxW + gap);
-      const isHighlight = highlight.includes(i);
-      const isBuilder = i === 6;
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y: 2.2, w: boxW, h: boxH,
-        fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
-        rectRadius: 0.08
-      });
-      s.addText(label, {
-        x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
-        bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
-      });
-      if (i < labels.length - 1) {
-        s.addText("\u2192", {
-          x: x + boxW, y: 2.2, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
-        });
-      }
-    });
-    s.addText("Two levels in one session", {
-      x: 1.5, y: 3.4, w: 7, h: 0.6,
-      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
-    });
-    s.addNotes("Don't dwell on the spectrum — it's context, not content. Point out where they are (Explorer) and where they'll be (Strategist). Energy: \"We're moving fast today.\"");
-  }
+  spectrum(pres, [1, 2, 3], {
+    subtitle: "Two levels in one session",
+    notes: "Don't dwell on the spectrum — it's context, not content. Point out where they are (Explorer) and where they'll be (Strategist). Energy: \"We're moving fast today.\""
+  });
 
   // --- Slide 3: Words AND Information ---
   hero(pres, "Today we change the words\nAND the information", {
@@ -313,8 +321,13 @@ async function main() {
     notes: "First emotional peak. \"Open your first output and your last output side by side.\" Give a full beat — don't rush past. The transformation is visceral because they did it themselves. Ask: \"Would you have sent the first version to your boss? What about this one?\""
   });
 
+  // --- Slide 17: Spectrum Callback — You're a Whisperer ---
+  spectrum(pres, [1, 2], {
+    notes: "Quick flash — 5 seconds. \"You just crossed from Explorer to Whisperer. Five techniques, one task, dramatic improvement. But we haven't changed what the AI knows yet.\" Don't linger. Move on."
+  });
+
   // ============================================================
-  // SECTION 6: CONTEXT CHANGES EVERYTHING (Slides 17-18)
+  // SECTION 6: CONTEXT CHANGES EVERYTHING (Slides 18-19)
   // ============================================================
 
   // --- Slide 17: We Never Changed What the AI Knew ---
@@ -494,10 +507,10 @@ async function main() {
   // SECTION 10: CLOSING (Slides 28-29)
   // ============================================================
 
-  // --- Slide 28: You're Now a Strategist ---
-  hero(pres, "You're now a Strategist", {
-    size: 54,
-    notes: "Brief graduation moment. \"You don't just talk to AI well — you've set up its playbook.\" But keep it short — this is the halfway point, not the finish line."
+  // --- Slide 30: You're Now a Strategist ---
+  spectrum(pres, [1, 2, 3], {
+    subtitle: "You\u2019re now a Strategist",
+    notes: "Graduation moment — the spectrum fills in. \"You don't just talk to AI well — you've set up its playbook.\" But keep it short — this is the halfway point, not the finish line."
   });
 
   // --- Slide 29: But Who's Doing All the Work? ---

@@ -139,6 +139,45 @@ function bigNum(pres, number, caption, opts = {}) {
   return s;
 }
 
+// Spectrum callback — quick flash, no subtitle by default
+function spectrum(pres, highlight, opts = {}) {
+  const s = darkSlide(pres);
+  const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
+  const boxW = 1.3, boxH = 0.7, gap = 0.08;
+  const totalW = labels.length * boxW + (labels.length - 1) * gap;
+  const startX = (10 - totalW) / 2;
+  labels.forEach((label, i) => {
+    const x = startX + i * (boxW + gap);
+    const isHighlight = highlight.includes(i);
+    const isBuilder = i === 6;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
+      x, y: 2.2, w: boxW, h: boxH,
+      fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
+      line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
+      rectRadius: 0.08
+    });
+    s.addText(label, {
+      x, y: 2.2, w: boxW, h: boxH,
+      fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
+      bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
+    });
+    if (i < labels.length - 1) {
+      s.addText("\u2192", {
+        x: x + boxW, y: 2.2, w: gap, h: boxH,
+        fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
+      });
+    }
+  });
+  if (opts.subtitle) {
+    s.addText(opts.subtitle, {
+      x: 1.0, y: 3.4, w: 8, h: 0.6,
+      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
+    });
+  }
+  if (opts.notes) s.addNotes(opts.notes);
+  return s;
+}
+
 // ============================================================
 // MAIN
 // ============================================================
@@ -168,41 +207,10 @@ async function main() {
   }
 
   // --- Slide 2: The Spectrum ---
-  {
-    const s = darkSlide(pres);
-    const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
-    const highlight = [3, 4, 5]; // Strategist, Operator, Orchestrator
-    const boxW = 1.3, boxH = 0.7, gap = 0.08;
-    const totalW = labels.length * boxW + (labels.length - 1) * gap;
-    const startX = (10 - totalW) / 2;
-    labels.forEach((label, i) => {
-      const x = startX + i * (boxW + gap);
-      const isHighlight = highlight.includes(i);
-      const isBuilder = i === 6;
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y: 2.2, w: boxW, h: boxH,
-        fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
-        rectRadius: 0.08
-      });
-      s.addText(label, {
-        x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
-        bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
-      });
-      if (i < labels.length - 1) {
-        s.addText("\u2192", {
-          x: x + boxW, y: 2.2, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
-        });
-      }
-    });
-    s.addText("Two more levels. By the end, you\u2019re an Orchestrator.", {
-      x: 1.0, y: 3.4, w: 8, h: 0.6,
-      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
-    });
-    s.addNotes("Quick callback to Workshop 1. They crossed Explorer → Strategist last time. Today: Strategist → Orchestrator. \"You talk to AI like a pro. You've set up its playbook. But look at every step of your workflow...\"");
-  }
+  spectrum(pres, [3, 4, 5], {
+    subtitle: "Two more levels. By the end, you\u2019re an Orchestrator.",
+    notes: "Quick callback to Workshop 1. They crossed Explorer → Strategist last time. Today: Strategist → Orchestrator. \"You talk to AI like a pro. You've set up its playbook. But look at every step of your workflow...\""
+  });
 
   // --- Slide 3: The Copy-Paste Trap ---
   stepsSlide(pres, [
@@ -438,8 +446,13 @@ async function main() {
     notes: "End the trust section firmly. \"You review. You judge. You approve. Claude does the grunt work.\" This earns them the right to hand agents more complex work in Act 3 — they've proven they can verify."
   });
 
+  // --- Spectrum Callback — You're an Operator ---
+  spectrum(pres, [3, 4], {
+    notes: "Quick flash — 5 seconds. \"You've handed Claude the keys — email, web, your files. And you've proven you can verify. That makes you an Operator. One more level to go.\" Don't linger. Move on."
+  });
+
   // ============================================================
-  // SECTION 5: THE KITCHEN BRIGADE (Slide 14)
+  // SECTION 5: THE KITCHEN BRIGADE (Slide 15)
   // ============================================================
 
   // --- Slide 14: Many Working Together ---
@@ -564,44 +577,13 @@ async function main() {
     notes: "Chained workflow: Skills handle 1 hour 15 minutes of work. You spend 15 minutes on judgment — reviewing, deciding, approving. \"Same tea presentation. The chain gets smarter every time. Your feedback becomes Skills.\""
   });
 
-  // --- Slide 24: The Full Journey ---
-  {
-    const s = darkSlide(pres);
-    const labels = ["Skeptic", "Explorer", "Whisperer", "Strategist", "Operator", "Orchestrator", "Builder"];
-    const highlight = [1, 2, 3, 4, 5]; // Explorer through Orchestrator
-    const boxW = 1.3, boxH = 0.7, gap = 0.08;
-    const totalW = labels.length * boxW + (labels.length - 1) * gap;
-    const startX = (10 - totalW) / 2;
-    labels.forEach((label, i) => {
-      const x = startX + i * (boxW + gap);
-      const isHighlight = highlight.includes(i);
-      const isBuilder = i === 6;
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, {
-        x, y: 2.2, w: boxW, h: boxH,
-        fill: { color: isHighlight ? D.accent : D.bg, transparency: isHighlight ? 0 : 50 },
-        line: { color: isHighlight ? D.accent : D.muted, width: 1.5, dashType: isBuilder && !isHighlight ? "dash" : "solid" },
-        rectRadius: 0.08
-      });
-      s.addText(label, {
-        x, y: 2.2, w: boxW, h: boxH,
-        fontFace: D.b, fontSize: 11, color: isHighlight ? D.white : D.muted,
-        bold: true, align: "center", margin: 0, valign: "middle", fit: "shrink"
-      });
-      if (i < labels.length - 1) {
-        s.addText("\u2192", {
-          x: x + boxW, y: 2.2, w: gap, h: boxH,
-          fontFace: D.b, fontSize: 11, color: D.muted, align: "center", margin: 0, valign: "middle"
-        });
-      }
-    });
-    s.addText("You started as an Explorer.\nYou\u2019re now an Orchestrator.", {
-      x: 1.0, y: 3.4, w: 8, h: 1.0,
-      fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
-    });
-    s.addNotes("Graduation moment. \"You learned to whisper. You became a strategist. You let Claude operate. You orchestrated the brigade.\" This is the emotional payoff. Make it feel earned — they completed a 2-session AI Academy. Builder is still dimmed — that's the horizon for those who want to go further.");
-  }
+  // --- Slide 26: The Full Journey ---
+  spectrum(pres, [1, 2, 3, 4, 5], {
+    subtitle: "You started as an Explorer.\nYou\u2019re now an Orchestrator.",
+    notes: "Graduation moment. \"You learned to whisper. You became a strategist. You let Claude operate. You orchestrated the brigade.\" This is the emotional payoff. Make it feel earned — they completed a 2-session AI Academy. Builder is still dimmed — that's the horizon for those who want to go further."
+  });
 
-  // --- Slide 25: One Task. This Week. ---
+  // --- Slide 27: One Task. This Week. ---
   hero(pres, "The secret was never in the AI.\nOne task. This week.", {
     size: 40,
     notes: "Final CTA. \"Now go try it — one task, this week.\" Builder tease for the curious: \"And if you want to go further — building integrations, connecting Claude to your actual systems, automating entire workflows — that's the Builder level. That's what's next.\" But don't oversell — most attendees won't go there, and that's fine."
