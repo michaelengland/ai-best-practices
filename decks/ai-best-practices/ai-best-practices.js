@@ -855,7 +855,7 @@ async function main() {
 
   // --- Slide 45: "Same Dory. Now she has hands." ---
   hero(pres, "Same colleague.\nNow she has hands.", {
-    sub: "Eyes, a phone, and a to-do list.",
+    sub: "Eyes, a search engine, and a filing cabinet.",
     notes: "Second Dory touchpoint. Same memory issues, but the agent now has tools. It can read files, search the web, send emails, query databases. The chef metaphor: one great chef who finds ingredients, preps, cooks, and plates. You taste-test at the end. Transition: What tools does she have?"
   });
 
@@ -884,7 +884,21 @@ async function main() {
     s.addNotes("Give Dory a phone, a filing cabinet, and a library card. The six connection types:\n\u2022 Web \u2014 Search and fact-check in real time\n\u2022 Email \u2014 Read context, draft responses\n\u2022 Docs \u2014 Policies, templates, past work\n\u2022 Data \u2014 Query real databases\n\u2022 Calendar \u2014 Scheduling context\n\u2022 Custom \u2014 Via MCP ('USB-C for AI') \u2014 any tool you can imagine\nMCP detail available in appendix for Q&A. Transition: What does this look like in practice?");
   }
 
-  // --- Slide 47: With vs Without (light bg, two columns) ---
+  // --- Slide 47: "Your most powerful source" ---
+  {
+    const s = darkSlide(pres);
+    s.addText("Your most powerful source?", {
+      x: 0.8, y: 0.8, w: 8.4, h: 1.2,
+      fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Your files.", {
+      x: 0.8, y: 2.0, w: 8.4, h: 1.2,
+      fontFace: D.h, fontSize: 54, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addNotes("Six connections, but they\u2019re not equal. Your local files \u2014 company documents, policies, project data, team knowledge \u2014 are the most powerful source because they\u2019re uniquely yours. The web gives generic answers. Your files give answers that sound like someone who works here. Nobody else has your company\u2019s data. That\u2019s your competitive advantage \u2014 and the agent can read it directly. Transition: What does that look like in practice?");
+  }
+
+  // --- Slide 48: With vs Without (light bg, two columns) ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
@@ -911,7 +925,12 @@ async function main() {
     s.addNotes("Without connections: generic tea brewing facts from the web. With connections: agent reads your office kitchen guide, finds the Sage Smart Kettle model, pulls the tea inventory from the shared drive. The agent found context you wouldn\u2019t have thought to provide. Trust beat: 'The agent says oolong steeps for 2 minutes. You check. It\u2019s 3\u20135 minutes. That\u2019s the job \u2014 judgment, not typing.' Transition: But can you trust it?");
   }
 
-  // --- Slide 48: "Trust, but verify." ---
+  // --- Slide 49: "Give Claude the source." ---
+  hero(pres, "Give Claude the source.\nStop being the courier.", {
+    notes: "Name the principle. Every time you copy-paste from a document into Claude, you\u2019re being the courier \u2014 a middleman between the source and the AI. Connect the source directly and you\u2019re out of the loop. The shift: from doing to directing. This is the Operator mindset in one sentence. Transition: But can you trust it?"
+  });
+
+  // --- Slide 50: "Trust, but verify." ---
   {
     const s = darkSlide(pres);
     s.addText("Trust, but verify.", {
