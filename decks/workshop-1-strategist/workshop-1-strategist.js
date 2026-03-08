@@ -362,7 +362,7 @@ async function main() {
   });
 
   // ============================================================
-  // SECTION 8: MAKE IT STICK — RULES (Slides 22-23)
+  // SECTION 8: MAKE IT STICK — RULES (Slides 22-24)
   // ============================================================
 
   // --- Slide 22: Personal Preferences — Your Rules ---
@@ -402,33 +402,65 @@ async function main() {
     notes: "3 minutes to write. Walk the room. Help anyone stuck. Template: \"I work at [company]. My role is [role]. Be radically honest. Challenge my assumptions. Flag uncertainty. When I ask for presentations, default to billboard design — max 15 words per slide, with speaker notes.\" Quick test: open a NEW conversation and ask a question about your work — it already knows your role. Rules = who you are."
   });
 
+  // --- Slide 24: A4 Paper — Her Entire Memory ---
+  {
+    const s = darkSlide(pres);
+    // Large A4 paper — the hero element, centre-left
+    s.addShape(pres.shapes.RECTANGLE, {
+      x: 1.2, y: 0.5, w: 3.2, h: 4.5,
+      fill: { color: "F8F8F8" },
+      shadow: { type: "outer", blur: 10, offset: 4, color: "000000", opacity: 0.3 }
+    });
+    // Rules text on the paper
+    s.addText("Rules\n\n\u2022 Billboard design\n\u2022 British English\n\u2022 Be concise\n\u2022 No jargon", {
+      x: 1.5, y: 0.8, w: 2.6, h: 3.8,
+      fontFace: D.b, fontSize: 16, color: D.darkText, margin: 0, valign: "top"
+    });
+    // "Her entire memory." text — right side
+    s.addText("Her entire memory.", {
+      x: 5.2, y: 0.8, w: 4.2, h: 2.0,
+      fontFace: D.h, fontSize: 48, color: D.white, bold: true, margin: 0, valign: "middle"
+    });
+    // Small Dory image — bottom-right as a subtle callback
+    const doryPath = path.join(__dirname, "..", "ai-best-practices", "assets", "blue-tang-transparent.png");
+    s.addImage({
+      path: doryPath,
+      x: 7.2, y: 3.0, w: 2.2, h: 2.2,
+      sizing: { type: "contain", w: 2.2, h: 2.2 }
+    });
+    s.addNotes("\"You just wrote your rules. Here's what that actually looks like.\" One piece of A4 paper. That's it. Everything she knows right now — your rules, your request, the conversation — fits on this one page. Your rules go on this page. They're always there, grounding every conversation. That's powerful. But the page is small — you need to be selective about what earns a permanent spot. \"So what happens to all those brilliant workflows that don't fit on the page?\"");
+  }
+
   // ============================================================
-  // SECTION 8b: MAKE IT STICK — SKILLS (Slides 24-25)
+  // SECTION 8b: MAKE IT STICK — SKILLS (Slides 25-26)
   // ============================================================
 
-  // --- Slide 24: Skills — How Claude Works ---
-  exercise(pres, [
-    { text: "Rules tell Claude who you are" },
-    { text: "Skills tell Claude how to do things", large: true },
-    { text: "Customize → Skills", small: true }
-  ], {
-    notes: "Navigate to Customize → Skills. Show the built-in Anthropic Skills: presentations, documents, spreadsheets. \"These are reusable workflows. Turn one on and Claude gains a new capability.\" Briefly mention the Skills Directory for the curious. Keep it quick — the exercise is what matters."
+  // --- Slide 25: Skills — From the Drawer ---
+  hero(pres, "Skills live in the drawer.\nPulled onto the page\nwhen needed.\nGone when done.", {
+    size: 36,
+    notes: "Skills. Instructions kept in a drawer, pulled onto the page only when the task needs them. They don't take up memory between tasks. She pulls one out, uses it, puts it back. The page stays clean. Rule example (always on the page): 'All presentations use billboard design.' Skill example (from the drawer): 'How to write a project proposal' — step-by-step workflow loaded when you ask for a proposal, back in the drawer when you don't. Navigate to Customize → Skills. Show the built-in Anthropic Skills: presentations, documents, spreadsheets."
   });
 
-  // --- Slide 25: Your Turn — Enable a Skill ---
+  // --- Slide 26: Your Turn — Enable a Skill ---
   exercise(pres, [
     { text: "Enable the Presentation skill" },
     { text: "Then type: \"Make me a presentation\nabout making a cup of tea\"", large: true },
     { text: "One sentence. It already knows the rest.", small: true }
   ], {
-    notes: "Have them enable the presentation Skill in Customize → Skills, then use it. The aha: they typed one bare sentence and got output that knows who they are (rules) AND how to build a proper presentation (Skill). \"Rules + Skills = a colleague who never forgets who you are or how you work.\""
+    notes: "Have them enable the presentation Skill in Customize → Skills, then use it. The aha: they typed one bare sentence and got output that knows who they are (rules on the page) AND how to build a proper presentation (Skill pulled from the drawer). \"The page told her who you are. The drawer told her how to work.\""
   });
 
   // ============================================================
-  // SECTION 9: THE GRAND REVEAL (Slides 26-27)
+  // SECTION 9: THE GRAND REVEAL (Slides 27-28)
   // ============================================================
 
-  // --- Slide 26: Three Versions. One Task. ---
+  // --- Slide 27: The Page Stays Clean ---
+  hero(pres, "The page stays clean.\nThe drawer holds the rest.", {
+    color: D.accent,
+    notes: "The landing line. Rules earn a permanent spot on the page — only the essentials. Everything else lives in the drawer as Skills, pulled out when relevant. This is the distinction that separates someone who 'uses AI' from someone who has built a system. The page doesn't fill up because Skills come and go. \"Personal preferences = the page. Skills = the drawer. Both compound. Both stack.\""
+  });
+
+  // --- Slide 28: Three Versions. One Task. ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
@@ -456,33 +488,6 @@ async function main() {
       });
     });
     s.addNotes("Second emotional peak — bigger than the first. The three-way comparison shows the full journey. If time is tight, this can be a facilitator demo. Point out: column 1 to 2 was five techniques. Column 2 to 3 was rules + Skills. The second jump required zero effort per conversation.");
-  }
-
-  // --- Slide 27: GPS That Remembers (light bg) ---
-  {
-    const s = pres.addSlide();
-    s.background = { color: D.lightBg };
-    // Left column
-    s.addText("Directions\nevery trip", {
-      x: 0.5, y: 1.5, w: 4.2, h: 1.2,
-      fontFace: D.h, fontSize: 32, color: D.wrong, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Effort. Every. Time.", {
-      x: 0.5, y: 2.8, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 22, color: D.muted, align: "center", margin: 0, valign: "top"
-    });
-    // Divider
-    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 3.6, line: { color: D.muted, width: 1 } });
-    // Right column
-    s.addText("GPS that\nremembers", {
-      x: 5.3, y: 1.5, w: 4.2, h: 1.2,
-      fontFace: D.h, fontSize: 32, color: D.right, bold: true, align: "center", margin: 0, valign: "middle"
-    });
-    s.addText("Compounds permanently.", {
-      x: 5.3, y: 2.8, w: 4.2, h: 0.8,
-      fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top"
-    });
-    s.addNotes("GPS metaphor cements the concept. Prompt engineering = giving directions every trip. Rules + Skills = a GPS that remembers your preferences AND knows every road. \"Personal preferences, custom Skills, org Skills — all compound. All stack.\"");
   }
 
   // ============================================================

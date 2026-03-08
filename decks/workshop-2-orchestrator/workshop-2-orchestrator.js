@@ -504,7 +504,7 @@ async function main() {
       x: 1.0, y: 3.8, w: 8, h: 0.6,
       fontFace: D.b, fontSize: 20, color: D.muted, italic: true, align: "center", margin: 0
     });
-    s.addNotes("The Workshop 1 callback. In the last session they set up personal preferences (rules) and enabled Skills. Each org Skill in the chain is the same idea taken further — specific instructions for a specific role with a specific job. They've been building persistent context since last session; now each agent gets its own.");
+    s.addNotes("The Workshop 1 callback. In the last session they set up rules (on the page) and pulled Skills from the drawer. Each org Skill in the chain is the same idea taken further — each agent gets its own drawer, its own expertise. They've been building persistent context since last session; now each step in the chain gets its own playbook.");
   }
 
   // --- Slide 20: Your Turn — Look Under the Hood ---
@@ -519,7 +519,7 @@ async function main() {
   // --- Slide 21: The Skill Will ---
   hero(pres, "Claude won't remember.\nBut the Skill will.", {
     size: 44,
-    notes: "Emotional climax. Give this a full beat. \"And as an org Skill, when you improve it, everyone benefits.\" This is the payoff of the entire skills arc that started in Workshop 1. For Pro plan audiences: \"Every future use benefits.\""
+    notes: "Emotional climax. Give this a full beat. \"And as an org Skill, when you improve it, everyone benefits.\" This is the payoff of the entire skills arc that started in Workshop 1. The drawer gets better every time you edit a SKILL.md — and it's everyone's drawer. For Pro plan audiences: \"Every future use benefits.\""
   });
 
   // ============================================================
