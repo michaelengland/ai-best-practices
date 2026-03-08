@@ -4,18 +4,19 @@
 
 ## Overview
 
-- **Audience**: People who have tried ChatGPT but use it like a search engine. They type vague prompts, get mediocre results, and blame the AI. Young, tech-savvy, but not engineers.
-- **Purpose**: By the end, attendees can transform a vague prompt into a professional-quality one, understand that context matters more than phrasing, and have set up their first custom instruction (skill) in ChatGPT. They should feel the difference in real time — twice.
-- **Key message**: Better words produce better results. Better information produces dramatically better results. Skills make it permanent.
-- **Framework**: Show → Do → Compare (iterative rounds), then pivot to context engineering and skills
+- **Audience**: People who have tried Claude but use it like a search engine. They type vague prompts, get mediocre results, and blame the AI. Young, tech-savvy, but not engineers.
+- **Purpose**: By the end, attendees can transform a vague prompt into a professional-quality one, understand that context matters more than phrasing, and have set up personal preferences (rules) and enabled Skills (workflows) so Claude already knows who they are and how they work. They should feel the difference in real time — twice.
+- **Key message**: Better words produce better results. Better information produces dramatically better results. Rules and Skills make it permanent.
+- **Framework**: Show → Do → Compare (iterative rounds), then pivot to context engineering, then rules + Skills
 - **Tone**: Fast-paced lab. "Let's try it together" energy. No lectures — every concept is immediately practiced.
-- **Format**: ~35 slides, ~55 min effective (1 hr session). Billboard design. **ChatGPT Org** — everyone already has this.
+- **Format**: ~35 slides, ~55 min effective (1 hr session). Billboard design. **Claude** (Team or Enterprise) — everyone already has this.
 
 ## Tool Requirements
 
-This workshop uses **ChatGPT Org**, which all attendees have access to. No additional setup or accounts required.
+This workshop uses **Claude** (claude.ai), which all attendees have access to via a Team or Enterprise plan. No additional setup or accounts required.
 
-- **Privacy**: Org conversations are not used to train ChatGPT — safe for company data
+- **Privacy**: Team and Enterprise conversations are not used to train Claude — safe for company data
+- **Note for Pro plan audiences**: All exercises work identically. Personal preferences work the same way across all paid plans.
 
 ## Session Structure
 
@@ -27,7 +28,7 @@ This workshop uses **ChatGPT Org**, which all attendees have access to. No addit
 
 ### Exercise Setup (2 min)
 
-- "Open ChatGPT on your laptop. We're going to transform the same task — first the words, then the information."
+- "Open Claude on your laptop. We're going to transform the same task — first the words, then the information."
 - Prescribe the task OR let them choose: "Pick a real task you do at work — a presentation, an email, a summary, a plan."
 - **Prescribed fallback**: "Make me a presentation about making a cup of tea."
 
@@ -38,7 +39,7 @@ This workshop uses **ChatGPT Org**, which all attendees have access to. No addit
 ### Round 1: The Baseline (3 min)
 
 - **Teach** (30 sec): "Most people type something vague and hope for the best. Let's see what that gets us."
-- **Exercise**: Type your vague, natural prompt into ChatGPT. Read the output.
+- **Exercise**: Type your vague, natural prompt into Claude. Read the output.
 - **Discuss**: "Sound familiar? Generic. Surface-level. Could be for any company."
 
 ### Round 2: Assign a Role (3 min)
@@ -116,27 +117,32 @@ This workshop uses **ChatGPT Org**, which all attendees have access to. No addit
 
 ## Act 3: Make It Stick (~12 min)
 
-### Exercise 9: Set Up Your First Skill (8 min)
+### Exercise 9: Set Up Your Rules (4 min)
 
-- **Teach** (2 min): Walk through ChatGPT's Custom Instructions settings. Screen-share the location: Settings → Personalisation → Custom Instructions. Wait for everyone to find it.
-- **Exercise** (4 min): Set up a custom instruction:
+- **Teach** (1 min): Walk through Claude's personal preferences. Screen-share the location: Settings → General → Personal preferences. Wait for everyone to find it. "This is where you tell Claude who you are — once. These are your *rules*. Every conversation after this already knows."
+- **Exercise** (3 min): Write personal preferences:
   - "I work at [company]. My role is [role]."
-  - "When creating presentations, use billboard design — max 15 words per slide, with speaker notes. Tone: [style]. Audience: [who]."
   - "Be radically honest. Challenge my assumptions. Flag uncertainty."
-- **Test it** (2 min): Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: "Make me a presentation about making a cup of tea."
-- **The aha**: "You typed one sentence. It already knew the rest."
+  - "When I ask for presentations, default to billboard design — max 15 words per slide, with speaker notes."
+- **Quick test**: Open a NEW conversation. Ask a question about your work. Notice it already knows your role and company.
+
+### Exercise 10: Enable Your First Skill (4 min)
+
+- **Teach** (1 min): "Rules tell Claude who you are. Skills tell Claude how to do things." Navigate to Customize → Skills. Show the built-in Anthropic Skills: presentations, documents, spreadsheets. "These are reusable workflows. Turn one on and Claude gains a new capability."
+- **Exercise** (2 min): Enable a relevant built-in Skill (e.g., the PowerPoint presentation Skill). Then in the SAME conversation from Exercise 9, type: "Make me a presentation about making a cup of tea."
+- **The aha** (1 min): "You typed one sentence. It already knew who you are (rules), and it knows how to build a proper presentation (Skill). Rules + Skills = a colleague who never forgets."
 
 ### The Grand Reveal (2 min)
 
-- Three outputs side by side: Vague → Well-prompted → Skill-enhanced.
+- Three outputs side by side: Vague → Well-prompted → Rules + Skills.
 - "Same task. Three versions. Each one dramatically better."
 - This is the second emotional peak — and it's bigger than the first.
 
 ### The GPS Metaphor (1 min)
 
-- "Prompt engineering = giving directions every trip. Skills = a GPS that remembers."
+- "Prompt engineering = giving directions every trip. Rules + Skills = a GPS that remembers your preferences AND knows every road."
 - "One requires effort every time. The other compounds permanently."
-- "Custom instructions, system prompts, project rules — all the same thing. All skills."
+- "Personal preferences, custom Skills, org Skills — all compound. All stack."
 
 ---
 
@@ -149,8 +155,9 @@ This workshop uses **ChatGPT Org**, which all attendees have access to. No addit
 ## Notes
 
 - **Pacing for tech-savvy audiences**: The six prompt rounds should move fast — 30 seconds of teaching, 2 minutes of doing. Don't linger. The cumulative effect matters more than any single round. If the group is flying, tighten the rounds; if they're exploring, let them breathe.
-- **Running example consistency**: Attendees should save their final prompt and custom instructions. These carry forward to Workshop 2.
-- **Exercise 9 is the linchpin**: If setting up custom instructions stalls (people struggling with settings), the session stalls. Prepare a screen-share walkthrough. Verify the ChatGPT settings location before the session — it changes periodically.
+- **Running example consistency**: Attendees should save their final prompt, personal preferences, and enabled Skills. These carry forward to Workshop 2.
+- **Exercises 9-10 are the linchpin**: If setting up preferences or finding Skills stalls, the session stalls. Prepare screen-share walkthroughs for both paths: Settings → General → Personal preferences, and Customize → Skills. Verify both before the session — UI may shift between Claude updates.
 - **Prescribed vs. free choice**: Free choice is more engaging but harder to support. Recommend offering both: "Use your own task, or follow along with our example."
-- **The two emotional peaks**: The first reveal (Round 6 vs baseline) shows the power of words. The grand reveal (skill-enhanced vs baseline) shows the power of information. The second should feel bigger — if it doesn't, the context wasn't specific enough. Coach the room during Exercise 7.
-- **If time is tight**: The grand reveal (three-way comparison) can become a facilitator demo instead of individual exercise. Don't cut the custom instructions setup — that's the takeaway they'll use tomorrow.
+- **The two emotional peaks**: The first reveal (Round 6 vs baseline) shows the power of words. The grand reveal (Rules + Skills vs baseline) shows the power of persistent context and capabilities. The second should feel bigger — if it doesn't, the context wasn't specific enough. Coach the room during Exercise 7.
+- **If time is tight**: The grand reveal (three-way comparison) can become a facilitator demo instead of individual exercise. Don't cut the rules + Skills setup — that's the takeaway they'll use tomorrow. If truly pressed, combine Exercises 9 and 10 into one walkthrough.
+- **Preview Workshop 2**: Rules tell Claude who *you* are. Skills tell Claude how to *do things*. In Workshop 2, each step in a chain gets its own specialized Skill — a whole team, each with its own expertise.

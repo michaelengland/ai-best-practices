@@ -142,7 +142,7 @@ async function main() {
       x: 1.5, y: 3.5, w: 7, h: 0.6,
       fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
     });
-    s.addNotes("Workshop 1 of 2 in the AI Academy series. 1 hour, hands-on. Everyone needs ChatGPT Org open on their laptop.");
+    s.addNotes("Workshop 1 of 2 in the AI Academy series. 1 hour, hands-on. Everyone needs Claude open on their laptop.");
   }
 
   // --- Slide 2: The Spectrum ---
@@ -194,12 +194,12 @@ async function main() {
 
   // --- Slide 4: Pick Your Task ---
   exercise(pres, [
-    { text: "Open ChatGPT on your laptop", large: true },
+    { text: "Open Claude on your laptop", large: true },
     { text: "Pick a real task from your work" },
     { text: "a proposal, an email, a summary, a plan", small: true },
     { text: "Or use: \"Make me a presentation about making a cup of tea\"", small: true }
   ], {
-    notes: "60 seconds to open ChatGPT and think of a task. Offer both free choice and the prescribed option. Walk the room — make sure everyone's ready. This task carries through the entire session and into Workshop 2."
+    notes: "60 seconds to open Claude and think of a task. Offer both free choice and the prescribed option. Walk the room — make sure everyone's ready. This task carries through the entire session and into Workshop 2."
   });
 
   // ============================================================
@@ -344,7 +344,7 @@ async function main() {
       x: 5.0, y: 1.5, w: 4.5, h: 2.5,
       fontFace: D.h, fontSize: 44, color: D.white, bold: true, align: "left", margin: 0, valign: "middle"
     });
-    s.addNotes("The Dory image should get a laugh — let it land. \"Every conversation starts from scratch. She doesn't know your company, your role, or what you told her yesterday.\" This is the memory problem that custom instructions solve.");
+    s.addNotes("The Dory image should get a laugh — let it land. \"Every conversation starts from scratch. She doesn't know your company, your role, or what you told her yesterday.\" This is the memory problem that rules and Skills solve.");
   }
 
   // --- Slide 20: Your Turn — Let AI Ask ---
@@ -362,13 +362,13 @@ async function main() {
   });
 
   // ============================================================
-  // SECTION 8: CUSTOM INSTRUCTIONS (Slides 22-24)
+  // SECTION 8: MAKE IT STICK — RULES (Slides 22-23)
   // ============================================================
 
-  // --- Slide 22: Custom Instructions Path ---
+  // --- Slide 22: Personal Preferences — Your Rules ---
   {
     const s = darkSlide(pres);
-    const steps = ["Settings", "Personalisation", "Custom Instructions"];
+    const steps = ["Settings", "General", "Personal preferences"];
     const stepW = 2.8, gap = 0.2, arrowW = 0.3;
     const totalW = steps.length * stepW + (steps.length - 1) * (gap + arrowW);
     const startX = (10 - totalW) / 2;
@@ -391,28 +391,44 @@ async function main() {
         });
       }
     });
-    s.addNotes("Screen-share this walkthrough. Wait for everyone to find it. Verify the exact path before the session — ChatGPT moves this periodically. This is the linchpin exercise: if setup stalls, the session stalls.");
+    s.addNotes("Screen-share this walkthrough. Wait for everyone to find it. \"This is where you tell Claude who you are — once. These are your rules.\" Verify the exact path before the session — Claude may move this periodically.");
   }
 
-  // --- Slide 23: Your Turn — Set Up Your Skill ---
+  // --- Slide 23: Your Turn — Write Your Rules ---
   exercise(pres, [
-    { text: "Write your custom instruction:" },
-    { text: "\"I work at [company]. My role is [role].\nFormat: [format]. Tone: [style].\nBe radically honest. Challenge my assumptions.\"", large: false }
+    { text: "Write your personal preferences:" },
+    { text: "\"I work at [company]. My role is [role].\nBe radically honest. Challenge my assumptions.\"", large: false }
   ], {
-    notes: "4 minutes to write. Walk the room. Help anyone stuck. Then test: \"Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: 'Make me a presentation about making a cup of tea.'\" Must be a new conversation — if they test in the same one, the aha doesn't land."
-  });
-
-  // --- Slide 24: One Sentence. It Already Knew. ---
-  hero(pres, "You typed one sentence.\nIt already knew the rest.", {
-    size: 44,
-    notes: "The aha moment. They typed a bare task with zero context and got output that already knows their role, company, format, and tone. \"That's a skill. You set it up once. It works forever.\""
+    notes: "3 minutes to write. Walk the room. Help anyone stuck. Template: \"I work at [company]. My role is [role]. Be radically honest. Challenge my assumptions. Flag uncertainty. When I ask for presentations, default to billboard design — max 15 words per slide, with speaker notes.\" Quick test: open a NEW conversation and ask a question about your work — it already knows your role. Rules = who you are."
   });
 
   // ============================================================
-  // SECTION 9: THE GRAND REVEAL (Slides 25-26)
+  // SECTION 8b: MAKE IT STICK — SKILLS (Slides 24-25)
   // ============================================================
 
-  // --- Slide 25: Three Versions. One Task. ---
+  // --- Slide 24: Skills — How Claude Works ---
+  exercise(pres, [
+    { text: "Rules tell Claude who you are" },
+    { text: "Skills tell Claude how to do things", large: true },
+    { text: "Customize → Skills", small: true }
+  ], {
+    notes: "Navigate to Customize → Skills. Show the built-in Anthropic Skills: presentations, documents, spreadsheets. \"These are reusable workflows. Turn one on and Claude gains a new capability.\" Briefly mention the Skills Directory for the curious. Keep it quick — the exercise is what matters."
+  });
+
+  // --- Slide 25: Your Turn — Enable a Skill ---
+  exercise(pres, [
+    { text: "Enable the Presentation skill" },
+    { text: "Then type: \"Make me a presentation\nabout making a cup of tea\"", large: true },
+    { text: "One sentence. It already knows the rest.", small: true }
+  ], {
+    notes: "Have them enable the presentation Skill in Customize → Skills, then use it. The aha: they typed one bare sentence and got output that knows who they are (rules) AND how to build a proper presentation (Skill). \"Rules + Skills = a colleague who never forgets who you are or how you work.\""
+  });
+
+  // ============================================================
+  // SECTION 9: THE GRAND REVEAL (Slides 26-27)
+  // ============================================================
+
+  // --- Slide 26: Three Versions. One Task. ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
@@ -423,7 +439,7 @@ async function main() {
     const cols = [
       { title: "Vague", sub: "Explorer", color: D.wrong },
       { title: "Well-prompted", sub: "Whisperer", color: D.accent },
-      { title: "Skill-enhanced", sub: "Strategist", color: D.right }
+      { title: "Rules + Skills", sub: "Strategist", color: D.right }
     ];
     const colW = 2.7, gap = 0.3, startX = 0.5;
     cols.forEach((col, i) => {
@@ -439,10 +455,10 @@ async function main() {
         fontFace: D.b, fontSize: 14, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
       });
     });
-    s.addNotes("Second emotional peak — bigger than the first. The three-way comparison shows the full journey. If time is tight, this can be a facilitator demo. Point out: column 1 to 2 was five techniques. Column 2 to 3 was custom instructions. The second jump required zero effort per conversation.");
+    s.addNotes("Second emotional peak — bigger than the first. The three-way comparison shows the full journey. If time is tight, this can be a facilitator demo. Point out: column 1 to 2 was five techniques. Column 2 to 3 was rules + Skills. The second jump required zero effort per conversation.");
   }
 
-  // --- Slide 26: GPS That Remembers (light bg — matches ai-best-practices Slide 43) ---
+  // --- Slide 27: GPS That Remembers (light bg) ---
   {
     const s = pres.addSlide();
     s.background = { color: D.lightBg };
@@ -466,23 +482,23 @@ async function main() {
       x: 5.3, y: 2.8, w: 4.2, h: 0.8,
       fontFace: D.b, fontSize: 22, color: D.accent, align: "center", margin: 0, valign: "top"
     });
-    s.addNotes("GPS metaphor cements the concept. Prompt engineering = giving directions every trip. Skills = a GPS that remembers your preferences. \"Custom instructions, system prompts, project rules — all the same thing. All skills. All compound.\"");
+    s.addNotes("GPS metaphor cements the concept. Prompt engineering = giving directions every trip. Rules + Skills = a GPS that remembers your preferences AND knows every road. \"Personal preferences, custom Skills, org Skills — all compound. All stack.\"");
   }
 
   // ============================================================
-  // SECTION 10: CLOSING (Slides 27-28)
+  // SECTION 10: CLOSING (Slides 28-29)
   // ============================================================
 
-  // --- Slide 27: You're Now a Strategist ---
+  // --- Slide 28: You're Now a Strategist ---
   hero(pres, "You're now a Strategist", {
     size: 54,
     notes: "Brief graduation moment. \"You don't just talk to AI well — you've set up its playbook.\" But keep it short — this is the halfway point, not the finish line."
   });
 
-  // --- Slide 28: But Who's Doing All the Work? ---
+  // --- Slide 29: But Who's Doing All the Work? ---
   hero(pres, "But who's doing\nall the work?\nStill you.", {
     size: 48,
-    notes: "The cliffhanger. \"You search, you paste, you copy, you apply. Every step has 'you' in it.\" This should sting — they just felt the power of skills, but they're still the bottleneck. \"Next time: Strategist → Orchestrator. We hand the AI the keys — and build it a team.\" Remind: save your prompt and custom instructions — they carry forward."
+    notes: "The cliffhanger. \"You search, you paste, you copy, you apply. Every step has 'you' in it.\" This should sting — they just felt the power of rules + Skills, but they're still the bottleneck. \"Next time: Strategist → Orchestrator. We hand the AI the keys — and build it a team.\" Plant the seed: \"Rules tell Claude who you are. Skills tell Claude how to work. Next time, each step in a chain gets its own specialized Skill — a whole team.\" Remind: save your prompt, preferences, and enabled Skills — they carry forward."
   });
 
   // ============================================================

@@ -86,7 +86,7 @@ function exercise(pres, lines, opts = {}) {
   return s;
 }
 
-// Four-step horizontal flow — matches ai-best-practices chain flow (Slide 54)
+// Four-step horizontal flow
 function stepsSlide(pres, steps, opts = {}) {
   const s = darkSlide(pres);
   const boxW = 1.8, boxH = 0.9, gap = 0.6;
@@ -123,7 +123,7 @@ function stepsSlide(pres, steps, opts = {}) {
   return s;
 }
 
-// Giant number — matches ai-best-practices bigNum
+// Giant number
 function bigNum(pres, number, caption, opts = {}) {
   const s = darkSlide(pres);
   s.addText(number, {
@@ -164,7 +164,7 @@ async function main() {
       x: 1.5, y: 3.5, w: 7, h: 0.6,
       fontFace: D.b, fontSize: 22, color: D.muted, italic: true, align: "center", margin: 0
     });
-    s.addNotes("Workshop 2 of 2 in the AI Academy series. 1 hour, hands-on. Everyone needs ChatGPT Org open on their laptop. Pre-req: facilitator must have enabled Gmail/apps in Workspace Settings → Apps and created three Custom GPTs (Research, Draft, Review) published to the org workspace.");
+    s.addNotes("Workshop 2 of 2 in the AI Academy series. 1 hour, hands-on. Everyone needs Claude open on their laptop. Pre-req: facilitator must have created and provisioned three org Skills (Research, Draft, Review) before the session.");
   }
 
   // --- Slide 2: The Spectrum ---
@@ -212,7 +212,7 @@ async function main() {
     { label: "You apply", highlight: true }
   ], {
     subtitle: "Every step has \"you\" in it",
-    notes: "Make the pattern visible: every step has \"you\" as the bottleneck. They've been doing this since Workshop 1 — prompting well, using skills, but still manually searching, copying, pasting, and applying. The four steps should feel painfully familiar."
+    notes: "Make the pattern visible: every step has \"you\" as the bottleneck. They've been doing this since Workshop 1 — prompting well, using rules and Skills, but still manually searching, copying, pasting, and applying. The four steps should feel painfully familiar."
   });
 
   // --- Slide 4: Ferrari. Groceries. ---
@@ -223,76 +223,133 @@ async function main() {
 
   // --- Slide 5: The Agent Way ---
   stepsSlide(pres, [
-    { label: "Agent retrieves", highlight: false },
-    { label: "Agent identifies", highlight: false },
-    { label: "Agent creates", highlight: false },
+    { label: "Claude retrieves", highlight: false },
+    { label: "Claude identifies", highlight: false },
+    { label: "Claude creates", highlight: false },
     { label: "You review", highlight: true }
   ], {
     subtitle: "Same four steps. You only appear at step 4.",
-    notes: "Mirror the copy-paste trap slide exactly — same layout, same four steps — but now the first three say \"Agent\" instead of \"You.\" The visual parallel makes the shift concrete. \"Same colleague from Workshop 1. Now she has hands — eyes, a phone, and a to-do list.\""
+    notes: "Mirror the copy-paste trap slide exactly — same layout, same four steps — but now the first three say \"Claude\" instead of \"You.\" The visual parallel makes the shift concrete. \"Same colleague from Workshop 1. Now she has hands — eyes, a search engine, and a filing cabinet.\""
   });
 
   // ============================================================
-  // SECTION 2: YOUR FIRST AGENT TASK (Slide 6)
+  // SECTION 2: CONNECT & REACH (Slides 6-11)
   // ============================================================
 
-  // --- Slide 6: Your Turn — Upload and Summarise ---
-  exercise(pres, [
-    { text: "Open ChatGPT. Upload a document.", large: true },
-    { text: "Paperclip icon or drag and drop.", small: true },
-    { text: "\"Read this document and write a one-paragraph summary for a non-technical audience.\"" }
-  ], {
-    notes: "Quick warm-up exercise. Have a sample document ready for anyone without their own. The point isn't summary quality — it's that they didn't copy-paste anything. ChatGPT read the file directly. Mention: ChatGPT Org doesn't use conversations for training — company documents are safe. Ask: \"How long would that have taken you manually?\""
-  });
-
-  // ============================================================
-  // SECTION 3: CONNECTIONS (Slides 7-9)
-  // ============================================================
-
-  // --- Slide 7: What an Agent Can Reach (icon row — matches ai-best-practices Slide 46) ---
+  // --- Slide 6: Connect Gmail ---
   {
     const s = darkSlide(pres);
-    s.addText("An agent is only as useful\nas what it can reach", {
-      x: 0.8, y: 0.4, w: 8.4, h: 1.2,
+    s.addText("Connect Gmail to Claude", {
+      x: 0.8, y: 0.5, w: 8.4, h: 1.0,
       fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
     });
-    const iconsDir = path.join(__dirname, "..", "ai-best-practices", "icons");
-    const connections = [
-      { icon: "envelopeW.png", label: "Email" },
-      { icon: "calendarW.png", label: "Calendar" },
-      { icon: "fileW.png", label: "Files" },
-      { icon: "puzzleW.png", label: "Chat" },
-      { icon: "globeW.png", label: "Web" },
-      { icon: "arrowW.png", label: "Custom" },
+    const steps = [
+      { num: "1", text: "Click  +  in the chat input" },
+      { num: "2", text: "Hover Connectors" },
+      { num: "3", text: "Toggle Gmail on" },
+      { num: "4", text: "Authenticate with Google" }
     ];
-    const iconSize = 0.8;
-    const totalW = connections.length * 1.4 - 0.2;
-    const startX = (10 - totalW) / 2;
-    connections.forEach((c, i) => {
-      const x = startX + i * 1.4;
-      s.addImage({ path: path.join(iconsDir, c.icon), x: x + (1.2 - iconSize) / 2, y: 1.8, w: iconSize, h: iconSize });
-      s.addText(c.label, {
-        x: x - 0.1, y: 2.8, w: 1.4, h: 0.6,
-        fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
+    steps.forEach((step, i) => {
+      const y = 1.8 + i * 0.7;
+      s.addText(step.num, {
+        x: 2.0, y, w: 0.6, h: 0.5,
+        fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      s.addText(step.text, {
+        x: 2.8, y, w: 5, h: 0.5,
+        fontFace: D.b, fontSize: 22, color: D.text, align: "left", margin: 0, valign: "middle"
       });
     });
-    s.addNotes("Real examples from their world: Monday morning email triage (Email), meeting prep from calendar invites (Calendar), finding that doc someone mentioned in Slack (Chat + Files), researching a competitor (Web). These aren't hypothetical — they're the tasks that eat their mornings.");
+    s.addNotes("Screen-share this walkthrough. Pre-req: an Owner or Primary Owner must enable Google Workspace connectors at Organization Settings → Capabilities before the session. Walk the room — make sure everyone authenticates successfully. If someone can't connect, they'll use web search only for Exercise 1. This should take 1-2 minutes.");
   }
 
-  // --- Slide 8: Your Turn — Agent Mode ---
+  // --- Slide 7: Exercise 1 — Email + Web Search ---
   exercise(pres, [
-    { text: "Switch to agent mode:" },
-    { text: "Tools menu → Agent (or type /agent)", small: true },
-    { text: "\"@Gmail Summarise my last 5 unread emails and flag anything that needs a response today\"" }
+    { text: "\"Summarise my latest unread email\"", large: true },
+    { text: "then", small: true },
+    { text: "\"Search the web for more on this\"", large: true }
   ], {
-    notes: "Pre-req: Gmail must be enabled in Workspace Settings → Apps by admin. Verify this works before the session — the UI changes periodically. Walk the room. If anyone can't access agent mode, have them pair with a neighbour. The exercise should take 2-3 minutes."
+    notes: "Two sequential prompts in the same conversation — not one multi-step prompt (reinforces Workshop 1's \"One Task at a Time\" rule). The magic: they never opened Gmail, never opened Google, and Claude already has context from the email when it does the search. \"This\" naturally refers to whatever the email was about. If someone couldn't connect Gmail, they skip to the second prompt with their own topic. Ask after: \"How long would that have taken you manually? Open Gmail, read the email, open Google, read 10 articles, summarise...\""
   });
 
-  // --- Slide 9: You Just Asked ---
-  hero(pres, "You didn't search.\nYou didn't paste.\nYou just asked.", {
+  // --- Slide 8: You Just Asked ---
+  hero(pres, "You didn't open Gmail.\nYou didn't open Google.\nYou just asked.", {
     size: 44,
-    notes: "The reveal moment. They gave the agent access to their inbox, and it did the work. No copy-paste. That's the shift: from doing to directing. Ask: \"How long does this normally take you on a Monday morning?\" Let the comparison sink in."
+    notes: "The first reveal moment. They connected a source (Gmail) and Claude reached two places — their inbox and the web — without a single copy-paste. That's the shift: from being the courier to being the director. Let the comparison sink in."
   });
+
+  // --- Slide 9: Cowork — Work in a Folder ---
+  {
+    const s = darkSlide(pres);
+    s.addText("Your most powerful source", {
+      x: 0.8, y: 0.4, w: 8.4, h: 0.8,
+      fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    s.addText("Your files.", {
+      x: 0.8, y: 1.2, w: 8.4, h: 0.8,
+      fontFace: D.h, fontSize: 44, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    const coworkSteps = [
+      { num: "1", text: "Open the Cowork tab" },
+      { num: "2", text: "Check \"Work in a Folder\"" },
+      { num: "3", text: "Select a folder on your Mac" },
+      { num: "4", text: "Grant access" }
+    ];
+    coworkSteps.forEach((step, i) => {
+      const y = 2.4 + i * 0.65;
+      s.addText(step.num, {
+        x: 2.0, y, w: 0.6, h: 0.5,
+        fontFace: D.h, fontSize: 22, color: D.accent, bold: true, align: "center", margin: 0, valign: "middle"
+      });
+      s.addText(step.text, {
+        x: 2.8, y, w: 5, h: 0.5,
+        fontFace: D.b, fontSize: 20, color: D.text, align: "left", margin: 0, valign: "middle"
+      });
+    });
+    s.addNotes("Screen-share the Cowork setup. \"Your files are your most powerful source — nobody else has them. Your company data, your documents, your context. Let's give Claude direct access.\" Walk the room. Have a sample folder ready (with a policy doc, a data file, a memo) for anyone who doesn't have a suitable folder. Best practice: create or use a dedicated working folder rather than granting access to broad directories.");
+  }
+
+  // --- Slide 10: Exercise 2 — Cowork with Local Files ---
+  exercise(pres, [
+    { text: "In Cowork, try:" },
+    { text: "\"Read everything in this folder\nand write me a one-page\nexecutive summary\"", large: true },
+    { text: "You didn't open a single file.", small: true }
+  ], {
+    notes: "This is the bigger wow. Claude reads multiple files from their Mac — not uploaded, not copy-pasted, just... there. Cowork runs in a sandboxed VM so their files are safe. Have a sample folder with 2-3 documents ready for anyone without their own. Ask: \"How long would it take you to read three documents and write a summary?\" If time is tight, this can be a facilitator demo — but the individual experience is much stronger."
+  });
+
+  // --- Slide 11: What Claude Can Reach ---
+  {
+    const s = darkSlide(pres);
+    s.addText("Give Claude the source.\nStop being the courier.", {
+      x: 0.8, y: 0.4, w: 8.4, h: 1.0,
+      fontFace: D.h, fontSize: 36, color: D.white, bold: true, align: "center", margin: 0, valign: "middle"
+    });
+    const caps = [
+      { label: "Your email", example: "Gmail connector" },
+      { label: "The web", example: "Built-in search" },
+      { label: "Your files", example: "Cowork" }
+    ];
+    const capW = 2.6, capGap = 0.3;
+    const capTotalW = caps.length * capW + (caps.length - 1) * capGap;
+    const capStartX = (10 - capTotalW) / 2;
+    caps.forEach((cap, i) => {
+      const x = capStartX + i * (capW + capGap);
+      s.addText(cap.label, {
+        x, y: 2.0, w: capW, h: 0.7,
+        fontFace: D.h, fontSize: 26, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
+      });
+      s.addShape(pres.shapes.RECTANGLE, {
+        x: x + capW * 0.25, y: 2.85, w: capW * 0.5, h: 0.04,
+        fill: { color: D.accent }
+      });
+      s.addText(cap.example, {
+        x, y: 3.05, w: capW, h: 0.5,
+        fontFace: D.b, fontSize: 18, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
+      });
+    });
+    s.addNotes("This slide names what they just experienced. Three sources, zero copy-paste. The principle: give Claude the source, stop being the courier. And there's more — Google Drive, Slack, Calendar, and other integrations are all connectable. These three are just the start.");
+  }
 
   // ============================================================
   // SECTION 4: TRUST, BUT VERIFY (Slides 10-13)
@@ -309,7 +366,7 @@ async function main() {
       "Never trust numbers you didn't provide",
       "Verify claims against sources",
       "Use AI for drafts, not decisions",
-      "Privacy ≠ accuracy"
+      "Privacy \u2260 accuracy"
     ];
     rules.forEach((rule, i) => {
       s.addText(rule, {
@@ -321,12 +378,12 @@ async function main() {
         fill: { color: D.accent }
       });
     });
-    s.addNotes("Transition to trust. This is the most important mindset shift in the entire series. Four simple rules. The last one catches people: ChatGPT Org's privacy guarantee means your data isn't used for training, but that says nothing about whether the output is accurate. Don't conflate safety with correctness.");
+    s.addNotes("Transition to trust. This is the most important mindset shift in the entire series. Four simple rules. The last one catches people: Claude Team/Enterprise's privacy guarantee means your data isn't used for training, but that says nothing about whether the output is accurate. Don't conflate safety with correctness.");
   }
 
   // --- Slide 11: Your Turn — Verify ---
   exercise(pres, [
-    { text: "Pick one claim or number\nfrom the agent's output" },
+    { text: "Pick one claim or number\nfrom Claude's output" },
     { text: "Verify it manually", large: true },
     { text: "Was it accurate? Did anything \"feel right\" but turn out wrong?", small: true }
   ], {
@@ -341,7 +398,7 @@ async function main() {
       fontFace: D.h, fontSize: 40, color: D.white, bold: true, italic: true, align: "center", margin: 0, valign: "middle"
     });
     s.addText([
-      { text: "— Replit AI agent incident, July 2025", options: { hyperlink: { url: "https://www.theregister.co.uk/2025/07/15/replit_ai_agent_deletes_codebase/" } } }
+      { text: "\u2014 Replit AI agent incident, July 2025", options: { hyperlink: { url: "https://www.theregister.co.uk/2025/07/15/replit_ai_agent_deletes_codebase/" } } }
     ], {
       x: 1.5, y: 3.6, w: 7, h: 0.5,
       fontFace: D.b, fontSize: 18, color: D.muted, align: "center", margin: 0, valign: "top"
@@ -352,7 +409,7 @@ async function main() {
   // --- Slide 13: Power Tool, Not Autopilot ---
   hero(pres, "AI is a power tool\nnot autopilot", {
     size: 48,
-    notes: "End the trust section firmly. \"You review. You judge. You approve. The agent does the grunt work.\" This earns them the right to hand agents more complex work in Act 3 — they've proven they can verify."
+    notes: "End the trust section firmly. \"You review. You judge. You approve. Claude does the grunt work.\" This earns them the right to hand agents more complex work in Act 3 — they've proven they can verify."
   });
 
   // ============================================================
@@ -387,8 +444,8 @@ async function main() {
     { label: "Review", highlight: false },
     { label: "You", highlight: true }
   ], {
-    subtitle: "Each agent does one thing. The chain does everything.",
-    notes: "This visual should mirror the copy-paste trap (Slide 3) and agent way (Slide 5) — same layout, same four-step pattern. But now each step is a specialised agent. Only human at the final step. \"Write this down: break big tasks into focused steps. Pass results forward. Filter context between each.\""
+    subtitle: "Each Skill does one thing. The chain does everything.",
+    notes: "This visual should mirror the copy-paste trap (Slide 3) and agent way (Slide 5) — same layout, same four-step pattern. But now each step is a specialised Skill. Only human at the final step. \"Write this down: break big tasks into focused steps. Pass results forward. Filter context between each.\""
   });
 
   // ============================================================
@@ -399,7 +456,7 @@ async function main() {
   sectionDivider(pres, {
     title: "Demo",
     subtitle: "Watch a 3-phase chain run live",
-    notes: "Facilitator switches to ChatGPT for the live demo. Run the chain using pre-built Custom GPTs: (1) Open Research Agent → give it the task → show the structured brief output. (2) Open Draft Agent → paste the brief → show the polished proposal. (3) Open Review Agent → paste the draft + original brief → show the critique. Narrate every step. Point out what Draft Agent doesn't know: it never saw the raw research, only the structured brief. That's filtered context. Compare final output to what a single ChatGPT conversation would have produced. Take your time — this demo earns the exercise that follows. ~7 minutes."
+    notes: "Facilitator switches to Claude for the live demo. Run the chain using pre-built org Skills: (1) New conversation → give it the research task → the Research Skill kicks in → show the structured brief output. (2) New conversation → paste the brief → the Draft Skill kicks in → show the polished proposal. (3) New conversation → paste the draft + original brief → the Review Skill kicks in → show the critique. Narrate every step. Point out what the Draft Skill doesn't know: it never saw the raw research, only the structured brief. That's filtered context — each new conversation provides isolation. Compare final output to what a single Claude conversation would have produced. Take your time — this demo earns the exercise that follows. ~7 minutes."
   });
 
   // ============================================================
@@ -408,18 +465,18 @@ async function main() {
 
   // --- Slide 18: Your Turn — Build a Chain ---
   exercise(pres, [
-    { text: "Phase 1: Open Research Agent\n→ give it your task → save output" },
-    { text: "Phase 2: Open Draft Agent\n→ paste Phase 1's output → draft" },
+    { text: "Phase 1: New conversation\n→ give it your task → save output" },
+    { text: "Phase 2: New conversation\n→ paste Phase 1's output → draft" },
     { text: "How does this compare to one\nconversation doing everything?", small: true }
   ], {
-    notes: "10 minutes. Attendees choose their running task from Workshop 1 or the tea presentation. Custom GPTs are in the ChatGPT sidebar. Fallback if time runs short: Phase 1 becomes a facilitator demo, attendees do Phase 2 only. The discussion matters more than both phases completing. Ask: \"Where did the chain produce better results? Where did the handoff lose something?\""
+    notes: "10 minutes. Attendees choose their running task from Workshop 1 or the tea presentation. The org Skills auto-activate based on the task. Fallback if time runs short: Phase 1 becomes a facilitator demo, attendees do Phase 2 only. The discussion matters more than both phases completing. Ask: \"Where did the chain produce better results? Where did the handoff lose something?\""
   });
 
   // ============================================================
   // SECTION 9: SKILLS COMPOUND (Slides 19-21)
   // ============================================================
 
-  // --- Slide 19: Skills — Workshop 1 vs Workshop 2 ---
+  // --- Slide 19: Rules + Skills → Skill Chain ---
   {
     const s = darkSlide(pres);
     // Left column
@@ -427,7 +484,7 @@ async function main() {
       x: 0.5, y: 1.2, w: 4.2, h: 0.8,
       fontFace: D.h, fontSize: 28, color: D.muted, bold: true, align: "center", margin: 0, valign: "bottom"
     });
-    s.addText("Your custom instructions", {
+    s.addText("Your rules + Skills", {
       x: 0.5, y: 2.2, w: 4.2, h: 0.6,
       fontFace: D.b, fontSize: 20, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
     });
@@ -438,31 +495,31 @@ async function main() {
       x: 5.3, y: 1.2, w: 4.2, h: 0.8,
       fontFace: D.h, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
     });
-    s.addText("Each agent's system prompt", {
+    s.addText("Each step gets its own Skill", {
       x: 5.3, y: 2.2, w: 4.2, h: 0.6,
       fontFace: D.b, fontSize: 20, color: D.accent, italic: true, align: "center", margin: 0, valign: "top"
     });
     // Bottom caption
-    s.addText("Same concept. Now each agent gets its own focused skill.", {
+    s.addText("Same concept. Now each agent in the chain gets its own playbook.", {
       x: 1.0, y: 3.8, w: 8, h: 0.6,
       fontFace: D.b, fontSize: 20, color: D.muted, italic: true, align: "center", margin: 0
     });
-    s.addNotes("The Workshop 1 callback. In the last session they set up custom instructions for themselves. Each Custom GPT is the same idea — but for a specific agent with a specific job. They've been building skills since last session; now each agent gets its own.");
+    s.addNotes("The Workshop 1 callback. In the last session they set up personal preferences (rules) and enabled Skills. Each org Skill in the chain is the same idea taken further — specific instructions for a specific role with a specific job. They've been building persistent context since last session; now each agent gets its own.");
   }
 
   // --- Slide 20: Your Turn — Look Under the Hood ---
   exercise(pres, [
-    { text: "Open the Research Agent" },
-    { text: "Click the name → view system prompt", small: true },
+    { text: "Go to Customize → Skills" },
+    { text: "Click the Research Skill\n→ view its SKILL.md", small: true },
     { text: "What would you add or change?", large: true }
   ], {
-    notes: "Show where to find the system prompt (click Custom GPT name → configure). Take 2-3 suggestions from the group. Discuss what difference each change would make. The system prompt is tangible — they can see it, read it, edit it. \"When you edit that prompt, every future run gets better. Your feedback becomes the skill.\""
+    notes: "Show where to find the Skill instructions (Customize → Skills → click the Skill). Take 2-3 suggestions from the group. Discuss what difference each change would make. The SKILL.md is tangible — they can see it, read it, edit it. \"When you edit that SKILL.md, every future use gets better. Your feedback becomes the skill.\""
   });
 
   // --- Slide 21: The Skill Will ---
-  hero(pres, "The agent won't remember.\nBut the skill will.", {
+  hero(pres, "Claude won't remember.\nBut the Skill will.", {
     size: 44,
-    notes: "Emotional climax. Give this a full beat. \"And in ChatGPT Org, when you improve a shared agent, everyone benefits.\" This is the payoff of the entire skills arc that started in Workshop 1."
+    notes: "Emotional climax. Give this a full beat. \"And as an org Skill, when you improve it, everyone benefits.\" This is the payoff of the entire skills arc that started in Workshop 1. For Pro plan audiences: \"Every future use benefits.\""
   });
 
   // ============================================================
@@ -478,7 +535,7 @@ async function main() {
   // --- Slide 23: 15 Minutes (right color — judgment) ---
   bigNum(pres, "15 min", "of judgment \u2014 the part only humans can do", {
     color: D.right,
-    notes: "Chained workflow: agents handle 1 hour 15 minutes of work. You spend 15 minutes on judgment — reviewing, deciding, approving. \"Same tea presentation. The chain gets smarter every time. Your feedback becomes skills.\""
+    notes: "Chained workflow: Skills handle 1 hour 15 minutes of work. You spend 15 minutes on judgment — reviewing, deciding, approving. \"Same tea presentation. The chain gets smarter every time. Your feedback becomes Skills.\""
   });
 
   // --- Slide 24: The Full Journey ---
@@ -515,13 +572,13 @@ async function main() {
       x: 1.0, y: 3.4, w: 8, h: 1.0,
       fontFace: D.h, fontSize: 24, color: D.accent, bold: true, align: "center", margin: 0
     });
-    s.addNotes("Graduation moment. \"You learned to whisper. You became a strategist. You let agents operate. You orchestrated the brigade.\" This is the emotional payoff. Make it feel earned — they completed a 2-session AI Academy. Builder is still dimmed — that's the horizon for those who want to go further.");
+    s.addNotes("Graduation moment. \"You learned to whisper. You became a strategist. You let Claude operate. You orchestrated the brigade.\" This is the emotional payoff. Make it feel earned — they completed a 2-session AI Academy. Builder is still dimmed — that's the horizon for those who want to go further.");
   }
 
   // --- Slide 25: One Task. This Week. ---
   hero(pres, "The secret was never in the AI.\nOne task. This week.", {
     size: 40,
-    notes: "Final CTA. \"Now go try it — one task, this week.\" Builder tease for the curious: \"And if you want to go further — building plugins, connecting agents to your actual systems, automating entire workflows — that's the Builder level. That's what's next.\" But don't oversell — most attendees won't go there, and that's fine."
+    notes: "Final CTA. \"Now go try it — one task, this week.\" Builder tease for the curious: \"And if you want to go further — building integrations, connecting Claude to your actual systems, automating entire workflows — that's the Builder level. That's what's next.\" But don't oversell — most attendees won't go there, and that's fine."
   });
 
   // ============================================================

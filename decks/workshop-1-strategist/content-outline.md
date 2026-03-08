@@ -4,7 +4,7 @@
 
 ## Overview
 - **Estimated duration**: ~55 min effective (1 hr session)
-- **Total sections**: 10
+- **Total sections**: 11
 - **Narrative doc**: [narrative.md](narrative.md)
 
 ## Content Outline
@@ -22,11 +22,11 @@
 ### Section 2: Exercise Setup — Pick your task
 **Key message**: Everything in this session builds on one real task from your actual work.
 **Content**:
-- "Open ChatGPT on your laptop"
+- "Open Claude on your laptop"
 - "Pick a real task you do at work — a presentation, an email, a summary, a plan"
 - Prescribed fallback: "Make me a presentation about making a cup of tea"
 **Emphasis**: low
-**Speaker notes**: 60 seconds to open ChatGPT and think of a task. Offer both free choice and the prescribed option. Walk the room — make sure everyone's ready before moving on.
+**Speaker notes**: 60 seconds to open Claude and think of a task. Offer both free choice and the prescribed option. Walk the room — make sure everyone's ready before moving on.
 **Transition**: "Let's see what a vague prompt gets us."
 
 ### Section 3: The Baseline — Your vague prompt
@@ -84,41 +84,51 @@
 **Speaker notes**: The Dory image should get a laugh — let it land. The "let AI ask" technique is the single highest-leverage move in the workshop. Point out what it asked that the attendee hadn't thought to provide. Then pivot to the pain: this all has to be retyped every conversation. That frustration is the setup for Act 3.
 **Transition**: "What if the AI already knew?"
 
-### Section 8: Make It Stick — Custom Instructions
-**Key message**: Custom instructions make your context permanent. Type the task once — the AI already knows the rest.
+### Section 8: Make It Stick — Rules (Personal Preferences)
+**Key message**: Personal preferences are your rules — they tell Claude who you are, permanently. Set them once, benefit every conversation.
 **Content**:
-- Teach: Walk through ChatGPT Settings → Personalisation → Custom Instructions. Screen-share the location. Wait for everyone.
-- Exercise: Set up a custom instruction — role, company, presentation format (billboard design, max 15 words per slide, speaker notes), tone, power keywords
-- Test: Open a NEW conversation. Type ONLY the task — no role, no context, no format. Just: "Make me a presentation about making a cup of tea."
-- The aha: "You typed one sentence. It already knew the rest."
+- Teach: "Rules tell Claude who you are." Walk through Settings → General → Personal preferences. Screen-share. Wait for everyone.
+- Exercise: Write personal preferences — role, company, default tone, power keywords ("be radically honest", "challenge my assumptions")
+- Quick test: Open a NEW conversation. Ask a question about your work. Notice it already knows your role and company.
 **Emphasis**: high
-**Speaker notes**: This is the linchpin exercise. If custom instructions setup stalls, the session stalls. Screen-share the settings walkthrough. Walk the room. Have the exact path ready (Settings → Personalisation → Custom Instructions) and verify before the session — ChatGPT moves this periodically. Template for attendees: "I work at [company]. My role is [role]. When creating presentations, use billboard design — max 15 words per slide, with speaker notes. Tone: [style]. Be radically honest. Challenge my assumptions. Flag uncertainty." The test must be in a NEW conversation — if they test in the same one, the aha doesn't land.
-**Transition**: "Let's see what just happened."
+**Speaker notes**: This is the first of two linchpin exercises. Screen-share the walkthrough. Walk the room. The path: Settings → General → Personal preferences. Verify before the session — UI may shift. Template: "I work at [company]. My role is [role]. Be radically honest. Challenge my assumptions. Flag uncertainty. When I ask for presentations, default to billboard design — max 15 words per slide, with speaker notes." Quick test must be a NEW conversation — if they test in the same one, the aha doesn't land.
+**Transition**: "Claude now knows who you are. But it doesn't know how to do things your way — yet."
 
-### Section 9: The Grand Reveal — Three versions, one task
-**Key message**: Vague → Well-prompted → Skill-enhanced. Same task, three versions, each dramatically better.
+### Section 9: Make It Stick — Skills
+**Key message**: Skills teach Claude how to do things. Rules + Skills = a colleague who never forgets who you are or how you work.
 **Content**:
-- Three outputs side by side: baseline, well-prompted, skill-enhanced
-- "Same task. Three versions. Each one dramatically better."
-- GPS metaphor: "Prompt engineering = giving directions every trip. Skills = a GPS that remembers."
-- "Custom instructions, system prompts, project rules — all the same thing. All skills."
+- Teach: "Rules tell Claude who you are. Skills tell Claude how to do things." Navigate to Customize → Skills. Show built-in Anthropic Skills: presentations, documents, spreadsheets.
+- Exercise: Enable a relevant built-in Skill (e.g., the presentation Skill). Then type: "Make me a presentation about making a cup of tea."
+- The aha: "You typed one sentence. It knew who you are (rules) and how to build a proper presentation (Skill). Rules + Skills = a colleague who never forgets."
 **Emphasis**: high
-**Speaker notes**: This is the second emotional peak — and it should be bigger than the first. The three-way comparison shows the full journey: vague (Explorer), well-prompted (Whisperer), skill-enhanced (Strategist). The GPS metaphor cements it: effort every time vs. compounds permanently. If time is tight, this can become a facilitator demo instead of individual exercise — but don't cut it entirely.
+**Speaker notes**: This pairs with Section 8. Rules are who you are. Skills are how to work. Together they compound. Walk attendees to Customize → Skills — show the built-in Anthropic Skills and briefly mention the Skills Directory. They only need to enable one Skill for the aha to land. The presentation Skill is the best choice because it connects to the running example. Mention that custom Skills can be uploaded and org Skills can be shared — plant the seed for Workshop 2.
+**Transition**: "Let's see the full journey."
+
+### Section 10: The Grand Reveal — Three versions, one task
+**Key message**: Vague → Well-prompted → Rules + Skills. Same task, three versions, each dramatically better.
+**Content**:
+- Three outputs side by side: baseline, well-prompted, rules + Skills enhanced
+- "Same task. Three versions. Each one dramatically better."
+- GPS metaphor: "Prompt engineering = giving directions every trip. Rules + Skills = a GPS that remembers your preferences AND knows every road."
+- "Personal preferences, custom Skills, org Skills — all compound. All stack."
+**Emphasis**: high
+**Speaker notes**: This is the second emotional peak — and it should be bigger than the first. The three-way comparison shows the full journey: vague (Explorer), well-prompted (Whisperer), rules + Skills (Strategist). The GPS metaphor cements it: effort every time vs. compounds permanently. If time is tight, this can become a facilitator demo — but don't cut it entirely.
 **Transition**: "You're now a Strategist."
 
-### Section 10: Closing — You're a Strategist
+### Section 11: Closing — You're a Strategist
 **Key message**: You've set up the AI's playbook. But you're still doing all the work — next time, the AI does it.
 **Content**:
 - "You're now a Strategist. You don't just talk to AI well — you've set up its playbook."
 - The cliffhanger: "But who's doing all the work? Still you. You search, you paste, you copy, you apply. Every step has 'you' in it."
 - "Next time: Strategist → Orchestrator. We hand the AI the keys — and build it a team."
-- Remind: Save your prompt and custom instructions — they carry forward.
+- Remind: Save your prompt, preferences, and enabled Skills — they carry forward.
 **Emphasis**: medium
-**Speaker notes**: Keep the graduation moment brief — this is only the halfway point of the full journey. The cliffhanger should sting: they just felt the power of skills, but they're still the bottleneck in every workflow step. Plant the seed for Workshop 2. Remind them to save their work — prompt and custom instructions carry forward.
+**Speaker notes**: Keep the graduation moment brief — this is only the halfway point of the full journey. The cliffhanger should sting: they just felt the power of rules + Skills, but they're still the bottleneck in every workflow step. Plant the seed: "Rules tell Claude who you are. Skills tell Claude how to do things. Next time, each step in a chain gets its own specialized Skill — a whole team."
 
 ## Design Notes
 - **Billboard design**: Maximum 15 words on screen, 28pt+ font, 50%+ whitespace. All detail in speaker notes.
 - **Consistent exercise pattern**: Each technique round uses the same Wrong/Right visual pattern for teaching, then a clear "YOUR TURN" slide for the exercise. Consistency lets attendees predict the rhythm and focus on content, not navigation.
-- **Two reveal moments**: Section 5 (first reveal) and Section 9 (grand reveal) are the emotional peaks. They deserve maximum visual impact — large type, minimal clutter, room to breathe.
+- **Two reveal moments**: Section 5 (first reveal) and Section 10 (grand reveal) are the emotional peaks. They deserve maximum visual impact — large type, minimal clutter, room to breathe.
 - **Dory image**: The blue tang (Dory from Finding Nemo) is used in the reference deck for the "AI has no memory" beat. Reuse the same asset for consistency.
 - **Exercise slides must be prescriptive**: Not "try adding a role" but "Add this exact sentence to the beginning of your prompt: 'You are a senior [your role] at [your company].'" Specificity prevents stalling.
+- **UI paths to verify**: Settings → General → Personal preferences (rules) and Customize → Skills (skills). Both should be verified before each session — UI may shift between Claude updates.
