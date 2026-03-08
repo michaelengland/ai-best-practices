@@ -233,10 +233,36 @@ async function main() {
   });
 
   // ============================================================
-  // SECTION 2: CONNECT & REACH (Slides 6-11)
+  // SECTION 2: CONNECT & REACH (Slides 6-12)
   // ============================================================
 
-  // --- Slide 6: Connect Gmail ---
+  // --- Slide 6: Connections (6 icons — reused from best-practices) ---
+  {
+    const s = darkSlide(pres);
+    const iconsDir = path.join(__dirname, "..", "ai-best-practices", "icons");
+    const connections = [
+      { icon: "globeW.png", label: "Web" },
+      { icon: "envelopeW.png", label: "Email" },
+      { icon: "puzzleW.png", label: "Docs" },
+      { icon: "databaseW.png", label: "Data" },
+      { icon: "calendarW.png", label: "Calendar" },
+      { icon: "arrowW.png", label: "Custom" },
+    ];
+    const iconSize = 0.8;
+    const totalW = connections.length * 1.4 - 0.2;
+    const startX = (10 - totalW) / 2;
+    connections.forEach((c, i) => {
+      const x = startX + i * 1.4;
+      s.addImage({ path: path.join(iconsDir, c.icon), x: x + (1.2 - iconSize) / 2, y: 1.8, w: iconSize, h: iconSize });
+      s.addText(c.label, {
+        x: x - 0.1, y: 2.8, w: 1.4, h: 0.6,
+        fontFace: D.b, fontSize: 20, color: D.muted, align: "center", margin: 0, valign: "top"
+      });
+    });
+    s.addNotes("\"Same colleague from Workshop 1. Now she has hands.\" The six connection types: Web — search and fact-check in real time. Email — read context, draft responses. Docs — policies, templates, past work. Data — query real databases. Calendar — scheduling context. Custom — via MCP, any tool you can imagine. \"Let's connect one right now.\"");
+  }
+
+  // --- Slide 7: Connect Gmail ---
   {
     const s = darkSlide(pres);
     s.addText("Connect Gmail to Claude", {
