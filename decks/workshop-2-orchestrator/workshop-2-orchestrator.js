@@ -488,74 +488,71 @@ async function main() {
   });
 
   // ============================================================
-  // SECTION 7: DEMO (Slide 17)
+  // SECTION 7: BUILD THE CHAIN IN COWORK (Slides 17-18)
   // ============================================================
 
-  // --- Slide 17: Demo ---
-  sectionDivider(pres, {
-    title: "Demo",
-    subtitle: "Watch a 3-phase chain run live",
-    notes: "Facilitator switches to Claude for the live demo. Run the chain using pre-built org Skills: (1) New conversation → give it the research task → the Research Skill kicks in → show the structured brief output. (2) New conversation → paste the brief → the Draft Skill kicks in → show the polished proposal. (3) New conversation → paste the draft + original brief → the Review Skill kicks in → show the critique. Narrate every step. Point out what the Draft Skill doesn't know: it never saw the raw research, only the structured brief. That's filtered context — each new conversation provides isolation. Compare final output to what a single Claude conversation would have produced. Take your time — this demo earns the exercise that follows. ~7 minutes."
-  });
-
-  // ============================================================
-  // SECTION 8: BUILD YOUR OWN CHAIN (Slide 18)
-  // ============================================================
-
-  // --- Slide 18: Your Turn — Build a Chain ---
+  // --- Slide 17: Your Turn — Run the Chain ---
   exercise(pres, [
-    { text: "Phase 1: New conversation\n→ give it your task → save output" },
-    { text: "Phase 2: New conversation\n→ paste Phase 1's output → draft" },
-    { text: "How does this compare to one\nconversation doing everything?", small: true }
+    { text: "In Cowork:" },
+    { text: "\"Research [topic]\"", large: true },
+    { text: "Review the brief. Then follow the chain.", small: true }
   ], {
-    notes: "10 minutes. Attendees choose their running task from Workshop 1 or the tea presentation. The org Skills auto-activate based on the task. Fallback if time runs short: Phase 1 becomes a facilitator demo, attendees do Phase 2 only. The discussion matters more than both phases completing. Ask: \"Where did the chain produce better results? Where did the handoff lose something?\""
+    notes: "10 minutes. This is the main exercise. One prompt starts the chain. The Research Skill runs, saves to [topic]/brief.md, then asks the user to review. User approves → Draft Skill reads brief.md, saves draft.md, asks user to review. User approves → Review Skill reads both files, saves review.md. Human in the loop at every handoff. The Skills handle the files — attendees just say \"Research [topic]\" and then approve each step. Walk the room. Fallback: facilitator screen-shares one chain running live while attendees follow along."
   });
 
-  // ============================================================
-  // SECTION 9: SKILLS COMPOUND (Slides 19-21)
-  // ============================================================
-
-  // --- Slide 19: Rules + Skills → Skill Chain ---
+  // --- Slide 18: Open the Folder ---
   {
     const s = darkSlide(pres);
-    // Left column
-    s.addText("Workshop 1", {
-      x: 0.5, y: 1.2, w: 4.2, h: 0.8,
-      fontFace: D.h, fontSize: 28, color: D.muted, bold: true, align: "center", margin: 0, valign: "bottom"
+    // Folder icon / path
+    s.addText("[topic]/", {
+      x: 1.5, y: 0.8, w: 7, h: 0.8,
+      fontFace: D.b, fontSize: 28, color: D.muted, margin: 0, valign: "bottom"
     });
-    s.addText("Your rules + Skills", {
-      x: 0.5, y: 2.2, w: 4.2, h: 0.6,
-      fontFace: D.b, fontSize: 20, color: D.muted, italic: true, align: "center", margin: 0, valign: "top"
+    // Three files as a visual list
+    const files = [
+      { name: "brief.md", label: "Research" },
+      { name: "draft.md", label: "Draft" },
+      { name: "review.md", label: "Review" }
+    ];
+    files.forEach((f, i) => {
+      const y = 1.8 + i * 0.9;
+      // File name
+      s.addText(f.name, {
+        x: 2.0, y, w: 3.5, h: 0.7,
+        fontFace: D.b, fontSize: 26, color: D.white, bold: true, margin: 0, valign: "middle"
+      });
+      // Skill label
+      s.addText(f.label + " Skill", {
+        x: 5.8, y, w: 2.5, h: 0.7,
+        fontFace: D.b, fontSize: 18, color: D.accent, italic: true, margin: 0, valign: "middle"
+      });
+      // Accent dot
+      s.addShape(pres.shapes.OVAL, {
+        x: 1.5, y: y + 0.2, w: 0.3, h: 0.3,
+        fill: { color: D.accent }
+      });
     });
-    // Divider
-    s.addShape(pres.shapes.LINE, { x: 5.0, y: 1.0, w: 0, h: 2.6, line: { color: D.accent, width: 2 } });
-    // Right column
-    s.addText("Workshop 2", {
-      x: 5.3, y: 1.2, w: 4.2, h: 0.8,
-      fontFace: D.h, fontSize: 28, color: D.white, bold: true, align: "center", margin: 0, valign: "bottom"
+    s.addText("draft.md never saw the raw sources. That's filtered context.", {
+      x: 1.5, y: 4.5, w: 7, h: 0.6,
+      fontFace: D.b, fontSize: 18, color: D.muted, italic: true, margin: 0, valign: "top"
     });
-    s.addText("Each step gets its own Skill", {
-      x: 5.3, y: 2.2, w: 4.2, h: 0.6,
-      fontFace: D.b, fontSize: 20, color: D.accent, italic: true, align: "center", margin: 0, valign: "top"
-    });
-    // Bottom caption
-    s.addText("Same concept. Now each agent in the chain gets its own playbook.", {
-      x: 1.0, y: 3.8, w: 8, h: 0.6,
-      fontFace: D.b, fontSize: 20, color: D.muted, italic: true, align: "center", margin: 0
-    });
-    s.addNotes("The Workshop 1 callback. In the last session they set up rules (on the page) and pulled Skills from the drawer. Each org Skill in the chain is the same idea taken further — each agent gets its own drawer, its own expertise. They've been building persistent context since last session; now each step in the chain gets its own playbook.");
+    s.addNotes("Have them open the folder on their Mac. Three files, three phases, each produced by a different Skill. Point out what draft.md doesn't contain: it was written from brief.md, not from the raw sources. The Draft Skill never saw the original research — only the structured brief. That's the power of decomposition. Compare: \"How does this compare to asking Claude to do everything in one prompt?\" The chain output is more structured, more thorough, better reviewed. Ask: \"Where did the chain produce better results? What would you change about the handoff?\"");
   }
 
-  // --- Slide 20: Your Turn — Look Under the Hood ---
+  // ============================================================
+  // SECTION 8: SKILLS COMPOUND (Slides 19-21)
+  // ============================================================
+
+  // --- Slide 19: Your Turn — Look Under the Hood ---
   exercise(pres, [
     { text: "Go to Customize → Skills" },
     { text: "Click the Research Skill\n→ view its SKILL.md", small: true },
     { text: "What would you add or change?", large: true }
   ], {
-    notes: "Show where to find the Skill instructions (Customize → Skills → click the Skill). Take 2-3 suggestions from the group. Discuss what difference each change would make. The SKILL.md is tangible — they can see it, read it, edit it. \"When you edit that SKILL.md, every future use gets better. Your feedback becomes the skill.\""
+    notes: "Show where to find the Skill instructions (Customize → Skills → click the Skill). Take 2-3 suggestions from the group. Discuss what difference each change would make. The SKILL.md is tangible — they can see it, read it, edit it. \"When you edit that SKILL.md, every future use gets better. Your feedback becomes the skill.\" Workshop 1 callback: rules go on the page, Skills live in the drawer. Each step in the chain has its own drawer."
   });
 
-  // --- Slide 21: The Skill Will ---
+  // --- Slide 20: The Skill Will ---
   hero(pres, "Claude won't remember.\nBut the Skill will.", {
     size: 44,
     notes: "Emotional climax. Give this a full beat. \"And as an org Skill, when you improve it, everyone benefits.\" This is the payoff of the entire skills arc that started in Workshop 1. The drawer gets better every time you edit a SKILL.md — and it's everyone's drawer. For Pro plan audiences: \"Every future use benefits.\""
