@@ -802,7 +802,7 @@ async function main() {
   // --- Slide 47: "The page stays clean." ---
   hero(pres, "The page stays clean.\nThe drawer holds the rest.", {
     color: D.accent,
-    notes: "The landing line. Rules earn a permanent spot on the page \u2014 only the essentials. Everything else lives in the drawer as skills, pulled out when relevant. This is the distinction that separates someone who 'uses AI' from someone who has built a system. The A4 page doesn\u2019t fill up because skills come and go. Transition to breather."
+    notes: "The landing line. Rules earn a permanent spot on the page \u2014 only the essentials. Everything else lives in the drawer as skills, pulled out when relevant. This is the distinction that separates someone who \u2018uses AI\u2019 from someone who has built a system. The heuristic: \u2018Does this apply to every conversation? Yes \u2014 it goes on the page. Only sometimes \u2014 it goes in the drawer.\u2019 The A4 page doesn\u2019t fill up because skills come and go. Transition to breather."
   });
 
   // --- Slide 48: Breather ---

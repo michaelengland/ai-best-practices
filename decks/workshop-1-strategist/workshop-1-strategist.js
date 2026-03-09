@@ -470,7 +470,7 @@ async function main() {
   // --- Slide 27: The Page Stays Clean ---
   hero(pres, "The page stays clean.\nThe drawer holds the rest.", {
     color: D.accent,
-    notes: "The landing line. Rules earn a permanent spot on the page — only the essentials. Everything else lives in the drawer as Skills, pulled out when relevant. This is the distinction that separates someone who 'uses AI' from someone who has built a system. The page doesn't fill up because Skills come and go. \"Personal preferences = the page. Skills = the drawer. Both compound. Both stack.\""
+    notes: "The landing line. Rules earn a permanent spot on the page — only the essentials. Everything else lives in the drawer as Skills, pulled out when relevant. This is the distinction that separates someone who 'uses AI' from someone who has built a system. The page doesn't fill up because Skills come and go. The heuristic: \"Does this apply to every conversation? Yes — it goes on the page. Only sometimes — it goes in the drawer.\" Personal preferences = the page. Skills = the drawer. Both compound. Both stack."
   });
 
   // --- Slide 28: Three Versions. One Task. ---
